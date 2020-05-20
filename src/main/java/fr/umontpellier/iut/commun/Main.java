@@ -1,4 +1,4 @@
-package fr.umontpellier.iut;
+package fr.umontpellier.iut.commun;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
