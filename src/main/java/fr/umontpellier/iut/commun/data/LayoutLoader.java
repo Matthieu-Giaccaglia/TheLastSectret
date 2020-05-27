@@ -2,6 +2,8 @@ package fr.umontpellier.iut.commun.data;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +13,8 @@ public class LayoutLoader {
 
     /**
      * @author Enzo Dardaillon
+     *
+     * Charge un layout.
      *
      * Exemple d'utilisation :
      *  {@code Parent root = Resources.getLayout("groupe1/sample.fxml");
@@ -31,5 +35,36 @@ public class LayoutLoader {
         }
 
         throw new RuntimeException("Impossible de charger le layout : " + resource);
+    }
+
+    /**
+     * @author Enzo Dardaillon
+     *
+     * Charge un layout et l'affiche sur la fenêtre renseigné en paramètre.
+     *
+     * Exemple d'utilisation :
+     *  {@code openLayout(primaryStage, "groupe1/sample.fxml")}
+     *
+     * @param stage est la fenêtre
+     * @param relativePath est le chemin du layout (.fxml) a charger. Ce fichier doit être stocké dans le dossier resources/layout/
+     */
+    public static void openLayout(Stage stage, String relativePath){
+        stage.setScene(new Scene(getLayout(relativePath)));
+    }
+
+    /**
+     * @author Enzo Dardaillon
+     *
+     * Charge un layout et l'affiche sur la fenêtre renseigné en paramètre.
+     *
+     * Exemple d'utilisation :
+     *  {@code Parent root = Resources.getLayout("groupe1/sample.fxml");
+     *      *  openLayout(primaryStage, root)}
+     *
+     * @param stage est la fenêtre
+     * @param parent est le Parent à afficher sur la fenêtre
+     */
+    public static void openLayout(Stage stage, Parent parent){
+        stage.setScene(new Scene(parent));
     }
 }
