@@ -19,6 +19,7 @@ public class Main extends Application {
             root = LayoutLoader.getLayout("groupe1/layout_main.fxml");
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
+            System.exit(1);
         }
 
         assert root != null;
