@@ -25,10 +25,6 @@ public class Main extends Application {
         assert root != null;
         Node mainNode = root.lookup("stack");
 
-        //if(mainNode != null)
-
-
-
         primaryStage.setScene(new Scene(root, 800, 480));
         primaryStage.show();
     }
