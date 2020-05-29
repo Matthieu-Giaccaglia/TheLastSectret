@@ -15,7 +15,7 @@ public class Main extends Application {
 
         Parent root = null;
         try {
-            root = LayoutLoader.getLayout("groupe2/taquin/taquin .fxml");
+            root = LayoutLoader.getLayout("groupe2/taquin/taquin.fxml");
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
         }
