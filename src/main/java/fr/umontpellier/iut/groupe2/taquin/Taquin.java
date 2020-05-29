@@ -97,11 +97,11 @@ public class Taquin {
     }
 
     public String toString(){
-        String taquin="";
-        for(int i=0; i<tableau.length; i++){
-            taquin+= Arrays.toString(tableau[i])+"\n";
+        StringBuilder taquin= new StringBuilder();
+        for (int[] ints : tableau) {
+            taquin.append(Arrays.toString(ints)).append("\n");
         }
-        return taquin;
+        return taquin.toString();
     }
 
     public void deplacer(int i) {
