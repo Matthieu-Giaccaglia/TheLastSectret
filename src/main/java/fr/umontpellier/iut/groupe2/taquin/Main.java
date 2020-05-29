@@ -3,6 +3,7 @@ package fr.umontpellier.iut.groupe2.taquin;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -20,10 +21,11 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-
         assert root != null;
         primaryStage.setScene(new Scene(root, 900, 1080));
         primaryStage.show();
+
+
     }
 
 
