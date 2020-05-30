@@ -1,10 +1,8 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
-import fr.umontpellier.iut.commun.data.LayoutLoader;
-import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
