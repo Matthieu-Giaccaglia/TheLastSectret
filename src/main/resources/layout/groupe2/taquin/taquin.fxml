@@ -3,7 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="900.0" minHeight="1080.0" minWidth="900.0" prefHeight="1080.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.taquin.Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="1080.0" maxWidth="900.0" minHeight="1080.0" minWidth="900.0" prefHeight="1080.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.taquin.Controller">
    <ImageView fitHeight="1080.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Image url="@base.png" />
    </ImageView>
@@ -91,7 +91,7 @@
       <ImageView fx:id="vingttrois" fitHeight="144.0" fitWidth="144.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
          <Image url="@piece23.png" />
       </ImageView>
-      <ImageView fx:id="vingtquatre" fitHeight="144.0" fitWidth="144.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
+      <ImageView fx:id="vingtquatre" fitHeight="144.0" fitWidth="144.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
          <Image url="@piece24.png" />
       </ImageView>
    </GridPane>
