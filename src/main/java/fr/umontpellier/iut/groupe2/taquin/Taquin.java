@@ -46,33 +46,28 @@ public class Taquin {
     }
 
 
-    public Taquin genererFils(int i) {
-        int[] coordonneeTrou = trouverCoordonne(i);
-        int ligne = coordonneeTrou[0], colonne = coordonneeTrou[1];
-        Taquin fils = new Taquin(copierTableau());
+    public boolean peutDeplacer(int i) {
+        int[] coordonnee = trouverCoordonne(i);
+        int ligne = coordonnee[0], colonne = coordonnee[1];
 
         if (ligne > 0 && tableau[ligne-1][colonne]==0){                          //déplacer en haut
-            int[][] copie = copierTableau();
-            copie[ligne][colonne] = copie[ligne-1][colonne];
-            copie[ligne-1][colonne]=i;
-            fils = new Taquin(copie);
+            tableau[ligne][colonne] = 0;
+            tableau[ligne-1][colonne] = i;
+            return true;
         } else if (ligne < this.tableau.length-1 && tableau[ligne+1][colonne]==0){      //déplacer en bas
-            int[][] copie = copierTableau();
-            copie[ligne][colonne] = copie[ligne+1][colonne];
-            copie[ligne+1][colonne] = i;
-            fils = new Taquin(copie);
+            tableau[ligne][colonne] = 0;
+            tableau[ligne+1][colonne] = i;
+            return true;
         } else if (colonne > 0 && tableau[ligne][colonne-1]==0){                       //déplacer à gauche
-            int[][] copie = copierTableau();
-            copie[ligne][colonne] = copie[ligne][colonne-1];
-            copie[ligne][colonne-1]=i;
-            fils = new Taquin(copie);
+            tableau[ligne][colonne] = 0;
+            tableau[ligne][colonne-1] = i;
+            return true;
         } else if (colonne < this.tableau.length-1 && tableau[ligne][colonne+1]==0){   //déplacer à droite
-            int[][] copie = copierTableau();
-            copie[ligne][colonne] = copie[ligne][colonne+1];
-            copie[ligne][colonne+1]=i;
-            fils = new Taquin(copie);
+            tableau[ligne][colonne] = 0;
+            tableau[ligne][colonne+1] = i;
+            return true;
         }
-        return fils;
+        return false;
     }
 
     public int[][] copierTableau(){
@@ -84,16 +79,16 @@ public class Taquin {
     }
 
     public int[] trouverCoordonne(int num) {
-        int[] coordonneeTrou = new int[2];
-        for (int i=0,j=0;i<tableau.length;i++,j=0){
-            for(;j<tableau.length;j++){
+        int[] coordonnee = new int[2];
+        for (int i=0, j=0; i<tableau.length; i++,j=0){
+            for(; j<tableau.length; j++){
                 if (tableau[i][j] == num){
-                    coordonneeTrou[0]=i;
-                    coordonneeTrou[1]=j;
+                    coordonnee[0]=i;
+                    coordonnee[1]=j;
                 }
             }
         }
-        return coordonneeTrou;
+        return coordonnee;
     }
 
     public String toString(){
@@ -104,7 +99,4 @@ public class Taquin {
         return taquin.toString();
     }
 
-    public void deplacer(int i) {
-        System.out.println(genererFils(i).toString());
-    }
 }

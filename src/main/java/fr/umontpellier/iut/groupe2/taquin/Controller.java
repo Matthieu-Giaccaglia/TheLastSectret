@@ -1,12 +1,18 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
-import javafx.event.ActionEvent;
+import fr.umontpellier.iut.commun.data.LayoutLoader;
+import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
 public class Controller {
 
+    @FXML
+    private GridPane gridPane;
     private int[][] mat1 ={{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,24,0}};
     private Taquin taquin = new Taquin(mat1);
 
@@ -14,56 +20,62 @@ public class Controller {
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
     public void mouvement(MouseEvent event) {
-        System.out.println("ok");
 
         if (event.getSource() == un){
-            taquin.deplacer(1);
+            updateScene(1, un);
         } else if (event.getSource() == deux){
-            taquin.deplacer(2);
+            updateScene(2, deux);
         } else if (event.getSource() == trois){
-            taquin.deplacer(3);
+            updateScene(3, trois);
         } else if (event.getSource() == quatre){
-            taquin.deplacer(4);
+            updateScene(4, quatre);
         } else if (event.getSource() == cinq){
-            taquin.deplacer(5);
+            updateScene(5, cinq);
         } else if (event.getSource() == six){
-            taquin.deplacer(6);
+            updateScene(6, six);
         } else if (event.getSource() == sept){
-            taquin.deplacer(7);
+            updateScene(7, sept);
         } else if (event.getSource() == huit){
-            taquin.deplacer(8);
+            updateScene(8, huit);
         } else if (event.getSource() == neuf){
-            taquin.deplacer(9);
+            updateScene(9, neuf);
         } else if (event.getSource() == dix){
-            taquin.deplacer(10);
+            updateScene(10, dix);
         } else if (event.getSource() == onze){
-            taquin.deplacer(11);
+            updateScene(11, onze);
         } else if (event.getSource() == douze){
-            taquin.deplacer(12);
+            updateScene(12, douze);
         } else if (event.getSource() == treize){
-            taquin.deplacer(13);
+            updateScene(13, treize);
         } else if (event.getSource() == quatorze){
-            taquin.deplacer(14);
+            updateScene(14, quatorze);
         } else if (event.getSource() == quinze){
-            taquin.deplacer(15);
+            updateScene(15, quinze);
         } else if (event.getSource() == seize){
-            taquin.deplacer(16);
+            updateScene(16, seize);
         } else if (event.getSource() == dixsept){
-            taquin.deplacer(17);
+            updateScene(17, dixsept);
         } else if (event.getSource() == dixhuit){
-            taquin.deplacer(18);
+            updateScene(18, dixhuit);
         } else if (event.getSource() == dixneuf){
-            taquin.deplacer(19);
+            updateScene(19, dixneuf);
         } else if (event.getSource() == vingt){
-            taquin.deplacer(20);
+            updateScene(20, vingt);
         } else if (event.getSource() == vingtun){
-            taquin.deplacer(21);
+            updateScene(21, vingtun);
         } else if (event.getSource() == vingtdeux){
-            taquin.deplacer(22);
+            updateScene(22, vingtdeux);
         } else if (event.getSource() == vingttrois){
-            taquin.deplacer(23);
+            updateScene(23, vingttrois);
         } else if (event.getSource() == vingtquatre){
-            taquin.deplacer(24);
+            updateScene(24, vingtquatre);
         }
+
+    }
+
+    public void updateScene (int i, Node node){
+        int [] coordonne = taquin.trouverCoordonne(0);
+        if(taquin.peutDeplacer(i))
+            GridPane.setConstraints(node,coordonne[1],coordonne[0]);
     }
 }
