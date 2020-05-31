@@ -23,7 +23,7 @@ public class Main extends Application {
         }
 
         assert root != null;
-        Node mainNode = root.lookup("stack");
+        Node mainNode = root.lookup("layout_game");
 
         primaryStage.setScene(new Scene(root, 800, 480));
         primaryStage.show();
