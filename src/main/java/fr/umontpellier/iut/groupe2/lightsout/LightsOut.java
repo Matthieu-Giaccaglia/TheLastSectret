@@ -10,23 +10,54 @@ public class LightsOut {
         int max_i = tableau.length - 1;
         int max_j = tableau[0].length - 1;
 
-        if (position[0] == 0){
-            if(position[1] == 0){
+        if (position[0] == 0){//barre haut
+            if(position[1] == 0){//gauche
                 lightSwitch(position[0],position[1]);
                 lightSwitch(position[0]+1,position[1]);
                 lightSwitch(position[0],position[1]+1);
-            }else if(position[1] == max_j){
+            }else if(position[1] == max_j){//droite
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0]+1,position[1]);
+                lightSwitch(position[0],position[1]-1);
+            } else{//milieu
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0],position[1]+1);
+                lightSwitch(position[0]+1,position[1]);
+                lightSwitch(position[0],position[1]-1);
+            }
+        }else if(position[0] == max_i){//barre bas
+            if(position[1] == 0){//gauche
                 lightSwitch(position[0],position[1]);
                 lightSwitch(position[0]-1,position[1]);
                 lightSwitch(position[0],position[1]+1);
-            } else{
+            }else if(position[1] == max_j){//droite
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0]-1,position[1]);
+                lightSwitch(position[0],position[1]-1);
+            } else{//milieu
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0],position[1]+1);
+                lightSwitch(position[0]-1,position[1]);
+                lightSwitch(position[0],position[1]-1);
+            }
+        }else{//barres milieu
+            if(position[1] == 0){//gauche
                 lightSwitch(position[0],position[1]);
                 lightSwitch(position[0]-1,position[1]);
                 lightSwitch(position[0]+1,position[1]);
+                lightSwitch(position[0],position[1]+1);
+            }else if(position[1] == max_j){//droite
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0]-1,position[1]);
+                lightSwitch(position[0]+1,position[1]);
+                lightSwitch(position[0],position[1]-1);
+            } else{//milieu
+                lightSwitch(position[0],position[1]);
+                lightSwitch(position[0]-1,position[1]);
+                lightSwitch(position[0]+1,position[1]);
+                lightSwitch(position[0],position[1]-1);
                 lightSwitch(position[0],position[1]+1);
             }
-        }else if(position[0] == max_i){
-
         }
 
         if(estGagnant() == 1){
@@ -46,8 +77,6 @@ public class LightsOut {
         for (int i=0; i<tableau.length; i++){
             for(int j=0; j<tableau[i].length; j++){
                 if (tableau[i][j] == 0) {
-                    //System.out.println((i + 1) * (j + 1));
-                    //System.out.println(tableau[i][j]);
                     return 0;
                 }
             }
