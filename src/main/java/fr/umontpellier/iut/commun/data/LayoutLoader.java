@@ -18,10 +18,10 @@ public class LayoutLoader {
      * Charge un layout.
      *
      * Exemple d'utilisation :
-     *  {@code Parent root = Resources.getLayout("groupe1/sample.fxml");
+     *  {@code Parent root = LayoutLoader.getLayout("groupe1/sample.fxml");
      *  primaryStage.setScene(new Scene(root));}
      *
-     * @param relativePath est le chemin du layout (.fxml) a charger. Ce fichier doit être stocké dans le dossier resources/layout/
+     * @param relativePath est le chemin du layout (.fxml) à charger. Ce fichier doit être stocké dans le dossier resources/layout/
      * @return un #Parent initialisé avec le contenu du fichier .fxml
      */
     public static Parent getLayout(String relativePath) throws LayoutNotFoundException {
