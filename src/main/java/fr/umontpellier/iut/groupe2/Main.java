@@ -1,7 +1,9 @@
 package fr.umontpellier.iut.groupe2;
 
+import fr.umontpellier.iut.commun.data.LayoutLoader;
+import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe2.inventory.Inventaire;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -9,11 +11,24 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../../../../../resources/layout/groupe2/taquin/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+    public void start(Stage primaryStage) {
+        Inventaire inventaire = new Inventaire();
+        primaryStage.setTitle("Escape Game S6");
+
+
+        Parent root = null;
+        try {
+            root = LayoutLoader.getLayout("groupe2/layout_main.fxml");
+        } catch (LayoutNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        assert root != null;
+        primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
+
+        inventaire.ajoutItem("@../../raw.groupe2/piece25.png");
+
     }
 
 

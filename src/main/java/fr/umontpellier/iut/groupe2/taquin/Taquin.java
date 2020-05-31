@@ -29,7 +29,6 @@ public class Taquin {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Taquin taquin = (Taquin) o;
         for (int i = 0; i < this.tableau.length ; i++) {
             for (int j = 0; j < this.tableau.length ; j++) {
                 if ( this.tableau[i][j]!=((Taquin) o).tableau[i][j] ){
@@ -70,13 +69,13 @@ public class Taquin {
         return false;
     }
 
-    public int[][] copierTableau(){
+    /*public int[][] copierTableau(){
         int[][] copie = new int[tableau.length][];
         for (int i=0; i<tableau.length; i++){
             copie[i]= Arrays.copyOf(tableau[i],tableau[i].length);
         }
         return copie;
-    }
+    }*/
 
     public int[] trouverCoordonne(int num) {
         int[] coordonnee = new int[2];
