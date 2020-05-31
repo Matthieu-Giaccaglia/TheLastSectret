@@ -26,10 +26,8 @@
                <rowConstraints>
                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
-               <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
+               <ImageView fx:id="slotUn" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
                    <Image url="@../../raw/groupe1/inventory_slot.jpg" />
-               </ImageView>
-               <ImageView fx:id="slotUn" fitHeight="50" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
                </ImageView>
                <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                    <Image url="@../../raw/groupe1/inventory_slot.jpg" />
