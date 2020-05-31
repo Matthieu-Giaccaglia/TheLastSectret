@@ -12,7 +12,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Inventaire inventaire = new Inventaire();
         primaryStage.setTitle("Escape Game S6");
 
 
@@ -27,12 +26,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
 
-        inventaire.ajoutItem("@../../raw.groupe2/piece25.png");
-
     }
 
 
     public static void main(String[] args) {
+        //Inventaire inventaire = new Inventaire();
         launch(args);
+        //inventaire.ajoutItem("piece25.png");
     }
 }

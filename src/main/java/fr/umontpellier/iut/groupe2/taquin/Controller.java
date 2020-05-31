@@ -82,5 +82,6 @@ public class Controller {
         if(taquin.peutDeplacer(i)) {
             GridPane.setConstraints(node, coordonne[1], coordonne[0]);
         }
+
     }
 }

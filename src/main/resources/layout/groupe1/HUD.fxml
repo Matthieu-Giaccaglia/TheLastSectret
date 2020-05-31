@@ -16,19 +16,19 @@
    <bottom>
        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
            <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../raw/groupe1/inventory_slot.jpg"/>
+               <Image url="@../../raw/groupe1/inventory_slot.jpg" />
            </ImageView>
            <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../raw/groupe1/inventory_slot.jpg"/>
+               <Image url="@../../raw/groupe1/inventory_slot.jpg" />
            </ImageView>
            <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../raw/groupe1/inventory_slot.jpg"/>
+               <Image url="@../../raw/groupe1/inventory_slot.jpg" />
            </ImageView>
            <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../raw/groupe1/inventory_slot.jpg"/>
+               <Image url="@../../raw/groupe1/inventory_slot.jpg" />
            </ImageView>
            <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../raw/groupe1/inventory_slot.jpg"/>
+               <Image url="@../../raw/groupe1/inventory_slot.jpg" />
            </ImageView>
        </HBox>
    </bottom>
