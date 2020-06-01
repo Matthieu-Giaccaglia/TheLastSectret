@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe2.inventoraire;
 
+import fr.umontpellier.iut.commun.data.ImageLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +15,7 @@ public class InventaireController {
     @FXML
     private Label timer;
     @FXML
-    public GridPane inventoryGrid;
+    private GridPane inventoryGrid;
     @FXML
     private ImageView slotUn;
     @FXML
@@ -22,14 +23,10 @@ public class InventaireController {
 
     public void update(ActionEvent mouseEvent) {
 
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("piece25.png")));
-        //slotUn.setImage(new Image(getClass().getResourceAsStream("piece25.png")));
+        ImageView imageView = new ImageView(new Image(String.valueOf(ImageLoader.getImage("groupe2/taquin/piece25.png"))));
         inventoryGrid.add(imageView,0,0);
     }
 
     public void update2(){
-        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("piece25.png")));
-        //slotUn.setImage(new Image(getClass().getResourceAsStream("piece25.png")));
-        inventoryGrid.add(imageView,0,0);
     }
 }
