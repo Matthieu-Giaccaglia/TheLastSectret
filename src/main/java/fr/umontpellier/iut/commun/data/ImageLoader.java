@@ -18,7 +18,7 @@ public class ImageLoader {
      *  OU ENCORE
      *  ImageView view = new ImageView(ImagerLoader.getImage("groupe1/sample.jpg"));}
      *
-     * @param relativePath est le chemin dde l'image à charger. Ce fichier doit être stocké dans le dossier resources/raw/
+     * @param relativePath est le chemin de l'image à charger. Ce fichier doit être stocké dans le dossier resources/raw/
      * @return une #javafx.scene.image.Image
      */
     public static Image getImage(String relativePath) {
