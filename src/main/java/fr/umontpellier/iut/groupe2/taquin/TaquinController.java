@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
+import fr.umontpellier.iut.groupe2.inventoraire.Inventaire;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -79,6 +80,7 @@ public class TaquinController {
 
 
     public void updateScene (int i, Node node){
+
         int [] coordonne = taquin.trouverCoordonne(0);
         if(taquin.peutDeplacer(i)) {
             GridPane.setConstraints(node, coordonne[1], coordonne[0]);
