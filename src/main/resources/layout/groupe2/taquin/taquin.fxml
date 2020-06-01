@@ -3,7 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="1080.0" maxWidth="900.0" minHeight="1080.0" minWidth="900.0" prefHeight="1080.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.taquin.Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="1080.0" maxWidth="900.0" minHeight="1080.0" minWidth="900.0" prefHeight="1080.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.taquin.TaquinController">
    <ImageView fitHeight="1080.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../../raw/groupe2/taquin/base.png" />
    </ImageView>
@@ -95,4 +95,5 @@
          <Image url="@../../../raw/groupe2/taquin/piece24.png" />
       </ImageView>
    </GridPane>
+   <fx:include source="../HUD.fxml"/>
 </AnchorPane>

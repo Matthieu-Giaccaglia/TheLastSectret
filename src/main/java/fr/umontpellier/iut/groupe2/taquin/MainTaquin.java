@@ -20,9 +20,9 @@ public class MainTaquin extends Application {
             e.printStackTrace();
         }
 
+
         assert root != null;
         primaryStage.setScene(new Scene(root, 900, 1080));
-        primaryStage.setFullScreen(true);
         primaryStage.show();
 
 

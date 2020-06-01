@@ -1,16 +1,14 @@
-package fr.umontpellier.iut.groupe2.inventory;
+package fr.umontpellier.iut.groupe2.inventoraire;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 
-public class Controller {
+public class InventaireController {
     @FXML
     private Label label_room;
     @FXML
@@ -22,16 +20,16 @@ public class Controller {
     @FXML
     private Button button;
 
-    public void update(MouseEvent mouseEvent) {
+    public void update(ActionEvent mouseEvent) {
 
         ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("piece25.png")));
-        TextField textField = new TextField("yo");
-        //textField.setText("ok google");
-        //inventoryGrid.add(imageView, 0, 0);
-        slotUn.setImage(new Image(getClass().getResourceAsStream("piece25.png")));
+        //slotUn.setImage(new Image(getClass().getResourceAsStream("piece25.png")));
+        inventoryGrid.add(imageView,0,0);
     }
 
     public void update2(){
-
+        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("piece25.png")));
+        //slotUn.setImage(new Image(getClass().getResourceAsStream("piece25.png")));
+        inventoryGrid.add(imageView,0,0);
     }
 }

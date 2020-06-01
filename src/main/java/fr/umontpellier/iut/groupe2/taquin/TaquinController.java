@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -8,17 +7,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class Controller {
+public class TaquinController {
 
     @FXML
     private AnchorPane anchorPane;
     @FXML
     private GridPane gridPane;
-    private int[][] mat1 ={{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,0,24}};
-    private Taquin taquin = new Taquin(mat1);
-
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
+
+    private int[][] mat1 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 0, 24}};
+    private Taquin taquin = new Taquin(mat1);
 
     public void mouvement(MouseEvent event) {
 
@@ -74,8 +73,10 @@ public class Controller {
                 updateScene(24, vingtquatre);
             }
         }
-
     }
+
+
+
 
     public void updateScene (int i, Node node){
         int [] coordonne = taquin.trouverCoordonne(0);

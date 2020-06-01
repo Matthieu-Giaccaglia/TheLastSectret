@@ -2,12 +2,10 @@
 
 <?import javafx.scene.layout.*?>
 
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           prefWidth="800.0" prefHeight="480.0"
-           fx:id="stack">
+<StackPane fx:id="stack" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <fx:include source="layout_game.fxml" />
     <fx:include source="HUD.fxml" />
+   <fx:include source="layout_game.fxml" />
 
 </StackPane>

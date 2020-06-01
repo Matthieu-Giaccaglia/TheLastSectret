@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe2.inventory;
+package fr.umontpellier.iut.groupe2.inventoraire;
 
 import javafx.scene.image.Image;
 

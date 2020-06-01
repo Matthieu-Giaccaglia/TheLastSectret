@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.inventory.Controller">
+<BorderPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.inventoraire.InventaireController" >
 
     <top>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -45,7 +45,7 @@
        </HBox>
    </bottom>
     <center>
-        <Button fx:id="button" mnemonicParsing="false" onMouseClicked="#update" prefHeight="104.0" prefWidth="121.0" text="Button" BorderPane.alignment="CENTER" />
+        <Button fx:id="button" mnemonicParsing="false" onAction="#update" prefHeight="104.0" prefWidth="121.0" text="Button" BorderPane.alignment="CENTER" />
     </center>
 
 </BorderPane>
