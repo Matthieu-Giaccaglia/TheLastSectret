@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe2.inventoraire;
+package fr.umontpellier.iut.groupe2.inventaire;
 
 import fr.umontpellier.iut.commun.data.ImageLoader;
 import javafx.event.ActionEvent;

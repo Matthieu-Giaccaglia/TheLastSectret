@@ -2,7 +2,7 @@ package fr.umontpellier.iut.groupe1.view;
 
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
-import fr.umontpellier.iut.groupe2.inventoraire.Inventaire;
+import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
