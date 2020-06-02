@@ -5,8 +5,7 @@ import fr.umontpellier.iut.groupe1.utils.Callback;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class StepChangeRequest implements EventHandler<ActionEvent> {
     private final StepID next;
