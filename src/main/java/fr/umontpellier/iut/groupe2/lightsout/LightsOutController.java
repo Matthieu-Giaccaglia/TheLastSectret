@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -8,18 +9,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class LightsOutController {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private GridPane gridPane;
+    private GridPane gridPane;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
     @FXML
-    private ImageView[] tab_imgView = {un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize};
+    //private Node[] tab_imgView = {un., deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize};
 
+    private List<ImageView> tab_imgView = Arrays.asList(un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize);
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
     private static HashMap<Integer, String> Tab_ID;
@@ -99,12 +103,14 @@ public class LightsOutController {
             for (int k=0; k<Lout.getTableau()[0].length; k++){
                 if (Lout.getTableau()[j][k] == 1) {
                     if(compare(j,k)) {
-                        tab_imgView[j+k].setImage(new Image("https://media-exp1.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0?e=2159024400&v=beta&t=C7KMOtnrJwGrMXmgIk2u1B8a7VRfgxMwXng9cdP9kZk"));
+                        ImageView Img = (ImageView) tab_imgView.get(j+k);
+                        Img.setImage(new Image("https://media-exp1.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0?e=2159024400&v=beta&t=C7KMOtnrJwGrMXmgIk2u1B8a7VRfgxMwXng9cdP9kZk"));
                     }
                 }
                 else{
                     if(compare(j,k)) {
-                        tab_imgView[j+k].setImage(new Image("https://i.pinimg.com/236x/c4/b8/22/c4b822d890fe6d90358f5e2f2561cd56.jpg"));
+                        ImageView Img = (ImageView) tab_imgView.get(j+k);
+                        Img.setImage(new Image("https://i.pinimg.com/236x/c4/b8/22/c4b822d890fe6d90358f5e2f2561cd56.jpg"));
                     }
                 }
             }
@@ -116,8 +122,8 @@ public class LightsOutController {
                 System.out.println(LightsOutController.getTabString(LightsOut.getID(i_tabid, j_tabid)));
                 System.out.println(j);
                 System.out.println(i);
-                System.out.println(tab_imgView[j + i]);
-                if (LightsOutController.getTabString(LightsOut.getID(i_tabid, j_tabid)).equals(tab_imgView[j + i].getId())){
+                System.out.println(tab_imgView.get(j+i));
+                if (LightsOutController.getTabString(LightsOut.getID(i_tabid, j_tabid)).equals(tab_imgView.get(j+i).getId())){
                     return true;
                 }
             }
