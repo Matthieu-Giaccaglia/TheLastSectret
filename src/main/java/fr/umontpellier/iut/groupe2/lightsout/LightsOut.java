@@ -61,7 +61,7 @@ public class LightsOut {
         }
 
         if(estGagnant() == 1){
-            System.out.println("c'est gagné");
+            System.out.println("c'est gagné");//à modifier en close the window(faut aussi l'ouvrir du coup)
         }
     }
 

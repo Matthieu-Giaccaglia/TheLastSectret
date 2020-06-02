@@ -33,6 +33,7 @@
                     <mainClass>Application</mainClass>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
@@ -66,6 +67,7 @@
             <artifactId>javafx-media</artifactId>
             <version>14</version>
         </dependency>
+
     </dependencies>
 
 </project>
