@@ -6,7 +6,7 @@
            prefWidth="800.0" prefHeight="480.0"
            fx:id="stack">
 
-    <fx:include fx:id="layout_game" source="layout_game.fxml" />
+    <!--<fx:include fx:id="layout_game" source="layout_game.fxml" />-->
     <fx:include fx:id="hud" source="HUD.fxml" />
 
 </StackPane>
