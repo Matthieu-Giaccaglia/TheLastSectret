@@ -1,19 +1,14 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
-import fr.umontpellier.iut.groupe2.inventoraire.Inventaire;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 public class TaquinController {
 
-    @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private GridPane gridPane;
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
