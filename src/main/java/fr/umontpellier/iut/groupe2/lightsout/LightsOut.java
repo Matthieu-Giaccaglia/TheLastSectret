@@ -1,7 +1,39 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
+import java.util.HashMap;
+
 public class LightsOut {
     private int[][] tableau;
+    private static HashMap<int[], Integer> Tab_ID;
+
+    static {
+        Tab_ID = new HashMap<>();
+
+        Tab_ID.put(new int[]{0,0},0);
+        Tab_ID.put(new int[]{0,1},1);
+        Tab_ID.put(new int[]{0,2},2);
+        Tab_ID.put(new int[]{0,3},3);
+
+        Tab_ID.put(new int[]{1,0},4);
+        Tab_ID.put(new int[]{1,1},5);
+        Tab_ID.put(new int[]{1,2},6);
+        Tab_ID.put(new int[]{1,3},7);
+
+        Tab_ID.put(new int[]{2,0},8);
+        Tab_ID.put(new int[]{2,1},9);
+        Tab_ID.put(new int[]{2,2},10);
+        Tab_ID.put(new int[]{2,3},11);
+
+        Tab_ID.put(new int[]{3,0},12);
+        Tab_ID.put(new int[]{3,1},13);
+        Tab_ID.put(new int[]{3,2},14);
+        Tab_ID.put(new int[]{3,3},15);
+    }
+
+    public static int getID(int[] pos) {
+        return Tab_ID.get(pos);
+    }
+
     public LightsOut(int[][] tableau) {
         this.tableau = tableau;
     }
@@ -60,7 +92,7 @@ public class LightsOut {
             }
         }
 
-        if(estGagnant() == 1){
+        if(estGagnant()){
             System.out.println("c'est gagné");//à modifier en close the window(faut aussi l'ouvrir du coup)
         }
     }
@@ -73,15 +105,31 @@ public class LightsOut {
         }
     }
 
-    public int estGagnant() {
+    public boolean estGagnant() {
         for (int i=0; i<tableau.length; i++){
             for(int j=0; j<tableau[i].length; j++){
                 if (tableau[i][j] == 0) {
-                    return 0;
+                    return false;
                 }
             }
         }
-        return 1;
+        return true;
+    }
+
+    public int[] trouverCoordonne(int id){
+        int[] coordonnee = new int[2];
+        int[] position = new int[2];
+        for (int i=0; i<tableau.length; i++){
+            for(int j=0 ; j<tableau.length; j++){
+                position[0] = i;
+                position[1] = j;
+                if (getID(position) == id){
+                    coordonnee[0]=i;
+                    coordonnee[1]=j;
+                }
+            }
+        }
+        return coordonnee;
     }
 
     @Override
