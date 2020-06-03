@@ -3,7 +3,6 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane  fx:controller="fr.umontpellier.iut.groupe2.TestController" fx:id="stack" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <fx:include source="layout_game.fxml" fx:id="game" />
     <fx:include source="HUD.fxml" fx:id="HUD"/>
 
 </StackPane>
