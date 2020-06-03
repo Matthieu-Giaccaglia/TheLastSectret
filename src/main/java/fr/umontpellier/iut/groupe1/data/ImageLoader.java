@@ -1,8 +1,7 @@
-package fr.umontpellier.iut.commun.data;
+package fr.umontpellier.iut.groupe1.data;
 
 import javafx.scene.image.Image;
 
-import java.net.URL;
 import java.util.Objects;
 
 public class ImageLoader {

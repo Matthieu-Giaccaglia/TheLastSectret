@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.commun.data;
+package fr.umontpellier.iut.groupe1.data;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +33,22 @@ public class LayoutLoader {
 
         try {
             return FXMLLoader.load(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        throw new LayoutNotFoundException(relativePath);
+    }
+
+    public static Layout<Parent> getLayout2(String relativePath) throws LayoutNotFoundException {
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+
+        URL resource = Objects.requireNonNull(classLoader.getResource("layout/" + relativePath));
+
+        System.out.println(resource.getFile());
+
+        try {
+            return new Layout<>(FXMLLoader.load(resource));
         } catch (IOException e) {
             e.printStackTrace();
         }

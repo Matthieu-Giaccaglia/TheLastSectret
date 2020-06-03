@@ -1,15 +1,13 @@
 package fr.umontpellier.iut.groupe1.view;
 
-import fr.umontpellier.iut.commun.data.Layout;
-import javafx.scene.Group;
-import javafx.scene.Node;
+import fr.umontpellier.iut.groupe1.data.Layout;
 import javafx.scene.Parent;
 
-public class Step {
+public class Step<T extends Parent> {
     private final StepID id;
-    private final Parent node;
+    private final T node;
 
-    public Step(StepID id, Layout layout) {
+    public Step(StepID id, Layout<T> layout) {
         this.id = id;
 
         node = layout.getRoot();
@@ -19,7 +17,7 @@ public class Step {
         setVisible(true);
     }
 
-    public Parent open(){
+    public T open(){
         init();
         return node;
     }
@@ -30,5 +28,9 @@ public class Step {
 
     public void setVisible(boolean visible) {
         node.setVisible(visible);
+    }
+
+    public void addChildren(){
+        
     }
 }

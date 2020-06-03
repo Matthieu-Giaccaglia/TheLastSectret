@@ -3,18 +3,17 @@ package fr.umontpellier.iut.groupe1.view;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StepManager {
     private final Inventaire inventaire;
-    private final Map<StepID, Step> stepMap;
+    private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
     private Parent gameNode;
 
@@ -38,7 +37,7 @@ public class StepManager {
         return inventaire;
     }
 
-    public void addStep(Step step){
+    public void addStep(Step<? extends Parent> step){
         if(stepMap.containsKey(step.getId())){
             System.err.println("Attention vous avez essayé d'ajouter une Step déjà présente dans la liste !\n" +
                     "StepID : " + step.getId());
@@ -46,12 +45,6 @@ public class StepManager {
             stepMap.put(step.getId(), step);
             root.getChildren().add(step.open());
             step.setVisible(false);
-        }
-    }
-
-    public void addAllStep(Step... steps){
-        for(Step step : steps){
-            addStep(step);
         }
     }
 
