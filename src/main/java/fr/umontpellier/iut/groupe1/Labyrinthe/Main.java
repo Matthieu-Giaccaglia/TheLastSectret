@@ -7,8 +7,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
-        double width = 1000;
-        double height = 900;
+        double width = 1000, height = 900;
         //initMouseControl(labyrinthe, jeuLabyrinthe, primaryStage);
         StructureLabyrinthe labyrinthe = new StructureLabyrinthe(width / 2, height / 2, primaryStage);
         JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(labyrinthe,width, height);
