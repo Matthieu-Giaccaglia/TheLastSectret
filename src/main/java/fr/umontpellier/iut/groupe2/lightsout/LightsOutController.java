@@ -2,59 +2,21 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-
+//TODO rajouter son de brique au mouseclickevent
+//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible
+//TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
 public class LightsOutController {
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private GridPane gridPane;//à utiliser(coordonnés à changer) car tab marche pas
+    private GridPane gridMain;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
-    @FXML
-    //private Node[] tab_imgView = {un., deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize};
 
-    private List<ImageView> tab_imgView = Arrays.asList(un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize);
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
-    private static HashMap<Integer, String> Tab_ID;
-
-    static {
-        Tab_ID = new HashMap<>();
-
-        Tab_ID.put(0,"un");
-        Tab_ID.put(1,"deux");
-        Tab_ID.put(2,"trois");
-        Tab_ID.put(3,"quatre");
-
-        Tab_ID.put(4,"cinq");
-        Tab_ID.put(5,"six");
-        Tab_ID.put(6,"sept");
-        Tab_ID.put(7,"huit");
-
-        Tab_ID.put(8,"neuf");
-        Tab_ID.put(9,"dix");
-        Tab_ID.put(10,"onze");
-        Tab_ID.put(11,"douze");
-
-        Tab_ID.put(12,"treize");
-        Tab_ID.put(13,"quatorze");
-        Tab_ID.put(14,"quinze");
-        Tab_ID.put(15,"seize");
-    }
-
-    public static String getTabString(int num_id) {
-        return Tab_ID.get(num_id);
-    }
 
     public void light_switch(MouseEvent event) {
 
@@ -99,35 +61,127 @@ public class LightsOutController {
         int [] coordonne = Lout.trouverCoordonne(i);
         Lout.onClick(coordonne[0],coordonne[1]);
         System.out.println(Lout.toString());
-        for(int j = 0; j< Lout.getTableau().length; j++) {
-            for (int k=0; k<Lout.getTableau()[0].length; k++){
-                if (Lout.getTableau()[j][k] == 1) {
-                    if(compare(j,k)) {
-                        ImageView Img = (ImageView) tab_imgView.get(j+k);
-                        Img.setImage(new Image("https://media-exp1.licdn.com/dms/image/C560BAQHMnA03XDdf3w/company-logo_200_200/0?e=2159024400&v=beta&t=C7KMOtnrJwGrMXmgIk2u1B8a7VRfgxMwXng9cdP9kZk"));
-                    }
+        /*System.out.println(gridMain.getChildren());
+        System.out.println(GridPane.getRowIndex(img));
+        System.out.println(GridPane.getColumnIndex(img));*/
+        if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
+            if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
+                imgsSwitch(0,0);
+            }else if(GridPane.getColumnIndex(img)==null){
+                imgsSwitch(0,GridPane.getRowIndex(img));
+            }else{
+                imgsSwitch(GridPane.getColumnIndex(img),0);
+            }
+        }else {
+            imgsSwitch(GridPane.getColumnIndex(img), GridPane.getRowIndex(img));
+        }
+    }
+    private void imgsSwitch(int pos_i, int pos_j) {//update scene
+        int max_i = tab_lo.length - 1;
+        int max_j = tab_lo[0].length - 1;
+        int i_grid;//car 0 dans grid = null
+        int j_grid;
+
+        for (Node node : gridMain.getChildren()) {
+
+            if(GridPane.getColumnIndex(node)==null||GridPane.getRowIndex(node)==null){
+                if(GridPane.getColumnIndex(node)==null&&GridPane.getRowIndex(node)==null){
+                    i_grid = 0;
+                    j_grid = 0;
+                }else if(GridPane.getColumnIndex(node)==null){
+                    i_grid = 0;
+                    j_grid = GridPane.getRowIndex(node);
+                }else{
+                    i_grid = GridPane.getColumnIndex(node);
+                    j_grid = 0;
                 }
-                else{
-                    if(compare(j,k)) {
-                        ImageView Img = (ImageView) tab_imgView.get(j+k);
-                        Img.setImage(new Image("https://i.pinimg.com/236x/c4/b8/22/c4b822d890fe6d90358f5e2f2561cd56.jpg"));
+            }else{
+                i_grid = GridPane.getColumnIndex(node);
+                j_grid = GridPane.getRowIndex(node);
+            }
+
+            if (i_grid == pos_i && j_grid == pos_j) {
+                if (pos_i == 0){//barre haut
+                    if(pos_j == 0){//gauche
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j+1);
+                    }else if(pos_j == max_j){//droite
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                    } else{//milieu
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i,pos_j+1);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                    }
+                }else if(pos_i == max_i){//barre bas
+                    if(pos_j == 0){//gauche
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i,pos_j+1);
+                    }else if(pos_j == max_j){//droite
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                    } else{//milieu
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i,pos_j+1);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                    }
+                }else{//barres milieu
+                    if(pos_j == 0){//gauche
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j+1);
+                    }else if(pos_j == max_j){//droite
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                    } else{//milieu
+                        imgSwitch(pos_i,pos_j);
+                        imgSwitch(pos_i-1,pos_j);
+                        imgSwitch(pos_i+1,pos_j);
+                        imgSwitch(pos_i,pos_j-1);
+                        imgSwitch(pos_i,pos_j+1);
                     }
                 }
             }
         }
     }
-    public boolean compare(int i_tabid,int j_tabid){
-        for(int i = 0; i<Lout.getTableau().length;i++){
-            for(int j = 0; j<Lout.getTableau()[0].length;j++) {
-                System.out.println(LightsOutController.getTabString(LightsOut.getID(i_tabid, j_tabid)));
-                System.out.println(j);
-                System.out.println(i);
-                System.out.println(tab_imgView.get(j+i));
-                if (LightsOutController.getTabString(LightsOut.getID(i_tabid, j_tabid)).equals(tab_imgView.get(j+i).getId())){
-                    return true;
+
+    public void imgSwitch(int i, int j){
+        int i_grid;//car 0 grid = null
+        int j_grid;
+        for (Node node : gridMain.getChildren()) {
+            if(GridPane.getColumnIndex(node)==null||GridPane.getRowIndex(node)==null){
+                if(GridPane.getColumnIndex(node)==null&&GridPane.getRowIndex(node)==null){
+                    i_grid = 0;
+                    j_grid = 0;
+                }else if(GridPane.getColumnIndex(node)==null){
+                    i_grid = 0;
+                    j_grid = GridPane.getRowIndex(node);
+                }else{
+                    i_grid = GridPane.getColumnIndex(node);
+                    j_grid = 0;
+                }
+            }else{
+                i_grid = GridPane.getColumnIndex(node);
+                j_grid = GridPane.getRowIndex(node);
+            }
+            if (i_grid == i && j_grid == j) {
+                if(node.isVisible()){
+                    node.setVisible(false);
+                }
+                else {
+                    node.setVisible(true);
                 }
             }
         }
-        return false;
     }
+
 }
