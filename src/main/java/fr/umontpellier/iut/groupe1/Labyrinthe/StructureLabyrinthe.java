@@ -103,11 +103,11 @@ public class StructureLabyrinthe extends Group {
         Mur mur15 = new Mur(300, tailleMur, 100, mur1.getTranslateX() + 275, mur2.getHeight() - 100);
         listeMur.add(mur15);
 
-        /*Mur mur16 = new Mur(300, tailleMur, 100, mur1.getTranslateX() + 325, mur2.getHeight() - 150);
-        listeMur.add(mur16);*/
+        Mur mur16 = new Mur(tailleMur, 200, 100, mur1.getTranslateX() + 425, mur2.getHeight() + 50);
+        listeMur.add(mur16);
 
         this.getChildren().addAll(
-                boule, socle, murHaut, murBas, murDroite, murGauche, murCheckpoint1, murCheckpoint2, mur1, mur2, mur3, mur4, mur5, mur6, mur7, mur8, mur9, mur10, mur11, mur12, mur13, mur14, mur15
+                boule, socle, murHaut, murBas, murDroite, murGauche, murCheckpoint1, murCheckpoint2, mur1, mur2, mur3, mur4, mur5, mur6, mur7, mur8, mur9, mur10, mur11, mur12, mur13, mur14, mur15, mur16
         );
 
         AnimationTimer timer = new AnimationTimer() {
