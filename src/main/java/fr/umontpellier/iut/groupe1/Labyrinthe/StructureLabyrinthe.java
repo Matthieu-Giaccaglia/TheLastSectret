@@ -59,7 +59,7 @@ public class StructureLabyrinthe extends Group {
         Mur murHaut = new Mur(socle.getWidth(), tailleMur, 100, width, socle.getBoundsInParent().getMinY() );
         listeMur.add(murHaut);
 
-        Mur murDroite = new Mur(tailleMur, socle.getHeight(), 100, socle.getBoundsInParent().getMaxX(), height );
+        Mur murDroite = new Mur(tailleMur, socle.getHeight(), 100, socle.getBoundsInParent().getMaxX(), height);
         listeMur.add(murDroite);
 
         Mur murBas = new Mur(socle.getWidth(), tailleMur, 100, width, socle.getBoundsInParent().getMaxY());
