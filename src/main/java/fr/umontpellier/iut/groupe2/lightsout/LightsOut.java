@@ -106,9 +106,9 @@ public class LightsOut {
     }
 
     public boolean estGagnant() {
-        for (int i=0; i<tableau.length; i++){
-            for(int j=0; j<tableau[i].length; j++){
-                if (tableau[i][j] == 0) {
+        for (int[] ints : tableau) {
+            for (int anInt : ints) {
+                if (anInt == 0) {
                     return false;
                 }
             }
@@ -129,21 +129,17 @@ public class LightsOut {
         return coordonnee;
     }
 
-    public int[][] getTableau() {
-        return tableau;
-    }
-
     @Override
     public String toString() {
-        String res = "";
+        StringBuilder res = new StringBuilder();
         if(this.tableau.length != 0) {
-            for (int i = 0; i < this.tableau.length; i++) {
-                for (int j = 0; j < this.tableau[i].length; j++) {
-                    res = res+this.tableau[i][j]+" ";
+            for (int[] ints : this.tableau) {
+                for (int anInt : ints) {
+                    res.append(anInt).append(" ");
                 }
-                res += "\n";
+                res.append("\n");
             }
         }
-        return (res);
+        return (res.toString());
     }
 }

@@ -2,18 +2,14 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 //TODO rajouter son de brique au mouseclickevent
 //TODO rajouter une image pour qu'on puisse appuyé meme en notvisible
 //TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
 public class LightsOutController {
-    @FXML
-    private AnchorPane anchorPane;
     @FXML
     private GridPane gridMain;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
