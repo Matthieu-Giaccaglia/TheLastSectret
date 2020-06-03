@@ -19,7 +19,6 @@ import java.util.List;
 
 public class StructureLabyrinthe extends Group {
 
-    private final List<Boolean> collision = new ArrayList<>();
     PhongMaterial material = new PhongMaterial();
     private final Stage stage;
     private final List<Mur> listeMur = new ArrayList<>();
@@ -27,11 +26,6 @@ public class StructureLabyrinthe extends Group {
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
-
-        collision.add(0, true);
-        collision.add(1, true);
-        collision.add(2, true);
-        collision.add(3, true);
 
         Boule boule = new Boule(14, width/2 -125, height/2 -145);
 
@@ -136,33 +130,31 @@ public class StructureLabyrinthe extends Group {
 
     public boolean intersection(Boule nodeA, Mur nodeB) {
 
-        //TODO faire en sorte qu'ils recommencent
-
-            /*if (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() &&
-                    (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 >= nodeB.getBoundsInParent().getMaxX() &&
-                    nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
-                    nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()) {
-                collision.set(3, false);
-                //System.out.println("à droite");
-            }else if(nodeA.getBoundsInParent().getMaxX() - 5 >= nodeB.getBoundsInParent().getMinX() &&
-                    (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 <= nodeB.getBoundsInParent().getMinX() &&
-                    nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
-                    nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()){
-                collision.set(1 ,false);
-                //System.out.println("à gauche");
-            }else if(nodeA.getBoundsInParent().getMinY() + 5 <= nodeB.getBoundsInParent().getMaxY() &&
-                    (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 >= nodeB.getBoundsInParent().getMaxY() &&
-                    nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
-                    nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
-                collision.set(0, false);
-                //System.out.println("en bas");
-            }else if(nodeA.getBoundsInParent().getMaxY() - 5 >= nodeB.getBoundsInParent().getMinY() &&
-                    (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 <= nodeB.getBoundsInParent().getMaxY() &&
-                    nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
-                    nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
-                collision.set(2, false);
-                //System.out.println("en haut");
-            }*/
+        /*if (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() &&
+                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 >= nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()) {
+            collision.set(3, false);
+            //System.out.println("à droite");
+        }else if(nodeA.getBoundsInParent().getMaxX() - 5 >= nodeB.getBoundsInParent().getMinX() &&
+                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 <= nodeB.getBoundsInParent().getMinX() &&
+                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()){
+            collision.set(1 ,false);
+            //System.out.println("à gauche");
+        }else if(nodeA.getBoundsInParent().getMinY() + 5 <= nodeB.getBoundsInParent().getMaxY() &&
+                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 >= nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
+            collision.set(0, false);
+            //System.out.println("en bas");
+        }else if(nodeA.getBoundsInParent().getMaxY() - 5 >= nodeB.getBoundsInParent().getMinY() &&
+                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 <= nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
+            collision.set(2, false);
+            //System.out.println("en haut");
+        }*/
 
         return  (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() && nodeA.getBoundsInParent().getMaxX() - 5 >= nodeB.getBoundsInParent().getMinX()) &&
                 (nodeA.getBoundsInParent().getMinY() + 5 <= nodeB.getBoundsInParent().getMaxY() && nodeA.getBoundsInParent().getMaxY() - 5 >= nodeB.getBoundsInParent().getMinY()) &&
@@ -173,29 +165,21 @@ public class StructureLabyrinthe extends Group {
 
         stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
             //System.out.println(collision[1]);
-            if (keyEvent.getCode() == KeyCode.LEFT ) {
+            if (keyEvent.getCode() == KeyCode.LEFT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), vitesseDeplacementRotation);
-                if(collision.get(3)){
-                    boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
-                }
+                boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.RIGHT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), -vitesseDeplacementRotation);
-                if(collision.get(1)){
-                    boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
-                }
+                boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.UP) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), -vitesseDeplacementRotation);
-                if(collision.get(0)){
-                    boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
-                }
+                boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.DOWN) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), vitesseDeplacementRotation);
-                if(collision.get(2)){
-                    boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
-                }
+                boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
             }
         });
     }

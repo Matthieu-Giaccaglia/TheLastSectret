@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 public class JeuLabyrinthe extends Scene {
 
-    public JeuLabyrinthe(double width, double height, Stage stage) {
-        super(new StructureLabyrinthe(width, height, stage), width, height, true);
+    public JeuLabyrinthe(Parent parent, double width, double height) {
+        super(parent, width, height, true);
     }
 }
