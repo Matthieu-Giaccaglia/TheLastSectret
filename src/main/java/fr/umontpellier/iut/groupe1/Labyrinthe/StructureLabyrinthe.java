@@ -17,16 +17,16 @@ import java.util.List;
 
 public class StructureLabyrinthe extends Group {
 
-    PhongMaterial material = new PhongMaterial();
     private final Stage stage;
     private final List<Mur> listeMur = new ArrayList<>();
     private final double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
-    private Label compteurMort = new Label("Compteur de morts : " + nombreMort);
+    private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
 
+        PhongMaterial material = new PhongMaterial();
         material.setDiffuseMap(ImageLoader.getImage("groupe1/stone.png"));
 
         compteurMort.setTranslateX(width - (width/4));

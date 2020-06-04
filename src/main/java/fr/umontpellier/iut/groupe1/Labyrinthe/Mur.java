@@ -6,8 +6,6 @@ import javafx.scene.shape.Box;
 
 public class Mur extends Box {
 
-
-
     public Mur (double width, double height, double translateX, double translateY){
         this.setWidth(width);
         this.setHeight(height);

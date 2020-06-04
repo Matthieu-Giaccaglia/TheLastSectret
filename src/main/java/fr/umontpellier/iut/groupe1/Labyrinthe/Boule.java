@@ -1,8 +1,6 @@
 package fr.umontpellier.iut.groupe1.Labyrinthe;
 
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 
