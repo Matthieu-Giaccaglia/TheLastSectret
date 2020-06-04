@@ -8,14 +8,14 @@ public class Mur extends Box {
 
 
 
-    public Mur (double width, double height, double depth, double translateX, double translateY){
+    public Mur (double width, double height, double translateX, double translateY){
         this.setWidth(width);
         this.setHeight(height);
-        this.setDepth(depth);
+        this.setDepth(100);
         PhongMaterial material = new PhongMaterial();
         material.setDiffuseColor(Color.BLACK);
         this.setMaterial(material);
-        this.setTranslateZ(-depth/2);
+        this.setTranslateZ(-50);
         this.setTranslateX(translateX);
         this.setTranslateY(translateY);
     }
