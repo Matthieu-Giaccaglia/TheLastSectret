@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe1.Labyrinthe;
 
+import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import javafx.animation.AnimationTimer;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
@@ -22,22 +23,32 @@ public class StructureLabyrinthe extends Group {
     private final double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
     private Label compteurMort = new Label("Compteur de morts : " + nombreMort);
-    private double tailleSocle;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
 
+        material.setDiffuseMap(ImageLoader.getImage("groupe1/stone.png"));
+
+        compteurMort.setTranslateX(width - (width/4));
+        compteurMort.setTranslateY(height/4 -100);
+        compteurMort.setTranslateZ(-50);
+        compteurMort.setStyle("-fx-text-fill: black; -fx-background-color: transparent;-fx-font-size: 16;");
+
         Mur murCheckpoint1 = new Mur(20, 20, width/2 -125, height/2 -150);
-        material.setDiffuseColor(Color.RED);
+
         murCheckpoint1.setMaterial(material);
         murCheckpoint1.setDepth(20);
         murCheckpoint1.setTranslateZ(-10);
 
-        Mur murCheckpoint2 = new Mur(20, 20, width -25, height-25);
-        material.setDiffuseColor(Color.RED);
+        Mur murCheckpoint2 = new Mur(20, 20, width +25, height+25);
         murCheckpoint2.setMaterial(material);
         murCheckpoint2.setDepth(20);
         murCheckpoint2.setTranslateZ(-10);
+
+        Mur murCheckpoint3 = new Mur(20, 20, width -175, height +75);
+        murCheckpoint3.setMaterial(material);
+        murCheckpoint3.setDepth(20);
+        murCheckpoint3.setTranslateZ(-10);
 
         final Mur[] checkpoint = {murCheckpoint1};
 
@@ -45,13 +56,7 @@ public class StructureLabyrinthe extends Group {
 
         deplacementBoule(boule);
 
-        if(width*2 > height*2){
-            tailleSocle = height*2 - 100;
-        }else if(width*2 <= height*2){
-            tailleSocle = width*2 - 100;
-        }
-
-        Socle socle = new Socle(tailleSocle, 10, width, height);
+        Socle socle = new Socle(800, 10, width, height);
         int tailleMur = 5;
 
         Mur murHaut = new Mur(socle.getWidth(), tailleMur, width, socle.getBoundsInParent().getMinY() );
@@ -150,7 +155,7 @@ public class StructureLabyrinthe extends Group {
         Mur mur28 = new Mur(tailleMur, 350, mur1.getTranslateX() - 25, 625);
         listeMur.add(mur28);
 
-        Mur mur29 = new Mur(700, tailleMur, mur1.getTranslateX() + 325, 800);
+        Mur mur29 = new Mur(400, tailleMur, mur1.getTranslateX() + 175, 800);
         listeMur.add(mur29);
 
         Mur mur30 = new Mur(tailleMur, 50, mur1.getTranslateX() + 675,825);
@@ -219,15 +224,52 @@ public class StructureLabyrinthe extends Group {
         Mur mur51 = new Mur(150, tailleMur, mur1.getTranslateX() + 650,750);
         listeMur.add(mur51);
 
+        Mur mur52 = new Mur(150, tailleMur, mur1.getTranslateX() + 100,500);
+        listeMur.add(mur52);
+
+        Mur mur53 = new Mur(tailleMur, 250, mur1.getTranslateX() + 25,625);
+        listeMur.add(mur53);
+
+        Mur mur54 = new Mur(tailleMur, 150, mur1.getTranslateX() + 175,575);
+        listeMur.add(mur54);
+
+        Mur mur55 = new Mur(200, tailleMur, mur1.getTranslateX() + 175,550);
+        listeMur.add(mur55);
+
+        Mur mur56 = new Mur(100, tailleMur, mur1.getTranslateX() + 75,600);
+        listeMur.add(mur56);
+
+        Mur mur57 = new Mur(100, tailleMur, mur1.getTranslateX() + 125,650);
+        listeMur.add(mur57);
+
+        Mur mur58 = new Mur(250, tailleMur, mur1.getTranslateX() + 550,800);
+        listeMur.add(mur58);
+
+        Mur mur59 = new Mur(tailleMur, 100, mur1.getTranslateX() + 75,700);
+        listeMur.add(mur59);
+
+        Mur mur60 = new Mur(50, tailleMur, mur1.getTranslateX() + 200,600);
+        listeMur.add(mur60);
+
+        Mur mur61 = new Mur(tailleMur, 100, mur1.getTranslateX() + 225,650);
+        listeMur.add(mur61);
+
+        Mur mur62 = new Mur(100, tailleMur, mur1.getTranslateX() + 175,700);
+        listeMur.add(mur62);
+
+        Mur mur63 = new Mur(200, tailleMur, mur1.getTranslateX() + 175,750);
+        listeMur.add(mur63);
 
         this.getChildren().addAll(
-                boule, socle, murHaut, murBas, murDroite, murGauche, murCheckpoint1, murCheckpoint2,
+                boule, socle, murHaut, murBas, murDroite, murGauche,
+                compteurMort, murCheckpoint1, murCheckpoint2, murCheckpoint3,
                 mur1, mur2, mur3, mur4, mur5, mur6, mur7, mur8, mur9, mur10,
                 mur11, mur12, mur13, mur14, mur15, mur16, mur17, mur18, mur19, mur20,
                 mur21, mur22, mur23, mur24, mur25, mur26, mur27, mur28, mur29, mur30,
                 mur31, mur32, mur33, mur34, mur35, mur36, mur37, mur38, mur39, mur40,
                 mur41, mur42, mur43, mur44, mur45, mur46, mur47, mur48, mur49, mur50,
-                mur51
+                mur51, mur52, mur53, mur54, mur55, mur56, mur57, mur58, mur59, mur60,
+                mur61, mur62, mur63
         );
 
         AnimationTimer timer = new AnimationTimer() {
@@ -238,10 +280,13 @@ public class StructureLabyrinthe extends Group {
                         boule.setTranslateX(checkpoint[0].getTranslateX());
                         boule.setTranslateY(checkpoint[0].getTranslateY());
                         nombreMort++;
+                        compteurMort.setText("Compteur de morts : " + nombreMort);
                     }else if(intersection(boule, murCheckpoint1)){
                         checkpoint[0] = murCheckpoint1;
                     }else if(intersection(boule, murCheckpoint2)){
                         checkpoint[0] = murCheckpoint2;
+                    }else if(intersection(boule, murCheckpoint3)){
+                        checkpoint[0] = murCheckpoint3;
                     }
                 }
             }

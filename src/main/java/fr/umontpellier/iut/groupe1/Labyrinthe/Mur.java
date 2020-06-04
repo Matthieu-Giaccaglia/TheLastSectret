@@ -19,5 +19,4 @@ public class Mur extends Box {
         this.setTranslateX(translateX);
         this.setTranslateY(translateY);
     }
-
 }
