@@ -21,6 +21,8 @@ public class SalleController {
     private Button Gvh;
     @FXML
     private TextField textfield;
+    @FXML
+    private Button pillier;
 
     private boolean etape1 = false;
 
@@ -49,6 +51,7 @@ public class SalleController {
     public void onClick(){
         textfield.setOpacity(1.0);
     }
+
 
     public Button getTaquinButton(){
         return taquinButton;
