@@ -36,7 +36,7 @@ public class SalleController {
         }
         if(dark_Id.isVisible()) {
             dark_Id.setVisible(false);// On peut le mettre dans le boutton retour, bouton retour qui s'affiche dès que le lights out est fini
-                                        // Pour l'instant, si on le met dans bouton retour renvoie nullpointerexception, peut etre pck on clique deux fois dessus
+                                        // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
         }
     }
 
