@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.*;
@@ -22,7 +21,7 @@ public class StructureLabyrinthe extends Group {
     private final double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
-    private AnimationTimer timer;
+    private final AnimationTimer timer;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
