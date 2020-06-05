@@ -8,6 +8,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
+import java.nio.file.Paths;
 
 //TODO rajouter son de brique au mouseclickevent
 //TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair
@@ -20,8 +25,9 @@ public class LightsOutController {
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
 
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
-    public LightsOut Lout = new LightsOut(tab_lo);
+    private LightsOut Lout = new LightsOut(tab_lo);
     public static boolean gagne = false;
+    public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
 
     public void light_switch(MouseEvent event) {
 
@@ -73,6 +79,7 @@ public class LightsOutController {
         /*System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
+        new MediaPlayer(bricksound).play();
         if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
             if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
                 imgsSwitch(0,0);
