@@ -1,11 +1,13 @@
 package fr.umontpellier.iut.groupe2.view;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -30,7 +32,9 @@ public class StepManager {
         }
 
         assert root != null;
-        stage.setScene(new Scene(root, 800, 480));
+        System.out.println(Screen.getPrimary().getBounds().getWidth());
+        System.out.println(Screen.getPrimary().getBounds().getHeight());
+        stage.setScene(new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight()));
         stage.setFullScreen(true);
     }
 
