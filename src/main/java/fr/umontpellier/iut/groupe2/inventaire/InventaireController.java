@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 import fr.umontpellier.iut.commun.data.ImageLoader;
+import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
+import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,32 +14,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class InventaireController {
-    public BorderPane hud;
-    @FXML
-    private Label label_room;
-    @FXML
-    private Label timer;
     @FXML
     private GridPane inventoryGrid;
-    @FXML
-    private ImageView slotUn;
-    @FXML
-    private Button button;
+
 
     public void update(ActionEvent mouseEvent) {
 
-        ImageView imageView = new ImageView(new Image(String.valueOf(ImageLoader.getImage("groupe2/taquin/piece25.png"))));
-        inventoryGrid.add(imageView,0,0);
+
     }
 
     public void update2(){
+
     }
 
-    public void disable(MouseEvent mouseEvent) {
-        hud.setDisable(false);
-    }
 
     public void okay(ActionEvent event) {
-        System.out.println("okay");
+
     }
 }

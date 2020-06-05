@@ -4,12 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 //TODO rajouter son de brique au mouseclickevent
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible
+//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair
 //TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
 public class LightsOutController {
+    public AnchorPane anchorPane;
     @FXML
     private GridPane gridMain;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
@@ -54,6 +56,9 @@ public class LightsOutController {
                 updateScene(14, quinze);
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
+            }
+            if(Lout.estGagnant()){
+                System.out.println("bravo");
             }
         }
     }
@@ -174,12 +179,7 @@ public class LightsOutController {
                 j_grid = GridPane.getRowIndex(node);
             }
             if (i_grid == i && j_grid == j) {
-                if(node.isVisible()){
-                    node.setVisible(false);
-                }
-                else {
-                    node.setVisible(true);
-                }
+                node.setVisible(!node.isVisible());
             }
         }
     }

@@ -7,15 +7,15 @@ import java.util.Objects;
 public class Item {
 
     private Image image;
-    private IdItem idItem;
+    private ItemId itemId;
 
-    public Item(Image image, IdItem idItem) {
+    public Item(Image image, ItemId itemId) {
         this.image = image;
-        this.idItem = idItem;
+        this.itemId = itemId;
     }
 
-    public Item(IdItem idItem) {
-        this.idItem = idItem;
+    public Item(ItemId itemId) {
+        this.itemId = itemId;
     }
 
     @Override
@@ -23,13 +23,13 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return idItem == item.idItem;
+        return itemId == item.itemId;
     }
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(idItem);
+        return Objects.hash(itemId);
     }
 
 
@@ -38,8 +38,8 @@ public class Item {
         return image;
     }
 
-    public IdItem getIdItem(){
-        return idItem;
+    public ItemId getItemId(){
+        return itemId;
     }
 
 }

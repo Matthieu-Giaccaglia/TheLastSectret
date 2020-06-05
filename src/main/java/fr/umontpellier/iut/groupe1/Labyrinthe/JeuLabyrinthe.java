@@ -8,4 +8,5 @@ public class JeuLabyrinthe extends Scene {
     public JeuLabyrinthe(Parent parent, double width, double height) {
         super(parent, width, height, true);
     }
+
 }
