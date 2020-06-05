@@ -20,8 +20,7 @@ public class InventaireController {
 
     public void update(ActionEvent mouseEvent) {
 
-        ImageView imageView = new ImageView(new Image(String.valueOf(ImageLoader.getImage("groupe2/taquin/piece25.png"))));
-        inventoryGrid.add(imageView,0,0);
+
     }
 
     public void update2(){
@@ -30,6 +29,6 @@ public class InventaireController {
 
 
     public void okay(ActionEvent event) {
-        System.out.println("okay");
+
     }
 }
