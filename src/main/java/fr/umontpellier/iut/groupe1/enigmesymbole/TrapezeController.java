@@ -1,7 +1,10 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -10,6 +13,23 @@ import java.util.ResourceBundle;
 
 
 public class TrapezeController implements Initializable {
+
+    @FXML
+    private Button buttonValideur;
+
+    public void gagne(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Mouais...");
+        alert.setHeaderText(null);
+        alert.setContentText("Ntm t'as win PD va");
+        alert.show();
+    }
+
+    public void handleButtonValide(ActionEvent actionEvent) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible())
+            gagne();
+    }
+
 
     /*------------------- 1er -------------------*/
     @FXML
