@@ -104,9 +104,8 @@
       <AnchorPane layoutX="1702.0" layoutY="982.0" maxHeight="84.0" maxWidth="202.0" minHeight="84.0" minWidth="202.0" prefHeight="84.0" prefWidth="202.0">
          <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
-      <ImageView fx:id="piece25Item" fitHeight="126.0" fitWidth="117.0" layoutX="120.0" layoutY="720.0"
-                 pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../raw/groupe2/taquin/piece25.png"/>
+      <ImageView fx:id="piece25Item" fitHeight="126.0" fitWidth="117.0" layoutX="120.0" layoutY="720.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../../raw/groupe2/taquin/piece25.png" />
       </ImageView>
    </AnchorPane>
 </StackPane>
