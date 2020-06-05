@@ -7,9 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class InventaireController {
+    public BorderPane hud;
     @FXML
     private Label label_room;
     @FXML
@@ -28,5 +31,13 @@ public class InventaireController {
     }
 
     public void update2(){
+    }
+
+    public void disable(MouseEvent mouseEvent) {
+        hud.setDisable(false);
+    }
+
+    public void okay(ActionEvent event) {
+        System.out.println("okay");
     }
 }
