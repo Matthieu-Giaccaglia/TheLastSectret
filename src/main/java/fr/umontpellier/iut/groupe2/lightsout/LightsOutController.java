@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 //TODO rajouter son de brique au mouseclickevent
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible
+//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair
 //TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
 public class LightsOutController {
     @FXML
@@ -54,6 +54,9 @@ public class LightsOutController {
                 updateScene(14, quinze);
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
+            }
+            if(Lout.estGagnant()){
+                System.out.println("bravo");
             }
         }
     }
