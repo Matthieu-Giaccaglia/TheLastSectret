@@ -22,7 +22,7 @@
                         <Image url="@../../raw/groupe1/serpent.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="aigle0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="aigle0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../../raw/groupe1/aigle.png" />
                      </image>
@@ -31,7 +31,7 @@
                      </viewport>
                   </ImageView>
                   <ImageView fx:id="vide0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                  <ImageView fx:id="dauphin0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="dauphin0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../raw/groupe1/dauphin.png" />
                      </image>
@@ -91,12 +91,12 @@
             <Button fx:id="flecheGauche1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&lt;" />
             <StackPane>
                <children>
-                  <ImageView fx:id="serpent1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="serpent1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../raw/groupe1/serpent.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="aigle1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="aigle1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../../raw/groupe1/aigle.png" />
                      </image>
