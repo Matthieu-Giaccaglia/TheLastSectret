@@ -31,7 +31,8 @@ public class InventaireController {
     }
 
     public void changeImage(MouseEvent mouseEvent) {
-        ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
-        inventoryGrid.add(imageView,0,0);
+        //ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
+        //inventoryGrid.add(imageView,0,0);
+        slotUn.setImage(getImage("groupe2/taquin/piece25.png"));
     }
 }
