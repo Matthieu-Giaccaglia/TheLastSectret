@@ -3,6 +3,7 @@ package fr.umontpellier.iut.groupe2;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
+import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
 import fr.umontpellier.iut.groupe2.view.Step;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import fr.umontpellier.iut.groupe2.view.StepManager;
@@ -19,7 +20,7 @@ public class MainSalleGroupe2 extends Application {
 
         primaryStage.setTitle("Escape Game S6");
 
-        stepManager = new StepManager(primaryStage, null);
+        stepManager = new StepManager(primaryStage, new Inventaire());
         try {
             stepManager.addStep(new Step<>(StepID.START, LayoutLoader.getLayout2("groupe2/layout_game.fxml")));
             stepManager.addStep(new Step<>(StepID.TAQUIN, LayoutLoader.getLayout2("groupe2/taquin/taquin.fxml")));

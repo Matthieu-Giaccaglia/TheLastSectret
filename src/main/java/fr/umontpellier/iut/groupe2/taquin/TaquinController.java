@@ -1,7 +1,9 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
+import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +15,8 @@ import javafx.scene.layout.GridPane;
 
 public class TaquinController {
 
-    public ImageView piece25Item;
+    @FXML
+    private ImageView piece25Item;
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
@@ -88,4 +91,8 @@ public class TaquinController {
 
     }
 
+    public void recupItem(MouseEvent mouseEvent) {
+
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece25);
+    }
 }
