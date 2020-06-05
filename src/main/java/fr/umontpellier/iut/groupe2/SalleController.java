@@ -52,7 +52,6 @@ public class SalleController {
         textfield.setOpacity(1.0);
     }
 
-
     public Button getTaquinButton(){
         return taquinButton;
     }
