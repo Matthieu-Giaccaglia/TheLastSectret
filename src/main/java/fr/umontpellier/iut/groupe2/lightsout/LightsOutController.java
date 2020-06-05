@@ -57,9 +57,8 @@ public class LightsOutController {
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
             }
-            if(Lout.estGagnant()){
-                System.out.println("bravo");
-            }
+        }else{
+            System.out.println("bravo");
         }
     }
     public void updateScene (int i, ImageView img){
