@@ -80,10 +80,10 @@ public class TrapezeController implements Initializable {
     /*------------------- 2eme -------------------*/
 
     @FXML
-    private Button flecheDroite1;
+    private ImageView flecheDroite1;
 
     @FXML
-    private Button flecheGauche1;
+    private ImageView flecheGauche1;
 
     @FXML
     private ImageView aigle1;
@@ -98,7 +98,7 @@ public class TrapezeController implements Initializable {
     private ImageView vide1;
 
     @FXML
-    void handleButtonAction1(ActionEvent actionEvent) {
+    void handleButtonAction1(MouseEvent actionEvent) {
         if (actionEvent.getSource() == flecheDroite1 && aigle1.isVisible()) {
             aigle1.setVisible(false);
             serpent1.setVisible(true);

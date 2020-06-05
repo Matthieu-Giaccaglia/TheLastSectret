@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -135,7 +134,11 @@
                   </ImageView>
                </children>
             </StackPane>
-            <Button fx:id="flecheDroite1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&gt;" />
+            <ImageView fx:id="flecheDroite1" fitHeight="25.0" fitWidth="25.0" onMousePressed="#handleButtonAction1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../raw/groupe1/fleche.png" />
+               </image>
+            </ImageView>
          </children>
          <padding>
             <Insets right="42.0" top="185.0" />
