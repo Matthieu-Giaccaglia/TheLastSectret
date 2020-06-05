@@ -35,8 +35,7 @@ public class StepManager {
 
         assert root != null;
 
-        stage.setScene(new Scene(root, 1920, 1080));
-        stage.setFullScreen(true);
+        stage.setScene(new Scene(root, 1920, 1017));
     }
 
     public Inventaire getInventaire() {
@@ -74,8 +73,8 @@ public class StepManager {
     public void openStepInventaire() {
         if (stepMap.containsKey(StepID.INVENTAIRE)) {
             Parent parent = stepMap.get(StepID.INVENTAIRE).open();
-            parent.setLayoutX(800.0);
-            parent.setLayoutY(1016.0);
+            parent.setLayoutX(640.0);
+            parent.setLayoutY(950.0);
             parent.setVisible(true);
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +

@@ -30,11 +30,37 @@
         <ImageView fx:id="slotCinq" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-        <ImageView fx:id="slotItemUn" fitHeight="114.0" fitWidth="114.0" nodeOrientation="INHERIT" onMouseClicked="#changeImage" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="slotItemDeux" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-      <ImageView fx:id="slotItemTrois" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-      <ImageView fx:id="slotItemQuatre" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-      <ImageView fx:id="slotItemCinq" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+        <AnchorPane maxHeight="128.0" maxWidth="128.0" minHeight="128.0" minWidth="128.0" prefHeight="128.0"
+                    prefWidth="128.0" GridPane.columnIndex="1">
+            <ImageView fx:id="slotItemDeux" fitHeight="114.0" fitWidth="114.0" layoutX="8.0" layoutY="7.0"
+                       pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0"
+                       AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0"/>
+        </AnchorPane>
+        <AnchorPane maxHeight="128.0" maxWidth="128.0" minHeight="128.0" minWidth="128.0" prefHeight="128.0"
+                    prefWidth="128.0">
+            <ImageView fx:id="slotItemUn" fitHeight="114.0" fitWidth="114.0" nodeOrientation="INHERIT"
+                       onMouseClicked="#changeImage" pickOnBounds="true" preserveRatio="true"
+                       AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0"
+                       AnchorPane.topAnchor="7.0"/>
+        </AnchorPane>
+        <AnchorPane maxHeight="128.0" maxWidth="128.0" minHeight="128.0" minWidth="128.0" prefHeight="128.0"
+                    prefWidth="128.0" GridPane.columnIndex="2">
+            <ImageView fx:id="slotItemTrois" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true"
+                       AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0"
+                       AnchorPane.topAnchor="7.0"/>
+        </AnchorPane>
+        <AnchorPane maxHeight="128.0" maxWidth="128.0" minHeight="128.0" minWidth="128.0" prefHeight="128.0"
+                    prefWidth="128.0" GridPane.columnIndex="3">
+            <ImageView fx:id="slotItemQuatre" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0"
+                       AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0"/>
+        </AnchorPane>
+        <AnchorPane maxHeight="128.0" maxWidth="128.0" minHeight="128.0" minWidth="128.0" prefHeight="128.0"
+                    prefWidth="128.0" GridPane.columnIndex="4">
+            <ImageView fx:id="slotItemCinq" fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true"
+                       AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0"
+                       AnchorPane.topAnchor="7.0"/>
+        </AnchorPane>
     </GridPane>
 
 </AnchorPane>
