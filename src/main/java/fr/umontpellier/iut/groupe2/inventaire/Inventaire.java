@@ -6,27 +6,25 @@ import java.util.ArrayList;
 
 public class Inventaire {
 
-    private final ArrayList<Item> inventaire = new ArrayList<>();
+    private final ArrayList<ItemId> inventaire = new ArrayList<>();
 
-    public void ajouterItem(Image image, IdItem idItem){
+    public void ajouterItem(ItemId itemId){
 
-        Item itemAjout = new Item(image, idItem);
-
-        if (inventaire.size() < 5 && !contientItem(itemAjout)) {
-            inventaire.add(itemAjout);
+        if (inventaire.size() < 5 && !contientItem(itemId)) {
+            inventaire.add(itemId);
         } else if(inventaire.size() >= 5) {
             System.err.println("L'inventaire est rempli");
-        } else if(contientItem(itemAjout)) {
+        } else if(contientItem(itemId)) {
             System.err.println("L'item est déjà dans l'inventaire");
         }
     }
 
-    public void retirerItem(IdItem idItem){
-        inventaire.removeIf(item -> item.getIdItem().equals(idItem));
+    public void retirerItem(ItemId itemId){
+
     }
 
-    private Boolean contientItem(Item itemAjout){
-        for (Item item: inventaire) {
+    private Boolean contientItem(ItemId itemAjout){
+        for (ItemId item: inventaire) {
             if (itemAjout.equals(item)) {
                 return true;
             }
