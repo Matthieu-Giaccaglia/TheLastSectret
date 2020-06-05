@@ -98,9 +98,7 @@
             </ImageView>
          </GridPane>
       </AnchorPane>
-      <AnchorPane layoutX="109.0" layoutY="1016.0" maxHeight="66.0" maxWidth="320.0" minHeight="47.0" minWidth="320.0" prefHeight="66.0" prefWidth="320.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="800.0">
-         <fx:include source="../inventaire.fxml" />
-      </AnchorPane>
+
       <AnchorPane layoutX="1702.0" layoutY="982.0" maxHeight="84.0" maxWidth="202.0" minHeight="84.0" minWidth="202.0" prefHeight="84.0" prefWidth="202.0">
          <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
