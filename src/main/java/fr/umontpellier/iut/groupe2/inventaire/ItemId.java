@@ -30,4 +30,8 @@ public enum ItemId {
     ItemId(ImageView imageView) {
         this.imageView = imageView;
     }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
 }
