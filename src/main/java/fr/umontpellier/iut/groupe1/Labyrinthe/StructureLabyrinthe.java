@@ -18,7 +18,7 @@ public class StructureLabyrinthe extends Group {
 
     private final Stage stage;
     private final List<Mur> listeMur = new ArrayList<>();
-    private final double vitesseDeplacementRotation = 3;
+    private double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
     private final AnimationTimer timer;
@@ -430,16 +430,17 @@ public class StructureLabyrinthe extends Group {
     public void deplacementBoule(Boule boule) {
 
         stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+            vitesseDeplacementRotation = 3;
             if (keyEvent.getCode() == KeyCode.LEFT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.RIGHT) {
-                addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), -vitesseDeplacementRotation);
+                addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), - vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.UP) {
-                addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), -vitesseDeplacementRotation);
+                addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), - vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
             }
             if (keyEvent.getCode() == KeyCode.DOWN) {
