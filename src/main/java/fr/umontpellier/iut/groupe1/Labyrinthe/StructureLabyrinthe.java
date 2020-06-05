@@ -390,6 +390,7 @@ public class StructureLabyrinthe extends Group {
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
         alert.show();
+        timer.start();
     }
 
     public boolean intersection(Boule nodeA, Node nodeB) {
