@@ -1,7 +1,5 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
-import fr.umontpellier.iut.groupe2.SalleController;
-import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -11,12 +9,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.io.File;
 import java.nio.file.Paths;
 
-//TODO rajouter son de brique au mouseclickevent
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair
-//TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
+//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair jouer avec l'opacité
+//TODO fermer la fenetre quand gagner et mettre un son de clique quand s'est gagné ou torche
 public class LightsOutController {
     public AnchorPane anchorPane;
     @FXML
