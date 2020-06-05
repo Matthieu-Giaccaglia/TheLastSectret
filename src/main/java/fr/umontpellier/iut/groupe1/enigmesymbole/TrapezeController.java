@@ -181,37 +181,65 @@ public class TrapezeController implements Initializable {
     private ImageView vide2;
 
     @FXML
+    private ImageView aigleCote2;
+
+    @FXML
+    private ImageView serpentCote2;
+
+    @FXML
+    private ImageView dauphinCote2;
+
+    @FXML
+    private ImageView videCote2;
+
+    @FXML
     void handleButtonAction2(MouseEvent actionEvent) {
         if (actionEvent.getSource() == flecheGauche2 && aigle2.isVisible()) {
             aigle2.setVisible(false);
             serpent2.setVisible(true);
+            dauphinCote2.setVisible(false);
+            aigleCote2.setVisible(true);
         }else if (actionEvent.getSource() == flecheDroite2 && aigle2.isVisible()){
             aigle2.setVisible(false);
             dauphin2.setVisible(true);
+            dauphinCote2.setVisible(false);
+            videCote2.setVisible(true);
         }
 
         else if (actionEvent.getSource() == flecheGauche2 && serpent2.isVisible()){
             serpent2.setVisible(false);
             vide2.setVisible(true);
+            aigleCote2.setVisible(false);
+            serpentCote2.setVisible(true);
         }else if (actionEvent.getSource() == flecheDroite2 && serpent2.isVisible()){
             serpent2.setVisible(false);
             aigle2.setVisible(true);
+            aigleCote2.setVisible(false);
+            dauphinCote2.setVisible(true);
         }
 
         else if (actionEvent.getSource() == flecheGauche2 && vide2.isVisible()){
             vide2.setVisible(false);
             dauphin2.setVisible(true);
+            serpentCote2.setVisible(false);
+            videCote2.setVisible(true);
         }else if (actionEvent.getSource() == flecheDroite2 && vide2.isVisible()){
             vide2.setVisible(false);
             serpent2.setVisible(true);
+            serpentCote2.setVisible(false);
+            aigleCote2.setVisible(true);
         }
 
         else if (actionEvent.getSource() == flecheGauche2 && dauphin2.isVisible()){
             dauphin2.setVisible(false);
             aigle2.setVisible(true);
+            videCote2.setVisible(false);
+            dauphinCote2.setVisible(true);
         }else if (actionEvent.getSource() == flecheDroite2 && dauphin2.isVisible()){
             dauphin2.setVisible(false);
             vide2.setVisible(true);
+            videCote2.setVisible(false);
+            serpentCote2.setVisible(true);
         }
 
     }

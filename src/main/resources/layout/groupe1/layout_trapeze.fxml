@@ -11,6 +11,30 @@
             <Image url="@../../raw/groupe1/cam4.jpg" />
          </image>
       </ImageView>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" rotate="21.0" scaleY="7.0">
+         <children>
+            <ImageView fx:id="dauphinCote2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../raw/groupe1/dauphin.png" />
+               </image></ImageView>
+            <ImageView fx:id="serpentCote2" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-2.0" visible="false">
+               <image>
+                  <Image url="@../../raw/groupe1/serpent.png" />
+               </image></ImageView>
+            <ImageView fx:id="aigleCote2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../raw/groupe1/aigle.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="videCote2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+         </children>
+         <StackPane.margin>
+            <Insets left="935.0" top="150.0" />
+         </StackPane.margin>
+      </StackPane>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" rotate="-19.0" scaleY="7.0">
          <children>
             <ImageView fx:id="dauphinCote0" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -173,6 +197,5 @@
             <Insets right="42.0" top="185.0" />
          </padding>
       </HBox>
-      <StackPane prefHeight="150.0" prefWidth="200.0" />
    </children>
 </StackPane>
