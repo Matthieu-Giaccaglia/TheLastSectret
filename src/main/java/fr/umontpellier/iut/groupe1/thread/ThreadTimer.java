@@ -27,7 +27,7 @@ public class ThreadTimer implements Runnable{
         }
         secondes--;
 
-        label.setText(minutes + ":" + secondes);
+        //label.setText(minutes + ":" + secondes);
         System.out.println(label.getText());
     }
 }
