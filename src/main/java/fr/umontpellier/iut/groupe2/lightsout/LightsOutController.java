@@ -20,7 +20,8 @@ public class LightsOutController {
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
 
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
-    private LightsOut Lout = new LightsOut(tab_lo);
+    public LightsOut Lout = new LightsOut(tab_lo);
+    public static boolean gagne = false;
 
     public void light_switch(MouseEvent event) {
 
@@ -59,8 +60,10 @@ public class LightsOutController {
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
             }
-        }else{
+        }
+        if(Lout.estGagnant()){
             System.out.println("bravo");
+            gagne = true;
         }
     }
     public void updateScene (int i, ImageView img){

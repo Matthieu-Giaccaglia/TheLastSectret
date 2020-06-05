@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.groupe2;
 
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
+import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
+import fr.umontpellier.iut.groupe2.view.Step;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,9 +36,13 @@ public class SalleController {
         } else if (event.getSource() == buttonBackTaquin) {
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
         }
-        if(dark_Id.isVisible()) {
-            dark_Id.setVisible(false);// On peut le mettre dans le boutton retour, bouton retour qui s'affiche dès que le lights out est fini
-                                        // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
+        /*
+        if(LightsOutController.gagne) {//il faut faire un getstep == Start
+            dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
+        }
+        */
+        if(dark_Id.isVisible()){
+            dark_Id.setVisible(false);
         }
     }
 

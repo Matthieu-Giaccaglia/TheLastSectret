@@ -91,10 +91,6 @@ public class LightsOut {
                 lightSwitch(pos_i,pos_j+1);
             }
         }
-
-        if(estGagnant()){
-            System.out.println("c'est gagné");//à modifier en close the window(faut aussi l'ouvrir du coup)
-        }
     }
 
     public void lightSwitch(int position_i, int position_j){
