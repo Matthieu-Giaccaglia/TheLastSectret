@@ -1,8 +1,12 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
+import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
+import fr.umontpellier.iut.groupe2.view.StepID;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -12,8 +16,8 @@ public class TaquinController {
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
-    private int[][] mat1 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 0, 24}};
-    private Taquin taquin = new Taquin(mat1);
+    private final int[][] mat1 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 0, 24}};
+    private final Taquin taquin = new Taquin(mat1);
 
     public void mouvement(MouseEvent event) {
 
@@ -82,4 +86,5 @@ public class TaquinController {
         }
 
     }
+
 }

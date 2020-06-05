@@ -12,8 +12,8 @@
               AnchorPane.topAnchor="0.0">
       <Image url="@../../raw/groupe2/salle/salleGroupe2.png"/>
    </ImageView>
-   <Button fx:id="taquinButton" layoutX="444.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#goEnigme"
+   <Button fx:id="taquinButton" layoutX="444.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleButton"
            prefHeight="54.0" prefWidth="101.0" text="Taquin"/>
-   <Button fx:id="lightoutButton" layoutX="1135.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#goEnigme"
+   <Button fx:id="lightoutButton" layoutX="1135.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButton"
            prefHeight="54.0" prefWidth="101.0" text="Light Out"/>
 </AnchorPane>
