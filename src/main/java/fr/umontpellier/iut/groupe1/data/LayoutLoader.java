@@ -45,8 +45,6 @@ public class LayoutLoader {
 
         URL resource = Objects.requireNonNull(classLoader.getResource("layout/" + relativePath));
 
-        System.out.println(resource.getFile());
-
         try {
             return new Layout<>(FXMLLoader.load(resource));
         } catch (IOException e) {

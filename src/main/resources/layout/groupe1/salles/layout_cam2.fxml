@@ -4,11 +4,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane onKeyPressed="#handleKeyPressed" id="parent" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamOneController">
+<StackPane id="parent" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamTwoController">
 
    <ImageView fx:id="background" fitHeight="480" fitWidth="800" pickOnBounds="true">
-      <Image url="@../../../raw/groupe1/salles/cam1.jpg" />
+      <Image url="@../../../raw/groupe1/salles/cam2.jpg" />
    </ImageView>
+
    <GridPane>
       <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -22,7 +23,7 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
-      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onKeyPressed="#handleKeyPressed" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
