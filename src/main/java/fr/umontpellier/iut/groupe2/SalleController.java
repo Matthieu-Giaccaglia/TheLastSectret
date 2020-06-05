@@ -14,7 +14,11 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
+
 public class SalleController {
+    @FXML
+    private ImageView dark;
     @FXML
     private Button buttonBackTaquin;
     @FXML
@@ -22,6 +26,7 @@ public class SalleController {
     @FXML
     private Button lightoutButton;
 
+    private boolean etape1 = false;
 
 
     public void handleButton(ActionEvent event) {
@@ -31,10 +36,18 @@ public class SalleController {
         } else if (event.getSource() == lightoutButton){
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
+            if(etape1==false){
+                etape1();
+            }
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
         }
     }
 
+    public void etape1(){
+        //if() {//lightout fini,
+            etape1=true;
+        //}
+    }
 
     public Button getTaquinButton(){
         return taquinButton;
