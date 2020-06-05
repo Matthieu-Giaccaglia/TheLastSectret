@@ -14,8 +14,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
+import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
+
 public class InventaireController {
-    public ImageView slotUn;
+    public  ImageView slotUn;
     public ImageView slotDeux;
     public ImageView slotTrois;
     public ImageView slotQuatre;
@@ -23,7 +25,14 @@ public class InventaireController {
     @FXML
     private GridPane inventoryGrid;
 
-    public void updateInventaireGraphique(Node node){
-        inventoryGrid.add(node,0,0);
+    public void updateInventaireGraphique(){
+        ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
+        inventoryGrid.add(imageView,0,0);
+    }
+
+    public void changeImage(MouseEvent mouseEvent) {
+        //ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
+        //inventoryGrid.add(imageView,0,0);
+        slotUn.setImage(getImage("groupe2/taquin/piece25.png"));
     }
 }

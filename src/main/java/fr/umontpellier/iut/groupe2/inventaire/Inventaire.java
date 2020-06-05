@@ -2,27 +2,27 @@ package fr.umontpellier.iut.groupe2.inventaire;
 
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
-import javafx.scene.image.Image;
+import fr.umontpellier.iut.groupe2.TestController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
 
 public class Inventaire {
 
     private final ArrayList<ItemId> inventaire = new ArrayList<>();
-    public ImageView slotUn;
-    public ImageView slotDeux;
-    public ImageView slotTrois;
-    public ImageView slotQuatre;
-    public ImageView slotCinq;
-    public GridPane inventoryGrid;
+
 
     public void ajouterItem(ItemId itemId){
 
         if (inventaire.size() < 5 && !contientItem(itemId)) {
             inventaire.add(itemId);
-            updateInventaireGraphique(itemId.getImage());
+            System.out.println(itemId.getImage());
+            updateInventaireGraphique();
         } else if(inventaire.size() >= 5) {
             System.err.println("L'inventaire est rempli");
         } else if(contientItem(itemId)) {
@@ -50,7 +50,12 @@ public class Inventaire {
                 '}';
     }
 
-    public void updateInventaireGraphique(Image image){
-        slotUn.setImage(image);
+    public void updateInventaireGraphique()  {
+        ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
+
+
+        //MainSalleGroupe2.inventaireController.updateInventaireGraphique();
+
+
     }
 }

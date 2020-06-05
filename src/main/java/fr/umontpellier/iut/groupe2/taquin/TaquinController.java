@@ -28,53 +28,53 @@ public class TaquinController {
         if (!taquin.estGagnant()) {
 
             if (event.getSource() == un) {
-                updateScene(1, un);
+                updateScene(un, 1);
             } else if (event.getSource() == deux) {
-                updateScene(2, deux);
+                updateScene(deux, 2);
             } else if (event.getSource() == trois) {
-                updateScene(3, trois);
+                updateScene(trois, 3);
             } else if (event.getSource() == quatre) {
-                updateScene(4, quatre);
+                updateScene(quatre, 4);
             } else if (event.getSource() == cinq) {
-                updateScene(5, cinq);
+                updateScene(cinq, 5);
             } else if (event.getSource() == six) {
-                updateScene(6, six);
+                updateScene(six, 6);
             } else if (event.getSource() == sept) {
-                updateScene(7, sept);
+                updateScene(sept, 7);
             } else if (event.getSource() == huit) {
-                updateScene(8, huit);
+                updateScene(huit, 8);
             } else if (event.getSource() == neuf) {
-                updateScene(9, neuf);
+                updateScene(neuf, 9);
             } else if (event.getSource() == dix) {
-                updateScene(10, dix);
+                updateScene(dix, 10);
             } else if (event.getSource() == onze) {
-                updateScene(11, onze);
+                updateScene(onze, 11);
             } else if (event.getSource() == douze) {
-                updateScene(12, douze);
+                updateScene(douze, 12);
             } else if (event.getSource() == treize) {
-                updateScene(13, treize);
+                updateScene(treize, 13);
             } else if (event.getSource() == quatorze) {
-                updateScene(14, quatorze);
+                updateScene(quatorze, 14);
             } else if (event.getSource() == quinze) {
-                updateScene(15, quinze);
+                updateScene(quinze, 15);
             } else if (event.getSource() == seize) {
-                updateScene(16, seize);
+                updateScene(seize, 16);
             } else if (event.getSource() == dixsept) {
-                updateScene(17, dixsept);
+                updateScene(dixsept, 17);
             } else if (event.getSource() == dixhuit) {
-                updateScene(18, dixhuit);
+                updateScene(dixhuit, 18);
             } else if (event.getSource() == dixneuf) {
-                updateScene(19, dixneuf);
+                updateScene(dixneuf, 19);
             } else if (event.getSource() == vingt) {
-                updateScene(20, vingt);
+                updateScene(vingt, 20);
             } else if (event.getSource() == vingtun) {
-                updateScene(21, vingtun);
+                updateScene(vingtun, 21);
             } else if (event.getSource() == vingtdeux) {
-                updateScene(22, vingtdeux);
+                updateScene(vingtdeux,22);
             } else if (event.getSource() == vingttrois) {
-                updateScene(23, vingttrois);
+                updateScene(vingttrois,23);
             } else if (event.getSource() == vingtquatre) {
-                updateScene(24, vingtquatre);
+                updateScene(vingtquatre,24);
             }
         }
     }
@@ -82,7 +82,7 @@ public class TaquinController {
 
 
 
-    public void updateScene (int i, Node node){
+    public void updateScene (Node node, int i){
 
         int [] coordonne = taquin.trouverCoordonne(0);
         if(taquin.peutDeplacer(i)) {
