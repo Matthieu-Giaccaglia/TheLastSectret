@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 
 public class TaquinController {
 
+    public ImageView piece25Item;
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 

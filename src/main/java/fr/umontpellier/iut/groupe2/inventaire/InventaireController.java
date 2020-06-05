@@ -14,21 +14,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
 public class InventaireController {
+    public ImageView slotUn;
+    public ImageView slotDeux;
+    public ImageView slotTrois;
+    public ImageView slotQuatre;
+    public ImageView slotCinq;
     @FXML
     private GridPane inventoryGrid;
 
-
-    public void update(ActionEvent mouseEvent) {
-
-
-    }
-
-    public void update2(){
-
-    }
-
-
-    public void okay(ActionEvent event) {
-
-    }
 }
