@@ -11,39 +11,42 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.util.concurrent.TimeUnit;
+import javax.swing.text.html.ImageView;
 
 public class SalleController {
+    @FXML
+    private ImageView dark;
     @FXML
     private Button buttonBackTaquin;
     @FXML
     private Button taquinButton;
     @FXML
     private Button lightoutButton;
-    @FXML
-    private Button GVH;
-    @FXML
-    private TextField textfield;
+
+    private boolean etape1 = false;
+
 
     public void handleButton(ActionEvent event) {
 
-        if (event.getSource() == taquinButton) {
+        if(event.getSource() == taquinButton){
             taquinButton.setOnAction(new StepChangeRequest(StepID.TAQUIN, null));
-        } else if (event.getSource() == lightoutButton) {
+        } else if (event.getSource() == lightoutButton){
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
+            if(etape1==false){
+                etape1();
+            }
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
         }
     }
 
-    @FXML
-    public void onClick() {
-        textfield.setOpacity(1.0);
-
+    public void etape1(){
+        //if() {//lightout fini,
+            etape1=true;
+        //}
     }
 
     public Button getTaquinButton(){

@@ -4,10 +4,22 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="1080.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
-   <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="840.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <Image url="@../../raw/groupe2/salle/salleGroupe2.png" />
-   </ImageView>
-   <Button fx:id="taquinButton" layoutX="444.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Taquin" />
-   <Button fx:id="lightoutButton" layoutX="1135.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Light Out" />
-</AnchorPane>
+<StackPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
+   <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+      <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+         <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="840.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Image url="@../../raw/groupe2/salle/salleGroupe2.png" />
+         </ImageView>
+         <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="840.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+               <Image url="@../../raw/groupe2/salle/dark.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="taquinButton" layoutX="444.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Taquin" />
+         <Button fx:id="lightoutButton" layoutX="1135.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Light Out" />
+      </AnchorPane>
+      <AnchorPane layoutX="800.0" layoutY="1018.0" maxHeight="79.0" maxWidth="320.0" minHeight="47.0" minWidth="320.0" prefHeight="62.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="800.0" AnchorPane.rightAnchor="800.0">
+         <fx:include source="inventaire.fxml" />
+      </AnchorPane>
+   </AnchorPane>
+</StackPane>
