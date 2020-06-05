@@ -15,26 +15,29 @@
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
+        <ImageView fx:id="slotUn" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-        <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+        <ImageView fx:id="slotDeux" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-        <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+        <ImageView fx:id="slotTrois" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-        <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+        <ImageView fx:id="slotQuatre" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-        <ImageView fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+        <ImageView fx:id="slotCinq" fitHeight="64" fitWidth="64" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
             <Image url="@../../raw/groupe1/inventory_slot.jpg" />
         </ImageView>
-      <ImageView fx:id="slotUn" fitHeight="58.0" fitWidth="58.0" onMouseClicked="#changeImage" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="slotDeux" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-      <ImageView fx:id="slotTrois" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-      <ImageView fx:id="slotQuatre" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-      <ImageView fx:id="slotCinq" fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+        <ImageView fx:id="slotItemUn" fitHeight="60.0" fitWidth="60.0" nodeOrientation="INHERIT"
+                   onMouseClicked="#changeImage" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/taquin/piece1.png"/>
+        </ImageView>
+      <ImageView fx:id="slotItemDeux" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+      <ImageView fx:id="slotItemTrois" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+      <ImageView fx:id="slotItemQuatre" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+      <ImageView fx:id="slotItemCinq" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
     </GridPane>
 
 </AnchorPane>
