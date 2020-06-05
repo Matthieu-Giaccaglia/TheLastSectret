@@ -15,7 +15,11 @@ import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
 public class Inventaire {
 
     private final ArrayList<ItemId> inventaire = new ArrayList<>();
+    private final InventaireController controller; //todo
 
+    public Inventaire(InventaireController controller) {//todo
+        this.controller = controller;
+    }
 
     public void ajouterItem(ItemId itemId){
 
@@ -52,7 +56,7 @@ public class Inventaire {
 
     public void updateInventaireGraphique()  {
         ImageView imageView = new ImageView(getImage("groupe2/taquin/piece25.png"));
-
+        controller.getInventoryGrid().add(imageView, 0, 0); //todo
 
         //MainSalleGroupe2.inventaireController.updateInventaireGraphique();
 

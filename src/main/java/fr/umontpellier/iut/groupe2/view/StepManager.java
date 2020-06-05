@@ -15,15 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StepManager {
-    private final Inventaire inventaire;
+    private Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
     private AnchorPane anchorPane = new AnchorPane();
     private Parent gameNode;
 
-    public StepManager(Stage stage, Inventaire inventaire){
-        this.inventaire = inventaire;
-
+    public StepManager(Stage stage){
         stepMap = new HashMap<>();
 
         try {
@@ -36,6 +34,10 @@ public class StepManager {
         assert root != null;
 
         stage.setScene(new Scene(root, 1920, 1017));
+    }
+
+    public void setInventaire(Inventaire inventaire) {
+        this.inventaire = inventaire;
     }
 
     public Inventaire getInventaire() {

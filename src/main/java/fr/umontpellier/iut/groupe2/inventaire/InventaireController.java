@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 import fr.umontpellier.iut.commun.data.ImageLoader;
+import fr.umontpellier.iut.groupe1.data.ControllerManager;
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.event.ActionEvent;
@@ -16,7 +17,7 @@ import javafx.scene.layout.GridPane;
 
 import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
 
-public class InventaireController {
+public class InventaireController implements ControllerManager {
     @FXML
     private ImageView slotUn, slotDeux, slotTrois, slotQuatre, slotCinq;
     @FXML
@@ -36,5 +37,14 @@ public class InventaireController {
         if(slotItemUn.getImage() != null){
             slotUn.setImage(getImage("groupe1/inventory_slot_selectionne.png"));
         }
+    }
+
+    public GridPane getInventoryGrid() { //todo
+        return inventoryGrid;
+    }
+
+    @Override
+    public InventaireController getInventaire() {
+        return this;
     }
 }
