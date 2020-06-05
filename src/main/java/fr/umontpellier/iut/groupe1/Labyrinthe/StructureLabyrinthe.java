@@ -26,31 +26,16 @@ public class StructureLabyrinthe extends Group {
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
 
-        PhongMaterial material = new PhongMaterial();
-        material.setDiffuseMap(ImageLoader.getImage("groupe1/stone.png"));
-
         compteurMort.setTranslateX(width - (width/4));
         compteurMort.setTranslateY(height/4 -100);
         compteurMort.setTranslateZ(-50);
         compteurMort.setStyle("-fx-text-fill: black; -fx-background-color: transparent;-fx-font-size: 16;");
 
-        Mur murCheckpoint1 = new Mur(20, 20, width/2 -125, height/2 -150);
+        Checkpoint murCheckpoint1 = new Checkpoint(width/2 -125, height/2 -150);
+        Checkpoint murCheckpoint2 = new Checkpoint(width +25, height+25);
+        Checkpoint murCheckpoint3 = new Checkpoint(width -175, height +75);
 
-        murCheckpoint1.setMaterial(material);
-        murCheckpoint1.setDepth(20);
-        murCheckpoint1.setTranslateZ(-10);
-
-        Mur murCheckpoint2 = new Mur(20, 20, width +25, height+25);
-        murCheckpoint2.setMaterial(material);
-        murCheckpoint2.setDepth(20);
-        murCheckpoint2.setTranslateZ(-10);
-
-        Mur murCheckpoint3 = new Mur(20, 20, width -175, height +75);
-        murCheckpoint3.setMaterial(material);
-        murCheckpoint3.setDepth(20);
-        murCheckpoint3.setTranslateZ(-10);
-
-        final Mur[] checkpoint = {murCheckpoint1};
+        final Checkpoint[] checkpoint = {murCheckpoint1};
 
         Boule boule = new Boule(14, checkpoint[0].getTranslateX(), checkpoint[0].getTranslateY());
 
@@ -294,7 +279,7 @@ public class StructureLabyrinthe extends Group {
         timer.start();
     }
 
-    public boolean intersection(Boule nodeA, Mur nodeB) {
+    public boolean intersection(Boule nodeA, Node nodeB) {
 
         /*if (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() &&
                 (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 >= nodeB.getBoundsInParent().getMaxX() &&
