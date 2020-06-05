@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -197,5 +198,10 @@
             <Insets right="42.0" top="185.0" />
          </padding>
       </HBox>
+      <Button fx:id="buttonValideur" mnemonicParsing="false" onAction="#handleButtonValide" text="Valider">
+         <StackPane.margin>
+            <Insets right="50.0" top="800.0" />
+         </StackPane.margin>
+      </Button>
    </children>
 </StackPane>
