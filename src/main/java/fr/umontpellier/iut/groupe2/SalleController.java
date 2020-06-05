@@ -4,6 +4,7 @@ import com.sun.javafx.menu.MenuItemBase;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.event.ActionEvent;
@@ -11,14 +12,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import javax.swing.text.html.ImageView;
 
 public class SalleController {
-    @FXML
-    private ImageView dark;
+
+
     @FXML
     private Button buttonBackTaquin;
     @FXML
@@ -36,7 +37,7 @@ public class SalleController {
         } else if (event.getSource() == lightoutButton){
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
-            if(etape1==false){
+            if(!etape1){
                 etape1();
             }
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
