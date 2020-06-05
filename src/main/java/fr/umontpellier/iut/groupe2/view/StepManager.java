@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class StepManager {
     private final Inventaire inventaire;
-    private final Map<StepID, Step> stepMap;
+    private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
     private Parent gameNode;
 
@@ -38,7 +38,7 @@ public class StepManager {
         return inventaire;
     }
 
-    public void addStep(Step step){
+    public void addStep(Step<? extends Parent> step){
         if(stepMap.containsKey(step.getId())){
             System.err.println("Attention vous avez essayé d'ajouter une Step déjà présente dans la liste !\n" +
                     "StepID : " + step.getId());
@@ -49,18 +49,11 @@ public class StepManager {
         }
     }
 
-    public void addAllStep(Step... steps){
-        for(Step step : steps){
-            addStep(step);
-        }
-    }
-
     public void openStep(StepID stepID) {
         if (gameNode != null) gameNode.setVisible(false);
         if (stepMap.containsKey(stepID)) {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
-            //gameNode.
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");

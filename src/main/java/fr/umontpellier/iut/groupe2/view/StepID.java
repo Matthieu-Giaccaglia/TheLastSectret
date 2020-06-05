@@ -2,8 +2,9 @@ package fr.umontpellier.iut.groupe2.view;
 
 public enum StepID {
     START(0),
-    TRAPEZE(1),
-    TAQUIN(2);
+    TAQUIN(1),
+    LIGHTSOUT(2);
+
 
     private final int id;
 
