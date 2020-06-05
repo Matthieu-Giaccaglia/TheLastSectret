@@ -6,11 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 
 public class SalleController {
 
-
+    @FXML
+    public ImageView dark_Id;
     @FXML
     private Button buttonBackTaquin;
     @FXML
@@ -22,27 +24,17 @@ public class SalleController {
     @FXML
     private TextField textfield;
 
-    private boolean etape1 = false;
-
 
     public void handleButton(ActionEvent event) {
 
-        if(event.getSource() == taquinButton){
+        if (event.getSource() == taquinButton) {
             taquinButton.setOnAction(new StepChangeRequest(StepID.TAQUIN, null));
-        } else if (event.getSource() == lightoutButton){
+        } else if (event.getSource() == lightoutButton) {
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
-            if(!etape1){
-                etape1();
-            }
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
+            //dark_Id.setVisible(false);
         }
-    }
-
-    public void etape1(){
-        //if() {//lightout fini,
-            etape1=true;
-        //}
     }
 
     @FXML
