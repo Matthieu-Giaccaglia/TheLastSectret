@@ -26,8 +26,10 @@ public class TrapezeController implements Initializable {
     }
 
     public void handleButtonValide(ActionEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible())
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible()) {
             gagne();
+
+        }
     }
 
 
