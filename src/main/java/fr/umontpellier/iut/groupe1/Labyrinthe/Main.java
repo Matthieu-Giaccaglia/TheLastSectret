@@ -9,7 +9,7 @@ public class Main extends Application {
     public void start(Stage primaryStage){
         double width = 1000, height = 900;
         //initMouseControl(labyrinthe, jeuLabyrinthe, primaryStage);
-        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new StructureLabyrinthe(width / 2, height / 2, primaryStage),width, height);
+        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new BackgroundLabyrinthe(new StructureLabyrinthe(width / 2, height / 2, primaryStage)),width, height);
 
         primaryStage.setTitle("Labyrinthe");
         primaryStage.setScene(jeuLabyrinthe);
