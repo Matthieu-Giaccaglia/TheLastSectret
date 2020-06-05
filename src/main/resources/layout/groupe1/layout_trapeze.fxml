@@ -11,6 +11,25 @@
             <Image url="@../../raw/groupe1/cam4.jpg" />
          </image>
       </ImageView>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../raw/groupe1/aigle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../raw/groupe1/dauphin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../raw/groupe1/serpent.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <children>
             <ImageView fx:id="flecheGauche0" fitHeight="25.0" fitWidth="25.0" onMouseDragReleased="#handleButtonAction0" onMousePressed="#handleButtonAction0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
