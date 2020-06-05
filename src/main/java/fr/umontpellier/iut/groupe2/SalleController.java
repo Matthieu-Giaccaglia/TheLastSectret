@@ -33,7 +33,7 @@ public class SalleController {
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
-            //dark_Id.setVisible(false);
+            //dark_Id.setVisible(false); renvoie nullpointerexception, peut etre pck on clique deux fois dessus
         }
     }
 
