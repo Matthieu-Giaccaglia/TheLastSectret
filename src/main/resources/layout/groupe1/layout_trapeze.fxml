@@ -11,24 +11,34 @@
             <Image url="@../../raw/groupe1/cam4.jpg" />
          </image>
       </ImageView>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" rotate="-19.0" scaleY="7.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../raw/groupe1/aigle.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="dauphinCote0" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../raw/groupe1/dauphin.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="serpentCote0" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" scaleY="0.5" visible="false">
                <image>
                   <Image url="@../../raw/groupe1/serpent.png" />
                </image>
+               <StackPane.margin>
+                  <Insets bottom="5.0" />
+               </StackPane.margin>
             </ImageView>
+            <ImageView fx:id="aigleCote0" fitHeight="50.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../raw/groupe1/aigle.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="videCote0" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
          </children>
+         <StackPane.margin>
+            <Insets right="985.0" top="170.0" />
+         </StackPane.margin>
       </StackPane>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <children>
@@ -163,5 +173,6 @@
             <Insets right="42.0" top="185.0" />
          </padding>
       </HBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
    </children>
 </StackPane>
