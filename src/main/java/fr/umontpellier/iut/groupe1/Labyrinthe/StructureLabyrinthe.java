@@ -339,8 +339,8 @@ public class StructureLabyrinthe extends Group {
                 mur41, mur42, mur43, mur44, mur45, mur46, mur47, mur48, mur49, mur50,
                 mur51, mur52, mur53, mur54, mur55, mur56, mur57, mur58, mur59, mur60,
                 mur61, mur62, mur63, mur64, mur65, mur66, mur67, mur68, mur69, mur70,
-                mur71, mur72, mur73, mur74, mur75, mur76, mur77, mur78, /*mur79, mur80,
-                mur81, mur82, mur83,*/ mur84, mur85, mur86, mur87, mur88
+                mur71, mur72, mur73, mur74, mur75, mur76, mur77, mur78, mur79, mur80,
+                mur81, mur82, mur83, mur84, mur85, mur86, mur87, mur88
         );
 
         timer = new AnimationTimer() {
@@ -390,6 +390,7 @@ public class StructureLabyrinthe extends Group {
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
         alert.show();
+        timer.start();
     }
 
     public boolean intersection(Boule nodeA, Node nodeB) {
