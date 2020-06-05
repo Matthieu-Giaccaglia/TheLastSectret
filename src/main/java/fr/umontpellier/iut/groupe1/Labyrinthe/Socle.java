@@ -11,7 +11,7 @@ public class Socle extends Box {
         this.setHeight(width);
         this.setDepth(depth);
         PhongMaterial material = new PhongMaterial();
-        material.setDiffuseMap(ImageLoader.getImage("groupe1/sableTest.jpg"));
+        material.setDiffuseMap(ImageLoader.getImage("groupe1/sableSocleLaby.jpg"));
         this.setMaterial(material);
         this.setTranslateX(translateX);
         this.setTranslateY(translateY);
