@@ -22,6 +22,7 @@ public class StructureLabyrinthe extends Group {
     private final double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
+    private AnimationTimer timer;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
@@ -297,14 +298,14 @@ public class StructureLabyrinthe extends Group {
         Mur mur78 = new Mur(tailleMur, 100, mur1.getTranslateX() + 675,250);
         listeMur.add(mur78);
 
-        Mur mur79 = new Mur(150, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
+        Mur mur79 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
         listeMur.add(mur79);
 
-        Mur mur80 = new Mur(150, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
+        Mur mur80 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
         mur80.setRotate(60);
         listeMur.add(mur80);
 
-        Mur mur81 = new Mur(150, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
+        Mur mur81 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,450); // mur qui tourne
         mur81.setRotate(120);
         listeMur.add(mur81);
 
@@ -339,11 +340,11 @@ public class StructureLabyrinthe extends Group {
                 mur41, mur42, mur43, mur44, mur45, mur46, mur47, mur48, mur49, mur50,
                 mur51, mur52, mur53, mur54, mur55, mur56, mur57, mur58, mur59, mur60,
                 mur61, mur62, mur63, mur64, mur65, mur66, mur67, mur68, mur69, mur70,
-                mur71, mur72, mur73, mur74, mur75, mur76, mur77, mur78, mur79, mur80,
-                mur81, mur82, mur83, mur84, mur85, mur86, mur87, mur88
+                mur71, mur72, mur73, mur74, mur75, mur76, mur77, mur78, /*mur79, mur80,
+                mur81, mur82, mur83,*/ mur84, mur85, mur86, mur87, mur88
         );
 
-        AnimationTimer timer = new AnimationTimer() {
+        timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
 
@@ -374,8 +375,8 @@ public class StructureLabyrinthe extends Group {
                 }else if(intersection(boule, murCheckpoint4)){
                     checkpoint[0] = murCheckpoint4;
                 }if(intersection(boule, clef)){
-                    this.stop();
-                    //gagne();
+                    timer.stop();
+                    gagne();
                     boule.setTranslateX(murCheckpoint1.getTranslateX());
                     boule.setTranslateY(murCheckpoint1.getTranslateY());
                 }
@@ -389,7 +390,7 @@ public class StructureLabyrinthe extends Group {
         alert.setTitle("Bravo");
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
-        alert.showAndWait();
+        alert.show();
     }
 
     public boolean intersection(Boule nodeA, Node nodeB) {
