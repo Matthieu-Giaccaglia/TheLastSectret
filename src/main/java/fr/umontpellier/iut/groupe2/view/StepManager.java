@@ -76,7 +76,7 @@ public class StepManager {
         if (stepMap.containsKey(StepID.INVENTAIRE)) {
             Parent parent = stepMap.get(StepID.INVENTAIRE).open();
             parent.setLayoutX(640.0);
-            parent.setLayoutY(950.0);
+            parent.setLayoutY(880.0);
             parent.setVisible(true);
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
