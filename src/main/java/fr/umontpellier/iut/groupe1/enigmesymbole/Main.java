@@ -23,7 +23,7 @@ public class Main extends Application {
 
         assert root != null;
 
-        primaryStage.setScene(new Scene(root, 800, 480));
+        primaryStage.setScene(new Scene(root, 1920, 1017));
         primaryStage.show();
     }
 
