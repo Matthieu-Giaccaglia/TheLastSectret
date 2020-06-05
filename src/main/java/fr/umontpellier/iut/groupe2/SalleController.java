@@ -11,8 +11,11 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.util.concurrent.TimeUnit;
 
 public class SalleController {
     @FXML
@@ -21,20 +24,27 @@ public class SalleController {
     private Button taquinButton;
     @FXML
     private Button lightoutButton;
-
-
+    @FXML
+    private Button GVH;
+    @FXML
+    private TextField textfield;
 
     public void handleButton(ActionEvent event) {
 
-        if(event.getSource() == taquinButton){
+        if (event.getSource() == taquinButton) {
             taquinButton.setOnAction(new StepChangeRequest(StepID.TAQUIN, null));
-        } else if (event.getSource() == lightoutButton){
+        } else if (event.getSource() == lightoutButton) {
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
         } else if (event.getSource() == buttonBackTaquin) {
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
         }
     }
 
+    @FXML
+    public void onClick() {
+        textfield.setOpacity(1.0);
+
+    }
 
     public Button getTaquinButton(){
         return taquinButton;

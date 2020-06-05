@@ -3,11 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane minHeight="1080.0" minWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
    <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="840.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Image url="@../../raw/groupe2/salle/salleGroupe2.png" />
    </ImageView>
-   <Button fx:id="taquinButton" layoutX="444.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Taquin" />
-   <Button fx:id="lightoutButton" layoutX="1135.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="54.0" prefWidth="101.0" text="Light Out" />
+   <Button fx:id="taquinButton" layoutX="368.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="292.0" prefWidth="238.0" text="Taquin" />
+   <Button fx:id="lightoutButton" layoutX="1074.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="292.0" prefWidth="238.0" text="Light Out" />
+   <Button fx:id="Pillier" layoutX="1730.0" layoutY="368.0" mnemonicParsing="false" opacity="0.0" prefHeight="574.0" prefWidth="96.0" rotate="3.4" text="Pillier" />
+   <Button fx:id="GVH" layoutX="1766.0" layoutY="273.0" mnemonicParsing="false" onAction="#onClick" opacity="0.0" prefHeight="84.0" prefWidth="67.0" text="GVH" />
+   <TextField fx:id="textfield" editable="false" layoutX="1602.0" layoutY="171.0" opacity="0.0" prefHeight="51.0" prefWidth="318.0" text="La gemme est trop haute">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </TextField>
 </AnchorPane>
