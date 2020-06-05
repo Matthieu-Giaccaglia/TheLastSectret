@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,10 +15,10 @@ public class TrapezeController implements Initializable {
 
     /*------------------- 1er -------------------*/
     @FXML
-    private Button flecheDroite0;
+    private ImageView flecheDroite0;
 
     @FXML
-    private Button flecheGauche0;
+    private ImageView flecheGauche0;
 
     @FXML
     private ImageView aigle0;
@@ -40,7 +41,7 @@ public class TrapezeController implements Initializable {
     }
 
     @FXML
-    void handleButtonAction0(ActionEvent actionEvent) {
+    void handleButtonAction0(MouseEvent actionEvent) {
         if (actionEvent.getSource() == flecheDroite0 && aigle0.isVisible()) {
             aigle0.setVisible(false);
             serpent0.setVisible(true);
@@ -136,10 +137,10 @@ public class TrapezeController implements Initializable {
     /*------------------- 3eme -------------------*/
 
     @FXML
-    private Button flecheDroite2;
+    private ImageView flecheDroite2;
 
     @FXML
-    private Button flecheGauche2;
+    private ImageView flecheGauche2;
 
     @FXML
     private ImageView aigle2;
@@ -154,7 +155,7 @@ public class TrapezeController implements Initializable {
     private ImageView vide2;
 
     @FXML
-    void handleButtonAction2(ActionEvent actionEvent) {
+    void handleButtonAction2(MouseEvent actionEvent) {
         if (actionEvent.getSource() == flecheDroite2 && aigle2.isVisible()) {
             aigle2.setVisible(false);
             serpent2.setVisible(true);
