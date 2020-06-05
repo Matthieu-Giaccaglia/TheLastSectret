@@ -5,82 +5,14 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.enigmesymbole.TrapezeController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="1905.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.enigmesymbole.TrapezeController">
    <children>
       <ImageView fx:id="background" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../raw/groupe1/cam4.jpg" />
          </image>
       </ImageView>
-      <HBox alignment="CENTER" prefHeight="436.0" prefWidth="1320.0">
-         <children>
-            <Button fx:id="flecheGauche2" mnemonicParsing="false" onAction="#handleButtonAction2" text="&lt;" />
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <ImageView fx:id="serpent2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../raw/groupe1/serpent.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="aigle2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../raw/groupe1/aigle.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-                  <ImageView fx:id="vide2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                  <ImageView fx:id="dauphin2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../raw/groupe1/dauphin.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-            <Button fx:id="flecheDroite2" mnemonicParsing="false" onAction="#handleButtonAction2" text="&gt;" />
-         </children>
-         <padding>
-            <Insets left="1250.0" top="185.0" />
-         </padding>
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-      </HBox>
-      <HBox alignment="CENTER">
-         <children>
-            <Button fx:id="flecheGauche1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&lt;" />
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <ImageView fx:id="serpent1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                     <image>
-                        <Image url="@../../raw/groupe1/serpent.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="aigle1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../raw/groupe1/aigle.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-                  <ImageView fx:id="vide1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-                  <ImageView fx:id="dauphin1" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" visible="false">
-                     <pickOnBounds>true</pickOnBounds>
-                     <image>
-                        <Image url="@../../raw/groupe1/dauphin.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-            <Button fx:id="flecheDroite1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&gt;" />
-         </children>
-         <padding>
-            <Insets right="45.0" top="185.0" />
-         </padding>
-      </HBox>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <children>
             <Button fx:id="flecheGauche0" mnemonicParsing="false" onAction="#handleButtonAction0" text="&lt;" />
             <StackPane prefHeight="150.0" prefWidth="200.0">
@@ -117,6 +49,74 @@
          </children>
          <padding>
             <Insets right="1260.0" top="185.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
+         <children>
+            <Button fx:id="flecheGauche2" mnemonicParsing="false" onAction="#handleButtonAction2" text="&lt;" />
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="serpent2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../raw/groupe1/serpent.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="aigle2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../raw/groupe1/aigle.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="vide2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                  <ImageView fx:id="dauphin2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../raw/groupe1/dauphin.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <Button fx:id="flecheDroite2" mnemonicParsing="false" onAction="#handleButtonAction2" text="&gt;" />
+         </children>
+         <padding>
+            <Insets left="1250.0" top="185.0" />
+         </padding>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+         <children>
+            <Button fx:id="flecheGauche1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&lt;" />
+            <StackPane>
+               <children>
+                  <ImageView fx:id="serpent1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../raw/groupe1/serpent.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="aigle1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../raw/groupe1/aigle.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="vide1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                  <ImageView fx:id="dauphin1" fitHeight="150.0" fitWidth="200.0" preserveRatio="true" visible="false">
+                     <pickOnBounds>true</pickOnBounds>
+                     <image>
+                        <Image url="@../../raw/groupe1/dauphin.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <Button fx:id="flecheDroite1" mnemonicParsing="false" onAction="#handleButtonAction1" text="&gt;" />
+         </children>
+         <padding>
+            <Insets right="42.0" top="185.0" />
          </padding>
       </HBox>
    </children>
