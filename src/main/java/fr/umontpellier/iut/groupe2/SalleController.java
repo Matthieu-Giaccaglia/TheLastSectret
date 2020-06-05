@@ -41,7 +41,7 @@ public class SalleController {
             dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
         }
         */
-        if(dark_Id.isVisible()){
+        if(dark_Id.isVisible()){// à changer par les 3 lignes en commentaires
             dark_Id.setVisible(false);
         }
     }

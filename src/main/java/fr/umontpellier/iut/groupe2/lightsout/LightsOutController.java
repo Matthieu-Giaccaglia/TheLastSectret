@@ -23,7 +23,7 @@ public class LightsOutController {
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
     public static boolean gagne = false;
-    public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
+    //public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
 
     public void light_switch(MouseEvent event) {
 
@@ -75,7 +75,7 @@ public class LightsOutController {
         /*System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
-        new MediaPlayer(bricksound).play();
+        //new MediaPlayer(bricksound).play();
         if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
             if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
                 imgsSwitch(0,0);
