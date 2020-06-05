@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -31,7 +32,7 @@ public enum ItemId {
         this.imageView = imageView;
     }
 
-    public ImageView getImageView() {
-        return imageView;
+    public Image getImage() {
+        return imageView.getImage();
     }
 }

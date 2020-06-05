@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
+import fr.umontpellier.iut.groupe2.SalleController;
+import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -57,9 +59,8 @@ public class LightsOutController {
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
             }
-            if(Lout.estGagnant()){
-                System.out.println("bravo");
-            }
+        }else{
+            System.out.println("bravo");
         }
     }
     public void updateScene (int i, ImageView img){
