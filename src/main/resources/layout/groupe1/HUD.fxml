@@ -4,12 +4,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.MainController">
 
     <top>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <Label fx:id="label_room" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="16.0">Salle 1</Label>
-            <Label fx:id="timer" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="16.0">5:00</Label>
+            <Label fx:id="timerJeu" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="16.0">5:00</Label>
         </AnchorPane>
     </top>
     
