@@ -1,20 +1,11 @@
 package fr.umontpellier.iut.groupe2;
 
-import com.sun.javafx.menu.MenuItemBase;
-import fr.umontpellier.iut.commun.data.LayoutLoader;
-import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
-import fr.umontpellier.iut.groupe2.view.StepManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
 
 public class SalleController {
@@ -26,6 +17,10 @@ public class SalleController {
     private Button taquinButton;
     @FXML
     private Button lightoutButton;
+    @FXML
+    private Button Gvh;
+    @FXML
+    private TextField textfield;
 
     private boolean etape1 = false;
 
@@ -48,6 +43,11 @@ public class SalleController {
         //if() {//lightout fini,
             etape1=true;
         //}
+    }
+
+    @FXML
+    public void onClick(){
+        textfield.setOpacity(1.0);
     }
 
     public Button getTaquinButton(){
