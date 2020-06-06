@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
+import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
@@ -15,8 +16,10 @@ import javafx.scene.layout.GridPane;
 
 public class TaquinController {
 
+
+
     @FXML
-    private ImageView piece25Item;
+    private ImageView vingtcinq;
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
@@ -76,7 +79,13 @@ public class TaquinController {
             } else if (event.getSource() == vingtquatre) {
                 updateScene(vingtquatre,24);
             }
+        } else if (event.getSource() == vingtcinq && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25){
+            vingtcinq.setImage(ItemId.taquinPiece25.getImage());
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece25);
         }
+
+        if(vingtcinq.isDisable() && taquin.estGagnant())
+            vingtcinq.setDisable(false);
     }
 
 
@@ -88,11 +97,13 @@ public class TaquinController {
         if(taquin.peutDeplacer(i)) {
             GridPane.setConstraints(node, coordonne[1], coordonne[0]);
         }
-
     }
 
     public void recupItem(MouseEvent mouseEvent) {
 
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece25);
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece24);
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece23);
+
     }
 }
