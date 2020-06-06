@@ -291,7 +291,7 @@ public class StructureLabyrinthe extends Group {
         Mur mur76 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,300);
         listeMur.add(mur76);
 
-        Mur mur77 = new Mur(150, tailleMur, mur1.getTranslateX() + 575,350);
+        Mur mur77 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,350);
         listeMur.add(mur77);
 
         Mur mur78 = new Mur(tailleMur, 100, mur1.getTranslateX() + 675,250);
@@ -311,7 +311,7 @@ public class StructureLabyrinthe extends Group {
         Mur mur82 = new Mur(tailleMur, 200, mur1.getTranslateX() + 675,450);
         listeMur.add(mur82);
 
-        Mur mur83 = new Mur(150, tailleMur, mur1.getTranslateX() + 575,550);
+        Mur mur83 = new Mur(100, tailleMur, mur1.getTranslateX() + 575,550);
         listeMur.add(mur83);
 
         Mur mur84 = new Mur(tailleMur, 100, mur1.getTranslateX() + 675,650);
