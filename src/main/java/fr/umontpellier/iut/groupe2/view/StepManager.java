@@ -3,7 +3,9 @@ package fr.umontpellier.iut.groupe2.view;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe2.SalleController;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
+import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -18,8 +20,9 @@ public class StepManager {
     private Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
-    private AnchorPane anchorPane = new AnchorPane();
+    private final AnchorPane anchorPane = new AnchorPane();
     private Parent gameNode;
+
 
     public StepManager(Stage stage){
         stepMap = new HashMap<>();
@@ -75,8 +78,8 @@ public class StepManager {
     public void openStepInventaire() {
         if (stepMap.containsKey(StepID.INVENTAIRE)) {
             Parent parent = stepMap.get(StepID.INVENTAIRE).open();
-            parent.setLayoutX(640.0);
-            parent.setLayoutY(880.0);
+            parent.setLayoutX(710.0);
+            parent.setLayoutY(915.0);
             parent.setVisible(true);
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +

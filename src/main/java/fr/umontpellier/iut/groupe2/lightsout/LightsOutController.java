@@ -22,8 +22,14 @@ public class LightsOutController {
 
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
-    public static boolean gagne = false;
+    public static boolean gagnant = false;
+
     public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
+
+
+    public boolean getGagne() {
+        return gagnant;
+    }
 
     public void light_switch(MouseEvent event) {
 
@@ -65,7 +71,7 @@ public class LightsOutController {
         }
         if(Lout.estGagnant()){
             System.out.println("bravo");
-            gagne = true;
+            gagnant = true;
         }
     }
     public void updateScene (int i, ImageView img){

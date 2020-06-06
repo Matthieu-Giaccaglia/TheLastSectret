@@ -1,13 +1,13 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 import fr.umontpellier.iut.commun.data.ImageLoader;
-import fr.umontpellier.iut.groupe1.data.ControllerManager;
+import fr.umontpellier.iut.groupe1.data.ControllerManagerInventaire;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class InventaireController implements ControllerManager {
+public class InventaireController implements ControllerManagerInventaire {
     @FXML
     private ImageView slotUn, slotDeux, slotTrois, slotQuatre, slotCinq;
     @FXML

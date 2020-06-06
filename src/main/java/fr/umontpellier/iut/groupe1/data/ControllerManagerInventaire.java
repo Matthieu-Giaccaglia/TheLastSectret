@@ -2,6 +2,6 @@ package fr.umontpellier.iut.groupe1.data;
 
 import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
 
-public interface ControllerManager {
+public interface ControllerManagerInventaire {
     InventaireController getInventaire();
 }

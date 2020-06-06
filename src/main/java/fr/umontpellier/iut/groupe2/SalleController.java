@@ -1,14 +1,11 @@
 package fr.umontpellier.iut.groupe2;
 
-import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
-import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
-import fr.umontpellier.iut.groupe2.taquin.TaquinController;
+import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import fr.umontpellier.iut.groupe2.view.Step;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -17,13 +14,13 @@ import javafx.scene.image.ImageView;
 public class SalleController {
 
     @FXML
-    public ImageView dark_Id;
+    public static ImageView dark_Id;
     @FXML
     private Button buttonBackTaquin, taquinButton, lightoutButton, Gvh;
     @FXML
     private TextField textfield;
 
-
+    private LightsOutController lightsOutController = new LightsOutController();
 
 
     public void handleButton(ActionEvent event) {
@@ -35,20 +32,27 @@ public class SalleController {
         } else if (event.getSource() == buttonBackTaquin) {
             buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
         }
-        /*
-        if(LightsOutController.gagne) {//il faut faire un getstep == Start
-            dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
-        }
-        */
-        if(dark_Id.isVisible()){// à changer par les 3 lignes en commentaires
-            dark_Id.setVisible(false);
-        }
+
+
     }
 
     @FXML
     public void onClick(){
         textfield.setOpacity(1.0);
+
+        /*
+        if(LightsOutController.gagne) {//il faut faire un getstep == Start
+            dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
+        }
+        */
     }
 
+    public void allumeSalle (){
+        dark_Id.setVisible(false);
+    }
+
+    public Boolean estAllume (){
+        return dark_Id.isVisible();
+    }
 
 }

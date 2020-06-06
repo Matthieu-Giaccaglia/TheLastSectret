@@ -5,9 +5,9 @@ import javafx.scene.Parent;
 public class Layout<T extends Parent> {
 
     private final T root;
-    private final ControllerManager controller;
+    private final ControllerManagerInventaire controller;
 
-    public Layout(T root, ControllerManager controller) {
+    public Layout(T root, ControllerManagerInventaire controller) {
         this.root = root;
         this.controller = controller;
     }
@@ -16,7 +16,7 @@ public class Layout<T extends Parent> {
         return root;
     }
 
-    public ControllerManager getController() {
+    public ControllerManagerInventaire getControllerInventaire() {
         return controller;
     }
 }
