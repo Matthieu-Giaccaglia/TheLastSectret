@@ -32,10 +32,12 @@ public class MainSalleGroupe2 extends Application {
 
             Step<Parent> inventaire = new Step<>(StepID.INVENTAIRE, LayoutLoader.getLayout2("groupe2/inventaire.fxml"));
             InventaireController inventaireController = inventaire.getLayout().getController().getInventaire();
-
             stepManager.setInventaire(new Inventaire(inventaireController));
-
             stepManager.addStep(inventaire);
+
+
+
+
             stepManager.addAnchorPane();
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

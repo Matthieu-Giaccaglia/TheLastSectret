@@ -1,11 +1,14 @@
 package fr.umontpellier.iut.groupe2;
 
+import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
-import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
+import fr.umontpellier.iut.groupe2.taquin.TaquinController;
 import fr.umontpellier.iut.groupe2.view.Step;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -16,15 +19,11 @@ public class SalleController {
     @FXML
     public ImageView dark_Id;
     @FXML
-    private Button buttonBackTaquin;
-    @FXML
-    private Button taquinButton;
-    @FXML
-    private Button lightoutButton;
-    @FXML
-    private Button Gvh;
+    private Button buttonBackTaquin, taquinButton, lightoutButton, Gvh;
     @FXML
     private TextField textfield;
+
+
 
 
     public void handleButton(ActionEvent event) {
@@ -51,8 +50,5 @@ public class SalleController {
         textfield.setOpacity(1.0);
     }
 
-    public Button getTaquinButton(){
-        return taquinButton;
-    }
 
 }

@@ -1,16 +1,7 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 
-import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
-import fr.umontpellier.iut.groupe2.TestController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.image.ImageView;
-
-import java.io.IOException;
 import java.util.ArrayList;
-
-import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
 
 public class Inventaire {
 

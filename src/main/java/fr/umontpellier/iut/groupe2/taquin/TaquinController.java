@@ -1,15 +1,10 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
-import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
-import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import fr.umontpellier.iut.groupe2.view.StepID;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -25,6 +20,7 @@ public class TaquinController {
 
     private final int[][] mat1 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 0, 24}};
     private final Taquin taquin = new Taquin(mat1);
+    private boolean gagnant = false;
 
     public void mouvement(MouseEvent event) {
 
@@ -82,6 +78,7 @@ public class TaquinController {
         } else if (event.getSource() == vingtcinq && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25){
             vingtcinq.setImage(ItemId.taquinPiece25.getImage());
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece25);
+            gagnant = true;
         }
 
         if(vingtcinq.isDisable() && taquin.estGagnant())
@@ -107,4 +104,9 @@ public class TaquinController {
         MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece24);
 
     }
+
+    public boolean estGagnant(){
+        return gagnant;
+    }
+
 }
