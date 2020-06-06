@@ -6,9 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-
-import static fr.umontpellier.iut.groupe1.data.ImageLoader.getImage;
 
 public class InventaireController implements ControllerManager {
     @FXML
@@ -23,49 +20,41 @@ public class InventaireController implements ControllerManager {
 
     public void itemSelection(MouseEvent mouseEvent) {
 
-        if(itemSelectionne > -1)
-            setImageSlot(slotNonSelectionne);
-
-            if(mouseEvent.getSource() == slotItemUn){
-                setItemSelectionne(0);
-            } else if(mouseEvent.getSource() == slotItemDeux){
-                setItemSelectionne(1);
-            } else if(mouseEvent.getSource() == slotItemTrois){
-                setItemSelectionne(2);
-            } else if(mouseEvent.getSource() == slotItemQuatre){
-                setItemSelectionne(3);
-            } else if(mouseEvent.getSource() == slotItemCinq){
-                setItemSelectionne(4);
-            }
-
+            if(mouseEvent.getSource() == slotItemUn)
+                changeSlotSelection(0);
+            else if(mouseEvent.getSource() == slotItemDeux)
+                changeSlotSelection(1);
+            else if(mouseEvent.getSource() == slotItemTrois)
+                changeSlotSelection(2);
+            else if(mouseEvent.getSource() == slotItemQuatre)
+                changeSlotSelection(3);
+            else if(mouseEvent.getSource() == slotItemCinq)
+                changeSlotSelection(4);
     }
 
-    public void setImageSlot(Image image){
-        setImage(image, itemSelectionne, slotUn, slotDeux, slotTrois, slotQuatre, slotCinq);
+    public void changeSlotSelection(int i){
+        setImage(slotNonSelectionne, itemSelectionne, slotUn, slotDeux, slotTrois, slotQuatre, slotCinq);
+        itemSelectionne = i;
+        setImage(slotSelectionne, itemSelectionne, slotUn, slotDeux, slotTrois, slotQuatre, slotCinq);
     }
+
 
     public void setImageItem(Image image, int i){
-
         setImage(image, i, slotItemUn, slotItemDeux, slotItemTrois, slotItemQuatre, slotItemCinq);
     }
 
-    private void setImage(Image image, int i, ImageView slotItemUn, ImageView slotItemDeux, ImageView slotItemTrois, ImageView slotItemQuatre, ImageView slotItemCinq) {
+    private void setImage(Image image, int i, ImageView un, ImageView deux, ImageView trois, ImageView quatre, ImageView cinq) {
         if (i == 0){
-            slotItemUn.setImage(image);
+            un.setImage(image);
         } else if (i == 1){
-            slotItemDeux.setImage(image);
+            deux.setImage(image);
         } else if (i == 2){
-            slotItemTrois.setImage(image);
+            trois.setImage(image);
         } else if (i == 3){
-            slotItemQuatre.setImage(image);
+            quatre.setImage(image);
         } else if (i == 4){
-            slotItemCinq.setImage(image);
+            cinq.setImage(image);
         }
-    }
-
-    public void setItemSelectionne(int i){
-        itemSelectionne = i;
-        setImageSlot(slotSelectionne);
     }
 
     public int getItemSelectionne() {

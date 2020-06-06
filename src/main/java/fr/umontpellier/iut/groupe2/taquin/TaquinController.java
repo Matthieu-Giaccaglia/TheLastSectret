@@ -104,6 +104,7 @@ public class TaquinController {
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece25);
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece24);
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece23);
+        MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece24);
 
     }
 }
