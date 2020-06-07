@@ -6,10 +6,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
-//TODO rajouter son de brique au mouseclickevent
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair
-//TODO Retravailler la fenetre de jeu, lees graphismes, fermer la fenetre quand gagner
+import java.nio.file.Paths;
+
+//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair jouer avec l'opacité
+//TODO fermer la fenetre quand gagner et mettre un son de clique quand s'est gagné ou torche
 public class LightsOutController {
     public AnchorPane anchorPane;
     @FXML
@@ -19,6 +22,14 @@ public class LightsOutController {
 
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
+    public static boolean gagnant = false;
+
+    public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
+
+
+    public boolean getGagne() {
+        return gagnant;
+    }
 
     public void light_switch(MouseEvent event) {
 
@@ -57,8 +68,10 @@ public class LightsOutController {
             } else if (event.getSource() == seize) {
                 updateScene(15, seize);
             }
-        }else{
+        }
+        if(Lout.estGagnant()){
             System.out.println("bravo");
+            gagnant = true;
         }
     }
     public void updateScene (int i, ImageView img){
@@ -68,6 +81,7 @@ public class LightsOutController {
         /*System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
+        new MediaPlayer(bricksound).play();
         if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
             if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
                 imgsSwitch(0,0);

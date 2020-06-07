@@ -5,13 +5,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
- * Ajouter les id des Items que vous souhaitez utiliser.
+ * @author Matthieu Giaccaglia
  *
- * Séparer les Ids par une virgule (,).
+ * Ajoutez un Id unique et le chemin d'accès de l'image de votre Item afin de les utiliser.
  *
- * Par ex. pour le Taquin j'ai besoin de la piece 25 du puzzle.
+ * Séparer les Ids par une virgule.
  *
- * J'ajoute donc "taquinPiece25" dans l'enum.
+ * Exemple d'utilisation :
+ *
+ * Pour terminer l'énigme du taquin, il faut mettre la pièece du puzzle manquant.
+ * J'ajoute : taquinPiece25(new ImageView(ImageLoader.getImage("groupe2/taquin/piece25.png"))).
+ * Ainsi, je pourrais l'utiliser l'item dans le jeu.
+ *
+ * Pour des raisons de praticité, l'inventaire ne pourra pas contenir deux item ayants le même ID
+ * Si vous avez donc deux item possédant la même image et qu'ils devront être dans l'inventaire en même temps.
+ * Il faudra donc mettre deux Id possédant la même image.
  *
  * Faites bien attention à utiliser les bons id pour vos énigmes !
  */

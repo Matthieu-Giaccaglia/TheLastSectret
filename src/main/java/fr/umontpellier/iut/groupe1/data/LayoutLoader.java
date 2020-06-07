@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe1.data;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,8 +30,6 @@ public class LayoutLoader {
 
         URL resource = Objects.requireNonNull(classLoader.getResource("layout/" + relativePath));
 
-        System.out.println(resource.getFile());
-
         try {
             return FXMLLoader.load(resource);
         } catch (IOException e) {
@@ -45,10 +44,15 @@ public class LayoutLoader {
 
         URL resource = Objects.requireNonNull(classLoader.getResource("layout/" + relativePath));
 
-        System.out.println(resource.getFile());
-
         try {
-            return new Layout<>(FXMLLoader.load(resource));
+            FXMLLoader loader = new FXMLLoader(resource);
+            Parent parent = loader.load();
+
+            InventaireController controller = null;
+            if(loader.getController().getClass().equals(InventaireController.class))
+                controller = loader.getController();
+
+            return new Layout<>(parent, controller);
         } catch (IOException e) {
             e.printStackTrace();
         }

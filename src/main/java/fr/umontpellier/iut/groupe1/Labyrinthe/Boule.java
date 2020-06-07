@@ -16,8 +16,6 @@ public class Boule extends Sphere {
         this.setTranslateX(positionX);
         this.setTranslateY(positionY);
         this.setTranslateZ(-20);
-
     }
-
 
 }

@@ -2,97 +2,111 @@ package fr.umontpellier.iut.groupe2.taquin;
 
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
-import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import fr.umontpellier.iut.groupe2.view.StepID;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 public class TaquinController {
 
+
+
     @FXML
-    private ImageView piece25Item;
+    private ImageView vingtcinq;
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, dixsept, dixhuit, dixneuf, vingt, vingtun, vingtdeux, vingttrois, vingtquatre;
 
     private final int[][] mat1 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 0, 24}};
     private final Taquin taquin = new Taquin(mat1);
+    private boolean gagnant = false;
 
     public void mouvement(MouseEvent event) {
 
         if (!taquin.estGagnant()) {
 
             if (event.getSource() == un) {
-                updateScene(1, un);
+                updateScene(un, 1);
             } else if (event.getSource() == deux) {
-                updateScene(2, deux);
+                updateScene(deux, 2);
             } else if (event.getSource() == trois) {
-                updateScene(3, trois);
+                updateScene(trois, 3);
             } else if (event.getSource() == quatre) {
-                updateScene(4, quatre);
+                updateScene(quatre, 4);
             } else if (event.getSource() == cinq) {
-                updateScene(5, cinq);
+                updateScene(cinq, 5);
             } else if (event.getSource() == six) {
-                updateScene(6, six);
+                updateScene(six, 6);
             } else if (event.getSource() == sept) {
-                updateScene(7, sept);
+                updateScene(sept, 7);
             } else if (event.getSource() == huit) {
-                updateScene(8, huit);
+                updateScene(huit, 8);
             } else if (event.getSource() == neuf) {
-                updateScene(9, neuf);
+                updateScene(neuf, 9);
             } else if (event.getSource() == dix) {
-                updateScene(10, dix);
+                updateScene(dix, 10);
             } else if (event.getSource() == onze) {
-                updateScene(11, onze);
+                updateScene(onze, 11);
             } else if (event.getSource() == douze) {
-                updateScene(12, douze);
+                updateScene(douze, 12);
             } else if (event.getSource() == treize) {
-                updateScene(13, treize);
+                updateScene(treize, 13);
             } else if (event.getSource() == quatorze) {
-                updateScene(14, quatorze);
+                updateScene(quatorze, 14);
             } else if (event.getSource() == quinze) {
-                updateScene(15, quinze);
+                updateScene(quinze, 15);
             } else if (event.getSource() == seize) {
-                updateScene(16, seize);
+                updateScene(seize, 16);
             } else if (event.getSource() == dixsept) {
-                updateScene(17, dixsept);
+                updateScene(dixsept, 17);
             } else if (event.getSource() == dixhuit) {
-                updateScene(18, dixhuit);
+                updateScene(dixhuit, 18);
             } else if (event.getSource() == dixneuf) {
-                updateScene(19, dixneuf);
+                updateScene(dixneuf, 19);
             } else if (event.getSource() == vingt) {
-                updateScene(20, vingt);
+                updateScene(vingt, 20);
             } else if (event.getSource() == vingtun) {
-                updateScene(21, vingtun);
+                updateScene(vingtun, 21);
             } else if (event.getSource() == vingtdeux) {
-                updateScene(22, vingtdeux);
+                updateScene(vingtdeux,22);
             } else if (event.getSource() == vingttrois) {
-                updateScene(23, vingttrois);
+                updateScene(vingttrois,23);
             } else if (event.getSource() == vingtquatre) {
-                updateScene(24, vingtquatre);
+                updateScene(vingtquatre,24);
             }
+        } else if (event.getSource() == vingtcinq && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25){
+            vingtcinq.setImage(ItemId.taquinPiece25.getImage());
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece25);
+            gagnant = true;
         }
+
+        if(vingtcinq.isDisable() && taquin.estGagnant())
+            vingtcinq.setDisable(false);
     }
 
 
 
 
-    public void updateScene (int i, Node node){
+    public void updateScene (Node node, int i){
 
         int [] coordonne = taquin.trouverCoordonne(0);
         if(taquin.peutDeplacer(i)) {
             GridPane.setConstraints(node, coordonne[1], coordonne[0]);
         }
-
     }
 
     public void recupItem(MouseEvent mouseEvent) {
 
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece25);
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece24);
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece23);
+        MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece24);
+
     }
+
+    public boolean estGagnant(){
+        return gagnant;
+    }
+
 }

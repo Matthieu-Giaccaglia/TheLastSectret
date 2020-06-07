@@ -3,9 +3,12 @@ package fr.umontpellier.iut.groupe2.view;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe2.SalleController;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
+import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -14,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StepManager {
-    private final Inventaire inventaire;
+    private Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
+    private final AnchorPane anchorPane = new AnchorPane();
     private Parent gameNode;
 
-    public StepManager(Stage stage, Inventaire inventaire){
-        this.inventaire = inventaire;
 
+    public StepManager(Stage stage){
         stepMap = new HashMap<>();
 
         try {
@@ -32,10 +35,12 @@ public class StepManager {
         }
 
         assert root != null;
-        System.out.println(Screen.getPrimary().getBounds().getWidth());
-        System.out.println(Screen.getPrimary().getBounds().getHeight());
-        stage.setScene(new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight()));
-        stage.setFullScreen(true);
+
+        stage.setScene(new Scene(root, 1920, 1017));
+    }
+
+    public void setInventaire(Inventaire inventaire) {
+        this.inventaire = inventaire;
     }
 
     public Inventaire getInventaire() {
@@ -48,9 +53,14 @@ public class StepManager {
                     "StepID : " + step.getId());
         } else {
             stepMap.put(step.getId(), step);
-            root.getChildren().add(step.open());
+            anchorPane.getChildren().add(step.open());
+            //root.getChildren().add(anchorPane);
             step.setVisible(false);
         }
+    }
+
+    public void addAnchorPane(){
+        root.getChildren().add(anchorPane);
     }
 
     public void openStep(StepID stepID) {
@@ -58,6 +68,19 @@ public class StepManager {
         if (stepMap.containsKey(stepID)) {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
+            openStepInventaire();
+        } else {
+            System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
+                    "Voir StepManager.addStep(Step step)");
+        }
+    }
+
+    public void openStepInventaire() {
+        if (stepMap.containsKey(StepID.INVENTAIRE)) {
+            Parent parent = stepMap.get(StepID.INVENTAIRE).open();
+            parent.setLayoutX(710.0);
+            parent.setLayoutY(915.0);
+            parent.setVisible(true);
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
