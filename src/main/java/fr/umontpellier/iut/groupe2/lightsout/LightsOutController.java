@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
+import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -19,17 +21,14 @@ public class LightsOutController {
     private GridPane gridMain;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
     private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
+    @FXML
+    private ImageView button;
 
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
-    public static boolean gagnant = false;
-
+    private boolean aGagne = false;
     public Media bricksound = new Media(Paths.get("src/main/resources/raw/groupe2/lightsout/brick.mp3").toUri().toString());
 
-
-    public boolean getGagne() {
-        return gagnant;
-    }
 
     public void light_switch(MouseEvent event) {
 
@@ -69,9 +68,12 @@ public class LightsOutController {
                 updateScene(15, seize);
             }
         }
-        if(Lout.estGagnant()){
-            System.out.println("bravo");
-            gagnant = true;
+        if(Lout.estGagnant() && !aGagne){
+            //putPiece25.play(); music joue
+
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
+            button.setVisible(false);
+            aGagne = true;
         }
     }
     public void updateScene (int i, ImageView img){
@@ -191,8 +193,16 @@ public class LightsOutController {
                 i_grid = GridPane.getColumnIndex(node);
                 j_grid = GridPane.getRowIndex(node);
             }
-            if (i_grid == i && j_grid == j) {
-                node.setVisible(!node.isVisible());
+            if (i_grid == i && j_grid == j) {//si node off
+                if(node.getOpacity() ==  1){
+                    node.setOpacity(0.5);
+                    node.setScaleX(0.9);
+                    node.setScaleY(0.9);
+                }else {//si node on
+                    node.setOpacity(1);
+                    node.setScaleX(1);
+                    node.setScaleY(1);
+                }
             }
         }
     }
