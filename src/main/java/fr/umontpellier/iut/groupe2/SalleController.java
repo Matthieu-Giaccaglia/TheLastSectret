@@ -26,10 +26,13 @@ public class SalleController {
     public ImageView gemmeBleuEmplacement;
     public ImageView gemmeViolette;
     public ImageView tropHaut;
+    public ImageView pilierGrand;
+    public ImageView pilierTombe;
     private ItemId pillierVert ;
     private ItemId pillierRouge ;
     private ItemId pillierBleu ;
     private ItemId pillierViolet ;
+    private int compteur = 0;
 
 
 
@@ -171,6 +174,19 @@ public class SalleController {
         System.out.println(estGagnant());
     }
 
-
+    public void tombage() {
+       compteur ++;
+       System.out.println(+1);
+       if (compteur >= 3){
+           pilierGrand.setImage(null);
+           pilierTombe.setVisible(true);
+           tropHaut.setVisible(false);
+           tropHaut.setDisable(true);
+           textfield.setVisible(false);
+           textfield.setDisable(true);
+           gemmeVerte.setDisable(false);
+           gemmeVerte.setVisible(true);
+       }
+    }
 
 }
