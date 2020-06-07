@@ -28,11 +28,7 @@ import javafx.scene.image.ImageView;
 
 public enum ItemId {
     taquinPiece25(new ImageView(ImageLoader.getImage("groupe2/taquin/piece25.png"))),
-    taquinPiece24(new ImageView(ImageLoader.getImage("groupe2/taquin/piece24.png"))),
-    taquinPiece23(new ImageView(ImageLoader.getImage("groupe2/taquin/piece23.png"))),
-    taquinPiece22(new ImageView(ImageLoader.getImage("groupe2/taquin/piece22.png"))),
-    taquinPiece21(new ImageView(ImageLoader.getImage("groupe2/taquin/piece21.png"))),
-    taquinPiece20(new ImageView(ImageLoader.getImage("groupe2/taquin/piece20.png")));
+    gemmeBleue(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png")));
 
     private final ImageView imageView;
 
