@@ -21,6 +21,7 @@ public class MainController implements Initializable {
 
         Thread threadTimer = new Thread(new ThreadTimer(timerJeu));
         threadTimer.start();
+        //TODO arreter le thread quand le jeu se ferme
 
     }
 }
