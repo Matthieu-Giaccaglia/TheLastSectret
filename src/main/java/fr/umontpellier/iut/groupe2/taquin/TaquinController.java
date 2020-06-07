@@ -40,8 +40,9 @@ public class TaquinController {
     public Media mouv1 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv1.mp3").toUri().toString());
     public Media mouv2 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv2.mp3").toUri().toString());
     public Media mouv3 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv3.mp3").toUri().toString());
-    public Media putPiece25 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/putPiece25.mp3").toUri().toString());
-    private Media stoneDrag = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/stoneDrag.mp3").toUri().toString());
+
+    private MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/putPiece25.mp3").toUri().toString()));
+    private MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
 
 
     Random random = new Random();
@@ -102,19 +103,19 @@ public class TaquinController {
                 updateScene(vingtquatre,24);
             }
         } else if (event.getSource() == vingtcinq && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25){
-            //new MediaPlayer(putPiece25).play();
+            putPiece25.play();
             vingtcinq.setImage(ItemId.taquinPiece25.getImage());
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece25);
             gagnant = true;
-            new MediaPlayer(stoneDrag).play();
+
+            stoneDrag.setVolume(0.7);
+            stoneDrag.play();
+
             TranslateTransition translateAnimation = new TranslateTransition(Duration.seconds(2.0),taquinGrid);
-            //translateAnimation.setCycleCount(TranslateTransition.);
-            translateAnimation.setFromX(0);
-            translateAnimation.setToX(-400);
+            translateAnimation.setByX(-400);
             translateAnimation.play();
 
             taquinGrid.setDisable(true);
-
         }
 
         if(vingtcinq.isDisable() && taquin.estGagnant())
