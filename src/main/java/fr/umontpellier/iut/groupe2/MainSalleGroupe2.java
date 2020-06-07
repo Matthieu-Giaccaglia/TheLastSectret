@@ -51,7 +51,6 @@ public class MainSalleGroupe2 extends Application {
 
 
 
-
     public static void main(String[] args) {
         launch(args);
     }
