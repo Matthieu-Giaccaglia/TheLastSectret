@@ -176,7 +176,6 @@ public class SalleController {
 
     public void tombage() {
        compteur ++;
-       System.out.println(+1);
        if (compteur >= 3){
            pilierGrand.setImage(null);
            pilierTombe.setVisible(true);
