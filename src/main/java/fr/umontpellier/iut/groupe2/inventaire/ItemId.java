@@ -30,7 +30,7 @@ public enum ItemId {
     taquinPiece25(new ImageView(ImageLoader.getImage("groupe2/taquin/piece25.png"))),
     gemmeBleue(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png"))),
     gemmeVerte(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png"))),
-    gemmeviolette(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png"))),
+    gemmeViolette(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png"))),
     gemmeRouge(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png")));
 
 

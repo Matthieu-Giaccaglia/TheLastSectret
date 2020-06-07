@@ -18,13 +18,23 @@ import java.nio.file.Paths;
 
 public class SalleController {
 
-    @FXML
-    public static ImageView dark_Id;
+
     public ImageView gemmeVerteEmplacement;
     public ImageView gemmeVioletteEmplacement;
     public ImageView gemmeRougeEmplacement;
     public ImageView gemmeRouge;
     public ImageView gemmeBleuEmplacement;
+    public ImageView gemmeViolette;
+    public ImageView tropHaut;
+    private ItemId pillierVert ;
+    private ItemId pillierRouge ;
+    private ItemId pillierBleu ;
+    private ItemId pillierViolet ;
+
+
+
+    @FXML
+    public static ImageView dark_Id;
     @FXML
     private Button buttonBackTaquin, taquinButton, lightoutButton, Gvh;
     @FXML
@@ -78,26 +88,89 @@ public class SalleController {
         return dark_Id.isVisible();
     }
 
+
+
     public void recupGemme(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource()== gemmeVerte){
+        if (mouseEvent.getSource() == gemmeVerte) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeVerte);
             gemmeVerte.setVisible(false);
-        } else if (mouseEvent.getSource()==gemmeRouge) {
+        } else if (mouseEvent.getSource() == gemmeRouge) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeRouge);
             gemmeRouge.setVisible(false);
+        } else if (mouseEvent.getSource() == gemmeViolette) {
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
+            gemmeViolette.setVisible(false);
         }
     }
 
-    public void putGemme(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() == gemmeVerteEmplacement && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeVerte) {
-            gemmeVerteEmplacement.setImage(ItemId.gemmeVerte.getImage());
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.gemmeVerte);
-        } else if (mouseEvent.getSource() == gemmeRougeEmplacement && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeRouge) {
-            gemmeRougeEmplacement.setImage(ItemId.gemmeRouge.getImage());
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.gemmeRouge);
-        } else if (mouseEvent.getSource() == gemmeBleuEmplacement && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeBleue) {
-            gemmeBleuEmplacement.setImage(ItemId.gemmeBleue.getImage());
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.gemmeBleue);
+    public boolean estGagnant() {
+        if (pillierVert == ItemId.gemmeVerte && pillierRouge == ItemId.gemmeRouge && pillierBleu == ItemId.gemmeBleue && pillierViolet == ItemId.gemmeViolette) {
+            gemmeVerteEmplacement.setDisable(true);
+            gemmeVioletteEmplacement.setDisable(true);
+            gemmeBleuEmplacement.setDisable(true);
+            gemmeRougeEmplacement.setDisable(true);
+            System.out.println("C gagné");
+            return true;
         }
+        return false;
     }
+
+    public boolean contientGemme (){
+        return MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeVerte || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeViolette || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeBleue || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeRouge;
+    }
+
+    public void putGemme(MouseEvent mouseEvent) {
+        ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
+        if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
+                gemmeVerteEmplacement.setImage(ItemId.gemmeVerte.getImage());
+            pillierVert=selected;
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+        }
+
+        else if (mouseEvent.getSource()==gemmeVerteEmplacement && gemmeVerteEmplacement.getImage()!=null ){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierVert);
+            gemmeVerteEmplacement.setImage(null);
+            pillierVert=null;
+        }
+
+        else if (mouseEvent.getSource() == gemmeRougeEmplacement && gemmeRougeEmplacement.getImage() == null && contientGemme() ) {
+            gemmeRougeEmplacement.setImage(ItemId.gemmeRouge.getImage());
+            pillierRouge= selected;
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+        }
+
+        else if (mouseEvent.getSource()==gemmeRougeEmplacement && gemmeRougeEmplacement.getImage()!=null ){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierRouge);
+            gemmeRougeEmplacement.setImage(null);
+            pillierRouge=null;
+        }
+
+        else if (mouseEvent.getSource() == gemmeBleuEmplacement && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
+            gemmeBleuEmplacement.setImage(ItemId.gemmeBleue.getImage());
+            pillierBleu= selected;
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+        }
+
+        else if (mouseEvent.getSource()==gemmeBleuEmplacement && gemmeBleuEmplacement.getImage()!=null ){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierBleu);
+            gemmeBleuEmplacement.setImage(null);
+            pillierBleu=null;
+        }
+
+        else if (mouseEvent.getSource() == gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
+            gemmeVioletteEmplacement.setImage(ItemId.gemmeViolette.getImage());
+            pillierViolet=selected;
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+        }
+
+        else if (mouseEvent.getSource()==gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage()!=null ){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierViolet);
+            gemmeVioletteEmplacement.setImage(null);
+            pillierViolet=null;
+        }
+        System.out.println(estGagnant());
+    }
+
+
+
 }
