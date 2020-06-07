@@ -22,6 +22,18 @@
                <Font name="System Bold" size="18.0" />
             </font></TextField>
          <Button fx:id="pillier" layoutX="1730.0" layoutY="364.0" mnemonicParsing="false" opacity="0.0" prefHeight="571.0" prefWidth="101.0" rotate="2.6" />
+         <ImageView fx:id="gemmeRougeEmplacement" fitHeight="74.0" fitWidth="69.0" layoutX="616.0" layoutY="451.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="gemmeBleuEmplacement" fitHeight="66.0" fitWidth="76.0" layoutX="949.0" layoutY="542.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="gemmeVioletteEmplacement" fitHeight="74.0" fitWidth="69.0" layoutX="464.0" layoutY="759.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="gemmeVerteEmplacement" fitHeight="74.0" fitWidth="76.0" layoutX="1025.0" layoutY="823.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
+         <ImageView id="gemmeVerte" fx:id="gemmeVerte" fitHeight="74.0" fitWidth="69.0" layoutX="1212.0" layoutY="480.0" onMouseClicked="#recupGemme" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../raw/groupe2/salle/gemmeBleue.png" />
+            </image></ImageView>
+         <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="49.0" layoutY="222.0" onMouseClicked="#recupGemme" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../raw/groupe2/salle/gemmeBleue.png" />
+            </image></ImageView>
       </AnchorPane>
    </AnchorPane>
 </StackPane>
