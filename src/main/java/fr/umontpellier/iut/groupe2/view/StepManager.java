@@ -10,9 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +72,7 @@ public class StepManager {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
             openStepInventaire();
+            //new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString())).play();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");

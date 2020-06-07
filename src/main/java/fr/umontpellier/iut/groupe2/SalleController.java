@@ -2,13 +2,16 @@ package fr.umontpellier.iut.groupe2;
 
 import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
-import fr.umontpellier.iut.groupe2.view.Step;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.nio.file.Paths;
 
 
 public class SalleController {
@@ -23,11 +26,18 @@ public class SalleController {
     private Button pillier;
 
     private LightsOutController lightsOutController = new LightsOutController();
+    private final MediaPlayer mediaPlayer;
+
+    public SalleController() {
+        this.mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
+        mediaPlayer.setAutoPlay(true);
+    }
 
 
     public void handleButton(ActionEvent event) {
 
         if (event.getSource() == taquinButton) {
+            //mediaPlayer.setAutoPlay(true);
             taquinButton.setOnAction(new StepChangeRequest(StepID.TAQUIN, null));
         } else if (event.getSource() == lightoutButton) {
             lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
