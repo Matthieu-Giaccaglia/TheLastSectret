@@ -25,7 +25,7 @@ public class SalleController {
     public ImageView gemmeRouge;
     public ImageView gemmeBleuEmplacement;
     public ImageView gemmeViolette;
-    public ImageView tropHaut;
+    public ImageView gemmetropHaute;
     public ImageView pilierGrand;
     public ImageView pilierTombe;
     private ItemId pillierVert ;
@@ -179,8 +179,8 @@ public class SalleController {
        if (compteur >= 3){
            pilierGrand.setImage(null);
            pilierTombe.setVisible(true);
-           tropHaut.setVisible(false);
-           tropHaut.setDisable(true);
+           gemmetropHaute.setVisible(false);
+           gemmetropHaute.setDisable(true);
            textfield.setVisible(false);
            textfield.setDisable(true);
            gemmeVerte.setDisable(false);
