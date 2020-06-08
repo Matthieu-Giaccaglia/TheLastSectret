@@ -20,35 +20,31 @@ import java.nio.file.Paths;
 
 public class SalleController {
 
-    public ImageView cinqTrait;
-    public ImageView quatreTrait;
-    public ImageView troisTrait;
-    public ImageView deuxTrait;
-    public ImageView premierTrait;
-    public ImageView porte;
-    public ImageView fondDeBase;
-    public ImageView piece25Taquin;
+    @FXML
+    private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
+    @FXML
+    private ImageView porte;
+    @FXML
+    private ImageView piece25Taquin;
     @FXML
     private ImageView gemmeVerteEmplacement, gemmeVioletteEmplacement,gemmeRougeEmplacement, gemmeBleuEmplacement;
     @FXML
     private ImageView gemmeRouge, gemmeViolette, gemmeVerte, gemmeTropHaute;
     @FXML
-    private ImageView pilierGrand, pilierTombe;
-
-    private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
-    private int compteur = 0;
+    private ImageView pilierGrand;
     @FXML
     private ImageView buttonMissing;
     @FXML
     private ImageView dark_Id;
     @FXML
-    private Button buttonRetour, taquinButton, lightoutButton, Gvh;
+    private Button buttonRetour, taquinButton, lightoutButton;
     @FXML
     private TextField textfield;
-    @FXML
-    private ImageView gemme;
 
-    private final LightsOutController lightsOutController = new LightsOutController();
+
+    private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
+    private int compteur = 0;
+
 
     public SalleController() {
         MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
