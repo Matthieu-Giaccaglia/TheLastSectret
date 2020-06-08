@@ -4,9 +4,7 @@ import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import fr.umontpellier.iut.groupe2.view.StepID;
-import javafx.animation.Interpolator;
-import javafx.animation.PathTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,10 +13,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.*;
 import javafx.util.Duration;
 
 import java.nio.file.Paths;
+import java.util.Timer;
 
 
 public class SalleController {
@@ -199,35 +197,33 @@ public class SalleController {
 
 
     public void tombage() {
-       compteur ++;
-       if (compteur >= 3){
-           /*TranslateTransition translateTransitionPilier = new TranslateTransition(Duration.seconds(1),pilierGrand);
-           translateTransitionPilier.setByX(-232);
-           translateTransitionPilier.setByY(44);
-           RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(1), pilierGrand);
-           rotateAnimation.setByAngle(-39.8);
-           translateTransitionPilier.play();
-           rotateAnimation.play();*/
+        compteur ++;
+        if (compteur >= 3){
+            TranslateTransition translateTransitionPilier = new TranslateTransition(Duration.seconds(1.3),pilierGrand);
+            translateTransitionPilier.setByX(-232);
+            translateTransitionPilier.setByY(44);
 
-           Path path = new Path(
-                   new MoveTo(50, 50),
-                   new LineTo(100, 50),
-                   new LineTo(150, 150),
-                   new QuadCurveTo(150, 100, 250, 200),
-                   new CubicCurveTo(0, 250, 400, 0, 300, 250));
-           PathTransition pathAnimation = new PathTransition(Duration.seconds(10), path, pilierGrand);
-           pathAnimation.setCycleCount(PathTransition.INDEFINITE);
-           pathAnimation.setInterpolator(Interpolator.LINEAR);
-           pathAnimation.play();
-           /*pilierGrand.setImage(null);
-           pilierTombe.setVisible(true);*/
-           gemmeTropHaute.setVisible(false);
-           gemmeTropHaute.setDisable(true);
-           textfield.setVisible(false);
-           textfield.setDisable(true);
-           gemmeVerte.setDisable(false);
-           gemmeVerte.setVisible(true);
-           premierTrait.setVisible(true);
+            RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(1.3), pilierGrand);
+            rotateAnimation.setByAngle(-39.8);
+
+            ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1.3), pilierGrand);
+            scaleTransition.setByX(-0.1);
+            scaleTransition.setByY(-0.1);
+
+            ParallelTransition parallelTransition = new ParallelTransition(translateTransitionPilier, rotateAnimation, scaleTransition);
+            parallelTransition.setInterpolator(Interpolator.EASE_IN);
+
+
+            parallelTransition.setOnFinished(event -> gemmeVerte.setVisible(true));
+
+            parallelTransition.play();
+            textfield.setVisible(false);
+            textfield.setDisable(true);
+            pilierGrand.setDisable(true);
+            gemmeTropHaute.setVisible(false);
+            gemmeTropHaute.setDisable(true);
+            gemmeVerte.setDisable(false);
+            premierTrait.setVisible(true);
        }
     }
 
