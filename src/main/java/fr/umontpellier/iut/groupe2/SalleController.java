@@ -84,6 +84,7 @@ public class SalleController {
             if(dark_Id.isVisible()){
                 dark_Id.setVisible(false);
                 buttonMissing.setOpacity(1);
+                MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
     }
