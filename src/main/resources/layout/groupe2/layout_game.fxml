@@ -61,6 +61,11 @@
          <ImageView fx:id="gemmeBleuEmplacement" fitHeight="66.0" fitWidth="76.0" layoutX="949.0" layoutY="542.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="gemmeVioletteEmplacement" fitHeight="74.0" fitWidth="69.0" layoutX="464.0" layoutY="759.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="gemmeVerteEmplacement" fitHeight="74.0" fitWidth="76.0" layoutX="1025.0" layoutY="823.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="930.0" layoutY="234.0" onMouseClicked="#bouttonRajoute" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
+            </image>
+         </ImageView>
       </AnchorPane>
    </AnchorPane>
 </StackPane>
