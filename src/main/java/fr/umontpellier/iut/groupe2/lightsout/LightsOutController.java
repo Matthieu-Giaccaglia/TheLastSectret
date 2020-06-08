@@ -2,6 +2,9 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -10,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+import static java.lang.Math.random;
 
 import java.nio.file.Paths;
 
@@ -31,7 +36,48 @@ public class LightsOutController {
 
 
     public void light_switch(MouseEvent event) {
-
+        gridMain.translateXProperty();
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().addAll(
+                new KeyFrame(Duration.ZERO, // set start position at 0
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random() * 10)
+                ),
+                new KeyFrame(new Duration(500), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 100000),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(1000), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 100)
+                ),
+                new KeyFrame(new Duration(1500), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(2000), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(2500), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(3000), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(3500), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                ),
+                new KeyFrame(new Duration(4000), // set end position at 4s
+                        new KeyValue(gridMain.translateXProperty(), random() * 10),
+                        new KeyValue(gridMain.translateYProperty(), random()* 10)
+                )
+        );
+        // play 4s of animation
+        timeline.play();
         if (!Lout.estGagnant()) {
 
             if (event.getSource() == un) {
@@ -69,8 +115,7 @@ public class LightsOutController {
             }
         }
         if(Lout.estGagnant() && !aGagne){
-            //putPiece25.play(); music joue
-
+            timeline.play();
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
             button.setVisible(false);
             aGagne = true;
@@ -208,5 +253,11 @@ public class LightsOutController {
             }
         }
     }
+    /*
+    public void createKeyframe(){}
+    public void shakeEffect{
+
+    }
+    */
 
 }
