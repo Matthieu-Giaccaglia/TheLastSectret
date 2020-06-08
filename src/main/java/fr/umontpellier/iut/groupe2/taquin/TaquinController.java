@@ -25,10 +25,6 @@ public class TaquinController {
     @FXML
     private ImageView pieceUn, pieceDeux, pieceTrois, pieceQuatre, pieceCinq, pieceSix, pieceSept, pieceHuit, pieceNeuf, pieceDix, pieceOnze, pieceDouze;
     @FXML
-    private ImageView lastPiece;
-    @FXML
-    private TextField textLastPiece;
-    @FXML
     private ImageView gemme;
 
     private final int[][] mat1 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 0, 11}};
@@ -118,12 +114,7 @@ public class TaquinController {
         }
     }
 
-    public void recupItem(MouseEvent mouseEvent) {
 
-        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
-        lastPiece.setVisible(false);
-        textLastPiece.setVisible(false);
-    }
 
     public void recupGemme(MouseEvent mouseEvent) {
 

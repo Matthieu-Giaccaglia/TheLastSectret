@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -70,9 +69,5 @@
       <AnchorPane layoutX="1704.0" layoutY="919.0" maxHeight="84.0" maxWidth="202.0" minHeight="84.0" minWidth="202.0" prefHeight="84.0" prefWidth="202.0">
          <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
-      <ImageView fx:id="lastPiece" fitHeight="137.0" fitWidth="149.0" layoutX="104.0" layoutY="714.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../raw/groupe2/taquin/piece12.png" />
-      </ImageView>
-      <TextField fx:id="textLastPiece" layoutX="104.0" layoutY="674.0" text="Recupérer dernière pièce" />
    </AnchorPane>
 </StackPane>

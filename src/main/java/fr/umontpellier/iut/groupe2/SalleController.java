@@ -27,6 +27,7 @@ public class SalleController {
     public ImageView premierTrait;
     public ImageView porte;
     public ImageView fondDeBase;
+    public ImageView piece25Taquin;
     @FXML
     private ImageView gemmeVerteEmplacement, gemmeVioletteEmplacement,gemmeRougeEmplacement, gemmeBleuEmplacement;
     @FXML
@@ -41,7 +42,7 @@ public class SalleController {
     @FXML
     private ImageView dark_Id;
     @FXML
-    private Button buttonBackTaquin, taquinButton, lightoutButton, Gvh;
+    private Button buttonRetour, taquinButton, lightoutButton, Gvh;
     @FXML
     private TextField textfield;
     @FXML
@@ -57,15 +58,14 @@ public class SalleController {
 
     public void handleButton(ActionEvent event) {
 
+        System.out.println("ok");
         if (event.getSource() == taquinButton) {
-            //mediaPlayer.setAutoPlay(true);
-            taquinButton.setOnAction(new StepChangeRequest(StepID.TAQUIN, null));
+            MainSalleGroupe2.stepManager.openStep(StepID.TAQUIN);
         } else if (event.getSource() == lightoutButton) {
-            lightoutButton.setOnAction(new StepChangeRequest(StepID.LIGHTSOUT, null));
-        } else if (event.getSource() == buttonBackTaquin) {
-            buttonBackTaquin.setOnAction(new StepChangeRequest(StepID.START, null));
+            MainSalleGroupe2.stepManager.openStep(StepID.LIGHTSOUT);
+        } else if (event.getSource() == buttonRetour){
+            MainSalleGroupe2.stepManager.openStep(StepID.START);
         }
-
     }
 
     @FXML
@@ -218,9 +218,14 @@ public class SalleController {
         ParallelTransition parallelPilierTombe = new ParallelTransition(translatePilierTombe, rotatePilierTombe, scalePilierTombe);
         parallelPilierTombe.setInterpolator(Interpolator.EASE_IN);
 
-        parallelPilierTombe.setOnFinished(event -> gemmeVerte.setVisible(true));
-        parallelPilierTombe.play();
+        parallelPilierTombe.setOnFinished(event -> {
+            gemmeVerte.setVisible(true);
+            piece25Taquin.setVisible(true);
+        });
 
+
+
+        parallelPilierTombe.play();
         textfield.setVisible(false);
         textfield.setDisable(true);
         pilierGrand.setDisable(true);
@@ -232,11 +237,11 @@ public class SalleController {
 
     private void animationPilierTremblement() {
         TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
-        translatePilier.setByX(-10);
+        translatePilier.setByX(-5);
         translatePilier.setByY(10);
 
         TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
-        translateGemmeVerte.setByX(-10);
+        translateGemmeVerte.setByX(-5);
         translateGemmeVerte.setByY(10);
 
         ParallelTransition parallelPilier = new ParallelTransition(translatePilier, translateGemmeVerte);
@@ -246,4 +251,9 @@ public class SalleController {
     }
 
 
+    public void recupPieceTaquin(MouseEvent mouseEvent) {
+
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
+        piece25Taquin.setVisible(false);
+    }
 }
