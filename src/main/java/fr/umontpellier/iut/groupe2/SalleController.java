@@ -26,6 +26,7 @@ public class SalleController {
     public ImageView deuxTrait;
     public ImageView premierTrait;
     public ImageView porte;
+    public ImageView fondDeBase;
     @FXML
     private ImageView gemmeVerteEmplacement, gemmeVioletteEmplacement,gemmeRougeEmplacement, gemmeBleuEmplacement;
     @FXML
@@ -70,9 +71,8 @@ public class SalleController {
     }
 
     @FXML
-    public void onClick(){
-        textfield.setOpacity(1.0);
-
+    public void onClick() {
+        textfield.setVisible(true);
         /*
         if(LightsOutController.gagne) {//il faut faire un getstep == Start
             dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
