@@ -40,7 +40,7 @@
          <ImageView fx:id="gemmeViolette" fitHeight="74.0" fitWidth="76.0" layoutX="229.0" layoutY="478.0" onMouseClicked="#recupGemme" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeViolette.png" />
          </ImageView>
-         <ImageView fx:id="pilierGrand" fitHeight="551.0" fitWidth="166.0" layoutX="1598.0" layoutY="333.0" onMouseClicked="#tombage" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="pilierGrand" fitHeight="551.0" fitWidth="166.0" layoutX="1598.0" layoutY="333.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/pilier.PNG" />
          </ImageView>
          <ImageView fx:id="premierTrait" fitHeight="66.0" fitWidth="896.0" layoutX="965.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true" rotate="-37.9" visible="false">

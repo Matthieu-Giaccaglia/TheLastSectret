@@ -16,7 +16,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.nio.file.Paths;
-import java.util.Timer;
 
 
 public class SalleController {
@@ -194,47 +193,57 @@ public class SalleController {
     }
 
 
-
-
-    public void tombage() {
+    public void animationPilier() {
         compteur ++;
-        TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
-        TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
-        translatePilier.setByX(-1);
-        translatePilier.setByY(-1);
-        translateGemmeVerte.setByX(-1);
-        translateGemmeVerte.setByY(-1);
-        translateGemmeVerte.play();
-        translatePilier.play();
+        animationPilierTremblement();
         if (compteur >= 3){
-            TranslateTransition translateTransitionPilier = new TranslateTransition(Duration.seconds(0.4),pilierGrand);
-            translateTransitionPilier.setByX(-232);
-            translateTransitionPilier.setByY(44);
-
-            RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(0.4), pilierGrand);
-            rotateAnimation.setByAngle(-39.8);
-
-            ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.4), pilierGrand);
-            scaleTransition.setByX(-0.1);
-            scaleTransition.setByY(-0.1);
-
-            ParallelTransition parallelTransition = new ParallelTransition(translateTransitionPilier, rotateAnimation, scaleTransition);
-            parallelTransition.setInterpolator(Interpolator.EASE_IN);
-
-
-            parallelTransition.setOnFinished(event -> gemmeVerte.setVisible(true));
-
-            parallelTransition.play();
-            textfield.setVisible(false);
-            textfield.setDisable(true);
-            pilierGrand.setDisable(true);
-            gemmeTropHaute.setVisible(false);
-            gemmeTropHaute.setDisable(true);
-            gemmeVerte.setDisable(false);
-            premierTrait.setVisible(true);
-       }
+            animationPilierTombe();
+        }
     }
 
+
+
+    private void animationPilierTombe() {
+        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(0.4),pilierGrand);
+        translatePilierTombe.setByX(-232);
+        translatePilierTombe.setByY(44);
+
+        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(0.4), pilierGrand);
+        rotatePilierTombe.setByAngle(-39.8);
+
+        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(0.4), pilierGrand);
+        scalePilierTombe.setByX(-0.1);
+        scalePilierTombe.setByY(-0.1);
+
+        ParallelTransition parallelPilierTombe = new ParallelTransition(translatePilierTombe, rotatePilierTombe, scalePilierTombe);
+        parallelPilierTombe.setInterpolator(Interpolator.EASE_IN);
+
+        parallelPilierTombe.setOnFinished(event -> gemmeVerte.setVisible(true));
+        parallelPilierTombe.play();
+
+        textfield.setVisible(false);
+        textfield.setDisable(true);
+        pilierGrand.setDisable(true);
+        gemmeTropHaute.setVisible(false);
+        gemmeTropHaute.setDisable(true);
+        gemmeVerte.setDisable(false);
+        premierTrait.setVisible(true);
+    }
+
+    private void animationPilierTremblement() {
+        TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
+        translatePilier.setByX(-10);
+        translatePilier.setByY(10);
+
+        TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
+        translateGemmeVerte.setByX(-10);
+        translateGemmeVerte.setByY(10);
+
+        ParallelTransition parallelPilier = new ParallelTransition(translatePilier, translateGemmeVerte);
+        parallelPilier.setCycleCount(2);
+        parallelPilier.setAutoReverse(true);
+        parallelPilier.play();
+    }
 
 
 }
