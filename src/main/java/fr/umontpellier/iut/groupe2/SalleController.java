@@ -108,7 +108,7 @@ public class SalleController {
             TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2.0), porte);
             translateTransition.setByY(-500);
             translateTransition.play();
-            System.out.println("C gagné");
+            System.out.println("C'est gagné");
             return true;
         }
         return false;
