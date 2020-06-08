@@ -104,7 +104,7 @@ public class SalleController {
             TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2.0), porte);
             translateTransition.setByY(-500);
             translateTransition.play();
-            System.out.println("C gagné");
+            System.out.println("C'est gagné");
             return true;
         }
         return false;
@@ -233,12 +233,12 @@ public class SalleController {
 
     private void animationPilierTremblement() {
         TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
-        translatePilier.setByX(-5);
-        translatePilier.setByY(10);
+        translatePilier.setByX(-2);
+        translatePilier.setByY(-2);
 
         TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
-        translateGemmeVerte.setByX(-5);
-        translateGemmeVerte.setByY(10);
+        translateGemmeVerte.setByX(-2);
+        translateGemmeVerte.setByY(-2);
 
         ParallelTransition parallelPilier = new ParallelTransition(translatePilier, translateGemmeVerte);
         parallelPilier.setCycleCount(2);
