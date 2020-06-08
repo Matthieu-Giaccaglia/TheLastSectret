@@ -36,7 +36,8 @@ public class SalleController {
 
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
-
+    @FXML
+    private ImageView buttonMissing;
     @FXML
     public static ImageView dark_Id;
     @FXML
@@ -78,6 +79,14 @@ public class SalleController {
             dark_Id.setVisible(false); // Pour l'instant, renvoie nullpointerexception, peut etre pck on clique deux fois dessus mais marche
         }
         */
+    }
+
+    public void bouttonRajoute(){
+        if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
+            if(!estAllume()){
+                allumeSalle();
+            }
+        }
     }
 
     public void allumeSalle (){
