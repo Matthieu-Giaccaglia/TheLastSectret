@@ -76,6 +76,7 @@ public class LightsOutController {
             aGagne = true;
         }
     }
+
     public void updateScene (int i, ImageView img){
         int [] coordonne = Lout.trouverCoordonne(i);
         Lout.onClick(coordonne[0],coordonne[1]);
@@ -96,6 +97,7 @@ public class LightsOutController {
             imgsSwitch(GridPane.getColumnIndex(img), GridPane.getRowIndex(img));
         }
     }
+
     private void imgsSwitch(int pos_i, int pos_j) {//update scene
         int max_i = tab_lo.length - 1;
         int max_j = tab_lo[0].length - 1;

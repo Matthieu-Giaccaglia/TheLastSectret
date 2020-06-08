@@ -42,6 +42,11 @@
          <ImageView fx:id="pilierTombe" fitHeight="476.0" fitWidth="156.0" layoutX="1366.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" rotate="-39.8" visible="false">
             <Image url="@../../raw/groupe2/salle/pilier.PNG" />
          </ImageView>
+         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="930.0" layoutY="234.0" onMouseClicked="#bouttonRajoute" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
+            </image>
+         </ImageView>
       </AnchorPane>
    </AnchorPane>
 </StackPane>

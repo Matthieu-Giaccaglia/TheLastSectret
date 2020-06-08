@@ -35,7 +35,8 @@ public class SalleController {
     private int compteur = 0;
 
 
-
+    @FXML
+    private ImageView buttonMissing;
     @FXML
     public static ImageView dark_Id;
     @FXML
@@ -83,7 +84,15 @@ public class SalleController {
         */
     }
 
-    public void allumeSalle (){
+    public void bouttonRajoute() {
+        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere) {
+            if (!estAllume()) {
+                allumeSalle();
+            }
+        }
+    }
+
+        public void allumeSalle (){
         dark_Id.setVisible(false);
     }
 
