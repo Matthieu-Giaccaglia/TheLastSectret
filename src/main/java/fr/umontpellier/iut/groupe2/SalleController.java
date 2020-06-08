@@ -4,6 +4,7 @@ import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import fr.umontpellier.iut.groupe2.view.StepID;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,31 +13,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.nio.file.Paths;
 
 
 public class SalleController {
 
+    public ImageView cinqTrait;
+    public ImageView quatreTrait;
+    public ImageView troisTrait;
+    public ImageView deuxTrait;
+    public ImageView premierTrait;
+    public ImageView porte;
+    @FXML
+    private ImageView gemmeVerteEmplacement, gemmeVioletteEmplacement,gemmeRougeEmplacement, gemmeBleuEmplacement;
+    @FXML
+    private ImageView gemmeRouge, gemmeViolette, gemmeVerte, gemmetropHaute;
+    @FXML
+    private ImageView pilierGrand, pilierTombe;
 
-    public ImageView gemmeVerteEmplacement;
-    public ImageView gemmeVioletteEmplacement;
-    public ImageView gemmeRougeEmplacement;
-    public ImageView gemmeRouge;
-    public ImageView gemmeBleuEmplacement;
-    public ImageView gemmeViolette;
-    public ImageView gemmetropHaute;
-    public ImageView pilierGrand;
-    public ImageView pilierTombe;
-    private ItemId pillierVert ;
-    private ItemId pillierRouge ;
-    private ItemId pillierBleu ;
-    private ItemId pillierViolet ;
+    private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
-
-    @FXML
-    private ImageView buttonMissing;
     @FXML
     public static ImageView dark_Id;
     @FXML
@@ -47,14 +46,11 @@ public class SalleController {
     private Button pillier;
     @FXML
     private ImageView gemme;
-    @FXML
-    private ImageView gemmeVerte;
 
-    private LightsOutController lightsOutController = new LightsOutController();
-    private final MediaPlayer mediaPlayer;
+    private final LightsOutController lightsOutController = new LightsOutController();
 
     public SalleController() {
-        this.mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
         mediaPlayer.setAutoPlay(true);
     }
 
@@ -84,15 +80,7 @@ public class SalleController {
         */
     }
 
-    public void bouttonRajoute() {
-        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere) {
-            if (!estAllume()) {
-                allumeSalle();
-            }
-        }
-    }
-
-        public void allumeSalle (){
+    public void allumeSalle (){
         dark_Id.setVisible(false);
     }
 
@@ -116,11 +104,14 @@ public class SalleController {
     }
 
     public boolean estGagnant() {
-        if (pillierVert == ItemId.gemmeVerte && pillierRouge == ItemId.gemmeRouge && pillierBleu == ItemId.gemmeBleue && pillierViolet == ItemId.gemmeViolette) {
+        if (itemPilierVert == ItemId.gemmeVerte && itemPilierRouge == ItemId.gemmeRouge && itemPilierBleu == ItemId.gemmeBleue && itemPilierViolet == ItemId.gemmeViolette) {
             gemmeVerteEmplacement.setDisable(true);
             gemmeVioletteEmplacement.setDisable(true);
             gemmeBleuEmplacement.setDisable(true);
             gemmeRougeEmplacement.setDisable(true);
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2.0), porte);
+            translateTransition.setByY(-500);
+            translateTransition.play();
             System.out.println("C gagné");
             return true;
         }
@@ -133,55 +124,80 @@ public class SalleController {
 
     public void putGemme(MouseEvent mouseEvent) {
         ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
+
         if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
-                gemmeVerteEmplacement.setImage(ItemId.gemmeVerte.getImage());
-            pillierVert=selected;
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
-        }
-
-        else if (mouseEvent.getSource()==gemmeVerteEmplacement && gemmeVerteEmplacement.getImage()!=null ){
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierVert);
-            gemmeVerteEmplacement.setImage(null);
-            pillierVert=null;
-        }
-
-        else if (mouseEvent.getSource() == gemmeRougeEmplacement && gemmeRougeEmplacement.getImage() == null && contientGemme() ) {
-            gemmeRougeEmplacement.setImage(ItemId.gemmeRouge.getImage());
-            pillierRouge= selected;
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
-        }
-
-        else if (mouseEvent.getSource()==gemmeRougeEmplacement && gemmeRougeEmplacement.getImage()!=null ){
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierRouge);
-            gemmeRougeEmplacement.setImage(null);
-            pillierRouge=null;
-        }
-
-        else if (mouseEvent.getSource() == gemmeBleuEmplacement && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
-            gemmeBleuEmplacement.setImage(ItemId.gemmeBleue.getImage());
-            pillierBleu= selected;
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
-        }
-
-        else if (mouseEvent.getSource()==gemmeBleuEmplacement && gemmeBleuEmplacement.getImage()!=null ){
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierBleu);
-            gemmeBleuEmplacement.setImage(null);
-            pillierBleu=null;
-        }
-
-        else if (mouseEvent.getSource() == gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
-            gemmeVioletteEmplacement.setImage(ItemId.gemmeViolette.getImage());
-            pillierViolet=selected;
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
-        }
-
-        else if (mouseEvent.getSource()==gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage()!=null ){
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(pillierViolet);
-            gemmeVioletteEmplacement.setImage(null);
-            pillierViolet=null;
+            itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
+            allumeToi();
+        } else if (mouseEvent.getSource()==gemmeVerteEmplacement && gemmeVerteEmplacement.getImage()!=null ){
+            itemPilierVert = changeEtatPilier(itemPilierVert, gemmeVerteEmplacement,false);
+            eteinsToi();
+        }  else if (mouseEvent.getSource() == gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
+            itemPilierViolet = changeEtatPilier(selected, gemmeVioletteEmplacement, true);
+            allumeToi();
+        } else if (mouseEvent.getSource()==gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage()!=null ){
+            itemPilierViolet = changeEtatPilier(itemPilierViolet, gemmeVioletteEmplacement, false);
+            eteinsToi();
+        } else if (mouseEvent.getSource() == gemmeBleuEmplacement && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
+            itemPilierBleu = changeEtatPilier(selected, gemmeBleuEmplacement, true);
+            allumeToi();
+        } else if (mouseEvent.getSource()==gemmeBleuEmplacement && gemmeBleuEmplacement.getImage()!=null ){
+            itemPilierBleu = changeEtatPilier(itemPilierBleu, gemmeBleuEmplacement, false);
+            eteinsToi();
+        }else if (mouseEvent.getSource() == gemmeRougeEmplacement && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
+            itemPilierRouge = changeEtatPilier(selected, gemmeRougeEmplacement,true);
+            allumeToi();
+        } else if (mouseEvent.getSource()==gemmeRougeEmplacement && gemmeRougeEmplacement.getImage()!=null ) {
+            itemPilierRouge = changeEtatPilier(itemPilierRouge, gemmeRougeEmplacement, false);
         }
         System.out.println(estGagnant());
     }
+
+    public ItemId changeEtatPilier(ItemId itemAddInventaire, ImageView imageViewPilier, boolean ajoutItem){
+        if (!ajoutItem) {
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemAddInventaire);
+            imageViewPilier.setImage(null);
+            return null;
+        } else {
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(itemAddInventaire);
+            imageViewPilier.setImage(itemAddInventaire.getImage());
+            return itemAddInventaire;
+        }
+    }
+
+    public void allumeToi(){
+
+        if(premierTrait.isVisible() && itemPilierVert == ItemId.gemmeVerte){
+            deuxTrait.setVisible(true);
+            if (itemPilierViolet == ItemId.gemmeViolette){
+                troisTrait.setVisible(true);
+                if (itemPilierBleu == ItemId.gemmeBleue){
+                    quatreTrait.setVisible(true);
+                    if(itemPilierRouge == ItemId.gemmeRouge){
+                        cinqTrait.setVisible(true);
+                    }
+                }
+            }
+        }
+    }
+
+    public void eteinsToi(){
+
+        if (troisTrait.isVisible() && itemPilierBleu != ItemId.gemmeBleue){
+            quatreTrait.setVisible(false);
+        }
+        if(deuxTrait.isVisible() && itemPilierViolet != ItemId.gemmeViolette){
+            troisTrait.setVisible(false);
+            quatreTrait.setVisible(false);
+        }
+        if(premierTrait.isVisible() && itemPilierVert != ItemId.gemmeVerte){
+            deuxTrait.setVisible(false);
+            troisTrait.setVisible(false);
+            quatreTrait.setVisible(false);
+        }
+    }
+
+
+
 
     public void tombage() {
        compteur ++;
@@ -194,7 +210,10 @@ public class SalleController {
            textfield.setDisable(true);
            gemmeVerte.setDisable(false);
            gemmeVerte.setVisible(true);
+           premierTrait.setVisible(true);
        }
     }
+
+
 
 }

@@ -100,7 +100,7 @@
             <ImageView fx:id="vingtquatre" fitHeight="128.0" fitWidth="128.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <Image url="@../../../raw/groupe2/taquin/piece24.png" />
             </ImageView>
-            <ImageView fx:id="vingtcinq" disable="true" fitHeight="133.0" fitWidth="133.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ImageView fx:id="vingtcinq" disable="true" fitHeight="133.0" fitWidth="133.0" onMouseClicked="#putLastPiece" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
          </GridPane>
       </AnchorPane>
 

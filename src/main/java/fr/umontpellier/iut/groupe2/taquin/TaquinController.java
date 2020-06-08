@@ -41,8 +41,8 @@ public class TaquinController {
     public Media mouv2 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv2.mp3").toUri().toString());
     public Media mouv3 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv3.mp3").toUri().toString());
 
-    private MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/putPiece25.mp3").toUri().toString()));
-    private MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
+    private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/putPiece25.mp3").toUri().toString()));
+    private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
 
 
     Random random = new Random();
@@ -102,7 +102,19 @@ public class TaquinController {
             } else if (event.getSource() == vingtquatre) {
                 updateScene(vingtquatre,24);
             }
-        } else if (event.getSource() == vingtcinq && MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25){
+        }
+
+        if (vingtcinq.isDisable() && taquin.estGagnant()) {
+            vingtcinq.setDisable(false);
+        }
+
+    }
+
+
+
+
+    public void putLastPiece(MouseEvent mouseEvent) {
+        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece25) {
             putPiece25.play();
             vingtcinq.setImage(ItemId.taquinPiece25.getImage());
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece25);
@@ -111,17 +123,13 @@ public class TaquinController {
             stoneDrag.setVolume(0.7);
             stoneDrag.play();
 
-            TranslateTransition translateAnimation = new TranslateTransition(Duration.seconds(2.0),taquinGrid);
+            TranslateTransition translateAnimation = new TranslateTransition(Duration.seconds(2.0), taquinGrid);
             translateAnimation.setByX(-400);
             translateAnimation.play();
 
             taquinGrid.setDisable(true);
         }
-
-        if(vingtcinq.isDisable() && taquin.estGagnant())
-            vingtcinq.setDisable(false);
     }
-
 
 
 
@@ -141,13 +149,11 @@ public class TaquinController {
         textLastPiece.setVisible(false);
     }
 
-    public boolean estGagnant(){
-        return gagnant;
-    }
-
     public void recupGemme(MouseEvent mouseEvent) {
 
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
         gemme.setVisible(false);
     }
+
+
 }
