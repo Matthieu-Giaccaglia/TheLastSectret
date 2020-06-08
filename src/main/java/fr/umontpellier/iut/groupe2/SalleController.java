@@ -46,8 +46,10 @@ public class SalleController {
     private int compteur = 0;
 
 
+
+
     public SalleController() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
         mediaPlayer.setAutoPlay(true);
     }
 

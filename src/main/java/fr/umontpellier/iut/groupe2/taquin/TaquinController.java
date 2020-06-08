@@ -32,12 +32,12 @@ public class TaquinController {
     private final Taquin taquin = new Taquin(mat1);
     private boolean gagnant = false;
 
-    public Media mouv1 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv1.mp3").toUri().toString());
-    public Media mouv2 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv2.mp3").toUri().toString());
-    public Media mouv3 = new Media(Paths.get("src/main/resources/raw/groupe2/taquin/mouv3.mp3").toUri().toString());
+    public Media mouv1 = new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv1.mp3").toUri().toString());
+    public Media mouv2 = new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv2.mp3").toUri().toString());
+    public Media mouv3 = new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString());
 
-    private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/putPiece25.mp3").toUri().toString()));
-    private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
+    private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/putPiece25.mp3").toUri().toString()));
+    private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
 
 
     Random random = new Random();
