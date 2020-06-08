@@ -98,7 +98,7 @@ public class TaquinController {
             stoneDrag.play();
 
             TranslateTransition translateAnimation = new TranslateTransition(Duration.seconds(2.0), taquinAnchor);
-            translateAnimation.setByX(-400);
+            translateAnimation.setByX(-800);
             translateAnimation.play();
 
             taquinAnchor.setDisable(true);
