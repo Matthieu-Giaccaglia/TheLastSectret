@@ -8,9 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.*;
 import javafx.stage.Stage;
 
+
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +26,7 @@ public class StructureLabyrinthe extends Group {
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
     private final AnimationTimer timer;
+    private final MediaPlayer boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/shakira-waka-waka.mp3").toUri().toString()));
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
@@ -426,23 +431,31 @@ public class StructureLabyrinthe extends Group {
 
     public void deplacementBoule(Boule boule) {
 
+
+        //mediaPlayer.play();
+
         stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
             vitesseDeplacementRotation = 3;
             if (keyEvent.getCode() == KeyCode.LEFT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
+                boulleRoulante.play();
             }
             if (keyEvent.getCode() == KeyCode.RIGHT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), - vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
+                //mediaPlayer.play();
+                boulleRoulante.play();
             }
             if (keyEvent.getCode() == KeyCode.UP) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), - vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
+                boulleRoulante.play();
             }
             if (keyEvent.getCode() == KeyCode.DOWN) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
+                boulleRoulante.play();
             }
         });
     }
