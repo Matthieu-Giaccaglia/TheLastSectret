@@ -198,15 +198,23 @@ public class SalleController {
 
     public void tombage() {
         compteur ++;
+        TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
+        TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
+        translatePilier.setByX(-1);
+        translatePilier.setByY(-1);
+        translateGemmeVerte.setByX(-1);
+        translateGemmeVerte.setByY(-1);
+        translateGemmeVerte.play();
+        translatePilier.play();
         if (compteur >= 3){
-            TranslateTransition translateTransitionPilier = new TranslateTransition(Duration.seconds(1.3),pilierGrand);
+            TranslateTransition translateTransitionPilier = new TranslateTransition(Duration.seconds(0.4),pilierGrand);
             translateTransitionPilier.setByX(-232);
             translateTransitionPilier.setByY(44);
 
-            RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(1.3), pilierGrand);
+            RotateTransition rotateAnimation = new RotateTransition(Duration.seconds(0.4), pilierGrand);
             rotateAnimation.setByAngle(-39.8);
 
-            ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1.3), pilierGrand);
+            ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.4), pilierGrand);
             scaleTransition.setByX(-0.1);
             scaleTransition.setByY(-0.1);
 
