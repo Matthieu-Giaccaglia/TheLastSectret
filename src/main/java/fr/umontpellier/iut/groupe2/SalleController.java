@@ -80,11 +80,10 @@ public class SalleController {
     }
 
     public void bouttonRajoute(){
-        System.out.println("clique");
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(dark_Id.isVisible()){
                 dark_Id.setVisible(false);
-                System.out.println("test");
+                buttonMissing.setOpacity(1);
             }
         }
     }
