@@ -50,34 +50,23 @@ public class Taquin {
         if (ligne > 0 && tableau[ligne-1][colonne]==0){                          //déplacer en haut
             tableau[ligne][colonne] = 0;
             tableau[ligne-1][colonne] = i;
-            System.out.println(toString());
             return true;
         } else if (ligne < this.tableau.length-1 && tableau[ligne+1][colonne]==0){      //déplacer en bas
             tableau[ligne][colonne] = 0;
             tableau[ligne+1][colonne] = i;
-            System.out.println(toString());
             return true;
         } else if (colonne > 0 && tableau[ligne][colonne-1]==0){                       //déplacer à gauche
             tableau[ligne][colonne] = 0;
             tableau[ligne][colonne-1] = i;
-            System.out.println(toString());
             return true;
         } else if (colonne < this.tableau[tableau.length-1].length-1 && tableau[ligne][colonne+1]==0){   //déplacer à droite
             tableau[ligne][colonne] = 0;
             tableau[ligne][colonne+1] = i;
-            System.out.println(toString());
             return true;
         }
         return false;
     }
 
-    /*public int[][] copierTableau(){
-        int[][] copie = new int[tableau.length][];
-        for (int i=0; i<tableau.length; i++){
-            copie[i]= Arrays.copyOf(tableau[i],tableau[i].length);
-        }
-        return copie;
-    }*/
 
     public int[] trouverCoordonne(int num) {
         int[] coordonnee = new int[2];
