@@ -15,8 +15,5 @@
    <bottom>
        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="743.0" BorderPane.alignment="CENTER" />
    </bottom>
-   <left>
-      <Button fx:id="button" mnemonicParsing="false" prefHeight="77.0" prefWidth="113.0" text="Button" BorderPane.alignment="CENTER" />
-   </left>
 
 </BorderPane>

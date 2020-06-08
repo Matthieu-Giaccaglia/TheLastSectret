@@ -15,9 +15,8 @@ public class Taquin {
     public boolean estGagnant() {
         for (int i=0, j=0, k=1; i<tableau.length; i++, j=0){
             for (; j<tableau[i].length; j++, k++){
-                if ((tableau[i][j] != k && i!=tableau.length-1 && j!=tableau[i].length) || tableau[tableau.length-1][tableau.length-1] != 0){
-                    System.out.println((i+1)*(j+1));
-                    System.out.println(tableau[i][j]);
+                if(k == tableau.length * tableau[tableau.length-1].length) k = 0;
+                if ((tableau[i][j] != k)){
                     return false;
                 }
             }
@@ -48,22 +47,25 @@ public class Taquin {
     public boolean peutDeplacer(int i) {
         int[] coordonnee = trouverCoordonne(i);
         int ligne = coordonnee[0], colonne = coordonnee[1];
-
         if (ligne > 0 && tableau[ligne-1][colonne]==0){                          //déplacer en haut
             tableau[ligne][colonne] = 0;
             tableau[ligne-1][colonne] = i;
+            System.out.println(toString());
             return true;
         } else if (ligne < this.tableau.length-1 && tableau[ligne+1][colonne]==0){      //déplacer en bas
             tableau[ligne][colonne] = 0;
             tableau[ligne+1][colonne] = i;
+            System.out.println(toString());
             return true;
         } else if (colonne > 0 && tableau[ligne][colonne-1]==0){                       //déplacer à gauche
             tableau[ligne][colonne] = 0;
             tableau[ligne][colonne-1] = i;
+            System.out.println(toString());
             return true;
-        } else if (colonne < this.tableau.length-1 && tableau[ligne][colonne+1]==0){   //déplacer à droite
+        } else if (colonne < this.tableau[tableau.length-1].length-1 && tableau[ligne][colonne+1]==0){   //déplacer à droite
             tableau[ligne][colonne] = 0;
             tableau[ligne][colonne+1] = i;
+            System.out.println(toString());
             return true;
         }
         return false;
@@ -80,7 +82,7 @@ public class Taquin {
     public int[] trouverCoordonne(int num) {
         int[] coordonnee = new int[2];
         for (int i=0, j=0; i<tableau.length; i++,j=0){
-            for(; j<tableau.length; j++){
+            for(; j<tableau[tableau.length-1].length; j++){
                 if (tableau[i][j] == num){
                     coordonnee[0]=i;
                     coordonnee[1]=j;
