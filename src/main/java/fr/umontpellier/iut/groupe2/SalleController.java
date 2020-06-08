@@ -39,13 +39,11 @@ public class SalleController {
     @FXML
     private ImageView buttonMissing;
     @FXML
-    public static ImageView dark_Id;
+    private ImageView dark_Id;
     @FXML
     private Button buttonBackTaquin, taquinButton, lightoutButton, Gvh;
     @FXML
     private TextField textfield;
-    @FXML
-    private Button pillier;
     @FXML
     private ImageView gemme;
 
@@ -82,20 +80,15 @@ public class SalleController {
     }
 
     public void bouttonRajoute(){
+        System.out.println("clique");
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
-            if(!estAllume()){
-                allumeSalle();
+            if(dark_Id.isVisible()){
+                dark_Id.setVisible(false);
+                System.out.println("test");
             }
         }
     }
 
-    public void allumeSalle (){
-        dark_Id.setVisible(false);
-    }
-
-    public Boolean estAllume (){
-        return dark_Id.isVisible();
-    }
 
 
 
