@@ -36,48 +36,6 @@ public class LightsOutController {
 
 
     public void light_switch(MouseEvent event) {
-        gridMain.translateXProperty();
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().addAll(
-                new KeyFrame(Duration.ZERO, // set start position at 0
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random() * 10)
-                ),
-                new KeyFrame(new Duration(500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 100000),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(1000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 100)
-                ),
-                new KeyFrame(new Duration(1500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(2000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(2500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(3000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(3500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(4000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                )
-        );
-        // play 4s of animation
-        timeline.play();
         if (!Lout.estGagnant()) {
 
             if (event.getSource() == un) {
@@ -115,7 +73,6 @@ public class LightsOutController {
             }
         }
         if(Lout.estGagnant() && !aGagne){
-            timeline.play();
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
             button.setVisible(false);
             aGagne = true;
