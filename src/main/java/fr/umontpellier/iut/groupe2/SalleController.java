@@ -43,23 +43,15 @@ public class SalleController {
     @FXML
     private TextField textfield;
 
-
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
+    private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
     private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
-
-
-
-
-    public SalleController() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
-        mediaPlayer.setAutoPlay(true);
-    }
+    //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
 
     public void handleButton(ActionEvent event) {
-
         System.out.println("ok");
         if (event.getSource() == taquinButton) {
             MainSalleGroupe2.stepManager.openStep(StepID.TAQUIN);
@@ -79,13 +71,12 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(dark_Id.isVisible()){
                 dark_Id.setVisible(false);
+                new MediaPlayer(gemmePlacePillier).play();
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
     }
-
-
 
 
     public void recupGemme(MouseEvent mouseEvent) {
@@ -122,7 +113,6 @@ public class SalleController {
 
     public void putGemme(MouseEvent mouseEvent) {
         ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-
         if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
             itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
             allumeToi();
@@ -158,6 +148,7 @@ public class SalleController {
         } else {
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(itemAddInventaire);
             imageViewPilier.setImage(itemAddInventaire.getImage());
+            new MediaPlayer(gemmePlacePillier).play();
             return itemAddInventaire;
         }
     }
@@ -206,14 +197,14 @@ public class SalleController {
 
 
     private void animationPilierTombe() {
-        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(0.4),pilierGrand);
+        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(1.3),pilierGrand);
         translatePilierTombe.setByX(-232);
         translatePilierTombe.setByY(44);
 
-        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(0.4), pilierGrand);
+        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1.3), pilierGrand);
         rotatePilierTombe.setByAngle(-39.8);
 
-        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(0.4), pilierGrand);
+        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1.3), pilierGrand);
         scalePilierTombe.setByX(-0.1);
         scalePilierTombe.setByY(-0.1);
 
