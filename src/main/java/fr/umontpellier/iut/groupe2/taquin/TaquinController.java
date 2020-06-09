@@ -37,9 +37,9 @@ public class TaquinController {
 
     private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/putPiece25.mp3").toUri().toString()));
     private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
-    private MediaPlayer[] listSound = { new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv1.mp3").toUri().toString())),
-                                        new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv2.mp3").toUri().toString())),
-                                        new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString()))};
+    private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv1.mp3").toUri().toString()),
+                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv2.mp3").toUri().toString()),
+                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString())};
     Random random = new Random();
 
     public void mouvement(MouseEvent event) {
@@ -106,7 +106,7 @@ public class TaquinController {
         int [] coordonne = taquin.trouverCoordonne(0);
         if(taquin.peutDeplacer(i)) {
             GridPane.setConstraints(node, coordonne[1], coordonne[0]);
-            listSound[random.nextInt(3)].play();
+            new MediaPlayer(listSound[random.nextInt(3)]).play();
         }
     }
 
