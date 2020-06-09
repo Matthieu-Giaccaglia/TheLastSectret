@@ -27,11 +27,10 @@ public class LightsOutController {
     @FXML
     private ImageView button;
 
-    private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+    private int[][] tab_lo = {{1,0,0,0},{0,0,1,0},{0,1,0,0},{0,0,0,1}};
     private LightsOut Lout = new LightsOut(tab_lo);
     private boolean aGagne = false;
     public Media bricksound = new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString());
-
 
     public void light_switch(MouseEvent event) {
         if (!Lout.estGagnant()) {
@@ -75,6 +74,11 @@ public class LightsOutController {
             button.setVisible(false);
             aGagne = true;
         }
+    }
+    public void finished(){
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
+        button.setVisible(false);
+        aGagne = true;
     }
 
     public void updateScene (int i, ImageView img){

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.lightsout.LightsOutController">
     <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
@@ -22,10 +25,10 @@
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 </rowConstraints>
-                <ImageView fx:id="un" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="un" disable="true" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
-                <ImageView fx:id="sept" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <ImageView fx:id="sept" disable="true" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
                 <ImageView fx:id="six" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -52,7 +55,7 @@
                 <ImageView fx:id="onze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
-                <ImageView fx:id="dix" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <ImageView fx:id="dix" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
                 <ImageView fx:id="neuf" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
@@ -64,7 +67,7 @@
                 <ImageView fx:id="quinze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
-                <ImageView fx:id="seize" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <ImageView fx:id="seize" disable="true" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="3" GridPane.rowIndex="3">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
                 <ImageView fx:id="quatorze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -75,9 +78,24 @@
         <AnchorPane layoutX="1702.0" layoutY="919.0" prefHeight="84.0" prefWidth="202.0">
             <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
         </AnchorPane>
-        <ImageView fx:id="button" fitHeight="150.0" fitWidth="200.0" layoutX="88.0" layoutY="111.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="@../../../raw/groupe2/salle/Oak_Button.png"/>
+        <ImageView fx:id="button" fitHeight="150.0" fitWidth="200.0" layoutX="88.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../raw/groupe2/salle/Oak_Button.png" />
         </ImageView>
+      <Button fx:id="finishEarly" defaultButton="true" layoutX="372.0" layoutY="494.0" lineSpacing="6.0" mnemonicParsing="false" onAction="#finished" opacity="0.64" prefHeight="108.0" prefWidth="121.0" text="finish" textFill="#00ff57" textOverrun="CLIP" underline="true">
+         <font>
+            <Font name="System Italic" size="31.0" />
+         </font>
+         <effect>
+            <MotionBlur angle="133.95" radius="5.86">
+               <input>
+                  <BoxBlur height="121.57" iterations="0" width="67.26">
+                     <input>
+                        <Blend />
+                     </input>
+                  </BoxBlur>
+               </input>
+            </MotionBlur>
+         </effect>
+      </Button>
     </AnchorPane>
 </StackPane>
