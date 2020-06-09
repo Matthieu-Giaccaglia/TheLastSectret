@@ -4,6 +4,7 @@ package fr.umontpellier.iut.groupe2.taquin;
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.Interpolator;
+import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -21,6 +22,8 @@ import java.util.Random;
 
 public class TaquinController {
 
+    @FXML
+    private GridPane taquinGrid;
     @FXML
     private AnchorPane taquinAnchor;
     @FXML
@@ -45,7 +48,6 @@ public class TaquinController {
     public void mouvement(MouseEvent event) {
 
         if (!taquin.estGagnant()) {
-            System.out.println(taquin.estGagnant());
             if (event.getSource() == pieceUn) {
                 updateScene(pieceUn, 1);
             } else if (event.getSource() == pieceDeux) {
@@ -67,7 +69,6 @@ public class TaquinController {
             } else if (event.getSource() == pieceDix) {
                 updateScene(pieceDix, 10);
             } else if (event.getSource() == pieceOnze) {
-                System.out.println("ok");
                 updateScene(pieceOnze, 11);
             }
         }
@@ -103,9 +104,38 @@ public class TaquinController {
 
     private void updateScene (Node node, int i){
 
-        int [] coordonne = taquin.trouverCoordonne(0);
+        int [] coordonnePiece12 = taquin.trouverCoordonne(0);
+        int [] coordonnePieceNode = taquin.trouverCoordonne(i);
+
         if(taquin.peutDeplacer(i)) {
-            GridPane.setConstraints(node, coordonne[1], coordonne[0]);
+            taquinGrid.setDisable(true);
+            taquinGrid.layout();
+
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.3),node);
+            translateTransition.setToX( pieceDouze.getLayoutX() - node.getLayoutX());
+            translateTransition.setToY( pieceDouze.getLayoutY() - node.getLayoutY());
+
+            TranslateTransition translateTransitionDouze = new TranslateTransition(Duration.seconds(0.3),pieceDouze);
+            translateTransitionDouze.setToX( node.getLayoutX() - pieceDouze.getLayoutX());
+            translateTransitionDouze.setToY( node.getLayoutY() - pieceDouze.getLayoutY());
+
+            ParallelTransition parallelTransition = new ParallelTransition(translateTransition,translateTransitionDouze);
+            parallelTransition.play();
+
+            parallelTransition.setOnFinished(event -> {
+                taquinGrid.getChildren().remove(pieceDouze);
+                pieceDouze.setTranslateX(0);
+                pieceDouze.setTranslateY(0);
+                taquinGrid.add(pieceDouze,coordonnePieceNode[1], coordonnePieceNode[0]);
+
+                taquinGrid.getChildren().remove(node);
+                node.setTranslateX(0);
+                node.setTranslateY(0);
+                taquinGrid.add(node,coordonnePiece12[1], coordonnePiece12[0]);
+
+                taquinGrid.setDisable(false);
+            });
+
             new MediaPlayer(listSound[random.nextInt(3)]).play();
         }
     }
