@@ -1,10 +1,15 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Inventaire {
 
+    private Media sonAjout = new Media(Paths.get("src/main/resources/sound/groupe2/Inventaire/pickItem.mp3").toUri().toString());
     private final ArrayList<ItemId> inventaire = new ArrayList<>(5);
     private final InventaireController controller;
     private int nombreItemInventaire = 0;
@@ -60,6 +65,7 @@ public class Inventaire {
         if (nombreItemInventaire < 5 && !contientItem(itemId)) {
             for (int i = 0; i < 5; i++) {
                 if (inventaire.get(i) == null) {
+                    new MediaPlayer(sonAjout).play();
                     inventaire.set(i,itemId);
                     nombreItemInventaire++;
                     updateInventaireGraphique(itemId,i);
