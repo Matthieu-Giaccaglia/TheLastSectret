@@ -8,7 +8,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage){
         //initMouseControl(labyrinthe, jeuLabyrinthe, primaryStage);
-        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new BackgroundLabyrinthe(new StructureLabyrinthe(500, 450, primaryStage)),1000, 900);
+        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new BackgroundStackPane(new StructureLabyrinthe(500, 450, primaryStage)),1000, 900);
 
         primaryStage.setTitle("Labyrinthe");
         primaryStage.setScene(jeuLabyrinthe);
