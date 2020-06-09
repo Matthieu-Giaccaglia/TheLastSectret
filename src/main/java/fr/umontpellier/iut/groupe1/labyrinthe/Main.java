@@ -14,11 +14,6 @@ public class Main extends Application {
         primaryStage.setScene(jeuLabyrinthe);
         primaryStage.show();
 
-        //TODO MENU PAUSE :
-        // https://www.youtube.com/results?search_query=java+14+menu+pause,
-        // https://www.youtube.com/watch?v=YidNU-XNZx8,
-        // https://www.youtube.com/watch?v=FZWX5WoGW00,
-        // https://www.youtube.com/watch?v=LKJlUBYFpWM
     }
 
     public static void main(String[] args) {
