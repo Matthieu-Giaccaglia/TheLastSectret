@@ -42,24 +42,15 @@ public class SalleController {
     @FXML
     private TextField textfield;
 
-    private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
-
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
+    private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
     private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
-
-
-
-
-    public SalleController() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
-        mediaPlayer.setAutoPlay(true);
-    }
+    //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
 
     public void handleButton(ActionEvent event) {
-
         System.out.println("ok");
         if (event.getSource() == taquinButton) {
             MainSalleGroupe2.stepManager.openStep(StepID.TAQUIN);
@@ -79,13 +70,12 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(dark_Id.isVisible()){
                 dark_Id.setVisible(false);
+                new MediaPlayer(gemmePlacePillier).play();
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
     }
-
-
 
 
     public void recupGemme(MouseEvent mouseEvent) {
