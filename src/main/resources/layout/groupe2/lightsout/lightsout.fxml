@@ -55,7 +55,7 @@
                 <ImageView fx:id="onze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
-                <ImageView fx:id="dix" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <ImageView fx:id="dix" disable="true" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <Image url="@../../../raw/groupe2/lightsout/brick.png" />
                 </ImageView>
                 <ImageView fx:id="neuf" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
@@ -81,7 +81,7 @@
         <ImageView fx:id="button" fitHeight="150.0" fitWidth="200.0" layoutX="88.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../../raw/groupe2/salle/Oak_Button.png" />
         </ImageView>
-      <Button fx:id="finishEarly" defaultButton="true" layoutX="372.0" layoutY="494.0" lineSpacing="6.0" mnemonicParsing="false" onAction="#finished" opacity="0.64" prefHeight="108.0" prefWidth="121.0" text="finish" textFill="#00ff57" textOverrun="CLIP" underline="true">
+      <Button defaultButton="true" layoutX="372.0" layoutY="494.0" lineSpacing="6.0" mnemonicParsing="false" onAction="#finished" opacity="0.64" prefHeight="108.0" prefWidth="121.0" text="finish" textFill="#00ff57" textOverrun="CLIP" underline="true">
          <font>
             <Font name="System Italic" size="31.0" />
          </font>
