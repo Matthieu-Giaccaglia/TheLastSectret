@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
+import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.Interpolator;
@@ -22,6 +23,7 @@ import java.util.Random;
 
 public class TaquinController {
 
+    public ImageView mur;
     @FXML
     private GridPane taquinGrid;
     @FXML
@@ -34,7 +36,7 @@ public class TaquinController {
     private final int[][] mat1 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 0, 11}};
     @FXML
     private final Taquin taquin = new Taquin(mat1);
-    private boolean gagnant = false;
+    private int compteur;
 
 
 
@@ -84,10 +86,10 @@ public class TaquinController {
 
     public void putLastPiece() {
         if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece12) {
+            pieceDouze.setDisable(true);
             putPiece25.play();
             pieceDouze.setImage(ItemId.taquinPiece12.getImage());
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece12);
-            gagnant = true;
 
             stoneDrag.setVolume(0.7);
             stoneDrag.play();
@@ -95,6 +97,8 @@ public class TaquinController {
             TranslateTransition translateAnimation = new TranslateTransition(Duration.seconds(2.0), taquinAnchor);
             translateAnimation.setByX(-800);
             translateAnimation.play();
+
+            translateAnimation.setOnFinished(event -> mur.setDisable(false));
 
             taquinAnchor.setDisable(true);
         }
@@ -149,4 +153,14 @@ public class TaquinController {
     }
 
 
+    public void casserLeMur() {
+        compteur++;
+        if(compteur == 1){
+            mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure2.png"));
+        } else if (compteur == 2){
+            mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
+            mur.setDisable(true);
+            gemme.setDisable(false);
+        }
+    }
 }
