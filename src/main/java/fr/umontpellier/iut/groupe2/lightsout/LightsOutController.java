@@ -2,9 +2,7 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -181,6 +179,7 @@ public class LightsOutController {
     public void imgSwitch(int i, int j){
         int i_grid;//car 0 grid = null
         int j_grid;
+        ParallelTransition brickMove;
         for (Node node : gridMain.getChildren()) {
             if(GridPane.getColumnIndex(node)==null||GridPane.getRowIndex(node)==null){
                 if(GridPane.getColumnIndex(node)==null&&GridPane.getRowIndex(node)==null){
@@ -197,15 +196,15 @@ public class LightsOutController {
                 i_grid = GridPane.getColumnIndex(node);
                 j_grid = GridPane.getRowIndex(node);
             }
-            if (i_grid == i && j_grid == j) {//si node off
-                if(node.getOpacity() ==  1){
-                    node.setOpacity(0.5);
-                    node.setScaleX(0.9);
-                    node.setScaleY(0.9);
+            if (i_grid == i && j_grid == j) {
+                if(node.getOpacity() ==  1){//node off
+                    node.setDisable(true);
+                    brickMove = animationClique(node);
+                    brickMove.play();
                 }else {//si node on
-                    node.setOpacity(1);
-                    node.setScaleX(1);
-                    node.setScaleY(1);
+                    node.setDisable(false);
+                    brickMove = animationClique(node);
+                    brickMove.play();
                 }
             }
         }
@@ -216,5 +215,24 @@ public class LightsOutController {
 
     }
     */
+    public ParallelTransition animationClique(Node idBrick){
+        if(idBrick.isDisable()) {
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.4), idBrick);
+            scaleBrick.setByX(-0.1);
+            scaleBrick.setByY(-0.1);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.4), idBrick);
+            fadeBrick.setByValue(-0.5);
+
+            return new ParallelTransition(fadeBrick, scaleBrick);
+        }else{
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.4), idBrick);
+            scaleBrick.setByX(0.1);
+            scaleBrick.setByY(0.1);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.4), idBrick);
+            fadeBrick.setByValue(0.5);
+
+            return new ParallelTransition(fadeBrick, scaleBrick);
+        }
+    }
 
 }
