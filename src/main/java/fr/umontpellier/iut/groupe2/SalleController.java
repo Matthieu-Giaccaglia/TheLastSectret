@@ -217,7 +217,22 @@ public class SalleController {
         scalePilierTombe.setByY(-0.1);
 
         ParallelTransition parallelPilierTombe = new ParallelTransition(translatePilierTombe, rotatePilierTombe, scalePilierTombe);
-        parallelPilierTombe.setInterpolator(Interpolator.EASE_IN);
+        parallelPilierTombe.setInterpolator(new Interpolator() {
+
+            private double factor = 1.25;
+            private final double min = 0;
+            private final double max = (1 - Math.sin(Math.PI / 2d + factor * Math.PI)) / 2d;
+
+            @Override
+            protected double curve(double v) {
+                double sin = Math.sin(Math.PI / 2d + v * factor * Math.PI);
+                sin = (1 - sin) / 2d;
+                sin = sin / (max - min);
+                return sin;
+            }
+        });
+        parallelPilierTombe.setRate(-1);
+
 
         parallelPilierTombe.setOnFinished(event -> {
             gemmeVerte.setVisible(true);
@@ -226,7 +241,8 @@ public class SalleController {
 
 
 
-        parallelPilierTombe.play();
+        parallelPilierTombe.playFromStart();
+
         soundPilierTombe.play();
         textfield.setVisible(false);
         textfield.setDisable(true);

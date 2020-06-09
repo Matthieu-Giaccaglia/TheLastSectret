@@ -2,11 +2,12 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,7 +15,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import static java.lang.Math.random;
 
 import java.nio.file.Paths;
 
@@ -29,57 +29,13 @@ public class LightsOutController {
     @FXML
     private ImageView button;
 
-    private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
-    private LightsOut Lout = new LightsOut(tab_lo);
+    private final int[][] tab_lo = {{1,0,0,0},{0,0,1,0},{0,1,0,0},{0,0,0,1}};
+    private final LightsOut Lout = new LightsOut(tab_lo);
     private boolean aGagne = false;
-    public MediaPlayer bricksound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString()));
-
+    public Media bricksound = new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString());
 
     public void light_switch(MouseEvent event) {
-        gridMain.translateXProperty();
-        Timeline timeline = new Timeline();
-        timeline.getKeyFrames().addAll(
-                new KeyFrame(Duration.ZERO, // set start position at 0
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random() * 10)
-                ),
-                new KeyFrame(new Duration(500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 100000),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(1000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 100)
-                ),
-                new KeyFrame(new Duration(1500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(2000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(2500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(3000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(3500), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                ),
-                new KeyFrame(new Duration(4000), // set end position at 4s
-                        new KeyValue(gridMain.translateXProperty(), random() * 10),
-                        new KeyValue(gridMain.translateYProperty(), random()* 10)
-                )
-        );
-        // play 4s of animation
-        timeline.play();
         if (!Lout.estGagnant()) {
-
             if (event.getSource() == un) {
                 updateScene(0, un);
             } else if (event.getSource() == deux) {
@@ -115,11 +71,13 @@ public class LightsOutController {
             }
         }
         if(Lout.estGagnant() && !aGagne){
-            timeline.play();
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
-            button.setVisible(false);
-            aGagne = true;
+            finished();
         }
+    }
+    public void finished(){
+        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
+        button.setVisible(false);
+        aGagne = true;
     }
 
     public void updateScene (int i, ImageView img){
@@ -129,7 +87,7 @@ public class LightsOutController {
         /*System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
-        bricksound.play();
+        new MediaPlayer(bricksound).play();
         if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
             if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
                 imgsSwitch(0,0);
@@ -224,6 +182,7 @@ public class LightsOutController {
     public void imgSwitch(int i, int j){
         int i_grid;//car 0 grid = null
         int j_grid;
+        ParallelTransition brickMove;
         for (Node node : gridMain.getChildren()) {
             if(GridPane.getColumnIndex(node)==null||GridPane.getRowIndex(node)==null){
                 if(GridPane.getColumnIndex(node)==null&&GridPane.getRowIndex(node)==null){
@@ -240,16 +199,12 @@ public class LightsOutController {
                 i_grid = GridPane.getColumnIndex(node);
                 j_grid = GridPane.getRowIndex(node);
             }
-            if (i_grid == i && j_grid == j) {//si node off
-                if(node.getOpacity() ==  1){
-                    node.setOpacity(0.5);
-                    node.setScaleX(0.9);
-                    node.setScaleY(0.9);
-                }else {//si node on
-                    node.setOpacity(1);
-                    node.setScaleX(1);
-                    node.setScaleY(1);
-                }
+            if (i_grid == i && j_grid == j) {
+                //node off
+                //si node on
+                node.setDisable(!node.isDisable());
+                brickMove = animationClique(node);
+                brickMove.play();
             }
         }
     }
@@ -259,5 +214,24 @@ public class LightsOutController {
 
     }
     */
+    public ParallelTransition animationClique(Node idBrick){
+        if(idBrick.isDisable()) {
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
+            scaleBrick.setByX(-0.1);
+            scaleBrick.setByY(-0.1);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.2), idBrick);
+            fadeBrick.setByValue(-0.5);
+
+            return new ParallelTransition(fadeBrick, scaleBrick);
+        }else{
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
+            scaleBrick.setByX(0.1);
+            scaleBrick.setByY(0.1);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.2), idBrick);
+            fadeBrick.setByValue(0.5);
+
+            return new ParallelTransition(fadeBrick, scaleBrick);
+        }
+    }
 
 }
