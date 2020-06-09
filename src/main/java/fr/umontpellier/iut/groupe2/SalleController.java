@@ -42,6 +42,7 @@ public class SalleController {
     @FXML
     private TextField textfield;
 
+    private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
 
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
@@ -121,7 +122,6 @@ public class SalleController {
 
     public void putGemme(MouseEvent mouseEvent) {
         ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-
         if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
             itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
             allumeToi();
@@ -157,6 +157,7 @@ public class SalleController {
         } else {
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(itemAddInventaire);
             imageViewPilier.setImage(itemAddInventaire.getImage());
+            new MediaPlayer(gemmePlacePillier).play();
             return itemAddInventaire;
         }
     }
@@ -205,14 +206,14 @@ public class SalleController {
 
 
     private void animationPilierTombe() {
-        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(0.4),pilierGrand);
+        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(1.3),pilierGrand);
         translatePilierTombe.setByX(-232);
         translatePilierTombe.setByY(44);
 
-        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(0.4), pilierGrand);
+        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1.3), pilierGrand);
         rotatePilierTombe.setByAngle(-39.8);
 
-        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(0.4), pilierGrand);
+        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1.3), pilierGrand);
         scalePilierTombe.setByX(-0.1);
         scalePilierTombe.setByY(-0.1);
 
