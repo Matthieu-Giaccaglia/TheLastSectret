@@ -30,7 +30,7 @@ public class LightsOutController {
     private int[][] tab_lo = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     private LightsOut Lout = new LightsOut(tab_lo);
     private boolean aGagne = false;
-    public MediaPlayer bricksound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString()));
+    public Media bricksound = new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString());
 
 
     public void light_switch(MouseEvent event) {
@@ -84,7 +84,7 @@ public class LightsOutController {
         /*System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
-        bricksound.play();
+        new MediaPlayer(bricksound).play();
         if(GridPane.getColumnIndex(img)==null||GridPane.getRowIndex(img)==null){
             if(GridPane.getColumnIndex(img)==null&&GridPane.getRowIndex(img)==null){
                 imgsSwitch(0,0);
@@ -199,13 +199,11 @@ public class LightsOutController {
             if (i_grid == i && j_grid == j) {
                 if(node.getOpacity() ==  1){//node off
                     node.setDisable(true);
-                    brickMove = animationClique(node);
-                    brickMove.play();
                 }else {//si node on
                     node.setDisable(false);
-                    brickMove = animationClique(node);
-                    brickMove.play();
                 }
+                brickMove = animationClique(node);
+                brickMove.play();
             }
         }
     }
