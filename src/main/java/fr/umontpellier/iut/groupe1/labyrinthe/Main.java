@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe1.Labyrinthe;
+package fr.umontpellier.iut.groupe1.labyrinthe;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -8,7 +8,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage){
         //initMouseControl(labyrinthe, jeuLabyrinthe, primaryStage);
-        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new BackgroundLabyrinthe(new StructureLabyrinthe(1000 / 2, 900 / 2, primaryStage)),1000, 900);
+        JeuLabyrinthe jeuLabyrinthe = new JeuLabyrinthe(new BackgroundLabyrinthe(new StructureLabyrinthe(500, 450, primaryStage)),1000, 900);
 
         primaryStage.setTitle("Labyrinthe");
         primaryStage.setScene(jeuLabyrinthe);

@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe1.Labyrinthe;
+package fr.umontpellier.iut.groupe1.labyrinthe;
 
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import javafx.scene.paint.PhongMaterial;

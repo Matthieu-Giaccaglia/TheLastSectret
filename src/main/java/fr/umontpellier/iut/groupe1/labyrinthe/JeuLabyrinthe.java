@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe1.Labyrinthe;
+package fr.umontpellier.iut.groupe1.labyrinthe;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
