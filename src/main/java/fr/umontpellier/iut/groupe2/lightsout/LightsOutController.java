@@ -2,9 +2,12 @@ package fr.umontpellier.iut.groupe2.lightsout;
 
 import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import javafx.animation.*;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -12,7 +15,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import static java.lang.Math.random;
 
 import java.nio.file.Paths;
 
@@ -27,14 +29,13 @@ public class LightsOutController {
     @FXML
     private ImageView button;
 
-    private int[][] tab_lo = {{1,0,0,0},{0,0,1,0},{0,1,0,0},{0,0,0,1}};
-    private LightsOut Lout = new LightsOut(tab_lo);
+    private final int[][] tab_lo = {{1,0,0,0},{0,0,1,0},{0,1,0,0},{0,0,0,1}};
+    private final LightsOut Lout = new LightsOut(tab_lo);
     private boolean aGagne = false;
     public Media bricksound = new Media(Paths.get("src/main/resources/sound/groupe2/lightsout/brick.mp3").toUri().toString());
 
     public void light_switch(MouseEvent event) {
         if (!Lout.estGagnant()) {
-
             if (event.getSource() == un) {
                 updateScene(0, un);
             } else if (event.getSource() == deux) {
@@ -70,9 +71,7 @@ public class LightsOutController {
             }
         }
         if(Lout.estGagnant() && !aGagne){
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
-            button.setVisible(false);
-            aGagne = true;
+            finished();
         }
     }
     public void finished(){
@@ -201,11 +200,9 @@ public class LightsOutController {
                 j_grid = GridPane.getRowIndex(node);
             }
             if (i_grid == i && j_grid == j) {
-                if(node.getOpacity() ==  1){//node off
-                    node.setDisable(true);
-                }else {//si node on
-                    node.setDisable(false);
-                }
+                //node off
+                //si node on
+                node.setDisable(!node.isDisable());
                 brickMove = animationClique(node);
                 brickMove.play();
             }
@@ -219,18 +216,18 @@ public class LightsOutController {
     */
     public ParallelTransition animationClique(Node idBrick){
         if(idBrick.isDisable()) {
-            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.4), idBrick);
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
             scaleBrick.setByX(-0.1);
             scaleBrick.setByY(-0.1);
-            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.4), idBrick);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.2), idBrick);
             fadeBrick.setByValue(-0.5);
 
             return new ParallelTransition(fadeBrick, scaleBrick);
         }else{
-            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.4), idBrick);
+            ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
             scaleBrick.setByX(0.1);
             scaleBrick.setByY(0.1);
-            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.4), idBrick);
+            FadeTransition fadeBrick = new FadeTransition(Duration.seconds(0.2), idBrick);
             fadeBrick.setByValue(0.5);
 
             return new ParallelTransition(fadeBrick, scaleBrick);
