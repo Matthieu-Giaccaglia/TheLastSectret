@@ -15,6 +15,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
@@ -45,9 +46,13 @@ public class SalleController {
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
+    private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
+
+
+
 
     public SalleController() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/raw/groupe2/silenceRoom.mp3").toUri().toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
         mediaPlayer.setAutoPlay(true);
     }
 
@@ -144,7 +149,7 @@ public class SalleController {
         System.out.println(estGagnant());
     }
 
-    public ItemId changeEtatPilier(ItemId itemAddInventaire, ImageView imageViewPilier, boolean ajoutItem){
+    private ItemId changeEtatPilier(ItemId itemAddInventaire, ImageView imageViewPilier, boolean ajoutItem){
         if (!ajoutItem) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemAddInventaire);
             imageViewPilier.setImage(null);
@@ -156,7 +161,7 @@ public class SalleController {
         }
     }
 
-    public void allumeToi(){
+    private void allumeToi(){
 
         if(premierTrait.isVisible() && itemPilierVert == ItemId.gemmeVerte){
             deuxTrait.setVisible(true);
@@ -172,7 +177,7 @@ public class SalleController {
         }
     }
 
-    public void eteinsToi(){
+    private void eteinsToi(){
 
         if (troisTrait.isVisible() && itemPilierBleu != ItemId.gemmeBleue){
             quatreTrait.setVisible(false);
@@ -222,6 +227,7 @@ public class SalleController {
 
 
         parallelPilierTombe.play();
+        soundPilierTombe.play();
         textfield.setVisible(false);
         textfield.setDisable(true);
         pilierGrand.setDisable(true);
@@ -247,7 +253,7 @@ public class SalleController {
     }
 
 
-    public void recupPieceTaquin(MouseEvent mouseEvent) {
+    public void recupPieceTaquin() {
 
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
         piece25Taquin.setVisible(false);
