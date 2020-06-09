@@ -22,6 +22,8 @@ import java.nio.file.Paths;
 public class SalleController {
 
     public ImageView fondDeBase;
+    public ImageView jarre;
+    public ImageView jarreCassee;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -73,6 +75,7 @@ public class SalleController {
                 dark_Id.setVisible(false);
                 new MediaPlayer(gemmePlacePillier).play();
                 buttonMissing.setOpacity(1);
+                jarre.setOpacity(0.9);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
@@ -89,6 +92,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == gemmeViolette) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
             gemmeViolette.setVisible(false);
+            jarreCassee.setVisible(true);
         }
     }
 
@@ -265,5 +269,10 @@ public class SalleController {
 
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
         piece25Taquin.setVisible(false);
+    }
+
+    public void casseJarre() {
+        jarre.setVisible(false);
+        gemmeViolette.setVisible(true);
     }
 }
