@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 
 public class SalleController {
 
+    public ImageView fondDeBase;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
