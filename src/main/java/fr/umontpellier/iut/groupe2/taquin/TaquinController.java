@@ -42,6 +42,9 @@ public class TaquinController {
 
     private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/putPiece25.mp3").toUri().toString()));
     private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
+    private final MediaPlayer impactUn = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/impactUn.mp3").toUri().toString()));
+    private final MediaPlayer impactDeux = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/impactDeux.mp3").toUri().toString()));
+
     private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv1.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv2.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString())};
@@ -157,10 +160,12 @@ public class TaquinController {
         compteur++;
         if(compteur == 1){
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure2.png"));
+            impactUn.play();
         } else if (compteur == 2){
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
             mur.setDisable(true);
             gemme.setDisable(false);
+            impactDeux.play();
         }
     }
 }
