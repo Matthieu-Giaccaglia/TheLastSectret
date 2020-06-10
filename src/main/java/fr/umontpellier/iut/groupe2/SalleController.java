@@ -104,6 +104,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == gemmeRouge) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeRouge);
             gemmeRouge.setVisible(false);
+            gemmeRouge.setDisable(true);
         } else if (mouseEvent.getSource() == gemmeViolette) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
             gemmeViolette.setVisible(false);
