@@ -13,7 +13,7 @@ public class testMenuMain extends Application {
         stage.setTitle("test");
         //BackgroundStackPane backgroundStackPane = new BackgroundStackPane(new MenuPause(350, sc));
         //backgroundStackPane.setPrefSize(300, 400);
-        stage.setScene(new Scene(new BackgroundStackPane(new MenuPause(350), 300, 400), 300, 400));
+        stage.setScene(new Scene(new BackgroundStackPane(new MenuPause(350), 300, 400, 1950, 1080), 300, 400));
         stage.show();
     }
 

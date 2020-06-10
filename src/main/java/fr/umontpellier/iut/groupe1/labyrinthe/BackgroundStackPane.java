@@ -29,7 +29,7 @@ public class BackgroundStackPane extends StackPane {
         ImageView fondNoir = new ImageView(ImageLoader.getImage("groupe1/noir2.jpg"));
         fondNoir.setFitWidth(widthBackground);
         fondNoir.setFitHeight(heightBackground);
-        fondNoir.setOpacity(0.8);
+        fondNoir.setOpacity(0.5);
         ImageView image = new ImageView(ImageLoader.getImage("groupe1/wall_15.jpg"));
         image.setFitWidth(widthImageFond);
         image.setFitHeight(heightImageFond);
