@@ -22,26 +22,29 @@
             <font>
                <Font name="System Bold" size="18.0" />
             </font></TextField>
-         <ImageView fx:id="cinqTrait" fitHeight="224.0" fitWidth="538.0" layoutX="538.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" rotate="-52.4" visible="false">
-            <Image url="@../../raw/groupe2/salle/lumiere.png" />
-         </ImageView>
-         <ImageView fx:id="quatreTrait" fitHeight="217.0" fitWidth="347.0" layoutX="634.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true" rotate="13.5" visible="false">
-            <Image url="@../../raw/groupe2/salle/lumiere.png" />
-         </ImageView>
-         <ImageView fx:id="troisTrait" fitHeight="82.0" fitWidth="496.0" layoutX="519.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true" rotate="-26.6" visible="false">
-            <Image url="@../../raw/groupe2/salle/lumiere.png" />
-         </ImageView>
-         <ImageView fx:id="deuxTrait" fitHeight="92.0" fitWidth="662.0" layoutX="548.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true" rotate="5.7" visible="false">
+         <ImageView fx:id="cinqTrait" disable="true" fitHeight="85.0" fitWidth="558.0" layoutX="528.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" rotate="-42.5" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
          </ImageView>
          <ImageView fx:id="gemmeTropHaute" fitHeight="85.0" fitWidth="87.0" layoutX="1747.0" layoutY="55.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeVerte.png" />
          </ImageView>
-         <ImageView fx:id="pilierGrand" fitHeight="950.0" fitWidth="268.0" layoutX="1655.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <ImageView fx:id="pilierGrand" fitHeight="950.0" fitWidth="268.0" layoutX="1655.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/pilier.png" />
          </ImageView>
          <ImageView fx:id="jarre" fitHeight="185.0" fitWidth="132.0" layoutX="205.0" layoutY="368.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/jarre.png" />
+         </ImageView>
+         <ImageView fx:id="jarreCassee1" fitHeight="122.0" fitWidth="139.0" layoutX="1122.0" layoutY="442.0"
+                    pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../../raw/groupe2/salle/jarreCassee.png"/>
+         </ImageView>
+         <ImageView fx:id="jarre2" fitHeight="185.0" fitWidth="132.0" layoutX="675.0" layoutY="369.0"
+                    onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/jarre.png"/>
+         </ImageView>
+         <ImageView fx:id="jarreMarteau" fitHeight="185.0" fitWidth="132.0" layoutX="1145.0" layoutY="369.0"
+                    onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/jarre.png"/>
          </ImageView>
          <ImageView fx:id="jarreCassee" fitHeight="122.0" fitWidth="139.0" layoutX="180.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
@@ -49,25 +52,75 @@
          <ImageView fx:id="piece25Taquin" fitHeight="55.0" fitWidth="55.0" layoutX="1659.0" layoutY="808.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/taquin/piece12.png" />
          </ImageView>
+         <ImageView fx:id="jarreCassee2" fitHeight="122.0" fitWidth="139.0" layoutX="651.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
+         </ImageView>
+         <ImageView fx:id="jarreCassee3" fitHeight="122.0" fitWidth="139.0" layoutX="1540.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
+         </ImageView>
+         <ImageView fx:id="jarre3" fitHeight="185.0" fitWidth="132.0" layoutX="1565.0" layoutY="366.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/jarre.png" />
+         </ImageView>
          <ImageView fx:id="gemmeViolette" fitHeight="122.0" fitWidth="148.0" layoutX="180.0" layoutY="454.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/salle/jarreCasseeAvecGemme.png" />
          </ImageView>
-         <ImageView fitHeight="950.0" fitWidth="296.0" layoutY="53.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.28973388671875" AnchorPane.leftAnchor="0.0">
+         <ImageView disable="true" fitHeight="950.0" fitWidth="296.0" layoutY="53.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.28973388671875" AnchorPane.leftAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/pilier.png" />
          </ImageView>
-         <ImageView fx:id="premierTrait" fitHeight="126.0" fitWidth="1060.0" layoutX="1021.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" rotate="-48.8" visible="false">
+         <ImageView fitHeight="276.0" fitWidth="186.0" layoutX="524.0" layoutY="406.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/petitPilier.png"/>
+         </ImageView>
+         <ImageView fx:id="troisTrait" disable="true" fitHeight="166.0" fitWidth="901.0" layoutX="526.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" rotate="-5.7" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
          </ImageView>
          <ImageView id="gemmeVerte" fx:id="gemmeVerte" disable="true" fitHeight="74.0" fitWidth="69.0" layoutX="1212.0" layoutY="480.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/salle/gemmeVerte.png" />
          </ImageView>
-         <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="291.0" layoutY="635.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="deuxTrait" disable="true" fitHeight="101.0" fitWidth="812.0" layoutX="515.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true" rotate="3.4" visible="false">
+            <Image url="@../../raw/groupe2/salle/lumiere.png" />
+         </ImageView>
+         <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="329.0" layoutY="624.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeRouge.png" />
          </ImageView>
-         <ImageView fx:id="gemmeRougeEmplacement" fitHeight="74.0" fitWidth="69.0" layoutX="616.0" layoutY="451.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="gemmeBleuEmplacement" fitHeight="66.0" fitWidth="76.0" layoutX="948.0" layoutY="558.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="gemmeVioletteEmplacement" fitHeight="92.0" fitWidth="94.0" layoutX="505.0" layoutY="782.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="gemmeVerteEmplacement" fitHeight="101.0" fitWidth="113.0" layoutX="1154.0" layoutY="836.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="gemmeRougeEmplacement" fitHeight="66.0" fitWidth="55.0" layoutX="590.0" layoutY="389.0"
+                    onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/gemmeViolette.png"/>
+         </ImageView>
+         <ImageView disable="true" fitHeight="337.0" fitWidth="281.0" layoutX="426.0" layoutY="576.0"
+                    pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/petitPilier.png"/>
+         </ImageView>
+         <ImageView fitHeight="325.0" fitWidth="216.0" layoutX="1275.0" layoutY="457.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/petitPilier.png"/>
+         </ImageView>
+         <ImageView fx:id="gemmeBleuEmplacement" fitHeight="66.0" fitWidth="76.0" layoutX="1355.0" layoutY="436.0"
+                    onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/gemmeRouge.png"/>
+         </ImageView>
+         <ImageView fx:id="gemmeVioletteEmplacement" fitHeight="92.0" fitWidth="94.0" layoutX="513.0" layoutY="545.0"
+                    onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/gemmeBleue.png"/>
+         </ImageView>
+         <ImageView fx:id="premierTrait" disable="true" fitHeight="96.0" fitWidth="799.0" layoutX="1177.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true" rotate="-43.2" visible="false">
+            <Image url="@../../raw/groupe2/salle/lumiere.png" />
+         </ImageView>
+         <ImageView disable="true" fitHeight="375.0" fitWidth="325.0" layoutX="1154.0" layoutY="621.0"
+                    pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/petitPilier.png"/>
+         </ImageView>
+         <ImageView fx:id="quatreTrait" fitHeight="110.0" fitWidth="891.0" layoutX="552.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" rotate="4.4" visible="false">
+            <Image url="@../../raw/groupe2/salle/lumiere.png" />
+         </ImageView>
+         <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="1267.0" layoutY="627.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/socle.png"/>
+         </ImageView>
+         <ImageView fx:id="gemmeVerteEmplacement" fitHeight="101.0" fitWidth="113.0" layoutX="1251.0" layoutY="537.0"
+                    onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/gemmeBleue.png"/>
+         </ImageView>
          <ImageView fx:id="dark_Id" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/fondNoir.png" />
          </ImageView>
@@ -75,9 +128,9 @@
          <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1254.0" layoutY="269.0" onMouseClicked="#bouttonRajoute" opacity="0.45" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
          </ImageView>
-         <ImageView fx:id="marteau" fitHeight="101.0" fitWidth="94.0" layoutX="311.0" layoutY="734.0"
-                    onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/marteau.png"/>
+         <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="513.0" layoutY="594.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/socle.png"/>
          </ImageView>
       </AnchorPane>
    </AnchorPane>
