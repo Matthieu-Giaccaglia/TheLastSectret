@@ -36,7 +36,7 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM1, LayoutLoader.getLayout2("groupe1/salles/layout_cam1.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM2, LayoutLoader.getLayout2("groupe1/salles/layout_cam2.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM3, LayoutLoader.getLayout2("groupe1/salles/layout_cam3.fxml")));
-            stepManager.addStep(new Step<>(StepID.CAM4, LayoutLoader.getLayout2("groupe1/salles/layout_cam4.fxml")));
+            stepManager.addStep(new Step<>(StepID.CAM4, LayoutLoader.getLayout2("groupe1/layout_trapeze.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM5, LayoutLoader.getLayout2("groupe1/salles/layout_cam5.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml")));
