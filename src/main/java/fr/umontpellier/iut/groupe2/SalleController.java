@@ -3,7 +3,6 @@ package fr.umontpellier.iut.groupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -37,7 +36,7 @@ public class SalleController {
     @FXML
     private ImageView piece25Taquin;
     @FXML
-    private ImageView gemmeRouge, gemmeVerte, gemmeTropHaute;
+    private ImageView gemmeVerte, gemmeTropHaute;
     @FXML
     private ImageView pilierGrand;
     @FXML
@@ -45,7 +44,7 @@ public class SalleController {
     @FXML
     private TextField textfield;
 
-    private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
+    private ItemId itemPilierVert = ItemId.gemmeRouge, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
     private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
@@ -85,11 +84,7 @@ public class SalleController {
         if (mouseEvent.getSource() == gemmeVerte) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeVerte);
             gemmeVerte.setVisible(false);
-        } else if (mouseEvent.getSource() == gemmeRouge) {
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeRouge);
-            gemmeRouge.setVisible(false);
-            gemmeRouge.setDisable(true);
-        } else if (mouseEvent.getSource() == jarreGemmePlein) {
+        }  else if (mouseEvent.getSource() == jarreGemmePlein) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
             jarreGemmePlein.setVisible(false);
             jarreGemmeVide.setVisible(true);

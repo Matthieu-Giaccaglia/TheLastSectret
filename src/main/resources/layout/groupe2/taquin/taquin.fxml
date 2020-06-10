@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <StackPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.taquin.TaquinController">
    <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
@@ -73,5 +75,10 @@
       <AnchorPane layoutX="1682.0" layoutY="789.0" maxHeight="214.0" maxWidth="224.0" minHeight="84.0" minWidth="202.0" prefHeight="214.0" prefWidth="224.0">
          <fx:include source="../back.fxml" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
+      <Button layoutX="274.0" layoutY="419.0" mnemonicParsing="false" onAction="#finish" prefHeight="134.0" prefWidth="131.0" text="Finish">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Button>
    </AnchorPane>
 </StackPane>

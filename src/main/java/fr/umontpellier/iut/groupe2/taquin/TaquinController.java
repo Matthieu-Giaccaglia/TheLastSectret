@@ -7,6 +7,7 @@ import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
@@ -172,5 +173,9 @@ public class TaquinController {
             gemme.setDisable(false);
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.marteau);
         }
+    }
+
+    public void finish() {
+        recupGemme();
     }
 }
