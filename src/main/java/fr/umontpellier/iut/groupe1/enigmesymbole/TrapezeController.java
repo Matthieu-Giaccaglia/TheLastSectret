@@ -7,15 +7,20 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 
 public class TrapezeController implements Initializable {
 
-    @FXML
-    private Button buttonValideur;
+    //@FXML
+    //private ImageView buttonValideur;
+
+    private final MediaPlayer mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound_1.mp3").toUri().toString()));
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -25,10 +30,20 @@ public class TrapezeController implements Initializable {
         alert.show();
     }
 
-    public void handleButtonValide(ActionEvent actionEvent) {
+    public void mauvaiseCombi(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Et c'est dommage !");
+        alert.setHeaderText(null);
+        alert.setContentText("Tu devrais te remettre en question...\nC'est la mauvaise combinaison !\nDépêche-toi ou elle t'attrapera !");
+        alert.show();
+        mauvaiseCombiSon.play();
+    }
+
+    public void handleButtonValide(MouseEvent actionEvent) {
         if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible()) {
             gagne();
-
+        }else {
+            mauvaiseCombi();
         }
     }
 

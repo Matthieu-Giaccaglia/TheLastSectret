@@ -32,5 +32,4 @@ public class MenuAccueil extends Group {
         this.getChildren().addAll(buttonAccueil, buttonJouer, buttonQuitter);
 
     }
-
 }

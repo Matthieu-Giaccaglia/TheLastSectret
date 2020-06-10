@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.MainController">
+   <Label fx:id="timerDuJeu" prefHeight="20.0" prefWidth="40.0" text="5:00" textAlignment="CENTER" />
+   <ImageView fx:id="parametre" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../raw/groupe1/parametre.png" />
+   </ImageView>
+</HBox>
