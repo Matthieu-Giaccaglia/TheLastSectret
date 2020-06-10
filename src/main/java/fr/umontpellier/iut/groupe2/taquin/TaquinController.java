@@ -35,7 +35,7 @@ public class TaquinController {
     private ImageView pieceUn, pieceDeux, pieceTrois, pieceQuatre, pieceCinq, pieceSix, pieceSept, pieceHuit, pieceNeuf, pieceDix, pieceOnze, pieceDouze;
 
 
-    private final int[][] mat1 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 0, 11}};
+    private final int[][] mat1 = {{11, 5, 8, 7}, {10, 4, 9, 0}, {3, 1, 6, 2}};
     @FXML
     private final Taquin taquin = new Taquin(mat1);
     private int compteur;

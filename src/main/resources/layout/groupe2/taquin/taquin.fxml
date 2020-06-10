@@ -30,44 +30,44 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-            <ImageView fx:id="pieceDeux" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <Image url="@../../../raw/groupe2/taquin/piece2.png" />
-            </ImageView>
-            <ImageView fx:id="pieceTrois" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-               <Image url="@../../../raw/groupe2/taquin/piece3.png" />
-            </ImageView>
-            <ImageView fx:id="pieceQuatre" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-               <Image url="@../../../raw/groupe2/taquin/piece4.png" />
-            </ImageView>
-            <ImageView fx:id="pieceCinq" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-               <Image url="@../../../raw/groupe2/taquin/piece5.png" />
-            </ImageView>
-            <ImageView fx:id="pieceSix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <Image url="@../../../raw/groupe2/taquin/piece6.png" />
-            </ImageView>
-            <ImageView fx:id="pieceSept" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <Image url="@../../../raw/groupe2/taquin/piece7.png" />
-            </ImageView>
-            <ImageView fx:id="pieceHuit" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <Image url="@../../../raw/groupe2/taquin/piece8.png" />
-            </ImageView>
-            <ImageView fx:id="pieceNeuf" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-               <Image url="@../../../raw/groupe2/taquin/piece9.png" />
-            </ImageView>
-            <ImageView fx:id="pieceDix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <Image url="@../../../raw/groupe2/taquin/piece10.png" />
-            </ImageView>
             <ImageView fx:id="pieceDouze" disable="true" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#putLastPiece" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ImageView fx:id="pieceOnze" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <ImageView fx:id="pieceOnze" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../raw/groupe2/taquin/piece11.png" />
             </ImageView>
-            <ImageView fx:id="pieceUn" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pieceCinq" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <Image url="@../../../raw/groupe2/taquin/piece5.png" />
+            </ImageView>
+            <ImageView fx:id="pieceHuit" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <Image url="@../../../raw/groupe2/taquin/piece8.png" />
+            </ImageView>
+            <ImageView fx:id="pieceSept" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+               <Image url="@../../../raw/groupe2/taquin/piece7.png" />
+            </ImageView>
+            <ImageView fx:id="pieceDix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <Image url="@../../../raw/groupe2/taquin/piece10.png" />
+            </ImageView>
+            <ImageView fx:id="pieceQuatre" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Image url="@../../../raw/groupe2/taquin/piece4.png" />
+            </ImageView>
+            <ImageView fx:id="pieceNeuf" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <Image url="@../../../raw/groupe2/taquin/piece9.png" />
+            </ImageView>
+            <ImageView fx:id="pieceTrois" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <Image url="@../../../raw/groupe2/taquin/piece3.png" />
+            </ImageView>
+            <ImageView fx:id="pieceUn" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <Image url="@../../../raw/groupe2/taquin/piece1.png" />
+            </ImageView>
+            <ImageView fx:id="pieceSix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <Image url="@../../../raw/groupe2/taquin/piece6.png" />
+            </ImageView>
+            <ImageView fx:id="pieceDeux" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <Image url="@../../../raw/groupe2/taquin/piece2.png" />
             </ImageView>
          </GridPane>
       </AnchorPane>
-      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../raw/groupe2/salle/fondSombre.png"/>
+      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
       </ImageView>
 
       <AnchorPane layoutX="1692.0" layoutY="908.0" maxHeight="95.0" maxWidth="214.0" minHeight="84.0" minWidth="202.0" prefHeight="95.0" prefWidth="214.0">
