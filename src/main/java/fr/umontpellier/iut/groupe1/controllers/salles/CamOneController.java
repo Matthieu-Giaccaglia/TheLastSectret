@@ -17,6 +17,14 @@ public class CamOneController implements Initializable {
     private ImageView background;
     @FXML
     public ImageView arrowBack;
+    @FXML
+    public ImageView goto3;
+    @FXML
+    public ImageView goto4;
+    @FXML
+    public ImageView goto6;
+    @FXML
+    public ImageView goto9;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -24,16 +32,16 @@ public class CamOneController implements Initializable {
         background.fitHeightProperty().bind(Main.stage.heightProperty());
     }
 
-    public void handleKeyPressed(KeyEvent keyEvent) {
-        System.out.println(keyEvent.getCode());
-        if(keyEvent.getCode().equals(KeyCode.S)){
-            Main.stepManager.openStep(StepID.CAM2);
-        }
-    }
-
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(arrowBack)){
+        if(mouseEvent.getSource().equals(arrowBack))
             Main.stepManager.openStep(StepID.CAM2);
-        }
+        else if(mouseEvent.getSource().equals(goto3))
+            Main.stepManager.openStep(StepID.CAM3);
+        else if(mouseEvent.getSource().equals(goto4))
+            Main.stepManager.openStep(StepID.CAM4);
+        else if(mouseEvent.getSource().equals(goto6))
+            Main.stepManager.openStep(StepID.CAM6);
+        else if(mouseEvent.getSource().equals(goto9))
+            Main.stepManager.openStep(StepID.CAM9);
     }
 }

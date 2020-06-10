@@ -45,7 +45,7 @@ public class StepManager {
             stepMap.put(step.getId(), step);
             root.getChildren().add(step.open());
             //step.open().toBack();
-            //step.setVisible(false);
+            step.setVisible(false);
         }
     }
 
