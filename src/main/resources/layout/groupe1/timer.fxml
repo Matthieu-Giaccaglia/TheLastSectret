@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.MainController" spacing="32">
-   <Label fx:id="timerDuJeu"  text="5:00" textAlignment="CENTER">
+<HBox spacing="32" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.MainController">
+   <Label fx:id="timerDuJeu" text="5:00" textAlignment="CENTER">
       <font>
          <Font size="48.0" />
       </font></Label>
    <ImageView fx:id="parametre" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../raw/groupe1/parametre.png" />
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ImageView>
 </HBox>

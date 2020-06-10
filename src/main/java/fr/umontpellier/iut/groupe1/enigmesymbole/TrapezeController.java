@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
+import fr.umontpellier.iut.groupe1.labyrinthe.Clef;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +23,6 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     private MediaPlayer mauvaiseCombiSon;
-
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -57,6 +57,8 @@ public class TrapezeController implements Initializable {
             sonOOF();
         }
     }
+
+    Clef clefTrapeze = new Clef(0,0);
 
 
     /*------------------- 1er -------------------*/
