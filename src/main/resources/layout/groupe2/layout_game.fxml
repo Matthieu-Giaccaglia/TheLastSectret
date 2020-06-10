@@ -18,7 +18,7 @@
             <Image url="@../../raw/groupe2/salle/salleGroupe2.png" />
          </ImageView>
          <Button fx:id="taquinButton" layoutX="412.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="177.0" prefWidth="240.0" text="Taquin" />
-         <TextField fx:id="textfield" layoutX="1619.0" layoutY="222.0" opacity="0.76" prefHeight="31.0" prefWidth="156.0" text="C'est trop haut" visible="false">
+         <TextField fx:id="textfield" layoutX="1711.0" layoutY="14.0" opacity="0.76" prefHeight="31.0" prefWidth="156.0" text="C'est trop haut" visible="false">
             <font>
                <Font name="System Bold" size="18.0" />
             </font></TextField>
@@ -79,7 +79,7 @@
          <ImageView fx:id="deuxTrait" disable="true" fitHeight="101.0" fitWidth="812.0" layoutX="507.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true" rotate="3.5" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
          </ImageView>
-         <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="329.0" layoutY="624.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="320.0" layoutY="663.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeRouge.png" />
          </ImageView>
          <ImageView fx:id="jarreCassee3" fitHeight="122.0" fitWidth="139.0" layoutX="1122.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
