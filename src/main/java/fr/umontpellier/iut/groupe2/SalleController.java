@@ -19,6 +19,11 @@ import java.nio.file.Paths;
 
 public class SalleController {
 
+
+    @FXML
+    private ImageView retour, taquinImage;
+    @FXML
+    private Button lightoutButton;
     @FXML
     private ImageView fondSalle, fondSombre;
     @FXML
@@ -38,8 +43,6 @@ public class SalleController {
     @FXML
     private ImageView buttonMissing;
     @FXML
-    private Button buttonRetour, taquinButton, lightoutButton;
-    @FXML
     private TextField textfield;
 
     private ItemId itemPilierVert, itemPilierRouge, itemPilierBleu, itemPilierViolet;
@@ -52,12 +55,12 @@ public class SalleController {
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
 
-    public void changeScene(ActionEvent event) {
-        if (event.getSource() == taquinButton) {
+    public void changeScene(MouseEvent event) {
+        if (event.getSource() == taquinImage) {
             MainSalleGroupe2.stepManager.openStep(StepID.TAQUIN);
         } else if (event.getSource() == lightoutButton) {
             MainSalleGroupe2.stepManager.openStep(StepID.LIGHTSOUT);
-        } else if (event.getSource() == buttonRetour){
+        } else if (event.getSource() == retour){
             MainSalleGroupe2.stepManager.openStep(StepID.START);
         }
     }

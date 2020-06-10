@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<Pane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
-   <AnchorPane maxHeight="84.0" maxWidth="204.0" minHeight="84.0" minWidth="204.0" prefHeight="84.0" prefWidth="204.0">
-      <Button fx:id="buttonRetour" layoutX="1738.0" layoutY="989.0" maxHeight="84.0" maxWidth="204.0" minHeight="80.0" minWidth="200.0" mnemonicParsing="false" onAction="#changeScene" prefHeight="84.0" prefWidth="204.0" text="RETOUR" textFill="RED" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Button>
-   </AnchorPane>
-</Pane>
+
+<AnchorPane fx:controller="fr.umontpellier.iut.groupe2.SalleController" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="223.0"
+            xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <ImageView fx:id="retour" fitHeight="223.0" fitWidth="223.0" layoutX="68.0" layoutY="148.0"
+              onMouseClicked="#changeScene" pickOnBounds="true" preserveRatio="true" rotate="90.0"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <Image url="@../../raw/groupe1/flechenav.png"/>
+   </ImageView>
+</AnchorPane>

@@ -70,7 +70,7 @@
          <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
       </ImageView>
 
-      <AnchorPane layoutX="1692.0" layoutY="908.0" maxHeight="95.0" maxWidth="214.0" minHeight="84.0" minWidth="202.0" prefHeight="95.0" prefWidth="214.0">
+      <AnchorPane layoutX="1682.0" layoutY="789.0" maxHeight="214.0" maxWidth="224.0" minHeight="84.0" minWidth="202.0" prefHeight="214.0" prefWidth="224.0">
          <fx:include source="../back.fxml" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
    </AnchorPane>
