@@ -1,10 +1,8 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -20,7 +18,7 @@ public class TrapezeController implements Initializable {
     //@FXML
     //private ImageView buttonValideur;
 
-    private final MediaPlayer mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound_1.mp3").toUri().toString()));
+    private MediaPlayer mauvaiseCombiSon;
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -36,6 +34,10 @@ public class TrapezeController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Tu devrais te remettre en question...\nC'est la mauvaise combinaison !\nDépêche-toi ou elle t'attrapera !");
         alert.show();
+    }
+
+    public void sonOOF(){
+        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
         mauvaiseCombiSon.play();
     }
 
@@ -44,6 +46,7 @@ public class TrapezeController implements Initializable {
             gagne();
         }else {
             mauvaiseCombi();
+            sonOOF();
         }
     }
 
