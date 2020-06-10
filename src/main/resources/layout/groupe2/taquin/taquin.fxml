@@ -30,7 +30,7 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-            <ImageView fx:id="pieceDouze" disable="true" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#putLastPiece" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="pieceDouze" disable="true" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#putLastPiece" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ImageView fx:id="pieceOnze" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../../raw/groupe2/taquin/piece11.png" />
             </ImageView>
@@ -58,15 +58,15 @@
             <ImageView fx:id="pieceUn" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <Image url="@../../../raw/groupe2/taquin/piece1.png" />
             </ImageView>
-            <ImageView fx:id="pieceSix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <Image url="@../../../raw/groupe2/taquin/piece6.png" />
-            </ImageView>
             <ImageView fx:id="pieceDeux" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <Image url="@../../../raw/groupe2/taquin/piece2.png" />
             </ImageView>
+            <ImageView fx:id="pieceSix" fitHeight="214.0" fitWidth="214.0" onMouseClicked="#mouvement" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <Image url="@../../../raw/groupe2/taquin/piece6.png" />
+            </ImageView>
          </GridPane>
       </AnchorPane>
-      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
       </ImageView>
 
