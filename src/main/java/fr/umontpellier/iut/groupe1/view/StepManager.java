@@ -32,6 +32,7 @@ public class StepManager {
 
         try {
             root = (StackPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
+            hud.add(root.lookup("#timer"));
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
             System.exit(1);

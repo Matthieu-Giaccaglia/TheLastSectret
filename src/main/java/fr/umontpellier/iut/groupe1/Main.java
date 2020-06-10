@@ -73,8 +73,6 @@ public class Main extends Application {
             Layout<StackPane> menuPause = new Layout<>(new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080), null);
             stepManager.addStep(new Step<>(StepID.PAUSE, menuPause));
 
-            stepManager.addHudElement(LayoutLoader.getLayout("groupe1/timer.fxml"));
-
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
         }
