@@ -121,10 +121,12 @@
          <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1254.0" layoutY="269.0" onMouseClicked="#bouttonRajoute" opacity="0.45" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
          </ImageView>
-         <Button fx:id="taquinButton" layoutX="412.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="177.0" prefWidth="240.0" text="Taquin" />
+         <Button fx:id="taquinButton" layoutX="412.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="184.0" prefWidth="245.0" text="Taquin" />
          <Button fx:id="lightoutButton" layoutX="1309.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="289.0" prefWidth="240.0" text="Light Out" />
-         <ImageView disable="true" fitHeight="170.0" fitWidth="224.0" layoutX="426.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/TaquinPasFait.PNG" />
+         <ImageView disable="true" fitHeight="184.0" fitWidth="252.0" layoutX="411.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../raw/groupe2/salle/taquinPasFait.PNG" />
+            </image>
          </ImageView>
       </AnchorPane>
    </AnchorPane>
