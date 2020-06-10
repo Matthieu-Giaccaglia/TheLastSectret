@@ -148,4 +148,11 @@
          <Insets right="40.0" top="800.0" />
       </StackPane.margin>
    </ImageView>
+
+   <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <Image url="@../../raw/groupe1/flechenav.png" />
+   </ImageView>
 </StackPane>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           prefWidth="800.0" prefHeight="480.0"
-           fx:id="stack">
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="stack" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <!--<fx:include fx:id="layout_game" source="layout_game.fxml" />-->
-    <fx:include fx:id="hud" source="HUD.fxml" />
+    <AnchorPane prefHeight="20">
+        <fx:include fx:id="timer" source="timer.fxml" AnchorPane.rightAnchor="0.0" />
+    </AnchorPane>
 
 </StackPane>

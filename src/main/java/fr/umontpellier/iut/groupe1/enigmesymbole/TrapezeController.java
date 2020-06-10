@@ -1,10 +1,9 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
-import javafx.event.ActionEvent;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -14,13 +13,15 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
+import static fr.umontpellier.iut.groupe1.Main.*;
+
 
 public class TrapezeController implements Initializable {
 
     //@FXML
     //private ImageView buttonValideur;
 
-    private final MediaPlayer mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound_1.mp3").toUri().toString()));
+    private MediaPlayer mauvaiseCombiSon;
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -36,6 +37,10 @@ public class TrapezeController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Tu devrais te remettre en question...\nC'est la mauvaise combinaison !\nDépêche-toi ou elle t'attrapera !");
         alert.show();
+    }
+
+    public void sonOOF(){
+        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
         mauvaiseCombiSon.play();
     }
 
@@ -44,6 +49,7 @@ public class TrapezeController implements Initializable {
             gagne();
         }else {
             mauvaiseCombi();
+            sonOOF();
         }
     }
 
@@ -82,9 +88,12 @@ public class TrapezeController implements Initializable {
     @FXML
     private ImageView videCote0;
 
+    @FXML
+    private ImageView arrowBack;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        background.fitWidthProperty().bind(Main.stage.widthProperty());
+        background.fitWidthProperty().bind(stage.widthProperty());
     }
 
     @FXML
@@ -281,4 +290,8 @@ public class TrapezeController implements Initializable {
 
     }
 
+    public void handleMouseClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getSource().equals(arrowBack))
+            stepManager.openStep(StepID.CAM1);
+    }
 }
