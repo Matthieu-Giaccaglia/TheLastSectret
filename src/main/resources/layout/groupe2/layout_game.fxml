@@ -28,6 +28,12 @@
          <ImageView fx:id="gemmeTropHaute" fitHeight="74.0" fitWidth="63.0" layoutX="1757.0" layoutY="66.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeVerte.png" />
          </ImageView>
+         <ImageView fx:id="jarre3" fitHeight="185.0" fitWidth="132.0" layoutX="1565.0" layoutY="366.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/jarre.png" />
+         </ImageView>
+         <ImageView fx:id="jarreCassee4" fitHeight="122.0" fitWidth="139.0" layoutX="1540.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
+         </ImageView>
          <ImageView fx:id="pilierGrand" fitHeight="950.0" fitWidth="268.0" layoutX="1655.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/pilier.png" />
          </ImageView>
@@ -55,12 +61,6 @@
          <ImageView fx:id="jarreCassee2" fitHeight="122.0" fitWidth="139.0" layoutX="651.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
          </ImageView>
-         <ImageView fx:id="jarreCassee4" fitHeight="122.0" fitWidth="139.0" layoutX="1540.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
-         </ImageView>
-         <ImageView fx:id="jarre3" fitHeight="185.0" fitWidth="132.0" layoutX="1565.0" layoutY="366.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/jarre.png" />
-         </ImageView>
          <ImageView fx:id="gemmeViolette" fitHeight="122.0" fitWidth="148.0" layoutX="180.0" layoutY="454.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true" visible="false">
             <Image url="@../../raw/groupe2/salle/jarreCasseeAvecGemme.png" />
          </ImageView>
@@ -82,9 +82,8 @@
          <ImageView fx:id="gemmeRouge" fitHeight="39.0" fitWidth="40.0" layoutX="329.0" layoutY="624.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeRouge.png" />
          </ImageView>
-         <ImageView fx:id="jarreCassee3" fitHeight="122.0" fitWidth="139.0" layoutX="1122.0" layoutY="448.0"
-                    pickOnBounds="true" preserveRatio="true" visible="false">
-            <Image url="@../../raw/groupe2/salle/jarreCassee.png"/>
+         <ImageView fx:id="jarreCassee3" fitHeight="122.0" fitWidth="139.0" layoutX="1122.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <Image url="@../../raw/groupe2/salle/jarreCassee.png" />
          </ImageView>
          <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="591.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/socle.png" />
