@@ -14,7 +14,7 @@
          <ImageView fx:id="porteGauche" fitHeight="406.0" fitWidth="172.0" layoutX="808.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/porteGauche.png" />
          </ImageView>
-         <ImageView fx:id="fondDeBase" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <ImageView fx:id="fondDeBase" disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/salleGroupe2.png" />
          </ImageView>
          <Button fx:id="taquinButton" layoutX="412.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="177.0" prefWidth="240.0" text="Taquin" />
@@ -122,6 +122,10 @@
          <Button fx:id="lightoutButton" layoutX="1309.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleButton" opacity="0.0" prefHeight="289.0" prefWidth="240.0" text="Light Out" />
          <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1254.0" layoutY="269.0" onMouseClicked="#bouttonRajoute" opacity="0.45" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
+         </ImageView>
+         <ImageView fitHeight="170.0" fitWidth="224.0" layoutX="426.0" layoutY="142.0" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/TaquinPasFait.PNG"/>
          </ImageView>
       </AnchorPane>
    </AnchorPane>
