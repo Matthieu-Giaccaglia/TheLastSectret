@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
+import fr.umontpellier.iut.groupe1.view.StepID;
+import fr.umontpellier.iut.groupe1.view.StepManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -19,6 +21,7 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     private MediaPlayer mauvaiseCombiSon;
+
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -42,7 +45,7 @@ public class TrapezeController implements Initializable {
     }
 
     public void handleButtonValide(MouseEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() ) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && Main.stepManager.passageDansSalle(StepID.CAM8)) {
             gagne();
         }else {
             mauvaiseCombi();
