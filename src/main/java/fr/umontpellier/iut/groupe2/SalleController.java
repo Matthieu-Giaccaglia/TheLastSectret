@@ -1,8 +1,6 @@
 package fr.umontpellier.iut.groupe2;
 
-import fr.umontpellier.iut.groupe2.handlers.StepChangeRequest;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import fr.umontpellier.iut.groupe2.lightsout.LightsOutController;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
@@ -11,11 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.*;
 import javafx.util.Duration;
 
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
@@ -26,6 +25,7 @@ public class SalleController {
     public ImageView jarreCassee;
     public ImageView porteDroite;
     public ImageView porteGauche;
+    public AnchorPane pilierGemmeAnchor;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -52,6 +52,8 @@ public class SalleController {
 
     private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
     private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
+    private MediaPlayer soundCasseJarre = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString()));
+
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
 
@@ -213,16 +215,17 @@ public class SalleController {
 
 
     private void animationPilierTombe() {
-        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(1.3),pilierGrand);
+        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(1),pilierGrand);
         translatePilierTombe.setByX(-232);
         translatePilierTombe.setByY(44);
 
-        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1.3), pilierGrand);
+        RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1), pilierGrand);
         rotatePilierTombe.setByAngle(-39.8);
 
-        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1.3), pilierGrand);
+        ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1), pilierGrand);
         scalePilierTombe.setByX(-0.1);
         scalePilierTombe.setByY(-0.1);
+
 
         ParallelTransition parallelPilierTombe = new ParallelTransition(translatePilierTombe, rotatePilierTombe, scalePilierTombe);
         parallelPilierTombe.setInterpolator(new Interpolator() {
@@ -239,23 +242,29 @@ public class SalleController {
                 return sin;
             }
         });
-        parallelPilierTombe.setRate(-1);
+        //parallelPilierTombe.setRate(-1);
 
 
         parallelPilierTombe.setOnFinished(event -> {
+            Path path = new Path(
+                    new MoveTo(-50, -50),
+                    new QuadCurveTo(-10, 50, 30, 200)
+                    );
+
+            PathTransition pathTransition = new PathTransition(Duration.seconds(1),path,gemmeTropHaute);
+            pathTransition.play();
+
             gemmeVerte.setVisible(true);
             piece25Taquin.setVisible(true);
         });
 
-
-
-        parallelPilierTombe.playFromStart();
+        parallelPilierTombe.play();
 
         soundPilierTombe.play();
         textfield.setVisible(false);
         textfield.setDisable(true);
         pilierGrand.setDisable(true);
-        gemmeTropHaute.setVisible(false);
+        //gemmeTropHaute.setVisible(false);
         gemmeTropHaute.setDisable(true);
         gemmeVerte.setDisable(false);
         premierTrait.setVisible(true);
@@ -284,6 +293,7 @@ public class SalleController {
     }
 
     public void casseJarre() {
+        soundCasseJarre.play();
         jarre.setVisible(false);
         gemmeViolette.setVisible(true);
     }
