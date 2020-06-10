@@ -44,5 +44,4 @@ public class MenuPause extends Group {
 
     }
 
-
 }

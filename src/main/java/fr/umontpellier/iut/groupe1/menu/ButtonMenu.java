@@ -13,7 +13,7 @@ public class ButtonMenu extends Label {
         this.setTranslateX(sizeStageX/3);
         this.setTranslateY(translateY);
         this.setFont(Font.font(25));
-        this.setPrefSize(sizeStageX/2, 50);
+        this.setPrefSize(sizeStageX/2, 25);
 
     }
 
