@@ -1,6 +1,8 @@
 package fr.umontpellier.iut.groupe1.controllers;
 
+import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,12 +22,14 @@ public class MainController implements Initializable {
     @Override
     public synchronized void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Thread threadTimer = new Thread(new ThreadTimer(timerDuJeu));
-        //threadTimer.start();
+        ThreadTimer threadTimer = new ThreadTimer(timerDuJeu);
+        threadTimer.start();
+        threadTimer.setRunning(true);
         //TODO arreter le thread quand le jeu se ferme
 
         parametre.setOnMouseClicked(mouseEvent -> {
-
+            Main.stepManager.openStep(StepID.PAUSE);
+            threadTimer.setRunning(false);
         });
 
     }

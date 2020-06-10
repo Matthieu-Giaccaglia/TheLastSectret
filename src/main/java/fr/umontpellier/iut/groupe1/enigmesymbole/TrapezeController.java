@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -12,6 +13,8 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
+import static fr.umontpellier.iut.groupe1.Main.*;
+
 
 public class TrapezeController implements Initializable {
 
@@ -19,6 +22,7 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     private MediaPlayer mauvaiseCombiSon;
+
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -37,12 +41,12 @@ public class TrapezeController implements Initializable {
     }
 
     public void sonOOF(){
-        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-lound.mp3").toUri().toString()));
+        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
         mauvaiseCombiSon.play();
     }
 
     public void handleButtonValide(MouseEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() ) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)) {
             gagne();
         }else {
             mauvaiseCombi();
@@ -87,7 +91,7 @@ public class TrapezeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        background.fitWidthProperty().bind(Main.stage.widthProperty());
+        background.fitWidthProperty().bind(stage.widthProperty());
     }
 
     @FXML
@@ -282,6 +286,15 @@ public class TrapezeController implements Initializable {
             serpentCote2.setVisible(true);
         }
 
+    }
+
+    @FXML
+    private ImageView arrowBack;
+
+    @FXML
+    void handleMouseClicked(MouseEvent mouseEvent){
+        if(mouseEvent.getSource().equals(arrowBack))
+            stepManager.openStep(StepID.CAM1);
     }
 
 }

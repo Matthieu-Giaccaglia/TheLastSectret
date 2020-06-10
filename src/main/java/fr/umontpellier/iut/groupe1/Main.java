@@ -17,13 +17,17 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class Main extends Application {
 
     public static StepManager stepManager;
     public static Stage stage;
-    public boolean passageSalle=false;
+    private MediaPlayer zombiesound;
 
     @Override
     public void start(Stage primaryStage) {
@@ -46,20 +50,22 @@ public class Main extends Application {
             trapeze.setOnStart(() -> {
                 //todo ajouter son
             });
-
             stepManager.addStep(trapeze);
             stepManager.addStep(new Step<>(StepID.CAM5, LayoutLoader.getLayout2("groupe1/salles/layout_cam5.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));
-            stepManager.addStep(new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml")));
+
+            Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
+            cerco.setOnStart(() -> {
+                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.play();
+            });
+            stepManager.addStep(cerco);
 
             Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
-            tableTradu.setOnStart(new Callback() {
-                @Override
-                public void done() {
-                    passageSalle = true;
-                }
+            tableTradu.setOnStart(() -> {
+                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.play();
             });
-
             stepManager.addStep(tableTradu);
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
 
@@ -71,7 +77,6 @@ public class Main extends Application {
         }
 
         stepManager.openStep(StepID.CAM1);
-        //stepManager.openStep(StepID.PAUSE);
 
         primaryStage.show();
     }

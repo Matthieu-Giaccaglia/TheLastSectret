@@ -387,11 +387,6 @@ public class StructureLabyrinthe extends Group {
         timer.start();
     }
 
-    public void lanceurMediaPlayerBouleRoulante(){
-        boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString()));
-        boulleRoulante.play();
-    }
-
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Bravo");
@@ -407,23 +402,20 @@ public class StructureLabyrinthe extends Group {
             if (keyEvent.getCode() == KeyCode.LEFT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
-                lanceurMediaPlayerBouleRoulante();
             }
             if (keyEvent.getCode() == KeyCode.RIGHT) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), - vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
-                lanceurMediaPlayerBouleRoulante();
             }
             if (keyEvent.getCode() == KeyCode.UP) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), - vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
-                lanceurMediaPlayerBouleRoulante();
             }
             if (keyEvent.getCode() == KeyCode.DOWN) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
-                lanceurMediaPlayerBouleRoulante();
             }
+
         });
     }
 
