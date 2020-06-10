@@ -1,7 +1,6 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
 import fr.umontpellier.iut.groupe1.view.StepID;
-import fr.umontpellier.iut.groupe1.view.StepManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -13,6 +12,8 @@ import javafx.scene.media.MediaPlayer;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
+
+import static fr.umontpellier.iut.groupe1.Main.*;
 
 
 public class TrapezeController implements Initializable {
@@ -45,7 +46,7 @@ public class TrapezeController implements Initializable {
     }
 
     public void handleButtonValide(MouseEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && Main.stepManager.passageDansSalle(StepID.CAM8)) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)) {
             gagne();
         }else {
             mauvaiseCombi();
@@ -90,7 +91,7 @@ public class TrapezeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        background.fitWidthProperty().bind(Main.stage.widthProperty());
+        background.fitWidthProperty().bind(stage.widthProperty());
     }
 
     @FXML
@@ -285,6 +286,15 @@ public class TrapezeController implements Initializable {
             serpentCote2.setVisible(true);
         }
 
+    }
+
+    @FXML
+    private ImageView arrowBack;
+
+    @FXML
+    void handleMouseClicked(MouseEvent mouseEvent){
+        if(mouseEvent.getSource().equals(arrowBack))
+            stepManager.openStep(StepID.CAM1);
     }
 
 }
