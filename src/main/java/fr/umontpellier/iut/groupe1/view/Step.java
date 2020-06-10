@@ -17,7 +17,7 @@ public class Step<T extends Parent> {
 
     private void init(){
         setVisible(true);
-        onStart.done();
+        if(onStart != null) onStart.done();
     }
 
     public T open(){
