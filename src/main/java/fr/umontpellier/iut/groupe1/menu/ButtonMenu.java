@@ -16,7 +16,4 @@ public class ButtonMenu extends Label {
         this.setPrefSize(prefSizeX, prefSizeY);
 
     }
-
-
-
 }

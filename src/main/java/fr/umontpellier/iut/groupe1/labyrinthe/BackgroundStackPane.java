@@ -7,9 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.StackPane;
 
-import javax.imageio.IIOImage;
-
-
 public class BackgroundStackPane extends StackPane {
 
     private final Image imageFond = ImageLoader.getImage("groupe1/wall_15.jpg");
@@ -39,4 +36,5 @@ public class BackgroundStackPane extends StackPane {
         image.setFitHeight(heightImageFond);
         this.getChildren().addAll(fondNoir, image, group);
     }
+
 }

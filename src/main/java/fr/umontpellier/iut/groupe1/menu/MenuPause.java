@@ -43,5 +43,4 @@ public class MenuPause extends Group {
         this.getChildren().addAll(buttonPause, buttonReprendre, buttonOption, buttonQuitter);
 
     }
-
 }

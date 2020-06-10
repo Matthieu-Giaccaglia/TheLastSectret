@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 
 public class testMenuMain extends Application {
 
-
     @Override
     public void start(Stage stage){
         stage.setTitle("test");
