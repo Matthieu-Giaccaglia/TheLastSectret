@@ -16,11 +16,13 @@ public class StepManager {
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private StackPane root;
     private Parent gameNode;
+    private final Map<StepID, Boolean> passageSalle;
 
     public StepManager(Stage stage, Inventaire inventaire){
         this.inventaire = inventaire;
 
         stepMap = new HashMap<>();
+        passageSalle = new HashMap<>();
 
         try {
             root = (StackPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
@@ -54,9 +56,15 @@ public class StepManager {
         if (stepMap.containsKey(stepID)) {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
+            passageSalle.put(stepID, true);
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
         }
     }
+
+    public boolean passageDansSalle(StepID stepID){
+        return passageSalle.get(stepID);
+    }
+
 }
