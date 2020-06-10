@@ -23,15 +23,17 @@ import java.util.Random;
 
 public class TaquinController {
 
-    public ImageView mur;
+    @FXML
+    private ImageView mur;
+    @FXML
+    private ImageView gemme;
     @FXML
     private GridPane taquinGrid;
     @FXML
     private AnchorPane taquinAnchor;
     @FXML
     private ImageView pieceUn, pieceDeux, pieceTrois, pieceQuatre, pieceCinq, pieceSix, pieceSept, pieceHuit, pieceNeuf, pieceDix, pieceOnze, pieceDouze;
-    @FXML
-    private ImageView gemme;
+
 
     private final int[][] mat1 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 0, 11}};
     @FXML
