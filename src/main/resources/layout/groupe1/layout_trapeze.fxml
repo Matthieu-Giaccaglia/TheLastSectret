@@ -54,6 +54,9 @@
       </padding>
       <ImageView fx:id="flecheGauche0" fitHeight="25.0" fitWidth="25.0" onMouseDragReleased="#handleButtonAction0" onMousePressed="#handleButtonAction0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <opaqueInsets>
@@ -84,6 +87,9 @@
             <Insets right="40.0" />
          </HBox.margin>
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </HBox>
    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
@@ -95,6 +101,9 @@
       </StackPane.margin>
       <ImageView fx:id="flecheGauche2" fitHeight="25.0" fitWidth="25.0" onMousePressed="#handleButtonAction2" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <ImageView fx:id="serpent2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -113,6 +122,9 @@
       </StackPane>
       <ImageView fx:id="flecheDroite2" fitHeight="25.0" fitWidth="25.0" onMousePressed="#handleButtonAction2" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </HBox>
    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
@@ -121,6 +133,9 @@
       </padding>
       <ImageView fx:id="flecheGauche1" fitHeight="25.0" fitWidth="25.0" onMousePressed="#handleButtonAction1" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <StackPane>
          <ImageView fx:id="serpent1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -140,6 +155,9 @@
       </StackPane>
       <ImageView fx:id="flecheDroite1" fitHeight="25.0" fitWidth="25.0" onMousePressed="#handleButtonAction1" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../raw/groupe1/fleche.png" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </HBox>
    <ImageView fx:id="buttonValideur" fitHeight="100.0" fitWidth="100.0" onMouseDragReleased="#handleButtonValide" onMousePressed="#handleButtonValide" opacity="0.8" pickOnBounds="true" preserveRatio="true">
@@ -147,6 +165,9 @@
       <StackPane.margin>
          <Insets right="40.0" top="750.0" />
       </StackPane.margin>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ImageView>
 
    <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0">
