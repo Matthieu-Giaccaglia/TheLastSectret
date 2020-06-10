@@ -24,6 +24,8 @@ public class SalleController {
     public ImageView fondDeBase;
     public ImageView jarre;
     public ImageView jarreCassee;
+    public ImageView porteDroite;
+    public ImageView porteGauche;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -167,10 +169,20 @@ public class SalleController {
                     quatreTrait.setVisible(true);
                     if(itemPilierRouge == ItemId.gemmeRouge){
                         cinqTrait.setVisible(true);
+                        animationPorte();
                     }
                 }
             }
         }
+    }
+
+    private void animationPorte() {
+        TranslateTransition tranlatePorteGauche = new TranslateTransition(Duration.seconds(1.5), porteGauche);
+        tranlatePorteGauche.setByX(-180);
+        TranslateTransition tranlatePorteDroite = new TranslateTransition(Duration.seconds(1.5), porteDroite);
+        tranlatePorteDroite.setByX(180);
+        ParallelTransition parallelPorte = new ParallelTransition(tranlatePorteDroite,tranlatePorteGauche);
+        parallelPorte.playFromStart();
     }
 
     private void eteinsToi(){
