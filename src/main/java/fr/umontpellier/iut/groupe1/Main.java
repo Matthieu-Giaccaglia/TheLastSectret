@@ -4,6 +4,8 @@ import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
+import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
+import fr.umontpellier.iut.groupe1.menu.MenuPause;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe1.view.StepManager;
@@ -11,6 +13,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -40,11 +43,15 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
 
+            Layout<StackPane> menuPause = new Layout<>(new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080), null);
+            stepManager.addStep(new Step<>(StepID.PAUSE, menuPause));
+
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
         }
 
         stepManager.openStep(StepID.CAM1);
+        //stepManager.openStep(StepID.PAUSE);
 
         primaryStage.show();
     }
