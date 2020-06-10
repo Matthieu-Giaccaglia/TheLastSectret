@@ -157,15 +157,17 @@ public class TaquinController {
 
 
     public void casserLeMur() {
+        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau)
         compteur++;
+        System.out.println(compteur);
         if(compteur == 1){
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure2.png"));
             impactUn.play();
         } else if (compteur == 2){
+            impactDeux.play();
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
             mur.setDisable(true);
             gemme.setDisable(false);
-            impactDeux.play();
         }
     }
 }
