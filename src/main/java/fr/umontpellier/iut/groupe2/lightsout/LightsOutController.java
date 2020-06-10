@@ -25,9 +25,7 @@ public class LightsOutController {
     @FXML
     private GridPane gridMain;//à utiliser(coordonnés à changer) car tab marche pas
     @FXML
-    private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize;
-    @FXML
-    private ImageView button;
+    private ImageView un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize, buttonBrick;
 
     private final int[][] tab_lo = {{1,0,0,0},{0,0,1,0},{0,1,0,0},{0,0,0,1}};
     private final LightsOut Lout = new LightsOut(tab_lo);
@@ -71,12 +69,19 @@ public class LightsOutController {
             }
         }
         if(Lout.estGagnant() && !aGagne){
-            finished();
+            buttonBrick.setOpacity(1);
         }
     }
     public void finished(){
+        if(Lout.estGagnant() && !aGagne) {
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
+            buttonBrick.setVisible(false);
+            aGagne = true;
+        }
+    }
+    public void finished2(){
         MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
-        button.setVisible(false);
+        buttonBrick.setVisible(false);
         aGagne = true;
     }
 
