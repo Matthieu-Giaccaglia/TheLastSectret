@@ -42,6 +42,7 @@ public class TrapezeController implements Initializable {
 
     public void sonOOF(){
         mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
+        mauvaiseCombiSon.setVolume(0.25);
         mauvaiseCombiSon.play();
     }
 
