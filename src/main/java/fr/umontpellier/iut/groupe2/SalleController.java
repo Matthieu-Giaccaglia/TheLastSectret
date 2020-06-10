@@ -26,6 +26,12 @@ public class SalleController {
     public ImageView porteDroite;
     public ImageView porteGauche;
     public ImageView marteau;
+    public ImageView jarreCassee3;
+    public ImageView jarreCassee2;
+    public ImageView jarre3;
+    public ImageView jarreMarteau;
+    public ImageView jarre2;
+    public ImageView jarreCassee1;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -52,7 +58,7 @@ public class SalleController {
 
     private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
     private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
-    private MediaPlayer soundCasseJarre = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString()));
+    private Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString());
 
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
@@ -295,9 +301,21 @@ public class SalleController {
 
 
 
-    public void casseJarre() {
-        soundCasseJarre.play();
-        jarre.setVisible(false);
-        gemmeViolette.setVisible(true);
+    public void casseJarre(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == jarre) {
+            new MediaPlayer(soundCasseJarre).play();
+            jarre.setVisible(false);
+            gemmeViolette.setVisible(true);
+        } else if (mouseEvent.getSource() == jarreMarteau){
+
+        } else if (mouseEvent.getSource() == jarre2){
+            new MediaPlayer(soundCasseJarre).play();
+            jarre2.setVisible(false);
+            jarreCassee2.setVisible(true);
+        } else if (mouseEvent.getSource() == jarre3){
+            new MediaPlayer(soundCasseJarre).play();
+            jarre3.setVisible(false);
+            jarreCassee3.setVisible(true);
+        }
     }
 }
