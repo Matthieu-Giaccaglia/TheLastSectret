@@ -45,7 +45,6 @@ public class Main extends Application {
             trapeze.setOnStart(() -> {
                 //todo ajouter son
             });
-
             stepManager.addStep(trapeze);
             stepManager.addStep(new Step<>(StepID.CAM5, LayoutLoader.getLayout2("groupe1/salles/layout_cam5.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));

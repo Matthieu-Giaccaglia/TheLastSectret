@@ -41,12 +41,15 @@ public class TrapezeController implements Initializable {
     }
 
     public void sonOOF(){
-        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-lound.mp3").toUri().toString()));
+        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
         mauvaiseCombiSon.play();
     }
 
     public void handleButtonValide(MouseEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && !stepManager.passageDansSalle(StepID.CAM8)) {
+            mauvaiseCombi();
+            sonOOF();
+        }else if(aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)){
             gagne();
         }else {
             mauvaiseCombi();

@@ -168,6 +168,7 @@ public class TaquinController {
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
             mur.setDisable(true);
             gemme.setDisable(false);
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.marteau);
         }
     }
 }

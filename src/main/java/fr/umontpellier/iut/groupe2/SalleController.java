@@ -26,6 +26,17 @@ public class SalleController {
     public ImageView porteDroite;
     public ImageView porteGauche;
     public ImageView marteau;
+    public ImageView jarreCassee3;
+    public ImageView jarreCassee2;
+    public ImageView jarre3;
+    public ImageView jarreMarteau;
+    public ImageView jarre2;
+    public ImageView jarreCassee1;
+    public ImageView jarreCassee4;
+    public ImageView socleBleu;
+    public ImageView socleRouge;
+    public ImageView socleViolet;
+    public ImageView socleVert;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -52,7 +63,7 @@ public class SalleController {
 
     private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
     private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
-    private MediaPlayer soundCasseJarre = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString()));
+    private Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString());
 
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
@@ -93,6 +104,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == gemmeRouge) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeRouge);
             gemmeRouge.setVisible(false);
+            gemmeRouge.setDisable(true);
         } else if (mouseEvent.getSource() == gemmeViolette) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
             gemmeViolette.setVisible(false);
@@ -103,6 +115,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == marteau){
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.marteau);
             marteau.setVisible(false);
+            jarreCassee3.setVisible(true);
         }
     }
 
@@ -128,28 +141,28 @@ public class SalleController {
 
     public void putGemme(MouseEvent mouseEvent) {
         ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-        if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
+        if ( ( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage() == null && contientGemme()){
             itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeVerteEmplacement && gemmeVerteEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage()!=null ){
             itemPilierVert = changeEtatPilier(itemPilierVert, gemmeVerteEmplacement,false);
             eteinsToi();
-        }  else if (mouseEvent.getSource() == gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
+        }  else if ( ( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
             itemPilierViolet = changeEtatPilier(selected, gemmeVioletteEmplacement, true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage()!=null ){
             itemPilierViolet = changeEtatPilier(itemPilierViolet, gemmeVioletteEmplacement, false);
             eteinsToi();
-        } else if (mouseEvent.getSource() == gemmeBleuEmplacement && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
+        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
             itemPilierBleu = changeEtatPilier(selected, gemmeBleuEmplacement, true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeBleuEmplacement && gemmeBleuEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage()!=null ){
             itemPilierBleu = changeEtatPilier(itemPilierBleu, gemmeBleuEmplacement, false);
             eteinsToi();
-        }else if (mouseEvent.getSource() == gemmeRougeEmplacement && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
+        }else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
             itemPilierRouge = changeEtatPilier(selected, gemmeRougeEmplacement,true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeRougeEmplacement && gemmeRougeEmplacement.getImage()!=null ) {
+        } else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage()!=null ) {
             itemPilierRouge = changeEtatPilier(itemPilierRouge, gemmeRougeEmplacement, false);
         }
         System.out.println(estGagnant());
@@ -295,9 +308,23 @@ public class SalleController {
 
 
 
-    public void casseJarre() {
-        soundCasseJarre.play();
-        jarre.setVisible(false);
-        gemmeViolette.setVisible(true);
+    public void casseJarre(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == jarre) {
+            new MediaPlayer(soundCasseJarre).play();
+            jarre.setVisible(false);
+            gemmeViolette.setVisible(true);
+        } else if (mouseEvent.getSource() == jarreMarteau){
+            new MediaPlayer(soundCasseJarre).play();
+            jarreMarteau.setVisible(false);
+            marteau.setVisible(true);
+        } else if (mouseEvent.getSource() == jarre2){
+            new MediaPlayer(soundCasseJarre).play();
+            jarre2.setVisible(false);
+            jarreCassee2.setVisible(true);
+        } else if (mouseEvent.getSource() == jarre3){
+            new MediaPlayer(soundCasseJarre).play();
+            jarre3.setVisible(false);
+            jarreCassee4.setVisible(true);
+        }
     }
 }
