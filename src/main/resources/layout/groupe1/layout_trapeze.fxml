@@ -145,7 +145,7 @@
    <ImageView fx:id="buttonValideur" fitHeight="100.0" fitWidth="100.0" onMouseDragReleased="#handleButtonValide" onMousePressed="#handleButtonValide" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../raw/groupe1/boutonvalider.png" />
       <StackPane.margin>
-         <Insets right="40.0" top="800.0" />
+         <Insets right="40.0" top="750.0" />
       </StackPane.margin>
    </ImageView>
 
@@ -154,5 +154,8 @@
          <Cursor fx:constant="HAND" />
       </cursor>
       <Image url="@../../raw/groupe1/flechenav.png" />
+      <StackPane.margin>
+         <Insets right="40.0" top="950.0" />
+      </StackPane.margin>
    </ImageView>
 </StackPane>
