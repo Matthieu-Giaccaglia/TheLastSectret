@@ -33,6 +33,10 @@ public class SalleController {
     public ImageView jarre2;
     public ImageView jarreCassee1;
     public ImageView jarreCassee4;
+    public ImageView socleBleu;
+    public ImageView socleRouge;
+    public ImageView socleViolet;
+    public ImageView socleVert;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -136,28 +140,28 @@ public class SalleController {
 
     public void putGemme(MouseEvent mouseEvent) {
         ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-        if (mouseEvent.getSource() == gemmeVerteEmplacement && gemmeVerteEmplacement.getImage() == null && contientGemme()){
+        if ( ( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage() == null && contientGemme()){
             itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeVerteEmplacement && gemmeVerteEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage()!=null ){
             itemPilierVert = changeEtatPilier(itemPilierVert, gemmeVerteEmplacement,false);
             eteinsToi();
-        }  else if (mouseEvent.getSource() == gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
+        }  else if ( ( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
             itemPilierViolet = changeEtatPilier(selected, gemmeVioletteEmplacement, true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeVioletteEmplacement && gemmeVioletteEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage()!=null ){
             itemPilierViolet = changeEtatPilier(itemPilierViolet, gemmeVioletteEmplacement, false);
             eteinsToi();
-        } else if (mouseEvent.getSource() == gemmeBleuEmplacement && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
+        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
             itemPilierBleu = changeEtatPilier(selected, gemmeBleuEmplacement, true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeBleuEmplacement && gemmeBleuEmplacement.getImage()!=null ){
+        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage()!=null ){
             itemPilierBleu = changeEtatPilier(itemPilierBleu, gemmeBleuEmplacement, false);
             eteinsToi();
-        }else if (mouseEvent.getSource() == gemmeRougeEmplacement && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
+        }else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
             itemPilierRouge = changeEtatPilier(selected, gemmeRougeEmplacement,true);
             allumeToi();
-        } else if (mouseEvent.getSource()==gemmeRougeEmplacement && gemmeRougeEmplacement.getImage()!=null ) {
+        } else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage()!=null ) {
             itemPilierRouge = changeEtatPilier(itemPilierRouge, gemmeRougeEmplacement, false);
         }
         System.out.println(estGagnant());
