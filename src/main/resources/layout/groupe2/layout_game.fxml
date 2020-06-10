@@ -34,11 +34,11 @@
          <ImageView fx:id="deuxTrait" fitHeight="92.0" fitWidth="662.0" layoutX="548.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true" rotate="5.7" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
          </ImageView>
-         <ImageView fx:id="gemmeTropHaute" fitHeight="74.0" fitWidth="76.0" layoutX="1728.0" layoutY="23.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="gemmeTropHaute" fitHeight="74.0" fitWidth="76.0" layoutX="1765.0" layoutY="35.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeVerte.png" />
          </ImageView>
-         <ImageView fx:id="pilierGrand" fitHeight="627.0" fitWidth="209.0" layoutX="1388.0" layoutY="60.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/pilier.PNG" />
+         <ImageView fx:id="pilierGrand" fitHeight="743.0" fitWidth="334.0" layoutX="1688.0" layoutY="72.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/pilier.png" />
          </ImageView>
          <ImageView fx:id="premierTrait" fitHeight="126.0" fitWidth="1060.0" layoutX="1021.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" rotate="-48.8" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
