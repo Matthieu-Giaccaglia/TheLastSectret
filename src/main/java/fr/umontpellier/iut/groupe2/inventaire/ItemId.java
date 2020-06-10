@@ -32,7 +32,8 @@ public enum ItemId {
     gemmeVerte(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeVerte.png"))),
     gemmeViolette(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeViolette.png"))),
     gemmeRouge(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeRouge.png"))),
-    boutonLumiere(new ImageView(ImageLoader.getImage("groupe2/salle/Oak_Button.png")));
+    boutonLumiere(new ImageView(ImageLoader.getImage("groupe2/salle/Oak_Button.png"))),
+    marteau(new ImageView(ImageLoader.getImage("groupe2/salle/marteau.png")));
 
 
     private final ImageView imageView;
