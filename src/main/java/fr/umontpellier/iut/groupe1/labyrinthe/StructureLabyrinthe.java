@@ -336,7 +336,7 @@ public class StructureLabyrinthe extends Group {
 
         this.getChildren().addAll(
                 clef, boule, socle, murHaut, murBas, murDroite, murGauche,
-                /*compteurMort,*/ murCheckpoint1, murCheckpoint2, murCheckpoint3, murCheckpoint4,
+                compteurMort, murCheckpoint1, murCheckpoint2, murCheckpoint3, murCheckpoint4,
                 mur1, mur2, mur3, mur4, mur5, mur6, mur7, mur8, mur9, mur10,
                 mur11, mur12, mur13, mur14, mur15, mur16, mur17, mur18, mur19, mur20,
                 mur21, mur22, mur23, mur24, mur25, mur26, mur27, mur28, mur29, mur30,

@@ -25,7 +25,7 @@ public class SalleController {
     public ImageView jarreCassee;
     public ImageView porteDroite;
     public ImageView porteGauche;
-    public AnchorPane pilierGemmeAnchor;
+    public ImageView marteau;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -86,7 +86,7 @@ public class SalleController {
     }
 
 
-    public void recupGemme(MouseEvent mouseEvent) {
+    public void recupItem(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() == gemmeVerte) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeVerte);
             gemmeVerte.setVisible(false);
@@ -97,8 +97,15 @@ public class SalleController {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
             gemmeViolette.setVisible(false);
             jarreCassee.setVisible(true);
+        } else if (mouseEvent.getSource() == piece25Taquin){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
+            piece25Taquin.setVisible(false);
+        } else if (mouseEvent.getSource() == marteau){
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.marteau);
+            marteau.setVisible(false);
         }
     }
+
 
     public boolean estGagnant() {
         if (itemPilierVert == ItemId.gemmeVerte && itemPilierRouge == ItemId.gemmeRouge && itemPilierBleu == ItemId.gemmeBleue && itemPilierViolet == ItemId.gemmeViolette) {
@@ -286,11 +293,7 @@ public class SalleController {
     }
 
 
-    public void recupPieceTaquin() {
 
-        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
-        piece25Taquin.setVisible(false);
-    }
 
     public void casseJarre() {
         soundCasseJarre.play();
