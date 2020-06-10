@@ -22,14 +22,15 @@ public class MainController implements Initializable {
     @Override
     public synchronized void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ThreadTimer threadTimer = new ThreadTimer(timerDuJeu);
+        /*ThreadTimer threadTimer = new ThreadTimer(timerDuJeu);
         threadTimer.start();
-        threadTimer.setRunning(true);
-        //TODO arreter le thread quand le jeu se ferme
+        threadTimer.setRunning(true);*/
 
-        parametre.setOnMouseClicked(mouseEvent -> {
-            Main.stepManager.openStep(StepID.PAUSE);
-            threadTimer.setRunning(false);
+        parametre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning()));
+
+        Main.stage.setOnCloseRequest(event -> {
+            Main.stepManager.getThreadTimer().setRunning(false);
+            Main.stepManager.getThreadTimer().setStopped(true);
         });
 
     }

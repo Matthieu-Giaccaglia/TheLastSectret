@@ -2,10 +2,16 @@ package fr.umontpellier.iut.groupe1.view;
 
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
+import fr.umontpellier.iut.groupe1.menu.MenuPause;
+import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -18,9 +24,13 @@ public class StepManager {
     private final Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private final List<Node> hud;
-    private StackPane root;
+    private AnchorPane root;
+    private StackPane stepRoot, pauseMenu;
     private Parent gameNode;
     private final Map<StepID, Boolean> passageSalle;
+    private boolean paused;
+
+    private ThreadTimer threadTimer;
 
     public StepManager(Stage stage, Inventaire inventaire){
         this.inventaire = inventaire;
@@ -31,8 +41,24 @@ public class StepManager {
         hud = new LinkedList<>();
 
         try {
-            root = (StackPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
-            hud.add(root.lookup("#timer"));
+            root = (AnchorPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
+            stepRoot = (StackPane) root.lookup("#stack");
+            HBox timer = (HBox) root.lookup("#timer");
+            hud.add(timer);
+
+            pauseMenu = new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080);
+            root.getChildren().add(pauseMenu);
+
+            pauseMenu.toBack();
+
+            AnchorPane.setTopAnchor(pauseMenu, 0d);
+            AnchorPane.setBottomAnchor(pauseMenu, 0d);
+            AnchorPane.setRightAnchor(pauseMenu, 0d);
+            AnchorPane.setLeftAnchor(pauseMenu, 0d);
+
+            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"));
+            threadTimer.start();
+            threadTimer.setRunning(true);
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
             System.exit(1);
@@ -60,7 +86,7 @@ public class StepManager {
                     "StepID : " + step.getId());
         } else {
             stepMap.put(step.getId(), step);
-            root.getChildren().add(step.open());
+            stepRoot.getChildren().add(step.open());
             step.setVisible(false);
         }
     }
@@ -82,4 +108,17 @@ public class StepManager {
         return passageSalle.get(stepID);
     }
 
+    public void setPause(boolean paused) {
+        this.paused = paused;
+        threadTimer.setRunning(!paused);
+
+        if(paused)
+            pauseMenu.toFront();
+        else
+            pauseMenu.toBack();
+    }
+
+    public ThreadTimer getThreadTimer() {
+        return threadTimer;
+    }
 }

@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe1.menu;
 
+import fr.umontpellier.iut.groupe1.Main;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.control.Alert;
@@ -17,10 +18,7 @@ public class MenuPause extends Group {
         buttonPause.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 35));
 
         ButtonMenu buttonReprendre = new ButtonMenu("Reprendre", sizeStageX, 150, sizeStageX, 25);
-        buttonReprendre.setOnMouseClicked(mouseEvent -> {
-            System.out.println("button reprendre");
-            //TODO renvoyer sur la fenetre actuelle
-        });
+        buttonReprendre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(false));
         buttonReprendre.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonReprendre.setCursor(Cursor.CLOSED_HAND));
 
         ButtonMenu buttonOption = new ButtonMenu("Option", sizeStageX, 200, sizeStageX, 25);
