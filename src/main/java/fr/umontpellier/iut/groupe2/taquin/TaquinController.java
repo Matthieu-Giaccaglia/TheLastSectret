@@ -79,9 +79,9 @@ public class TaquinController {
         }
 
         if (pieceDouze.isDisable() && taquin.estGagnant()) {
+            pieceDouze.setVisible(true);
             pieceDouze.setDisable(false);
         }
-
     }
 
 
