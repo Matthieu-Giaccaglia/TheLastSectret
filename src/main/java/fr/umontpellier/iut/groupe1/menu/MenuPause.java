@@ -13,17 +13,17 @@ public class MenuPause extends Group {
 
     public MenuPause (double sizeStageX){
 
-        ButtonMenu buttonPause = new ButtonMenu("PAUSE", sizeStageX, 75);
-        buttonPause.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
+        ButtonMenu buttonPause = new ButtonMenu("PAUSE", sizeStageX, 75, sizeStageX, 30);
+        buttonPause.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 35));
 
-        ButtonMenu buttonReprendre = new ButtonMenu("Reprendre", sizeStageX, 150);
+        ButtonMenu buttonReprendre = new ButtonMenu("Reprendre", sizeStageX, 150, sizeStageX, 25);
         buttonReprendre.setOnMouseClicked(mouseEvent -> {
             System.out.println("button reprendre");
             //TODO renvoyer sur la fenetre actuelle
         });
         buttonReprendre.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonReprendre.setCursor(Cursor.CLOSED_HAND));
 
-        ButtonMenu buttonOption = new ButtonMenu("Option", sizeStageX, 200);
+        ButtonMenu buttonOption = new ButtonMenu("Option", sizeStageX, 200, sizeStageX, 25);
         buttonOption.setOnMouseClicked(mouseEvent -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("En développement");
@@ -33,7 +33,7 @@ public class MenuPause extends Group {
         });
         buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.CLOSED_HAND));
 
-        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250);
+        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250, sizeStageX, 25);
         buttonQuitter.setOnMouseClicked(mouseEvent -> {
             System.out.println("button quitter");
             //TODO renvoyer sur le menu principal

@@ -6,14 +6,14 @@ import javafx.scene.text.Font;
 
 public class ButtonMenu extends Label {
 
-    public ButtonMenu(String text, double sizeStageX, double translateY){
+    public ButtonMenu(String text, double sizeStageX, double translateY, double prefSizeX, double prefSizeY){
 
         this.setText(text);
         this.setAlignment(Pos.CENTER);
         this.setTranslateX(sizeStageX/3);
         this.setTranslateY(translateY);
         this.setFont(Font.font(25));
-        this.setPrefSize(sizeStageX/2, 25);
+        this.setPrefSize(prefSizeX, prefSizeY);
 
     }
 

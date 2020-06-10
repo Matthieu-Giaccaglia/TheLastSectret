@@ -7,19 +7,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.StackPane;
 
+import javax.imageio.IIOImage;
+
 
 public class BackgroundStackPane extends StackPane {
 
+    private final Image imageFond = ImageLoader.getImage("groupe1/wall_15.jpg");
+
     public BackgroundStackPane(Group group){
 
-        this.setBackground(new javafx.scene.layout.Background(new BackgroundImage(ImageLoader.getImage("groupe1/wall_15.jpg"), null, null, null, null)));
+        this.setBackground(new javafx.scene.layout.Background(new BackgroundImage(imageFond, null, null, null, null)));
         this.getChildren().addAll( group);
 
     }
 
     public BackgroundStackPane(Group group, double width, double height){
 
-        ImageView image = new ImageView(ImageLoader.getImage("groupe1/wall_15.jpg"));
+        ImageView image = new ImageView(imageFond);
         image.setFitWidth(width);
         image.setFitHeight(height);
         this.getChildren().addAll(image, group);
@@ -30,7 +34,7 @@ public class BackgroundStackPane extends StackPane {
         fondNoir.setFitWidth(widthBackground);
         fondNoir.setFitHeight(heightBackground);
         fondNoir.setOpacity(0.5);
-        ImageView image = new ImageView(ImageLoader.getImage("groupe1/wall_15.jpg"));
+        ImageView image = new ImageView(imageFond);
         image.setFitWidth(widthImageFond);
         image.setFitHeight(heightImageFond);
         this.getChildren().addAll(fondNoir, image, group);

@@ -10,43 +10,28 @@ import javafx.scene.text.FontWeight;
 public class MenuAccueil extends Group {
 
 
-    public MenuAccueil(){
+    public MenuAccueil(double sizeStageX){
 
-        /*ButtonMenu buttonPause = new ButtonMenu("PAUSE", sizeStageX, 75);
-        buttonPause.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 30));
+        ButtonMenu buttonAccueil = new ButtonMenu("Nom du jeu", sizeStageX, 0, sizeStageX, 50);
+        buttonAccueil.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 50));
 
-        ButtonMenu buttonReprendre = new ButtonMenu("Reprendre", sizeStageX, 150);
-        buttonReprendre.setOnMouseClicked(mouseEvent -> {
+        ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX, 50);
+        buttonJouer.setFont(Font.font(null,40));
+        buttonJouer.setOnMouseClicked(mouseEvent -> {
             System.out.println("button reprendre");
-            //TODO renvoyer sur la fenetre actuelle
+            //TODO commencer le jeu
         });
-        buttonReprendre.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonReprendre.setCursor(Cursor.CLOSED_HAND));
+        buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.CLOSED_HAND));
 
-        ButtonMenu buttonOption = new ButtonMenu("Option", sizeStageX, 200);
-        buttonOption.setOnMouseClicked(mouseEvent -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("En développement");
-            alert.setHeaderText(null);
-            alert.setContentText("Cette option n'a pas encore été développé.");
-            alert.show();
-        });
-        buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.CLOSED_HAND));
-
-        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250);
+        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,160, sizeStageX, 50);
+        buttonQuitter.setFont(Font.font(null, 40));
         buttonQuitter.setOnMouseClicked(mouseEvent -> {
-            System.out.println("button quitter");
-            //TODO renvoyer sur le menu principal
+            System.exit(0);
         });
         buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.CLOSED_HAND));
 
-        this.getChildren().addAll(buttonPause, buttonReprendre, buttonOption, buttonQuitter);*/
-
-
-
-
+        this.getChildren().addAll(buttonAccueil, buttonJouer, buttonQuitter);
 
     }
-
-
 
 }
