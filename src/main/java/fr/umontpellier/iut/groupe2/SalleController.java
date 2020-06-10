@@ -32,6 +32,7 @@ public class SalleController {
     public ImageView jarreMarteau;
     public ImageView jarre2;
     public ImageView jarreCassee1;
+    public ImageView jarreCassee4;
     @FXML
     private ImageView premierTrait, deuxTrait, troisTrait, quatreTrait, cinqTrait;
     @FXML
@@ -109,6 +110,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == marteau){
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.marteau);
             marteau.setVisible(false);
+            jarreCassee3.setVisible(true);
         }
     }
 
@@ -307,7 +309,9 @@ public class SalleController {
             jarre.setVisible(false);
             gemmeViolette.setVisible(true);
         } else if (mouseEvent.getSource() == jarreMarteau){
-
+            new MediaPlayer(soundCasseJarre).play();
+            jarreMarteau.setVisible(false);
+            marteau.setVisible(true);
         } else if (mouseEvent.getSource() == jarre2){
             new MediaPlayer(soundCasseJarre).play();
             jarre2.setVisible(false);
@@ -315,7 +319,7 @@ public class SalleController {
         } else if (mouseEvent.getSource() == jarre3){
             new MediaPlayer(soundCasseJarre).play();
             jarre3.setVisible(false);
-            jarreCassee3.setVisible(true);
+            jarreCassee4.setVisible(true);
         }
     }
 }
