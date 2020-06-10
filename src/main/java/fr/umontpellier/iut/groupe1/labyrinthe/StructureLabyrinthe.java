@@ -26,7 +26,7 @@ public class StructureLabyrinthe extends Group {
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
     private final AnimationTimer timer;
-    private MediaPlayer boulleRoulante;
+    private MediaPlayer boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/bouleRoulante1.mp3").toUri().toString()));;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
@@ -336,7 +336,7 @@ public class StructureLabyrinthe extends Group {
 
         this.getChildren().addAll(
                 clef, boule, socle, murHaut, murBas, murDroite, murGauche,
-                compteurMort, murCheckpoint1, murCheckpoint2, murCheckpoint3, murCheckpoint4,
+                /*compteurMort,*/ murCheckpoint1, murCheckpoint2, murCheckpoint3, murCheckpoint4,
                 mur1, mur2, mur3, mur4, mur5, mur6, mur7, mur8, mur9, mur10,
                 mur11, mur12, mur13, mur14, mur15, mur16, mur17, mur18, mur19, mur20,
                 mur21, mur22, mur23, mur24, mur25, mur26, mur27, mur28, mur29, mur30,
@@ -388,7 +388,6 @@ public class StructureLabyrinthe extends Group {
     }
 
     public void lanceurMediaPlayerBouleRoulante(){
-        boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/bouleRoulante1.mp3").toUri().toString()));
         boulleRoulante.play();
     }
 
@@ -400,44 +399,7 @@ public class StructureLabyrinthe extends Group {
         alert.show();
     }
 
-    public boolean intersection(Boule nodeA, Node nodeB) {
-
-        /*if (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() &&
-                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 >= nodeB.getBoundsInParent().getMaxX() &&
-                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
-                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()) {
-            collision.set(3, false);
-            //System.out.println("à droite");
-        }else if(nodeA.getBoundsInParent().getMaxX() - 5 >= nodeB.getBoundsInParent().getMinX() &&
-                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 <= nodeB.getBoundsInParent().getMinX() &&
-                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
-                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()){
-            collision.set(1 ,false);
-            //System.out.println("à gauche");
-        }else if(nodeA.getBoundsInParent().getMinY() + 5 <= nodeB.getBoundsInParent().getMaxY() &&
-                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 >= nodeB.getBoundsInParent().getMaxY() &&
-                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
-                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
-            collision.set(0, false);
-            //System.out.println("en bas");
-        }else if(nodeA.getBoundsInParent().getMaxY() - 5 >= nodeB.getBoundsInParent().getMinY() &&
-                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 <= nodeB.getBoundsInParent().getMaxY() &&
-                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
-                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
-            collision.set(2, false);
-            //System.out.println("en haut");
-        }*/
-
-        double supplementCollision = 5.5;
-        return  (nodeA.getBoundsInParent().getMinX() + supplementCollision <= nodeB.getBoundsInParent().getMaxX() && nodeA.getBoundsInParent().getMaxX() - supplementCollision >= nodeB.getBoundsInParent().getMinX()) &&
-                (nodeA.getBoundsInParent().getMinY() + supplementCollision <= nodeB.getBoundsInParent().getMaxY() && nodeA.getBoundsInParent().getMaxY() - supplementCollision >= nodeB.getBoundsInParent().getMinY()) &&
-                (nodeA.getBoundsInParent().getMinZ() + supplementCollision <= nodeB.getBoundsInParent().getMaxZ() && nodeA.getBoundsInParent().getMaxZ() - supplementCollision >= nodeB.getBoundsInParent().getMinZ());
-    }
-
     public void deplacementBoule(Boule boule) {
-
-
-        //mediaPlayer.play();
 
         stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
             vitesseDeplacementRotation = 3;
@@ -475,4 +437,40 @@ public class StructureLabyrinthe extends Group {
         }
         transforms.add(new Rotate(angle, rotationAxis));
     }
+
+    public boolean intersection(Boule nodeA, Node nodeB) {
+
+        /*if (nodeA.getBoundsInParent().getMinX() + 5 <= nodeB.getBoundsInParent().getMaxX() &&
+                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 >= nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()) {
+            collision.set(3, false);
+            //System.out.println("à droite");
+        }else if(nodeA.getBoundsInParent().getMaxX() - 5 >= nodeB.getBoundsInParent().getMinX() &&
+                (nodeA.getBoundsInParent().getMaxX() + nodeA.getBoundsInParent().getMinX()) / 2 <= nodeB.getBoundsInParent().getMinX() &&
+                nodeA.getBoundsInParent().getMinY() < nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMaxY() > nodeB.getBoundsInParent().getMinY()){
+            collision.set(1 ,false);
+            //System.out.println("à gauche");
+        }else if(nodeA.getBoundsInParent().getMinY() + 5 <= nodeB.getBoundsInParent().getMaxY() &&
+                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 >= nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
+            collision.set(0, false);
+            //System.out.println("en bas");
+        }else if(nodeA.getBoundsInParent().getMaxY() - 5 >= nodeB.getBoundsInParent().getMinY() &&
+                (nodeA.getBoundsInParent().getMaxY() + nodeA.getBoundsInParent().getMinY()) / 2 <= nodeB.getBoundsInParent().getMaxY() &&
+                nodeA.getBoundsInParent().getMinX() < nodeB.getBoundsInParent().getMaxX() &&
+                nodeA.getBoundsInParent().getMaxX() > nodeB.getBoundsInParent().getMinX()){
+            collision.set(2, false);
+            //System.out.println("en haut");
+        }*/
+
+        double supplementCollision = 5.5;
+        return  (nodeA.getBoundsInParent().getMinX() + supplementCollision <= nodeB.getBoundsInParent().getMaxX() && nodeA.getBoundsInParent().getMaxX() - supplementCollision >= nodeB.getBoundsInParent().getMinX()) &&
+                (nodeA.getBoundsInParent().getMinY() + supplementCollision <= nodeB.getBoundsInParent().getMaxY() && nodeA.getBoundsInParent().getMaxY() - supplementCollision >= nodeB.getBoundsInParent().getMinY()) &&
+                (nodeA.getBoundsInParent().getMinZ() + supplementCollision <= nodeB.getBoundsInParent().getMaxZ() && nodeA.getBoundsInParent().getMaxZ() - supplementCollision >= nodeB.getBoundsInParent().getMinZ());
+    }
+
+
 }
