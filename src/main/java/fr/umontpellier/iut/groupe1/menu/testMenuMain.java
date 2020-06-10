@@ -11,8 +11,6 @@ public class testMenuMain extends Application {
     @Override
     public void start(Stage stage){
         stage.setTitle("test");
-        //BackgroundStackPane backgroundStackPane = new BackgroundStackPane(new MenuPause(350, sc));
-        //backgroundStackPane.setPrefSize(300, 400);
         //stage.setScene(new Scene(new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080), 300, 400));
         stage.setScene(new Scene(new BackgroundStackPane(new MenuAccueil(350)), 1000, 800));
         stage.show();
