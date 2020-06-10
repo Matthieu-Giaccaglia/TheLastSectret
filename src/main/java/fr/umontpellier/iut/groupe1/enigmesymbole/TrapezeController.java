@@ -14,8 +14,8 @@ import java.util.ResourceBundle;
 
 public class TrapezeController implements Initializable {
 
-    @FXML
-    private Button buttonValideur;
+    //@FXML
+    //private ImageView buttonValideur;
 
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -25,10 +25,19 @@ public class TrapezeController implements Initializable {
         alert.show();
     }
 
-    public void handleButtonValide(ActionEvent actionEvent) {
+    public void mauvaiseCombi(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Et c'est dommage !");
+        alert.setHeaderText(null);
+        alert.setContentText("Tu devrais te remettre en question...\nC'est la mauvaise combinaison !\nDépêche-toi ou elle t'attrapera !");
+        alert.show();
+    }
+
+    public void handleButtonValide(MouseEvent actionEvent) {
         if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible()) {
             gagne();
-
+        }else {
+            mauvaiseCombi();
         }
     }
 
