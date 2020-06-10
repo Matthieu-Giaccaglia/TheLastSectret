@@ -56,22 +56,16 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));
 
             Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
-            cerco.setOnStart(new Callback() {
-                @Override
-                public void done() {
-                    zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                    zombiesound.play();
-                }
+            cerco.setOnStart(() -> {
+                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.play();
             });
             stepManager.addStep(cerco);
 
             Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
-            tableTradu.setOnStart(new Callback() {
-                @Override
-                public void done() {
-                    zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                    zombiesound.play();
-                }
+            tableTradu.setOnStart(() -> {
+                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.play();
             });
             stepManager.addStep(tableTradu);
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
@@ -79,12 +73,13 @@ public class Main extends Application {
             Layout<StackPane> menuPause = new Layout<>(new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080), null);
             stepManager.addStep(new Step<>(StepID.PAUSE, menuPause));
 
+            stepManager.addHudElement(LayoutLoader.getLayout("groupe1/timer.fxml"));
+
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
         }
 
         stepManager.openStep(StepID.CAM1);
-        //stepManager.openStep(StepID.PAUSE);
 
         primaryStage.show();
     }

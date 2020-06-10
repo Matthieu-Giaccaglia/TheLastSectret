@@ -3,17 +3,21 @@ package fr.umontpellier.iut.groupe1.view;
 import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class StepManager {
     private final Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
+    private final List<Node> hud;
     private StackPane root;
     private Parent gameNode;
     private final Map<StepID, Boolean> passageSalle;
@@ -23,6 +27,8 @@ public class StepManager {
 
         stepMap = new HashMap<>();
         passageSalle = new HashMap<>();
+
+        hud = new LinkedList<>();
 
         try {
             root = (StackPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
@@ -39,6 +45,14 @@ public class StepManager {
         return inventaire;
     }
 
+    public void addHudElement(Node parent){
+        hud.add(parent);
+    }
+
+    public void putHudOnTop(){
+        hud.forEach(Node::toFront);
+    }
+
     public void addStep(Step<? extends Parent> step){
         if(stepMap.containsKey(step.getId())){
             System.err.println("Attention vous avez essayé d'ajouter une Step déjà présente dans la liste !\n" +
@@ -46,7 +60,6 @@ public class StepManager {
         } else {
             stepMap.put(step.getId(), step);
             root.getChildren().add(step.open());
-            //step.open().toBack();
             step.setVisible(false);
         }
     }
@@ -57,6 +70,7 @@ public class StepManager {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
             passageSalle.put(stepID, true);
+            putHudOnTop();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
