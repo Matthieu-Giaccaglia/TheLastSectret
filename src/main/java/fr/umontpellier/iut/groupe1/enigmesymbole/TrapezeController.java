@@ -46,7 +46,10 @@ public class TrapezeController implements Initializable {
     }
 
     public void handleButtonValide(MouseEvent actionEvent) {
-        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)) {
+        if (aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && !stepManager.passageDansSalle(StepID.CAM8)) {
+            mauvaiseCombi();
+            sonOOF();
+        }else if(aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)){
             gagne();
         }else {
             mauvaiseCombi();
