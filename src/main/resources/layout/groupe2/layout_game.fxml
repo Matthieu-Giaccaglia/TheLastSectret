@@ -121,7 +121,7 @@
             <Image url="@../../raw/groupe2/salle/taquinPasFait.PNG" />
          </ImageView>
          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="gemmeRouge" fitHeight="56.0" fitWidth="48.0" layoutX="1270.0" layoutY="584.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true" >
+         <ImageView fx:id="gemmeRouge" fitHeight="56.0" fitWidth="48.0" layoutX="1270.0" layoutY="584.0" onMouseClicked="#recupItem" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeRouge.png" />
          </ImageView>
       </AnchorPane>
