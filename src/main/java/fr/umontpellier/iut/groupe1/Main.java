@@ -4,6 +4,7 @@ import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
+import fr.umontpellier.iut.groupe1.enigmesymbole.TrapezeController;
 import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
 import fr.umontpellier.iut.groupe1.menu.MenuPause;
 import fr.umontpellier.iut.groupe1.utils.Callback;
@@ -22,6 +23,7 @@ public class Main extends Application {
 
     public static StepManager stepManager;
     public static Stage stage;
+    public boolean passageSalle=false;
 
     @Override
     public void start(Stage primaryStage) {
@@ -49,7 +51,16 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM5, LayoutLoader.getLayout2("groupe1/salles/layout_cam5.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml")));
-            stepManager.addStep(new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml")));
+
+            Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
+            tableTradu.setOnStart(new Callback() {
+                @Override
+                public void done() {
+                    passageSalle = true;
+                }
+            });
+
+            stepManager.addStep(tableTradu);
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
 
             Layout<StackPane> menuPause = new Layout<>(new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080), null);

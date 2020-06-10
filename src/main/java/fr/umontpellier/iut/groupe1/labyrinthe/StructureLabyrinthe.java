@@ -26,7 +26,7 @@ public class StructureLabyrinthe extends Group {
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
     private final AnimationTimer timer;
-    private MediaPlayer boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/bouleRoulante1.mp3").toUri().toString()));;
+    private MediaPlayer boulleRoulante;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
@@ -388,6 +388,7 @@ public class StructureLabyrinthe extends Group {
     }
 
     public void lanceurMediaPlayerBouleRoulante(){
+        boulleRoulante = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString()));
         boulleRoulante.play();
     }
 
