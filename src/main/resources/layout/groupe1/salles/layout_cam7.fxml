@@ -36,14 +36,10 @@
       </ImageView>
    </GridPane>
    <ImageView fx:id="black" fitHeight="480.0" fitWidth="800.0" onMousePressed="#handleButton" opacity="0.5" pickOnBounds="true" visible="false">
-      <image>
          <Image url="@../../../raw/groupe1/noir2.jpg" />
-      </image>
    </ImageView>
    <ImageView fx:id="indice22" fitHeight="300.0" fitWidth="350.0" onMousePressed="#handleButton" pickOnBounds="true" preserveRatio="true" visible="false">
-      <image>
          <Image url="@../../../raw/groupe1/final/indice2.png" />
-      </image>
    </ImageView>
 
 </StackPane>
