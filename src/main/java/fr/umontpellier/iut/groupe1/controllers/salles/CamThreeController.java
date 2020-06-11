@@ -3,6 +3,7 @@ package fr.umontpellier.iut.groupe1.controllers.salles;
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -44,6 +45,10 @@ public class CamThreeController implements Initializable, Openable {
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
 
         serrureCle.setOnMouseClicked(mouseEvent -> {
+            /*if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
+                cle.setVisible(true);
+            }*/
+
             cle.setVisible(true);
 
             insertionCle = new AnimationTimer() {
