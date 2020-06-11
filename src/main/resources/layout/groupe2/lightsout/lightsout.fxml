@@ -152,9 +152,8 @@
             </MotionBlur>
          </effect>
       </Button>
-        <ImageView disable="true" fitHeight="1018.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="@../../../raw/groupe2/salle/fondSombre.png"/>
+        <ImageView disable="true" fitHeight="1018.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
         </ImageView>
     </AnchorPane>
 </StackPane>
