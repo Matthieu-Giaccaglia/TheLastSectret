@@ -1,7 +1,9 @@
 package fr.umontpellier.iut.groupe1;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
+import fr.umontpellier.iut.groupe1.labyrinthe.StructureLabyrinthe;
 import fr.umontpellier.iut.groupe1.utils.Callback;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
@@ -61,6 +63,8 @@ public class Main extends Application {
             stepManager.addStep(tableTradu);
 
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
+
+            stepManager.addStep(new Step<>(StepID.LABYRINTHE, new Layout<>(new StructureLabyrinthe(500, 450, primaryStage), null)));
 
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
