@@ -49,7 +49,7 @@
          <image>
             <Image url="@../../../raw/groupe1/salles/cam3noire.jpg" />
          </image></ImageView>
-      <ImageView fx:id="cle" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="5.0" translateY="5.0" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <ImageView fx:id="cle" fitHeight="110.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="5.0" translateY="5.0" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@../../../raw/groupe1/final/cle.jpg" />
          </image>

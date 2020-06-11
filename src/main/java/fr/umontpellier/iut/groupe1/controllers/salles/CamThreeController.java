@@ -11,9 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class CamThreeController implements Initializable, Openable {
@@ -36,6 +39,8 @@ public class CamThreeController implements Initializable, Openable {
 
     private AnimationTimer insertionCle;
     private boolean attente = true;
+    MediaPlayer cleInsertion = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundTaquinMove.mp3").toUri().toString()));
+    MediaPlayer ouverturePorte = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundOpenDoor.mp3").toUri().toString()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,21 +59,25 @@ public class CamThreeController implements Initializable, Openable {
             insertionCle = new AnimationTimer() {
                 @Override
                 public void handle(long l) {
-                    if(cle.getFitWidth() > 84 && cle.getFitHeight() > 84){
-                        cle.setFitWidth(cle.getFitWidth() - 0.6);
-                        cle.setFitHeight(cle.getFitHeight() - 0.6);
-                        cle.setTranslateX(cle.getTranslateX() - 0.3);
-                        cle.setTranslateY(cle.getTranslateY() - 0.3);
+                    if(cle.getFitWidth() > 82 && cle.getFitHeight() > 82){
+                        cleInsertion.play();
+                        cleInsertion.setVolume(0.30);
+                        cle.setFitWidth(cle.getFitWidth() - 0.2);
+                        cle.setFitHeight(cle.getFitHeight() - 0.2);
+                        cle.setTranslateX(cle.getTranslateX() - 0.1);
+                        cle.setTranslateY(cle.getTranslateY() - 0.1);
                     }else {
+                        cleInsertion.stop();
                         if(attente){
                             try {
-                                Thread.sleep(2000);
+                                Thread.sleep(3000);
                                 attente = false;
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
-                            porte.setTranslateY(porte.getTranslateY() - 1.5);
+                            ouverturePorte.play();
+                            porte.setTranslateY(porte.getTranslateY() - 2);
                         }
                     }
                 }
