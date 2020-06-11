@@ -25,7 +25,6 @@ public class Main extends Application {
     public static StepManager stepManager;
     public static Stage stage;
 
-
     @Override
     public void start(Stage primaryStage) {
         stage = primaryStage;
@@ -50,7 +49,7 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
-            stepManager.addStep(new Step<>(StepID.GAMEOVER, LayoutLoader.getLayout2("groupe1/gameOver.fxml")));
+            //stepManager.addStep(new Step<>(StepID.GAMEOVER, LayoutLoader.getLayout2("groupe1/gameOver.fxml")));
 
             stepManager.addStep(new Step<>(StepID.LABYRINTHE, new Layout<>(new StructureLabyrinthe(500, 450, primaryStage), null)));
 
