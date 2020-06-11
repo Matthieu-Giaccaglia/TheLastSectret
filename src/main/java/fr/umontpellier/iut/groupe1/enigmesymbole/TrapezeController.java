@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
-import fr.umontpellier.iut.groupe1.labyrinthe.Clef;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.Path;
 
 import java.net.URL;
 import java.nio.file.Paths;
