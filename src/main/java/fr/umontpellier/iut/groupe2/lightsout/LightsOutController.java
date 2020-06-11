@@ -70,6 +70,10 @@ public class LightsOutController {
         }
         if(Lout.estGagnant() && !aGagne){
             buttonBrick.setOpacity(1);
+            buttonBrick.setDisable(false);
+            ParallelTransition brickMove;
+            brickMove = animationClique(buttonBrick);
+            brickMove.play();
         }
     }
     public void finished(){
