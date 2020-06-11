@@ -20,6 +20,7 @@ public class Main extends Application {
     public static StepManager stepManager;
     public static Stage stage;
     private MediaPlayer zombiesound;
+    private MediaPlayer heartSound;
 
     @Override
     public void start(Stage primaryStage) {
@@ -33,6 +34,8 @@ public class Main extends Application {
             /*Group group = new Group();
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
+            //zombiesound.isMute();
+            //heartSound.isMute();
 
             stepManager.addStep(new Step<>(StepID.CAM1, LayoutLoader.getLayout2("groupe1/salles/layout_cam1.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM2, LayoutLoader.getLayout2("groupe1/salles/layout_cam2.fxml")));
@@ -42,7 +45,7 @@ public class Main extends Application {
 
             Step<Parent> visuCerco = new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml"));
             visuCerco.setOnStart(() -> {
-                MediaPlayer heartSound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+                heartSound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
                 heartSound.play();
             });
 
