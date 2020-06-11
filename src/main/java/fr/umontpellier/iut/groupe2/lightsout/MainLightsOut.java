@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
-import fr.umontpellier.iut.commun.data.LayoutLoader;
+import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import javafx.application.Application;
 import javafx.scene.Parent;

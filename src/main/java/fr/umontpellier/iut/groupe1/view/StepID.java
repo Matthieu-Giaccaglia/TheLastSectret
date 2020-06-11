@@ -15,7 +15,10 @@ public enum StepID {
     PAUSE(11),
     LABYRINTHE(12),
     INVENTAIRE(13),
-    GAMEOVER(14);
+    GAMEOVER(14),
+    START(15),
+    TAQUIN(16),
+    LIGHTSOUT(17);
 
 
     private final int id;

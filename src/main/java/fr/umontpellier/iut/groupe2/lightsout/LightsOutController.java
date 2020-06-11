@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
-import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
+import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
@@ -75,7 +75,7 @@ public class LightsOutController {
     }
     public void finished(){
         if(Lout.estGagnant() && !aGagne) {
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
+            Main.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
             buttonBrick.setVisible(false);
             aGagne = true;
         }

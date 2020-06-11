@@ -3,7 +3,7 @@ package fr.umontpellier.iut.groupe2;
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import fr.umontpellier.iut.groupe2.view.StepID;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -66,11 +66,11 @@ public class SalleController {
 
     public void changeScene(MouseEvent event) {
         if (event.getSource() == taquinImage) {
-            MainSalleGroupe2.stepManager.openStep(StepID.TAQUIN);
+            Main.stepManager.openStep(StepID.TAQUIN);
         } else if (event.getSource() == lightoutButton) {
-            MainSalleGroupe2.stepManager.openStep(StepID.LIGHTSOUT);
+            Main.stepManager.openStep(StepID.LIGHTSOUT);
         } else if (event.getSource() == retour){
-            MainSalleGroupe2.stepManager.openStep(StepID.START);
+            Main.stepManager.openStep(StepID.START);
         }
     }
 
@@ -79,7 +79,7 @@ public class SalleController {
     }
 
     public void bouttonAllumer(){
-        if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
+        if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
                 fondSombre.setDisable(true);
@@ -87,26 +87,26 @@ public class SalleController {
                 buttonMissing.setImage(ImageLoader.getImage("groupe2/salle/briqueMur.png"));
                 buttonMissing.setOpacity(1);
                 lightoutButton.setDisable(true);
-                MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
+                Main.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
     }
 
 
     public void recupItem(MouseEvent mouseEvent) {
-        if (MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()){
+        if (Main.stepManager.getInventaire().inventairePasPlein()){
             if (mouseEvent.getSource() == gemmeVerte) {
-                MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeVerte);
+                Main.stepManager.getInventaire().ajouterItem(ItemId.gemmeVerte);
                 gemmeVerte.setVisible(false);
             } else if (mouseEvent.getSource() == jarreGemmePlein) {
-                MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
+                Main.stepManager.getInventaire().ajouterItem(ItemId.gemmeViolette);
                 jarreGemmePlein.setVisible(false);
                 jarreGemmeVide.setVisible(true);
             } else if (mouseEvent.getSource() == piece25Taquin) {
-                MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
+                Main.stepManager.getInventaire().ajouterItem(ItemId.taquinPiece12);
                 piece25Taquin.setVisible(false);
             } else if (mouseEvent.getSource() == jarreMarteauOuvert) {
-                MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.marteau);
+                Main.stepManager.getInventaire().ajouterItem(ItemId.marteau);
                 jarreMarteauOuvert.setVisible(false);
                 jarreMarteauVide.setVisible(true);
             }
@@ -132,7 +132,7 @@ public class SalleController {
     }
 
     public boolean contientGemme (){
-        return MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeVerte || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeViolette || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeBleue || MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeRouge;
+        return Main.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeVerte || Main.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeViolette || Main.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeBleue || Main.stepManager.getInventaire().getItemIdSelection() == ItemId.gemmeRouge;
     }
 
     public void putGemme(MouseEvent mouseEvent) {
@@ -153,13 +153,13 @@ public class SalleController {
 
     private ItemId changeEtatPilier(ImageView imageItemPilier, ItemId itemPilier){
         if (itemPilier == null  && contientGemme()) {
-            ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+            ItemId selected = Main.stepManager.getInventaire().getItemIdSelection();
+            Main.stepManager.getInventaire().retirerItem(selected);
             imageItemPilier.setImage(selected.getImage());
             new MediaPlayer(soundGemmeOnPilar).play();
             return selected;
-        } else if (itemPilier != null && MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()) {
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemPilier);
+        } else if (itemPilier != null && Main.stepManager.getInventaire().inventairePasPlein()) {
+            Main.stepManager.getInventaire().ajouterItem(itemPilier);
             imageItemPilier.setImage(null);
             return null;
         } else {

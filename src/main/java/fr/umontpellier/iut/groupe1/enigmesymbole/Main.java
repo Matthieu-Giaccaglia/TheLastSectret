@@ -1,7 +1,7 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
-import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe1.view.StepManager;
 import javafx.application.Application;
 import javafx.scene.Parent;

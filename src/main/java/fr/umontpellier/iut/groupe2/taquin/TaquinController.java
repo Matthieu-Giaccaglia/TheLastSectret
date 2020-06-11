@@ -1,8 +1,8 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
+import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
-import fr.umontpellier.iut.groupe2.MainSalleGroupe2;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
@@ -97,11 +97,11 @@ public class TaquinController {
 
 
     public void putLastPiece() {
-        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece12) {
+        if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece12) {
             pieceDouze.setDisable(true);
             putPiece25.play();
             pieceDouze.setImage(ItemId.taquinPiece12.getImage());
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.taquinPiece12);
+            Main.stepManager.getInventaire().retirerItem(ItemId.taquinPiece12);
 
             stoneDrag.setVolume(0.7);
             stoneDrag.play();
@@ -173,15 +173,15 @@ public class TaquinController {
 
 
     public void recupGemme() {
-        if(MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()) {
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
+        if(Main.stepManager.getInventaire().inventairePasPlein()) {
+            Main.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
             gemme.setVisible(false);
         }
     }
 
 
     public void casserLeMur() {
-        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau) {
+        if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau) {
         pasCassable.setVisible(false);
         compteur++;
         System.out.println(compteur);
@@ -193,7 +193,7 @@ public class TaquinController {
             mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
             mur.setDisable(true);
             gemme.setDisable(false);
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.marteau);
+            Main.stepManager.getInventaire().retirerItem(ItemId.marteau);
         }
         }else pasCassable.setVisible(true);
     }
