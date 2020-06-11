@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe1.labyrinthe;
+import fr.umontpellier.iut.groupe1.Main;
 
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.animation.AnimationTimer;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
@@ -9,7 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.NonInvertibleTransformException;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
@@ -26,7 +27,10 @@ public class StructureLabyrinthe extends Group {
     private int nombreMort = 0;
     private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
     private final AnimationTimer timer;
-    private MediaPlayer boulleRoulante;
+    private final Boule boule;
+    private final Checkpoint[] checkpoint = new Checkpoint[1];
+    private final Checkpoint murCheckpoint1;
+    private final Mur mur30, mur68;
 
     public StructureLabyrinthe(double width, double height, Stage stage) {
         this.stage = stage;
@@ -36,14 +40,14 @@ public class StructureLabyrinthe extends Group {
         compteurMort.setTranslateZ(-50);
         compteurMort.setStyle("-fx-text-fill: black; -fx-background-color: transparent;-fx-font-size: 16;");
 
-        Checkpoint murCheckpoint1 = new Checkpoint(width/2 - 125, height/2 -150);
+        murCheckpoint1 = new Checkpoint(width/2 - 125, height/2 -150);
         Checkpoint murCheckpoint2 = new Checkpoint(width + 25, height + 25);
         Checkpoint murCheckpoint3 = new Checkpoint(width - 175, height + 75);
         Checkpoint murCheckpoint4 = new Checkpoint(width + 275, height - 175);
 
-        final Checkpoint[] checkpoint = {murCheckpoint1};
+        checkpoint[0] = murCheckpoint1;
 
-        Boule boule = new Boule(13, checkpoint[0].getTranslateX(), checkpoint[0].getTranslateY());
+        boule = new Boule(13, checkpoint[0].getTranslateX(), checkpoint[0].getTranslateY());
 
         Clef clef = new Clef(width * 2 - 125, height * 2 - 75);
 
@@ -151,7 +155,7 @@ public class StructureLabyrinthe extends Group {
         Mur mur29 = new Mur(400, tailleMur, mur1.getTranslateX() + 175, 800);
         listeMur.add(mur29);
 
-        Mur mur30 = new Mur(tailleMur, 50, mur1.getTranslateX() + 625,825); // mur invisble
+        mur30 = new Mur(tailleMur, 50, mur1.getTranslateX() + 625,825); // mur invisble
         mur30.setVisible(false);
         listeMur.add(mur30);
 
@@ -266,7 +270,7 @@ public class StructureLabyrinthe extends Group {
         Mur mur67 = new Mur(150, tailleMur, mur1.getTranslateX() + 350,750);
         listeMur.add(mur67);
 
-        Mur mur68 = new Mur(50, tailleMur, mur1.getTranslateX() + 700,750); //mur invisible
+        mur68 = new Mur(50, tailleMur, mur1.getTranslateX() + 700,750); //mur invisible
         mur68.setVisible(false);
         listeMur.add(mur68);
 
@@ -385,6 +389,14 @@ public class StructureLabyrinthe extends Group {
         timer.start();
     }
 
+    public void relancerJeu(){
+        checkpoint[0] = murCheckpoint1;
+        boule.setTranslateX(checkpoint[0].getTranslateX());
+        boule.setTranslateY(checkpoint[0].getTranslateY());
+        mur30.setVisible(false);
+        mur68.setVisible(false);
+    }
+
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Bravo");
@@ -413,9 +425,14 @@ public class StructureLabyrinthe extends Group {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
             }
+            if(keyEvent.getCode() == KeyCode.ESCAPE){
+                Main.stepManager.openStep(StepID.CAM1);
+            }
 
         });
     }
+
+
 
     public void addRotate(Node node, Point3D rotationAxis, double angle) {
         ObservableList<Transform> transforms = node.getTransforms();
