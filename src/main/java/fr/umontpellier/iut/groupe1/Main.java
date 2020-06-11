@@ -21,8 +21,18 @@ public class Main extends Application {
 
     public static StepManager stepManager;
     public static Stage stage;
-    private MediaPlayer zombiesound;
-    private MediaPlayer heartSound;
+    private Media zombiesound;
+    private Media heartSound;
+
+    public void sonCoeur(){
+        heartSound = new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString());
+        new MediaPlayer(heartSound).play();
+    }
+
+    public void sonZombie(){
+        zombiesound = new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString());
+        new MediaPlayer(zombiesound).play();
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -49,24 +59,19 @@ public class Main extends Application {
 
             Step<Parent> visuCerco = new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml"));
             visuCerco.setOnStart(() -> {
-                heartSound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
-                heartSound.play();
+                sonCoeur();
             });
 
             stepManager.addStep(visuCerco);
             Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
             cerco.setOnStart(() -> {
-                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                zombiesound.setVolume(0.5);
-                zombiesound.play();
+                sonZombie();
             });
 
             stepManager.addStep(cerco);
             Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
             tableTradu.setOnStart(() -> {
-                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                zombiesound.setVolume(0.5);
-                zombiesound.play();
+                sonZombie();
             });
 
             stepManager.addStep(tableTradu);
