@@ -6,21 +6,17 @@ public class Layout<T extends Parent> {
 
     private final T root;
     private final ControllerManagerInventaire controller;
-    private final Openable openable;
+    private final Controller control;
 
-    public Layout(T root, ControllerManagerInventaire controller, Openable openable) {
+    public Layout(T root, ControllerManagerInventaire controller, Controller control) {
         this.root = root;
         this.controller = controller;
-        this.openable = openable;
+        this.control = control;
     }
 
     public Layout(T root, ControllerManagerInventaire controller) {
         this(root, controller, null);
     }
-
-    /*public Layout(T root, Openable openable) {
-        this(root, null, openable);
-    }*/
 
     public T getRoot() {
         return root;
@@ -30,7 +26,7 @@ public class Layout<T extends Parent> {
         return controller;
     }
 
-    public Openable getOpenable(){
-        return openable;
+    public Controller getController(){
+        return control;
     }
 }

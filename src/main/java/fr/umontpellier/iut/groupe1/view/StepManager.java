@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe1.view;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.data.Dialogue;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
@@ -13,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -32,6 +34,8 @@ public class StepManager {
     private final Map<StepID, Boolean> passageSalle;
     private final Map<StepID, Boolean> enigmeReussi;
 
+    private Layout<Parent> dialogueLayout;
+
     private ThreadTimer threadTimer;
 
     public StepManager(Stage stage){
@@ -46,6 +50,7 @@ public class StepManager {
             stepRoot = (StackPane) root.lookup("#stack");
             HBox timer = (HBox) root.lookup("#timer");
 
+            //INVENTAIRE
             Layout<Parent> inventaireDisplay = LayoutLoader.getLayout2("groupe2/inventaire.fxml");
             setInventaire(new Inventaire(inventaireDisplay.getControllerInventaire().getInventaire()));
             root.getChildren().add(inventaireDisplay.getRoot());
@@ -53,8 +58,19 @@ public class StepManager {
             AnchorPane.setBottomAnchor(inventaireDisplay.getRoot(), 0d);
             inventaireDisplay.getRoot().setLayoutX(700);
 
+            //DIALOGUE BOX
+            dialogueLayout = LayoutLoader.getLayoutWithController("groupe1/dialogue.fxml");
+            Pane dialogueBox = (Pane) dialogueLayout.getRoot();
+            dialogueBox.setVisible(false);
+            dialogueBox.setLayoutX(500);
+
+            root.getChildren().add(dialogueBox);
+
+            AnchorPane.setBottomAnchor(dialogueBox, 128d);
+
             hud.add(timer);
             hud.add(inventaireDisplay.getRoot());
+            hud.add(dialogueBox);
 
             pauseMenu = new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080);
             root.getChildren().add(pauseMenu);
@@ -85,6 +101,10 @@ public class StepManager {
         this.inventaire = inventaire;
     }
 
+    public void dialogue(String text){
+        ((Dialogue) dialogueLayout.getController()).open(text);
+    }
+
     public void putHudOnTop(){
         hud.forEach(Node::toFront);
     }
@@ -108,7 +128,6 @@ public class StepManager {
             passageSalle.put(stepID, true);
             currentStep = stepID;
             putHudOnTop();
-            //openStepInventaire();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
@@ -142,17 +161,5 @@ public class StepManager {
 
     public ThreadTimer getThreadTimer() {
         return threadTimer;
-    }
-
-    public void openStepInventaire() {
-        if (stepMap.containsKey(StepID.INVENTAIRE)) {
-            Parent parent = stepMap.get(StepID.INVENTAIRE).open();
-            parent.setLayoutX(710.0);
-            parent.setLayoutY(915.0);
-            parent.setVisible(true);
-        } else {
-            System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
-                    "Voir StepManager.addStep(Step step)");
-        }
     }
 }

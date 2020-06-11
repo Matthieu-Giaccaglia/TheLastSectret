@@ -70,7 +70,7 @@ public class LayoutLoader {
             Parent parent = loader.load();
 
             Openable controller = null;
-            if(loader.getController() instanceof Openable)
+            if(loader.getController() instanceof Controller)
                 controller = loader.getController();
 
             return new Layout<>(parent, null, controller);

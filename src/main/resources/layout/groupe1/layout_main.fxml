@@ -2,13 +2,13 @@
 
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <StackPane fx:id="stack" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <fx:include source="salles/layout_cam1.fxml" />
     </StackPane>
 
     <fx:include fx:id="timer" source="timer.fxml" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="32.0" />
-    <!--<fx:include fx:id="inventaire" source="../groupe2/inventaire.fxml" AnchorPane.bottomAnchor="0.0" />-->
+    <!--<fx:include fx:id="inventaire" layoutX="500.0" source="dialogue.fxml" AnchorPane.bottomAnchor="128.0" />-->
 
 </AnchorPane>
