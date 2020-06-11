@@ -21,11 +21,11 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     public void gagne(){
-        Main.stepManager.dialogue("C'tait quoi ce bruit ? Une pierre ? Je devrais aller voir.");
+        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("C'tait quoi ce bruit ? Une pierre ? Je devrais aller voir.");
     }
 
     public void mauvaiseCombi(){
-        Main.stepManager.dialogue("Mince... Ca n'est pas ça, rien ne s'est passé.");
+        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Mince... Ca n'est pas ça, rien ne s'est passé.");
     }
 
     public void sonOOF(){
