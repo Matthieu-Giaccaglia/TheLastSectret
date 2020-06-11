@@ -18,8 +18,6 @@ import javafx.util.Duration;
 
 import java.nio.file.Paths;
 
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair jouer avec l'opacité
-//TODO fermer la fenetre quand gagner et mettre un son de clique quand s'est gagné ou torche
 public class LightsOutController {
     public AnchorPane anchorPane;
     @FXML
