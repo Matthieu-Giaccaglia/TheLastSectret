@@ -8,7 +8,7 @@
 
 <Pane fx:id="boiteD" opacity="0.8" prefHeight="200.0" prefWidth="960.0" style="-fx-background-color: #e7cfa2; -fx-border-color: #cbab6f; -fx-border-width: 4; -fx-background-radius: 5em; -fx-border-radius: 5em;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.dialogueController">
    <children>
-      <Label fx:id="dialogueText" layoutX="46.0" layoutY="30.0" prefHeight="140.0" prefWidth="875.0" wrapText="true">
+      <Label fx:id="dialogueText" layoutX="14.0" layoutY="33.0" prefHeight="134.0" prefWidth="875.0" wrapText="true">
          <font>
             <Font name="Source Code Pro Black" size="18.0" />
          </font>
