@@ -3,9 +3,10 @@ package fr.umontpellier.iut.groupe1.controllers.salles;
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
-import javafx.animation.AnimationTimer;
-import javafx.animation.Interpolator;
-import javafx.animation.TranslateTransition;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import javafx.animation.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -76,14 +77,23 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(6), porte);
+                            /*TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(6), porte);
                             translateTransition.setByY(-1000);
                             translateTransition.setInterpolator(Interpolator.LINEAR);
-                            /*translateTransition.setOnFinished(event -> {
+                            translateTransition.setOnFinished(event -> {
 
-                            });*/
-                            translateTransition.play();
-                            //porte.setTranslateY(porte.getTranslateY() - 2);
+                            });
+                            translateTransition.play();*/
+
+                            Timeline timeline = new Timeline();
+                            KeyFrame keyFrame = new KeyFrame(
+                                    Duration.seconds(0.8),
+                                    event -> {
+                                        porte.setTranslateY(porte.getTranslateY() - 2);
+                                    });
+                            timeline.getKeyFrames().add(keyFrame);
+                            timeline.setCycleCount(Animation.INDEFINITE);
+                            timeline.play();
                         }
                     }
                 }
