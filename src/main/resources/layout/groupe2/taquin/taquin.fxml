@@ -16,7 +16,7 @@
       <ImageView fx:id="mur" disable="true" fitHeight="1017.0" fitWidth="1920.0" onMouseClicked="#casserLeMur" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../../raw/groupe2/taquin/fissure1.png" />
       </ImageView>
-      <AnchorPane fx:id="taquinAnchor" layoutX="523.0" layoutY="162.0" maxHeight="658.0" maxWidth="874.0" minHeight="656.0" minWidth="874.0" prefHeight="656.0" prefWidth="874.0" AnchorPane.bottomAnchor="199.0" AnchorPane.rightAnchor="523.0" AnchorPane.topAnchor="162.0">
+      <AnchorPane fx:id="taquinAnchor" layoutX="523.0" layoutY="162.0" maxHeight="658.0" maxWidth="874.0" minHeight="656.0" minWidth="874.0" prefHeight="656.0" prefWidth="874.0" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="523.0" AnchorPane.rightAnchor="523.0" AnchorPane.topAnchor="162.0">
          <ImageView fitHeight="669.0" fitWidth="874.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../../raw/groupe2/taquin/fondTaquin.png" />
          </ImageView>
@@ -68,7 +68,7 @@
             </ImageView>
          </GridPane>
       </AnchorPane>
-      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
       </ImageView>
 
@@ -84,5 +84,13 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></TextField>
+      <ImageView fx:id="taquinIndice" fitHeight="240.0" fitWidth="405.0" layoutX="1586.0" layoutY="14.0"
+                 pickOnBounds="true" preserveRatio="true" visible="false">
+         <Image url="@../../../raw/groupe2/taquin/tombo.jpg"/>
+      </ImageView>
+      <ImageView fx:id="indice" fitHeight="41.0" fitWidth="47.0" layoutX="1865.0" layoutY="14.0"
+                 onMouseClicked="#showIndice" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../../raw/groupe2/taquin/pointInterrogation.png"/>
+      </ImageView>
    </AnchorPane>
 </StackPane>
