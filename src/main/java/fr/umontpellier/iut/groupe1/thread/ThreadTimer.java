@@ -38,43 +38,31 @@ public class ThreadTimer extends Thread implements Runnable{
 
             if(running){
 
-                // Tes appels à tout ce que tu veux
-
-                delta = -now + (now = System.currentTimeMillis());
-                if(delta < 16){//60 FPS --> environ 16ms par frame
-                    try {
-                        Thread.sleep(16-delta);
-                        now += 16-delta; // ou now = System.currentTimeMillis(), ou n'importe quoi qui fasse le même truc
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
                 //System.out.println(delta);
 
-                if (secondes == 1){
-                    Main.stepManager.openStep(StepID.GAMEOVER);
-                }
-
                 if(secondes%60 <10 && secondes%60 >= 0){
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }else {
-                    Platform.runLater(() -> label.setText(secondes/60 + ":" + secondes%60));
+
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    Platform.runLater(() -> label.setText(secondes/60 + ":" + secondes%60));
                 }
                 secondes--;
             }
+
         }
         //TODO image momie si pas gagné
+        Main.stepManager.openStep(StepID.GAMEOVER);
     }
 
     public boolean isRunning() {

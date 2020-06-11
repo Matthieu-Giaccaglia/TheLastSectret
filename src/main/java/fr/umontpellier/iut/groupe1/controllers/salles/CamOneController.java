@@ -36,6 +36,9 @@ public class CamOneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.fitWidthProperty().bind(Main.stage.widthProperty());
         background.fitHeightProperty().bind(Main.stage.heightProperty());
+
+        buttonLabyrinthe.setPrefWidth(buttonLabyrinthe.getPrefWidth() * 2);
+        buttonLabyrinthe.setPrefHeight(buttonLabyrinthe.getPrefHeight() * 2);
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
