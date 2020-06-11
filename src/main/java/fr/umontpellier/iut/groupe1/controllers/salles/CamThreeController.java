@@ -3,9 +3,9 @@ package fr.umontpellier.iut.groupe1.controllers.salles;
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
+import javafx.animation.Interpolator;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.nio.file.Paths;
@@ -50,11 +51,9 @@ public class CamThreeController implements Initializable, Openable {
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
 
         serrureCle.setOnMouseClicked(mouseEvent -> {
-            /*if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
+            if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
                 cle.setVisible(true);
-            }*/
-
-            cle.setVisible(true);
+            }
 
             insertionCle = new AnimationTimer() {
                 @Override
@@ -77,7 +76,14 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            porte.setTranslateY(porte.getTranslateY() - 2);
+                            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(6), porte);
+                            translateTransition.setByY(-1000);
+                            translateTransition.setInterpolator(Interpolator.LINEAR);
+                            /*translateTransition.setOnFinished(event -> {
+
+                            });*/
+                            translateTransition.play();
+                            //porte.setTranslateY(porte.getTranslateY() - 2);
                         }
                     }
                 }
