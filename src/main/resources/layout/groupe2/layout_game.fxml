@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
+<StackPane fx:id="allSalle" maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.SalleController">
    <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
       <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
          <ImageView disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../raw/groupe2/taquin/fondNoir.png" />
          </ImageView>
-         <ImageView fx:id="porteDroite" fitHeight="406.0" fitWidth="177.0" layoutX="976.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="porteDroite" fitHeight="406.0" fitWidth="177.0" layoutX="976.0" layoutY="97.0" onMouseClicked="#openDoorTry" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/porteDroite.png" />
          </ImageView>
-         <ImageView fx:id="porteGauche" fitHeight="406.0" fitWidth="172.0" layoutX="808.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="porteGauche" fitHeight="406.0" fitWidth="172.0" layoutX="808.0" layoutY="97.0" onMouseClicked="#openDoorTry" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/porteGauche.png" />
          </ImageView>
          <ImageView fx:id="fondSalle" disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
