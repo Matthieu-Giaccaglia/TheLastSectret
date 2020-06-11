@@ -21,8 +21,7 @@ public class Main extends Application {
 
     public static StepManager stepManager;
     public static Stage stage;
-    private MediaPlayer zombiesound;
-    private MediaPlayer heartSound;
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -36,8 +35,6 @@ public class Main extends Application {
             /*Group group = new Group();
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
-            //zombiesound.isMute();
-            //heartSound.isMute();
 
             stepManager.addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));
 
@@ -46,31 +43,9 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM3, LayoutLoader.getLayoutWithController("groupe1/salles/layout_cam3.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM4, LayoutLoader.getLayout2("groupe1/layout_trapeze.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM5, LayoutLoader.getLayout2("groupe1/salles/layout_cam5.fxml")));
-
-            Step<Parent> visuCerco = new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml"));
-            visuCerco.setOnStart(() -> {
-                heartSound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
-                heartSound.play();
-            });
-
-            stepManager.addStep(visuCerco);
-            Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
-            cerco.setOnStart(() -> {
-                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                zombiesound.setVolume(0.5);
-                zombiesound.play();
-            });
-
-            stepManager.addStep(cerco);
-            Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
-            tableTradu.setOnStart(() -> {
-                zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
-                zombiesound.setVolume(0.5);
-                zombiesound.play();
-            });
-
-            stepManager.addStep(tableTradu);
-
+            stepManager.addStep(new Step<>(StepID.CAM6, LayoutLoader.getLayout2("groupe1/salles/layout_cam6.fxml")));
+            stepManager.addStep(new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml")));
+            stepManager.addStep(new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
 
             stepManager.addStep(new Step<>(StepID.LABYRINTHE, new Layout<>(new StructureLabyrinthe(500, 450, primaryStage), null)));

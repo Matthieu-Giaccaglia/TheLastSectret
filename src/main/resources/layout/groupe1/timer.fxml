@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <HBox spacing="32" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.MainController">
-   <Label fx:id="timerDuJeu" text="5:00" textAlignment="CENTER">
+   <Label fx:id="timerDuJeu" text="00:00" textAlignment="CENTER">
       <font>
          <Font size="48.0" />
       </font></Label>

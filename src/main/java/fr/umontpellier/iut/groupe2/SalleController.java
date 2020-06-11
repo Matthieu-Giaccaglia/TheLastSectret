@@ -81,9 +81,11 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
+                fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
                 buttonMissing.setImage(ImageLoader.getImage("groupe2/salle/briqueMur.png"));
                 buttonMissing.setOpacity(1);
+                lightoutButton.setDisable(true);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
@@ -121,6 +123,8 @@ public class SalleController {
             socleBleu.setDisable(true);
             gemmeRougeEmplacement.setDisable(true);
             socleRouge.setDisable(true);
+            porteDroite.setDisable(true);
+            porteGauche.setDisable(true);
             System.out.println("C'est gagné");
             return true;
         }
@@ -194,6 +198,7 @@ public class SalleController {
 
     private void animationPorte() {
         estGagnant();
+
         ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 9), translateTransition(porteDroite, 180,0, 9));
         soundOpenDoor.play();
         parallelPorte.playFromStart();
@@ -222,12 +227,14 @@ public class SalleController {
         ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,x,y,0.5), translateTransition(gemmeTropHaute,x,y,0.5));
         parallelPilier.setCycleCount(2);
         parallelPilier.setAutoReverse(true);
+        parallelPilier.setOnFinished(event -> pilierGrand.setDisable(false));
         parallelPilier.play();
     }
 
 
     public void animationPilier() {
         compteur ++;
+        pilierGrand.setDisable(true);
         if (compteur == 1){
             soundPilierMouv1.play();
             animationPilierTremblement(-2, -2);
