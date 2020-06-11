@@ -29,7 +29,7 @@ public class ThreadTimer extends Thread implements Runnable{
     public synchronized void run() {
         super.run();
 
-        while (!stopped && secondes > 0){
+        while (!stopped && secondes >= 0){
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -41,27 +41,19 @@ public class ThreadTimer extends Thread implements Runnable{
                 //System.out.println(delta);
 
                 if(secondes%60 <10 && secondes%60 >= 0){
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
                 }else {
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     Platform.runLater(() -> label.setText(secondes/60 + ":" + secondes%60));
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 secondes--;
             }
 
         }
-
 
         Platform.runLater(() -> Main.stepManager.openStep(StepID.GAMEOVER));
     }
