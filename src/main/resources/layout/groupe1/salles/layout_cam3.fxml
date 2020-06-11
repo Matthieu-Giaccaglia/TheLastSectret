@@ -4,14 +4,20 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane id="parent" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamThreeController">
-
-   <ImageView fx:id="backgroundSansCarre" fitHeight="480" fitWidth="800" pickOnBounds="true">
-      <Image url="@../../../raw/groupe1/salles/cam3sanscarre.jpg" />
-   </ImageView>
-   <ImageView fx:id="backgroundAvecCarre" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" visible="false">
+<StackPane id="parent" fx:id="stackpanePorte" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamThreeController">
+   <ImageView fx:id="noir" pickOnBounds="true" preserveRatio="false">
       <image>
-         <Image url="@../../../raw/groupe1/salles/cam3.jpg" />
+         <Image url="@../../../raw/groupe1/salles/cam3noire.jpg" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="porte" fitHeight="1080.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+         <Image url="@../../../raw/groupe1/final/portesalle3.jpg" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="cadrePorte" pickOnBounds="true" preserveRatio="false">
+      <image>
+         <Image url="@../../../raw/groupe1/salles/cam3transparant.png" />
       </image>
    </ImageView>
 
@@ -29,12 +35,24 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
-      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <Image url="@../../../raw/groupe1/flechenav.png" />
+      </ImageView>
+      <ImageView fx:id="serrureCle" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../../../raw/groupe1/salles/cam3noire.jpg" />
+         </image></ImageView>
+      <ImageView fx:id="cle" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="5.0" translateY="5.0" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+         <image>
+            <Image url="@../../../raw/groupe1/final/cle.jpg" />
+         </image>
       </ImageView>
    </GridPane>
 

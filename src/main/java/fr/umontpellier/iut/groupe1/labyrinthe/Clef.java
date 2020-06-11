@@ -14,7 +14,7 @@ public class Clef extends Box {
         this.setTranslateY(translateY);
         this.setTranslateZ(-20);
         PhongMaterial material = new PhongMaterial();
-        material.setDiffuseMap(ImageLoader.getImage("groupe1/cobblestone.png"));
+        material.setDiffuseMap(ImageLoader.getImage("groupe1/final/cle.jpg"));
         this.setMaterial(material);
     }
 

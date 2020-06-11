@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe1.controllers;
 
 import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -26,7 +27,7 @@ public class MainController implements Initializable {
 
         parametre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning()));
         Main.stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
-            if(keyEvent.getCode() == KeyCode.ESCAPE) //TODO ajouter si le stepManager != Laby
+            if(keyEvent.getCode() == KeyCode.ESCAPE && Main.stepManager.getCurrentStep() != StepID.LABYRINTHE)
                 Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning());
         });
 
