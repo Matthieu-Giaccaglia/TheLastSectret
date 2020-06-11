@@ -17,7 +17,7 @@
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.lightsout.LightsOutController">
     <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
         <ImageView fitHeight="1018.0" fitWidth="1931.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../raw/groupe2/lightsout/background.jpg" />
+            <Image url="@../../../raw/groupe2/lightsout/lightsout_Background1.png" />
         </ImageView>
         <AnchorPane fx:id="anchorPane" maxHeight="900.0" maxWidth="900.0" minHeight="602.0" minWidth="900.0" prefHeight="602.0" prefWidth="900.0" snapToPixel="false" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0">
             <GridPane fx:id="gridMain" layoutX="68.0" layoutY="49.0" prefHeight="571.0" prefWidth="765.0">
