@@ -43,14 +43,14 @@ public class TaquinController {
 
 
 
-    private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/putPiece25.mp3").toUri().toString()));
-    private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/stoneDrag.mp3").toUri().toString()));
-    private final MediaPlayer impactUn = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/impactUn.mp3").toUri().toString()));
-    private final MediaPlayer impactDeux = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/impactDeux.mp3").toUri().toString()));
+    private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPutLastPiece.mp3").toUri().toString()));
+    private final MediaPlayer stoneDrag = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundTaquinMove.mp3").toUri().toString()));
+    private final MediaPlayer impactUn = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundBreakWall1.mp3").toUri().toString()));
+    private final MediaPlayer impactDeux = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundBreakWall2.mp3").toUri().toString()));
 
-    private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv1.mp3").toUri().toString()),
-                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv2.mp3").toUri().toString()),
-                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/mouv3.mp3").toUri().toString())};
+    private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove1.mp3").toUri().toString()),
+                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove2.mp3").toUri().toString()),
+                                    new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove3.mp3").toUri().toString())};
     Random random = new Random();
 
     public void mouvement(MouseEvent event) {
