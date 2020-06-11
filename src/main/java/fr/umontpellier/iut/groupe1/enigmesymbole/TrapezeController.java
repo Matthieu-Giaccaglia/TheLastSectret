@@ -39,7 +39,7 @@ public class TrapezeController implements Initializable {
             mauvaiseCombi();
             sonOOF();
         }else if(aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)){
-            gagne();
+            //gagne();
             stepManager.setEnigmeReussi(StepID.CAM4);
             MediaPlayer doorOpen = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/door-open.mp3").toUri().toString()));
             doorOpen.play();

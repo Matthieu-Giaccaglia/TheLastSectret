@@ -45,7 +45,7 @@
          </cursor>
          <Image url="@../../../raw/groupe1/flechenav.png" />
       </ImageView>
-      <ImageView fx:id="serrureCle" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <ImageView fx:id="serrureCle" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="false" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
             <Image url="@../../../raw/groupe1/salles/cam3noire.jpg" />
          </ImageView>
       <ImageView fx:id="cle" fitHeight="110.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="5.0" translateY="5.0" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">

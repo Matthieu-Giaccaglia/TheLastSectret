@@ -75,14 +75,19 @@ public class CamThreeController implements Initializable, Openable {
                     }
                 }
             };
-            insertionCle.start();
+
+            if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY && serrureCle.isVisible()) {
+                cle.setVisible(true);
+                insertionCle.start();
+            }
         });
     }
 
     @Override
     public void open() {
         if(Main.stepManager.getEnigmeReussi(StepID.CAM4)) {
-            //setBackgrounds();
+            serrureCle.setVisible(true);
+            System.out.println("ici");
         }
     }
 
