@@ -52,7 +52,7 @@ public class ThreadTimer extends Thread implements Runnable{
 
                 //System.out.println(delta);
 
-                if (secondes == 0){
+                if (secondes == 1){
                     Main.stepManager.openStep(StepID.GAMEOVER);
                 }
 
