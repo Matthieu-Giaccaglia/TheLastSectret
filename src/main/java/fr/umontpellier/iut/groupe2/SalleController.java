@@ -61,7 +61,7 @@ public class SalleController {
 
 
 
-    //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
+
 
 
     public void changeScene(MouseEvent event) {
@@ -126,7 +126,6 @@ public class SalleController {
             socleRouge.setDisable(true);
             porteDroite.setDisable(true);
             porteGauche.setDisable(true);
-            System.out.println("C'est gagné");
             return true;
         }
         return false;
@@ -159,7 +158,7 @@ public class SalleController {
             imageItemPilier.setImage(selected.getImage());
             new MediaPlayer(soundGemmeOnPilar).play();
             return selected;
-        } else if (MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()) {
+        } else if (itemPilier != null && MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()) {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemPilier);
             imageItemPilier.setImage(null);
             return null;

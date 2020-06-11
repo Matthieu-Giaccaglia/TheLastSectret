@@ -122,7 +122,6 @@ public class Inventaire {
     }
 
     public boolean inventairePasPlein(){
-        System.out.println(nombreItemInventaire < 5);
         return nombreItemInventaire < 5;
     }
 
