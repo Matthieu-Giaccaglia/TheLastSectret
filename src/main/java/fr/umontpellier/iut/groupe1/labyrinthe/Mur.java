@@ -13,7 +13,7 @@ public class Mur extends Box {
         PhongMaterial material = new PhongMaterial();
         material.setDiffuseColor(Color.BLACK);
         this.setMaterial(material);
-        this.setTranslateZ(-50);
+        this.setTranslateZ(0);
         this.setTranslateX(translateX);
         this.setTranslateY(translateY);
     }

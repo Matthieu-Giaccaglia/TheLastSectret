@@ -7,14 +7,14 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.input.*;
-import javafx.scene.media.Media;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.transform.*;
+import javafx.scene.transform.NonInvertibleTransformException;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Transform;
 import javafx.stage.Stage;
 
-
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +48,6 @@ public class StructureLabyrinthe extends Group {
         Clef clef = new Clef(width * 2 - 125, height * 2 - 75);
 
         deplacementBoule(boule);
-
-        System.out.println(stage.getX());
 
         Socle socle = new Socle(800, 10, width, height);
         int tailleMur = 5;
