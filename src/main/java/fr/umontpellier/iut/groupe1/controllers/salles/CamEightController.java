@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class CamEightController implements Initializable {
@@ -23,7 +26,10 @@ public class CamEightController implements Initializable {
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(arrowBack))
+        if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM6);
+            MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            sonHeart.play();
+        }
     }
 }

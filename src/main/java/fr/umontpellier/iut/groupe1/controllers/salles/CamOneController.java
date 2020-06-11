@@ -9,8 +9,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class CamOneController implements Initializable {
@@ -42,8 +45,12 @@ public class CamOneController implements Initializable {
             Main.stepManager.openStep(StepID.CAM3);
         else if(mouseEvent.getSource().equals(goto4))
             Main.stepManager.openStep(StepID.CAM4);
-        else if(mouseEvent.getSource().equals(goto6))
+        else if(mouseEvent.getSource().equals(goto6)) {
             Main.stepManager.openStep(StepID.CAM6);
+            MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            sonHeart.play();
+            sonHeart.getOnRepeat();
+        }
         else if(mouseEvent.getSource().equals(goto9))
             Main.stepManager.openStep(StepID.CAM9);
         else if(mouseEvent.getSource().equals(buttonLabyrinthe))
