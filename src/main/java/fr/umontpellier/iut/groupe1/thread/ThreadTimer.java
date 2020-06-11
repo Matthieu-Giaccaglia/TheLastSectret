@@ -33,22 +33,13 @@ public class ThreadTimer extends Thread implements Runnable{
             }
 
             if(running){
-                if(secondes%60 <10 && secondes%60 > 0){
+                if(secondes%60 <10 && secondes%60 >= 0){
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                }else if(secondes == 0 ) {
-                    Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
                 }else {
                     Platform.runLater(() -> label.setText(secondes/60 + ":" + secondes%60));
                     try {
