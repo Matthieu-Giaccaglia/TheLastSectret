@@ -49,9 +49,6 @@
          <ImageView fx:id="jarreMarteau" fitHeight="185.0" fitWidth="132.0" layoutX="1145.0" layoutY="369.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/jarre.png" />
          </ImageView>
-         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1430.0" layoutY="326.0" onMouseClicked="#bouttonAllumer" opacity="0.8" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/trouBirque.png" />
-         </ImageView>
          <ImageView fx:id="pilierGrand" fitHeight="950.0" fitWidth="268.0" layoutX="1655.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/pilier.png" />
             <cursor>
@@ -124,10 +121,13 @@
          <ImageView fx:id="gemmeVerteEmplacement" fitHeight="56.0" fitWidth="48.0" layoutX="1270.0" layoutY="584.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/gemmeRouge.png" />
          </ImageView>
-         <ImageView fx:id="fondSombre" disable="true" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
+         <ImageView fx:id="fondSombre" fitHeight="1017.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/fondNoir.png" />
          </ImageView>
          <Button fx:id="lightoutButton" layoutX="1337.0" layoutY="117.0" mnemonicParsing="false" onMouseClicked="#changeScene" opacity="0.6" prefHeight="132.0" prefWidth="240.0" text="Light Out" />
+         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1430.0" layoutY="326.0" onMouseClicked="#bouttonAllumer" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/trouBirque.png" />
+         </ImageView>
       </AnchorPane>
    </AnchorPane>
 </StackPane>

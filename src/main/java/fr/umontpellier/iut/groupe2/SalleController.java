@@ -81,6 +81,7 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
+                fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
                 buttonMissing.setImage(ImageLoader.getImage("groupe2/salle/briqueMur.png"));
                 buttonMissing.setOpacity(1);
