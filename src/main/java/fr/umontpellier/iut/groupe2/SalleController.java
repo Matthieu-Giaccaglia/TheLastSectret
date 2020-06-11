@@ -82,7 +82,7 @@ public class SalleController {
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
                 new MediaPlayer(soundGemmeOnPilar).play();
-                buttonMissing.setImage(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection().getImage());
+                buttonMissing.setImage(ImageLoader.getImage("groupe2/salle/briqueMur.png"));
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
