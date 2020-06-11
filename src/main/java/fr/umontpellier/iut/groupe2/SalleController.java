@@ -116,87 +116,79 @@ public class SalleController {
     }
 
     public void putGemme(MouseEvent mouseEvent) {
-        ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
-        if ( ( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage() == null && contientGemme()){
-            itemPilierVert = changeEtatPilier(selected, gemmeVerteEmplacement,true);
-            allumeToi();
-        } else if (( mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement ) && gemmeVerteEmplacement.getImage()!=null ){
-            itemPilierVert = changeEtatPilier(itemPilierVert, gemmeVerteEmplacement,false);
-            eteinsToi();
-        }  else if ( ( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage() == null && contientGemme() ) {
-            itemPilierViolet = changeEtatPilier(selected, gemmeVioletteEmplacement, true);
-            allumeToi();
-        } else if (( mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement ) && gemmeVioletteEmplacement.getImage()!=null ){
-            itemPilierViolet = changeEtatPilier(itemPilierViolet, gemmeVioletteEmplacement, false);
-            eteinsToi();
-        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage() == null && contientGemme() ) {
-            itemPilierBleu = changeEtatPilier(selected, gemmeBleuEmplacement, true);
-            allumeToi();
-        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement ) && gemmeBleuEmplacement.getImage()!=null ){
-            itemPilierBleu = changeEtatPilier(itemPilierBleu, gemmeBleuEmplacement, false);
-            eteinsToi();
-        }else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage() == null && contientGemme()) {
-            itemPilierRouge = changeEtatPilier(selected, gemmeRougeEmplacement,true);
-            allumeToi();
-        } else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement ) && gemmeRougeEmplacement.getImage()!=null ) {
-            itemPilierRouge = changeEtatPilier(itemPilierRouge, gemmeRougeEmplacement, false);
+
+        if ((mouseEvent.getSource() == socleVert || mouseEvent.getSource() == gemmeVerteEmplacement )){
+            itemPilierVert = changeEtatPilier(gemmeVerteEmplacement, itemPilierVert);
+        } else if ((mouseEvent.getSource() == socleViolet || mouseEvent.getSource() == gemmeVioletteEmplacement )) {
+            itemPilierViolet = changeEtatPilier(gemmeVioletteEmplacement, itemPilierViolet);
+        } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement )) {
+            itemPilierBleu = changeEtatPilier(gemmeBleuEmplacement, itemPilierBleu);
+        } else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement )) {
+            itemPilierRouge = changeEtatPilier(gemmeRougeEmplacement, itemPilierBleu);
         }
-        System.out.println(estGagnant());
+        changeEtatLumiere();
     }
 
-    private ItemId changeEtatPilier(ItemId itemAddInventaire, ImageView imageViewPilier, boolean ajoutItem){
-        if (!ajoutItem) {
-            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemAddInventaire);
-            imageViewPilier.setImage(null);
-            return null;
-        } else {
-            MainSalleGroupe2.stepManager.getInventaire().retirerItem(itemAddInventaire);
-            imageViewPilier.setImage(itemAddInventaire.getImage());
+    private ItemId changeEtatPilier(ImageView imageItemPilier, ItemId itemPilier){
+        if (imageItemPilier.getImage() == null  && contientGemme()) {
+            ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
+            MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
+            imageItemPilier.setImage(selected.getImage());
             new MediaPlayer(gemmePlacePillier).play();
-            return itemAddInventaire;
+            return selected;
+        } else {
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemPilier);
+            imageItemPilier.setImage(null);
+            return null;
         }
     }
 
-    private void allumeToi(){
+    private void changeEtatLumiere(){
 
-        if(lumiereUn.isVisible() && itemPilierVert == ItemId.gemmeVerte){
+        if (lumiereUn.isVisible() && itemPilierVert == ItemId.gemmeVerte){
             lumiereDeux.setVisible(true);
-            if (itemPilierViolet == ItemId.gemmeViolette){
-                lumiereTrois.setVisible(true);
-                if (itemPilierBleu == ItemId.gemmeBleue){
-                    lumiereQuatre.setVisible(true);
-                    if(itemPilierRouge == ItemId.gemmeRouge){
-                        lumiereCinq.setVisible(true);
-                        animationPorte();
-                    }
+                if (itemPilierViolet == ItemId.gemmeViolette){
+                    lumiereTrois.setVisible(true);
+                        if (itemPilierBleu == ItemId.gemmeBleue){
+                            lumiereQuatre.setVisible(true);
+                                if (itemPilierRouge == ItemId.gemmeRouge){
+                                    lumiereCinq.setVisible(true);
+                                    animationPorte();
+                                }
+                        } else {
+                            lumiereQuatre.setVisible(false);
+                            lumiereCinq.setVisible(false);
+                        }
+                } else {
+                    lumiereTrois.setVisible(false);
+                    lumiereQuatre.setVisible(false);
+                    lumiereCinq.setVisible(false);
                 }
-            }
+        } else {
+            lumiereDeux.setVisible(false);
+            lumiereTrois.setVisible(false);
+            lumiereQuatre.setVisible(false);
+            lumiereCinq.setVisible(false);
         }
     }
 
     private void animationPorte() {
-        TranslateTransition tranlatePorteGauche = new TranslateTransition(Duration.seconds(1.5), porteGauche);
-        tranlatePorteGauche.setByX(-180);
-        TranslateTransition tranlatePorteDroite = new TranslateTransition(Duration.seconds(1.5), porteDroite);
-        tranlatePorteDroite.setByX(180);
-        ParallelTransition parallelPorte = new ParallelTransition(tranlatePorteDroite,tranlatePorteGauche);
+        ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 1.1), translateTransition(porteDroite, 180,0, 1.1));
         parallelPorte.playFromStart();
     }
 
-    private void eteinsToi(){
+    private TranslateTransition translateTransition(ImageView porte, double x, double y, double temps){
+        TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
+        tranlateTransition.setByX(x);
+        tranlateTransition.setByY(y);
+        return tranlateTransition;
+    }
 
-        if (lumiereTrois.isVisible() && itemPilierBleu != ItemId.gemmeBleue){
-            lumiereQuatre.setVisible(false);
-        }
-        if(lumiereDeux.isVisible() && itemPilierViolet != ItemId.gemmeViolette){
-            lumiereTrois.setVisible(false);
-            lumiereQuatre.setVisible(false);
-        }
-        if(lumiereUn.isVisible() && itemPilierVert != ItemId.gemmeVerte){
-            lumiereDeux.setVisible(false);
-            lumiereTrois.setVisible(false);
-            lumiereQuatre.setVisible(false);
-        }
+    private void animationPilierTremblement() {
+        ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,-2,-2,0.1), translateTransition(gemmeTropHaute,-2,-2,0.1));
+        parallelPilier.setCycleCount(2);
+        parallelPilier.setAutoReverse(true);
+        parallelPilier.play();
     }
 
 
@@ -211,9 +203,6 @@ public class SalleController {
 
 
     private void animationPilierTombe() {
-        TranslateTransition translatePilierTombe = new TranslateTransition(Duration.seconds(1),pilierGrand);
-        translatePilierTombe.setByX(-232);
-        translatePilierTombe.setByY(44);
 
         RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1), pilierGrand);
         rotatePilierTombe.setByAngle(-39.8);
@@ -222,8 +211,7 @@ public class SalleController {
         scalePilierTombe.setByX(-0.1);
         scalePilierTombe.setByY(-0.1);
 
-
-        ParallelTransition parallelPilierTombe = new ParallelTransition(translatePilierTombe, rotatePilierTombe, scalePilierTombe);
+        ParallelTransition parallelPilierTombe = new ParallelTransition(translateTransition(pilierGrand,-232,44,1), rotatePilierTombe, scalePilierTombe);
         parallelPilierTombe.setInterpolator(new Interpolator() {
 
             private double factor = 1.25;
@@ -238,13 +226,13 @@ public class SalleController {
                 return sin;
             }
         });
-        //parallelPilierTombe.setRate(-1);
+
 
 
         parallelPilierTombe.setOnFinished(event -> {
             Path path = new Path(
-                    new MoveTo(-50, -50),
-                    new QuadCurveTo(-10, 50, 30, 200)
+                    new MoveTo(0, 0),
+                    new QuadCurveTo(-10, 50, -300, 200)
                     );
 
             PathTransition pathTransition = new PathTransition(Duration.seconds(1),path,gemmeTropHaute);
@@ -265,23 +253,6 @@ public class SalleController {
         gemmeVerte.setDisable(false);
         lumiereUn.setVisible(true);
     }
-
-    private void animationPilierTremblement() {
-        TranslateTransition translatePilier = new TranslateTransition(Duration.seconds(0.1),pilierGrand);
-        translatePilier.setByX(-2);
-        translatePilier.setByY(-2);
-
-        TranslateTransition translateGemmeVerte = new TranslateTransition(Duration.seconds(0.1),gemmeTropHaute);
-        translateGemmeVerte.setByX(-2);
-        translateGemmeVerte.setByY(-2);
-
-        ParallelTransition parallelPilier = new ParallelTransition(translatePilier, translateGemmeVerte);
-        parallelPilier.setCycleCount(2);
-        parallelPilier.setAutoReverse(true);
-        parallelPilier.play();
-    }
-
-
 
 
     public void casseJarre(MouseEvent mouseEvent) {

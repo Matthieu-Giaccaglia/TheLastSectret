@@ -92,7 +92,7 @@
             <Image url="@../../raw/groupe2/salle/socle.png" />
          </ImageView>
          <ImageView fx:id="gemmeBleuEmplacement" fitHeight="56.0" fitWidth="42.0" layoutX="1364.0" layoutY="407.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="lumiereQuatre" fitHeight="101.0" fitWidth="843.0" layoutX="583.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" rotate="4.4" visible="false">
+         <ImageView fx:id="lumiereQuatre" disable="true" fitHeight="101.0" fitWidth="843.0" layoutX="583.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" rotate="4.4" visible="false">
             <Image url="@../../raw/groupe2/salle/lumiere.png" />
          </ImageView>
          <ImageView fx:id="socleViolet" fitHeight="55.0" fitWidth="55.0" layoutX="525.0" layoutY="576.0" onMouseClicked="#putGemme" pickOnBounds="true" preserveRatio="true">
