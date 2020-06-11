@@ -18,7 +18,10 @@ public class MenuAccueil extends Group {
 
         ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX, 50);
         buttonJouer.setFont(Font.font(null,40));
-        buttonJouer.setOnMouseClicked(mouseEvent -> Main.stepManager.openStep(StepID.CAM1));
+        buttonJouer.setOnMouseClicked(mouseEvent -> {
+            Main.stepManager.openStep(StepID.CAM1);
+            Main.stepManager.getThreadTimer().setRunning(true);
+        });
         buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,160, sizeStageX, 50);
