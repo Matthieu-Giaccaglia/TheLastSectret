@@ -6,6 +6,7 @@ import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Interpolator;
+import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -28,8 +28,6 @@ public class CamThreeController implements Initializable, Openable {
     public ImageView noir;
     @FXML
     public ImageView serrureCle;
-    @FXML
-    public Rectangle rectangle;
     @FXML
     public ImageView cle;
     @FXML
@@ -71,14 +69,8 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(6), porte);
-                            translateTransition.setByY(-1000);
-                            translateTransition.setInterpolator(Interpolator.LINEAR);
-                            /*translateTransition.setOnFinished(event -> {
-
-                            });*/
-                            translateTransition.play();
-                            //porte.setTranslateY(porte.getTranslateY() - 2);
+                            ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porte, -2200, 2));
+                            parallelPorte.playFromStart();
                         }
                     }
                 }
@@ -106,8 +98,9 @@ public class CamThreeController implements Initializable, Openable {
         }
     }
 
-    /*public void setBackgrounds() {
-        backgroundSansCarre.setVisible(false);
-        backgroundAvecCarre.setVisible(true);
-    }*/
+    private TranslateTransition translateTransition(ImageView porte, double y, double temps){
+        TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
+        tranlateTransition.setByY(y);
+        return tranlateTransition;
+    }
 }
