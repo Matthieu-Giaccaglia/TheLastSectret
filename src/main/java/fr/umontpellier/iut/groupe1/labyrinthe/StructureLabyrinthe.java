@@ -1,7 +1,9 @@
 package fr.umontpellier.iut.groupe1.labyrinthe;
+
 import fr.umontpellier.iut.groupe1.Main;
 
 import fr.umontpellier.iut.groupe1.view.StepID;
+import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
@@ -399,11 +401,14 @@ public class StructureLabyrinthe extends Group {
     }
 
     public void gagne(){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Bravo");
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
-        alert.show();
+        alert.show();*/
+
+        Main.stepManager.getInventaire().ajouterItem(ItemId.CLE_LABY);
+        Main.stepManager.openStep(StepID.CAM1);
     }
 
     public void deplacementBoule(Boule boule) {
