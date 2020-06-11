@@ -57,30 +57,6 @@ public class CamThreeController implements Initializable, Openable {
             }
             cle.setVisible(true);
 
-            /*System.out.println("1");
-            while (cle.getFitWidth() > 82 && cle.getFitHeight() > 82) {
-                System.out.println("2");
-                cleInsertion.play();
-                cleInsertion.setVolume(0.30);
-                cle.setFitWidth(cle.getFitWidth() - 0.2);
-                cle.setFitHeight(cle.getFitHeight() - 0.2);
-                cle.setTranslateX(cle.getTranslateX() - 0.1);
-                cle.setTranslateY(cle.getTranslateY() - 0.1);
-            }
-
-            cleInsertion.stop();
-
-            try {
-                Thread.sleep(3000);
-                attente = false;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            while (!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
-                ouverturePorte.play();
-                porte.setTranslateY(porte.getTranslateY() - 2);
-            }*/
             insertionCle = new AnimationTimer() {
                 @Override
                 public void handle(long l) {
@@ -92,6 +68,8 @@ public class CamThreeController implements Initializable, Openable {
                         cle.setTranslateX(cle.getTranslateX() - 0.1);
                         cle.setTranslateY(cle.getTranslateY() - 0.1);
                     }else {
+
+                        insertionCle.stop();
                         cleInsertion.stop();
                         if(attente){
                             try {
@@ -102,8 +80,10 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            porte.setTranslateY(porte.getTranslateY() - 2);
-
+                            //porte.setTranslateY(porte.getTranslateY() - 2);
+                            ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porte, -500, 9));
+                            parallelPorte.playFromStart();
+                            System.out.println("1");
                         }
                     }
                 }
@@ -126,7 +106,7 @@ public class CamThreeController implements Initializable, Openable {
 
     private TranslateTransition translateTransition(ImageView porte, double y, double temps){
         TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
-        tranlateTransition.setToY(y);
+        tranlateTransition.setByY(y);
         return tranlateTransition;
     }
 

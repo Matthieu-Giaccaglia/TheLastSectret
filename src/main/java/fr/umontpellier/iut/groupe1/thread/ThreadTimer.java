@@ -48,7 +48,7 @@ public class ThreadTimer extends Thread implements Runnable{
                     }
                 }
 
-                System.out.println(delta);
+                //System.out.println(delta);
 
                 if(secondes%60 <10 && secondes%60 >= 0){
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
