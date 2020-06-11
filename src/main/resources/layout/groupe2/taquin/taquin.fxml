@@ -72,8 +72,8 @@
          <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
       </ImageView>
 
-      <AnchorPane layoutX="1775.0" layoutY="869.0" maxHeight="214.0" maxWidth="224.0" minHeight="84.0" minWidth="131.0" prefHeight="134.0" prefWidth="131.0">
-         <fx:include source="../back.fxml" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
+      <AnchorPane layoutX="1775.0" layoutY="869.0" maxHeight="134.0" maxWidth="134.0" minHeight="134.0" minWidth="134.0" prefHeight="134.0" prefWidth="134.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <fx:include source="../back.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
       <Button fx:id="buttonFinish" layoutX="14.0" layoutY="940.0" mnemonicParsing="false" onAction="#finish" opacity="0.11" prefHeight="34.0" prefWidth="121.0" text="Finish" textFill="#9a8383">
          <font>
