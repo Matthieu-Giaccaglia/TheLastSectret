@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+
 <StackPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.lightsout.LightsOutController">
     <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
         <ImageView fitHeight="1018.0" fitWidth="1931.0" pickOnBounds="true" preserveRatio="true">
@@ -121,7 +122,7 @@
                 </ImageView>
             </GridPane>
         </AnchorPane>
-        <AnchorPane layoutX="1702.0" layoutY="919.0" prefHeight="84.0" prefWidth="202.0">
+        <AnchorPane layoutX="1769.0" layoutY="882.0" prefHeight="84.0" prefWidth="202.0">
             <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
         </AnchorPane>
         <ImageView fx:id="buttonBrick" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="826.0" layoutY="727.0" onMouseClicked="#finished" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
