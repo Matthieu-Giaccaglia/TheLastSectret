@@ -67,7 +67,7 @@ public class StepManager {
         }
 
         assert root != null;
-        stage.setScene(new Scene(root, 800, 480));
+        stage.setScene(new Scene(root, 800, 480, true));
     }
 
     public Inventaire getInventaire() {
