@@ -66,7 +66,7 @@
    <ImageView fx:id="black" fitHeight="480.0" fitWidth="800.0" onMousePressed="#handleButton" opacity="0.5" pickOnBounds="true" visible="false">
          <Image url="@../../../raw/groupe1/noir2.jpg" />
    </ImageView>
-   <ImageView fx:id="indice33" cache="true" disable="true" fitHeight="150.0" fitWidth="200.0" onMousePressed="#handleButton" pickOnBounds="true" preserveRatio="true" visible="false">
+   <ImageView fx:id="indice33" cache="true" disable="true" fitHeight="300.0" fitWidth="350.0" onMousePressed="#handleButton" pickOnBounds="true" preserveRatio="true" visible="false">
          <Image url="@../../../raw/groupe1/final/indice3.png" />
       </ImageView>
 

@@ -14,11 +14,11 @@ public class CamSixController implements Initializable {
     @FXML
     private ImageView background;
     @FXML
-    public ImageView arrowBack;
+    private ImageView arrowBack;
     @FXML
-    public ImageView goto7;
+    private ImageView goto7;
     @FXML
-    public ImageView goto8;
+    private ImageView goto8;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
