@@ -130,4 +130,16 @@ public class StepManager {
     public ThreadTimer getThreadTimer() {
         return threadTimer;
     }
+
+    public void openStepInventaire() {
+        if (stepMap.containsKey(StepID.INVENTAIRE)) {
+            Parent parent = stepMap.get(StepID.INVENTAIRE).open();
+            parent.setLayoutX(710.0);
+            parent.setLayoutY(915.0);
+            parent.setVisible(true);
+        } else {
+            System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
+                    "Voir StepManager.addStep(Step step)");
+        }
+    }
 }
