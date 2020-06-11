@@ -50,11 +50,9 @@ public class CamThreeController implements Initializable, Openable {
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
 
         serrureCle.setOnMouseClicked(mouseEvent -> {
-            /*if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
+            if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
                 cle.setVisible(true);
-            }*/
-
-            cle.setVisible(true);
+            }
 
             insertionCle = new AnimationTimer() {
                 @Override
