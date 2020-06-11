@@ -50,8 +50,6 @@ public class dialogueController implements Openable, Dialogue {
     public void open(String text) {
         boiteD.setVisible(true);
 
-        System.out.println("hop");
-
         setText(text);
     }
 
