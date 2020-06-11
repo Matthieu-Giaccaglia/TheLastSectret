@@ -102,9 +102,13 @@ public class SalleController {
     public boolean estGagnant() {
         if (itemPilierVert == ItemId.gemmeVerte && itemPilierRouge == ItemId.gemmeRouge && itemPilierBleu == ItemId.gemmeBleue && itemPilierViolet == ItemId.gemmeViolette) {
             gemmeVerteEmplacement.setDisable(true);
+            socleVert.setDisable(true);
             gemmeVioletteEmplacement.setDisable(true);
+            socleViolet.setDisable(true);
             gemmeBleuEmplacement.setDisable(true);
+            socleBleu.setDisable(true);
             gemmeRougeEmplacement.setDisable(true);
+            socleRouge.setDisable(true);
             System.out.println("C'est gagné");
             return true;
         }
