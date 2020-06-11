@@ -17,7 +17,7 @@ public class Main extends Application {
         stage = primaryStage;
         primaryStage.setTitle("Escape Game S6");
 
-        stepManager = new StepManager(primaryStage, null);
+        stepManager = new StepManager(primaryStage);
 
         Parent root = null;
         try {

@@ -99,6 +99,7 @@ public class TrapezeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.fitWidthProperty().bind(stage.widthProperty());
+        background.fitHeightProperty().bind(stage.heightProperty());
     }
 
     @FXML
