@@ -27,7 +27,7 @@ public class SalleController {
     @FXML
     private Button lightoutButton;
     @FXML
-    private ImageView fondSalle, fondSombre;
+    private ImageView  fondSombre;
     @FXML
     private ImageView jarreGemme, jarreGemmePlein, jarreGemmeVide, jarreVideUn, jarreVideUnCassee, jarreMarteau, jarreMarteauOuvert, jarreMarteauVide, jarreVideDeux, jarreVideDeuxCassee;
     @FXML
