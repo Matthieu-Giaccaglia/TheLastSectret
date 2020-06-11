@@ -29,6 +29,7 @@ public class MenuPause extends Group {
             alert.setContentText("Cette option n'a pas encore été développé.");
             alert.show();
         });
+
         buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.HAND));
 
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250, sizeStageX, 25);
