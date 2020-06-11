@@ -53,7 +53,7 @@ public class TaquinController {
     private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove1.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove2.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove3.mp3").toUri().toString())};
-    Random random = new Random();
+    private Random random = new Random();
 
     public void mouvement(MouseEvent event) {
 
@@ -181,6 +181,105 @@ public class TaquinController {
     }
 
     public void finish() {
+        taquinResoudre();
         pieceDouze.setDisable(false);
+    }
+
+    public void taquinResoudre(){
+
+        TranslateTransition translatePiece1 = new TranslateTransition(Duration.seconds(1), pieceUn);
+        translatePiece1.setByX(getNode(0,0).getLayoutX() - pieceUn.getLayoutX());
+        translatePiece1.setByY(getNode(0,0).getLayoutY() - pieceUn.getLayoutY());
+
+        TranslateTransition translatePiece2 = new TranslateTransition(Duration.seconds(1), pieceDeux);
+        translatePiece2.setByX(getNode(0,1).getLayoutX() - pieceDeux.getLayoutX());
+        translatePiece2.setByY(getNode(0,1).getLayoutY() - pieceDeux.getLayoutY());
+
+        TranslateTransition translatePiece3 = new TranslateTransition(Duration.seconds(1), pieceTrois);
+        translatePiece3.setByX(getNode(0,2).getLayoutX() - pieceTrois.getLayoutX());
+        translatePiece3.setByY(getNode(0,2).getLayoutY() - pieceTrois.getLayoutY());
+
+        TranslateTransition translatePiece4 = new TranslateTransition(Duration.seconds(1), pieceQuatre);
+        translatePiece4.setByX(getNode(0,3).getLayoutX() - pieceQuatre.getLayoutX());
+        translatePiece4.setByY(getNode(0,3).getLayoutY() - pieceQuatre.getLayoutY());
+
+        TranslateTransition translatePiece5 = new TranslateTransition(Duration.seconds(1), pieceCinq);
+        translatePiece5.setByX(getNode(1,0).getLayoutX() - pieceCinq.getLayoutX());
+        translatePiece5.setByY(getNode(1,0).getLayoutY() - pieceCinq.getLayoutY());
+
+        TranslateTransition translatePiece6 = new TranslateTransition(Duration.seconds(1), pieceSix);
+        translatePiece6.setByX(getNode(1,1).getLayoutX() - pieceSix.getLayoutX());
+        translatePiece6.setByY(getNode(1,1).getLayoutY() - pieceSix.getLayoutY());
+
+        TranslateTransition translatePiece7 = new TranslateTransition(Duration.seconds(1), pieceSept);
+        translatePiece7.setByX(getNode(1,2).getLayoutX() - pieceSept.getLayoutX());
+        translatePiece7.setByY(getNode(1,2).getLayoutY() - pieceSept.getLayoutY());
+
+        TranslateTransition translatePiece8 = new TranslateTransition(Duration.seconds(1), pieceHuit);
+        translatePiece8.setByX(getNode(1,3).getLayoutX() - pieceHuit.getLayoutX());
+        translatePiece8.setByY(getNode(1,3).getLayoutY() - pieceHuit.getLayoutY());
+
+        TranslateTransition translatePiece9 = new TranslateTransition(Duration.seconds(1), pieceNeuf);
+        translatePiece9.setByX(getNode(2,0).getLayoutX() - pieceNeuf.getLayoutX());
+        translatePiece9.setByY(getNode(2,0).getLayoutY() - pieceNeuf.getLayoutY());
+
+        TranslateTransition translatePiece10 = new TranslateTransition(Duration.seconds(1), pieceDix);
+        translatePiece10.setByX(getNode(2,1).getLayoutX() - pieceDix.getLayoutX());
+        translatePiece10.setByY(getNode(2,1).getLayoutY() - pieceDix.getLayoutY());
+
+        TranslateTransition translatePiece11 = new TranslateTransition(Duration.seconds(1), pieceOnze);
+        translatePiece11.setByX(getNode(2,2).getLayoutX() - pieceOnze.getLayoutX());
+        translatePiece11.setByY(getNode(2,2).getLayoutY() - pieceOnze.getLayoutY());
+
+        TranslateTransition translatePiece12 = new TranslateTransition(Duration.seconds(1), pieceDouze);
+        translatePiece12.setByX(getNode(2,3).getLayoutX() - pieceDouze.getLayoutX());
+        translatePiece12.setByY(getNode(2,3).getLayoutY() - pieceDouze.getLayoutY());
+
+        ParallelTransition parallelTransition = new ParallelTransition(
+                translatePiece1,
+                translatePiece2,
+                translatePiece3,
+                translatePiece4,
+                translatePiece5,
+                translatePiece6,
+                translatePiece7,
+                translatePiece8,
+                translatePiece9,
+                translatePiece10,
+                translatePiece11,
+                translatePiece12);
+
+        parallelTransition.playFromStart();
+
+    }
+
+    public Node getNode(int x, int y){
+
+
+                if (taquin.getNumber(x, y) == 0){
+                    return pieceDouze;
+                } else if (taquin.getNumber(x, y) == 1){
+                    return pieceUn;
+                } else if (taquin.getNumber(x, y) == 2){
+                    return pieceDeux;
+                } else if (taquin.getNumber(x, y) == 3){
+                    return pieceTrois;
+                } else if (taquin.getNumber(x, y) == 4){
+                    return pieceQuatre;
+                } else if (taquin.getNumber(x, y) == 5){
+                    return pieceCinq;
+                } else if (taquin.getNumber(x, y) == 6){
+                    return pieceSix;
+                } else if (taquin.getNumber(x, y) == 7){
+                    return pieceSept;
+                } else if (taquin.getNumber(x, y) == 8){
+                    return pieceHuit;
+                } else if (taquin.getNumber(x, y) == 9){
+                    return pieceNeuf;
+                } else if (taquin.getNumber(x, y) == 10){
+                    return pieceDix;
+                } else{
+                    return pieceOnze;
+                }
     }
 }
