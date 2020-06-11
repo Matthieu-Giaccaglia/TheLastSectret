@@ -208,8 +208,8 @@ public class SalleController {
         rotatePilierTombe.setByAngle(-39.8);
 
         ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1), pilierGrand);
-        scalePilierTombe.setByX(-0.1);
-        scalePilierTombe.setByY(-0.1);
+        scalePilierTombe.setByX(-0.2);
+        scalePilierTombe.setByY(-0.2);
 
         ParallelTransition parallelPilierTombe = new ParallelTransition(translateTransition(pilierGrand,-232,44,1), rotatePilierTombe, scalePilierTombe);
         parallelPilierTombe.setInterpolator(new Interpolator() {
