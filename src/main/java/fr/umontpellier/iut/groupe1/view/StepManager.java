@@ -44,7 +44,9 @@ public class StepManager {
             root = (AnchorPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
             stepRoot = (StackPane) root.lookup("#stack");
             HBox timer = (HBox) root.lookup("#timer");
+            AnchorPane inventaireDisplay = (AnchorPane) root.lookup("#inventaire");
             hud.add(timer);
+            hud.add(inventaireDisplay);
 
             pauseMenu = new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080);
             root.getChildren().add(pauseMenu);

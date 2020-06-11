@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<StackPane prefWidth="800.0" prefHeight="480.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamNineController"
-            id="parent">
 
-   <ImageView fx:id="background" fitWidth="800" fitHeight="480" pickOnBounds="true">
-      <Image url="@../../../raw/groupe1/salles/cam9.jpg"/>
+<StackPane id="parent" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamNineController">
+
+   <ImageView fx:id="background" fitHeight="480" fitWidth="800" pickOnBounds="true">
+      <Image url="@../../../raw/groupe1/salles/cam9.jpg" />
    </ImageView>
 
    <GridPane>
@@ -28,7 +25,7 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
-      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="4">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

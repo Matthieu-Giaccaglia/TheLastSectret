@@ -25,7 +25,7 @@
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
-      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMousePressed="#handleMouseClicked" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <ImageView fx:id="arrowBack" fitHeight="64.0" fitWidth="64.0" onMouseClicked="#handleMouseClicked" onMousePressed="#handleMouseClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="4">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
