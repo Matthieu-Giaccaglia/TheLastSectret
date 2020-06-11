@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 public class StepManager {
-    private final Inventaire inventaire;
+    private Inventaire inventaire;
     private final Map<StepID, Step<? extends Parent>> stepMap;
     private final List<Node> hud;
     private AnchorPane root;
@@ -33,9 +33,7 @@ public class StepManager {
 
     private ThreadTimer threadTimer;
 
-    public StepManager(Stage stage, Inventaire inventaire){
-        this.inventaire = inventaire;
-
+    public StepManager(Stage stage){
         stepMap = new HashMap<>();
         passageSalle = new HashMap<>();
         enigmeReussi = new HashMap<>();
@@ -73,6 +71,10 @@ public class StepManager {
         return inventaire;
     }
 
+    public void setInventaire(Inventaire inventaire) {
+        this.inventaire = inventaire;
+    }
+
     public void putHudOnTop(){
         hud.forEach(Node::toFront);
     }
@@ -96,6 +98,7 @@ public class StepManager {
             passageSalle.put(stepID, true);
             currentStep = stepID;
             putHudOnTop();
+            //openStepInventaire();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
