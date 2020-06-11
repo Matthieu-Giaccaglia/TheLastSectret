@@ -81,7 +81,6 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
-                fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
                 buttonMissing.setImage(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection().getImage());
                 buttonMissing.setOpacity(1);
