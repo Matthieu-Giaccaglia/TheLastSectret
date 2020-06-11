@@ -29,7 +29,6 @@ public class StepManager {
     private Parent gameNode;
     private final Map<StepID, Boolean> passageSalle;
     private final Map<StepID, Boolean> enigmeReussi;
-    private boolean paused;
 
     private ThreadTimer threadTimer;
 
@@ -74,10 +73,6 @@ public class StepManager {
         return inventaire;
     }
 
-    public void addHudElement(Node parent){
-        hud.add(parent);
-    }
-
     public void putHudOnTop(){
         hud.forEach(Node::toFront);
     }
@@ -99,7 +94,6 @@ public class StepManager {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
             passageSalle.put(stepID, true);
-            enigmeReussi.put(stepID, true);
             putHudOnTop();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
@@ -111,10 +105,15 @@ public class StepManager {
         return passageSalle.get(stepID);
     }
 
-    public boolean enigmeReussiSalle(StepID stepID){return enigmeReussi.get(stepID);}
+    public boolean getEnigmeReussi(StepID stepID){
+        return (enigmeReussi.get(stepID) != null) ? enigmeReussi.get(stepID) : false;
+    }
+
+    public void setEnigmeReussi(StepID stepID) {
+        enigmeReussi.put(stepID, true);
+    }
 
     public void setPause(boolean paused) {
-        this.paused = paused;
         threadTimer.setRunning(!paused);
 
         if(paused)

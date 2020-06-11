@@ -60,6 +60,27 @@ public class LayoutLoader {
         throw new LayoutNotFoundException(relativePath);
     }
 
+    public static Layout<Parent> getLayoutWithController(String relativePath) throws LayoutNotFoundException {
+        ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+
+        URL resource = Objects.requireNonNull(classLoader.getResource("layout/" + relativePath));
+
+        try {
+            FXMLLoader loader = new FXMLLoader(resource);
+            Parent parent = loader.load();
+
+            Openable controller = null;
+            if(loader.getController() instanceof Openable)
+                controller = loader.getController();
+
+            return new Layout<>(parent, null, controller);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        throw new LayoutNotFoundException(relativePath);
+    }
+
     /**
      * @author Enzo Dardaillon
      *

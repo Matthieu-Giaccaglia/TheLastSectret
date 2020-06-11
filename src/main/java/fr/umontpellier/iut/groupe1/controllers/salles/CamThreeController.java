@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe1.controllers.salles;
 
 import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CamThreeController implements Initializable {
+public class CamThreeController implements Initializable, Openable {
     @FXML
     public ImageView arrowBack;
     @FXML
@@ -24,6 +25,13 @@ public class CamThreeController implements Initializable {
         backgroundSansCarre.fitHeightProperty().bind(Main.stage.heightProperty());
     }
 
+    @Override
+    public void open() {
+        if(Main.stepManager.getEnigmeReussi(StepID.CAM4)) {
+            setBackgrounds();
+        }
+    }
+
     public void handleMouseClicked(MouseEvent mouseEvent) {
         if(mouseEvent.getSource().equals(arrowBack)){
             Main.stepManager.openStep(StepID.CAM1);
@@ -34,5 +42,4 @@ public class CamThreeController implements Initializable {
         backgroundSansCarre.setVisible(false);
         backgroundAvecCarre.setVisible(true);
     }
-
 }
