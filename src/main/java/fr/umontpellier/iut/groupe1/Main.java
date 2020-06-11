@@ -9,6 +9,8 @@ import fr.umontpellier.iut.groupe1.menu.MenuAccueil;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe1.view.StepManager;
+import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
+import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.media.Media;
@@ -30,7 +32,7 @@ public class Main extends Application {
 
         primaryStage.setTitle("Escape Game S6");
 
-        stepManager = new StepManager(primaryStage, null);
+        stepManager = new StepManager(primaryStage);
         try {
             /*Group group = new Group();
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
@@ -49,6 +51,11 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
 
             stepManager.addStep(new Step<>(StepID.LABYRINTHE, new Layout<>(new StructureLabyrinthe(500, 450, primaryStage), null)));
+
+            Step<Parent> inventaire = new Step<>(StepID.INVENTAIRE, LayoutLoader.getLayout2("groupe2/inventaire.fxml"));
+            InventaireController inventaireController = inventaire.getLayout().getControllerInventaire().getInventaire();
+            stepManager.setInventaire(new Inventaire(inventaireController));
+            stepManager.addStep(inventaire);
 
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

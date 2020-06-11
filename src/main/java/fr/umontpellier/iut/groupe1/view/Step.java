@@ -6,31 +6,26 @@ import fr.umontpellier.iut.groupe1.utils.Callback;
 import javafx.scene.Parent;
 
 public class Step<T extends Parent> {
+    private final Layout<T> layout;
     private final StepID id;
-    private final T node;
-    private Callback onStart;
-    private Openable openable;
 
     public Step(StepID id, Layout<T> layout) {
         this.id = id;
-
-        node = layout.getRoot();
-        openable = layout.getOpenable();
+        this.layout = layout;
     }
 
     private void init(){
         setVisible(true);
-        if(onStart != null) onStart.done();
-        if(openable != null) openable.open();
+        if(layout.getOpenable() != null) layout.getOpenable().open();
     }
 
     public T open(){
         init();
-        return node;
+        return layout.getRoot();
     }
 
-    public void setOnStart(Callback onStart){
-        this.onStart = onStart;
+    public Layout<T> getLayout() {
+        return layout;
     }
 
     public StepID getId() {
@@ -38,6 +33,6 @@ public class Step<T extends Parent> {
     }
 
     public void setVisible(boolean visible) {
-        node.setVisible(visible);
+        layout.getRoot().setVisible(visible);
     }
 }
