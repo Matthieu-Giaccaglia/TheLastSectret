@@ -66,7 +66,7 @@ public class StepManager {
             AnchorPane.setRightAnchor(pauseMenu, 0d);
             AnchorPane.setLeftAnchor(pauseMenu, 0d);
 
-            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"));
+            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"), 180);
             threadTimer.start();
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

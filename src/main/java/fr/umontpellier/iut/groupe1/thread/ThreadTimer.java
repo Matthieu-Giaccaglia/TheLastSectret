@@ -5,12 +5,13 @@ import javafx.scene.control.Label;
 
 public class ThreadTimer extends Thread implements Runnable{
 
-    private int secondes = 130;
+    private int secondes;
     private final Label label;
     private boolean running, stopped;
 
-    public ThreadTimer(Label label){
+    public ThreadTimer(Label label, int secondes){
         this.label = label;
+        this.secondes = secondes;
 
         running = false;
         stopped = false;
@@ -51,6 +52,7 @@ public class ThreadTimer extends Thread implements Runnable{
                 secondes--;
             }
         }
+        //TODO image momie si pas gagné
     }
 
     public boolean isRunning() {
