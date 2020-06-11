@@ -59,8 +59,7 @@ public class StepManager {
             AnchorPane.setLeftAnchor(pauseMenu, 0d);
 
             threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"));
-            threadTimer.start(); //todo seulement quand on lance la partie !
-            threadTimer.setRunning(true);
+            threadTimer.start();
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
             System.exit(1);
@@ -108,7 +107,7 @@ public class StepManager {
     }
 
     public boolean passageDansSalle(StepID stepID){
-        return passageSalle.get(stepID);
+        return (passageSalle.get((stepID)) != null) ? passageSalle.get(stepID) : false;
     }
 
     public boolean getEnigmeReussi(StepID stepID){

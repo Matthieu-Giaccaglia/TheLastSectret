@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.groupe1.thread;
 
-
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
@@ -20,7 +19,6 @@ public class ThreadTimer extends Thread implements Runnable{
     @Override
     public synchronized void start() {
         super.start();
-        running = true;
     }
 
     @Override

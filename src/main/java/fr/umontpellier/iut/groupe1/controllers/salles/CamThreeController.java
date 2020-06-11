@@ -23,6 +23,9 @@ public class CamThreeController implements Initializable, Openable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         backgroundSansCarre.fitWidthProperty().bind(Main.stage.widthProperty());
         backgroundSansCarre.fitHeightProperty().bind(Main.stage.heightProperty());
+
+        backgroundAvecCarre.fitWidthProperty().bind(Main.stage.widthProperty());
+        backgroundAvecCarre.fitHeightProperty().bind(Main.stage.heightProperty());
     }
 
     @Override
