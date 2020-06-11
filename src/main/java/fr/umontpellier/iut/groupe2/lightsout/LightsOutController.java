@@ -7,7 +7,6 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -18,8 +17,6 @@ import javafx.util.Duration;
 
 import java.nio.file.Paths;
 
-//TODO rajouter une image pour qu'on puisse appuyé meme en notvisible img brique grand/petit et clair/pas clair jouer avec l'opacité
-//TODO fermer la fenetre quand gagner et mettre un son de clique quand s'est gagné ou torche
 public class LightsOutController {
     public AnchorPane anchorPane;
     @FXML
@@ -212,12 +209,7 @@ public class LightsOutController {
             }
         }
     }
-    /*
-    public void createKeyframe(){}
-    public void shakeEffect{
 
-    }
-    */
     public ParallelTransition animationClique(Node idBrick){
         if(idBrick.isDisable()) {
             ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
