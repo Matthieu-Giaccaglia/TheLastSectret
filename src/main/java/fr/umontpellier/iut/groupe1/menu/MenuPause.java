@@ -37,7 +37,9 @@ public class MenuPause extends Group {
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250, sizeStageX, 25);
         buttonQuitter.setOnMouseClicked(mouseEvent -> {
             Main.stepManager.openStep(StepID.ACCUEIL);
-            Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning());
+            Main.stepManager.setPause(false);
+            Main.stepManager.getThreadTimer().setRunning(false);
+            Main.stepManager.putHudOnBottom();
         });
         buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.HAND));
 

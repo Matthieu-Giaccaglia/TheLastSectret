@@ -82,6 +82,8 @@ public class StepManager {
             AnchorPane.setRightAnchor(pauseMenu, 0d);
             AnchorPane.setLeftAnchor(pauseMenu, 0d);
 
+            putHudOnBottom();
+
             threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"), 1000);
             threadTimer.start();
         } catch (LayoutNotFoundException e) {
@@ -109,6 +111,10 @@ public class StepManager {
         hud.forEach(Node::toFront);
     }
 
+    public void putHudOnBottom(){
+        hud.forEach(Node::toBack);
+    }
+
     public void addStep(Step<? extends Parent> step){
         if(stepMap.containsKey(step.getId())){
             System.err.println("Attention vous avez essayé d'ajouter une Step déjà présente dans la liste !\n" +
@@ -127,7 +133,7 @@ public class StepManager {
             gameNode.setVisible(true);
             passageSalle.put(stepID, true);
             currentStep = stepID;
-            putHudOnTop();
+            if(stepID != StepID.ACCUEIL) putHudOnTop();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
