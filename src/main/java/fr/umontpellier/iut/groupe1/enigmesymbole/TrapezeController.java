@@ -52,6 +52,7 @@ public class TrapezeController implements Initializable {
             sonOOF();
         }else if(aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)){
             gagne();
+            stepManager.enigmeReussiSalle(StepID.CAM4);
         }else {
             mauvaiseCombi();
             sonOOF();
