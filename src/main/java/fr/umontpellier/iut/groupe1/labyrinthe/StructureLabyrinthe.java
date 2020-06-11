@@ -395,6 +395,7 @@ public class StructureLabyrinthe extends Group {
         boule.setTranslateY(checkpoint[0].getTranslateY());
         mur30.setVisible(false);
         mur68.setVisible(false);
+        nombreMort = 0;
     }
 
     public void gagne(){
@@ -427,6 +428,7 @@ public class StructureLabyrinthe extends Group {
             }
             if(keyEvent.getCode() == KeyCode.ESCAPE){
                 Main.stepManager.openStep(StepID.CAM1);
+                relancerJeu();
             }
 
         });
