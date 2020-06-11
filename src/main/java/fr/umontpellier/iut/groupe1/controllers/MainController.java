@@ -1,19 +1,17 @@
 package fr.umontpellier.iut.groupe1.controllers;
 
 import fr.umontpellier.iut.groupe1.Main;
-import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
-import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    public Label label_room;
-    public Label timerJeu;
     public Label timerDuJeu;
     public ImageView parametre;
 
@@ -27,6 +25,10 @@ public class MainController implements Initializable {
         threadTimer.setRunning(true);*/
 
         parametre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning()));
+        Main.stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.ESCAPE) //TODO ajouter si le stepManager != Laby
+                Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning());
+        });
 
         Main.stage.setOnCloseRequest(event -> {
             Main.stepManager.getThreadTimer().setRunning(false);

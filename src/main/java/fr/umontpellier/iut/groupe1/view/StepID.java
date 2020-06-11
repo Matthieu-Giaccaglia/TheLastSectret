@@ -1,7 +1,7 @@
 package fr.umontpellier.iut.groupe1.view;
 
 public enum StepID {
-    START(0),
+    ACCUEIL(0),
     TRAPEZE(1),
     CAM1(2),
     CAM2(3),

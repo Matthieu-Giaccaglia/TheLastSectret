@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe1.menu;
 
+import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
@@ -16,18 +18,13 @@ public class MenuAccueil extends Group {
 
         ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX, 50);
         buttonJouer.setFont(Font.font(null,40));
-        buttonJouer.setOnMouseClicked(mouseEvent -> {
-            System.out.println("button reprendre");
-            //TODO commencer le jeu
-        });
-        buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.CLOSED_HAND));
+        buttonJouer.setOnMouseClicked(mouseEvent -> Main.stepManager.openStep(StepID.CAM1));
+        buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,160, sizeStageX, 50);
         buttonQuitter.setFont(Font.font(null, 40));
-        buttonQuitter.setOnMouseClicked(mouseEvent -> {
-            System.exit(0);
-        });
-        buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.CLOSED_HAND));
+        buttonQuitter.setOnMouseClicked(mouseEvent -> System.exit(0));
+        buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.HAND));
 
         this.getChildren().addAll(buttonAccueil, buttonJouer, buttonQuitter);
 

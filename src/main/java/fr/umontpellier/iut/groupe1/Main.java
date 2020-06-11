@@ -3,7 +3,9 @@ package fr.umontpellier.iut.groupe1;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
+import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
 import fr.umontpellier.iut.groupe1.labyrinthe.StructureLabyrinthe;
+import fr.umontpellier.iut.groupe1.menu.MenuAccueil;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe1.view.StepManager;
@@ -36,6 +38,8 @@ public class Main extends Application {
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
             //zombiesound.isMute();
             //heartSound.isMute();
+
+            stepManager.addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));
 
             stepManager.addStep(new Step<>(StepID.CAM1, LayoutLoader.getLayout2("groupe1/salles/layout_cam1.fxml")));
             stepManager.addStep(new Step<>(StepID.CAM2, LayoutLoader.getLayout2("groupe1/salles/layout_cam2.fxml")));
@@ -75,7 +79,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        stepManager.openStep(StepID.CAM1);
+        stepManager.openStep(StepID.ACCUEIL);
 
         primaryStage.show();
     }
