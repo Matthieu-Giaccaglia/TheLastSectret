@@ -27,6 +27,7 @@ public class StepManager {
     private AnchorPane root;
     private StackPane stepRoot, pauseMenu;
     private Parent gameNode;
+    private StepID currentStep;
     private final Map<StepID, Boolean> passageSalle;
     private final Map<StepID, Boolean> enigmeReussi;
 
@@ -58,7 +59,7 @@ public class StepManager {
             AnchorPane.setLeftAnchor(pauseMenu, 0d);
 
             threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"));
-            threadTimer.start();
+            threadTimer.start(); //todo seulement quand on lance la partie !
             threadTimer.setRunning(true);
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
@@ -94,11 +95,16 @@ public class StepManager {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
             passageSalle.put(stepID, true);
+            currentStep = stepID;
             putHudOnTop();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
                     "Voir StepManager.addStep(Step step)");
         }
+    }
+
+    public StepID getCurrentStep() {
+        return currentStep;
     }
 
     public boolean passageDansSalle(StepID stepID){
