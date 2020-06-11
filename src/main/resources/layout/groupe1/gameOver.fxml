@@ -7,7 +7,7 @@
 
 <Pane prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.GameOverController">
    <children>
-      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" fx:id="background">
+      <ImageView fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" fx:id="background">
          <image>
             <Image url="@../../raw/commun/gameover.png" />
          </image>
