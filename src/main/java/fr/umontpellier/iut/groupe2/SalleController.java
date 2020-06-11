@@ -57,6 +57,7 @@ public class SalleController {
     private final MediaPlayer soundPilierMouv1 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge1.mp3").toUri().toString()));
     private final MediaPlayer soundPilierMouv2 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge2.mp3").toUri().toString()));
     private final Media soundPoussePorte = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPoussePorte.mp3").toUri().toString());
+    private final Media soundClosingDoor = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundClosingDoor.mp3").toUri().toString());
 
 
 
@@ -205,13 +206,14 @@ public class SalleController {
     }
 
     public void openDoorTry(){
-        ParallelTransition parrelPorte = new ParallelTransition(translateTransition(porteGauche, -20,0, 6.5), translateTransition(porteDroite, 20,0, 6.5));
+        ParallelTransition parrelPorte = new ParallelTransition(translateTransition(porteGauche, -20,0, 6.75), translateTransition(porteDroite, 20,0, 6.75));
         new MediaPlayer(soundPoussePorte).play();
         allSalle.setDisable(true);
         parrelPorte.setOnFinished(event -> {
             allSalle.setDisable(false);
             ParallelTransition parrelPorte2 = new ParallelTransition(translateTransition(porteGauche, 20,0, 0.1), translateTransition(porteDroite, -20,0, 0.1));
             parrelPorte2.playFromStart();
+            parrelPorte2.setOnFinished(event1 -> new MediaPlayer(soundClosingDoor).play());
         });
         parrelPorte.playFromStart();
     }
