@@ -10,6 +10,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +25,8 @@ import java.util.Random;
 
 public class TaquinController {
 
+    @FXML
+    private Button buttonFinish;
     @FXML
     private TextField pasCassable;
     @FXML
@@ -53,7 +56,7 @@ public class TaquinController {
     private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove1.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove2.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove3.mp3").toUri().toString())};
-    Random random = new Random();
+    private Random random = new Random();
 
     public void mouvement(MouseEvent event) {
 
@@ -84,6 +87,7 @@ public class TaquinController {
         }
 
         if (pieceDouze.isDisable() && taquin.estGagnant()) {
+            taquinTermine();
             pieceDouze.setVisible(true);
             pieceDouze.setDisable(false);
         }
@@ -152,6 +156,20 @@ public class TaquinController {
         }
     }
 
+    public void taquinTermine(){
+        pieceUn.setDisable(true);
+        pieceDeux.setDisable(true);
+        pieceTrois.setDisable(true);
+        pieceQuatre.setDisable(true);
+        pieceCinq.setDisable(true);
+        pieceSix.setDisable(true);
+        pieceSept.setDisable(true);
+        pieceHuit.setDisable(true);
+        pieceNeuf.setDisable(true);
+        pieceDix.setDisable(true);
+        pieceOnze.setDisable(true);
+    }
+
 
 
     public void recupGemme() {
@@ -181,6 +199,67 @@ public class TaquinController {
     }
 
     public void finish() {
+        taquinTermine();
+        buttonFinish.setDisable(true);
+        taquinResoudre();
         pieceDouze.setDisable(false);
+    }
+
+    public TranslateTransition animationResoudreTaquin(Node node, int x, int y){
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), node);
+        translateTransition.setByX(getNode(x,y).getLayoutX() - node.getLayoutX());
+        translateTransition.setByY(getNode(x,y).getLayoutY() - node.getLayoutY());
+        return translateTransition;
+    }
+
+    public void taquinResoudre(){
+
+        ParallelTransition parallelTransition = new ParallelTransition(
+                animationResoudreTaquin(pieceUn,0,0),
+                animationResoudreTaquin(pieceDeux,0,1),
+                animationResoudreTaquin(pieceTrois,0,2),
+                animationResoudreTaquin(pieceQuatre,0,3),
+                animationResoudreTaquin(pieceCinq,1,0),
+                animationResoudreTaquin(pieceSix,1,1),
+                animationResoudreTaquin(pieceSept,1,2),
+                animationResoudreTaquin(pieceHuit,1,3),
+                animationResoudreTaquin(pieceNeuf,2,0),
+                animationResoudreTaquin(pieceDix,2,1),
+                animationResoudreTaquin(pieceOnze,2,2),
+                animationResoudreTaquin(pieceDouze,2,3)
+                );
+
+        parallelTransition.playFromStart();
+
+    }
+
+    public Node getNode(int x, int y){
+
+
+                if (taquin.getNumber(x, y) == 0){
+                    return pieceDouze;
+                } else if (taquin.getNumber(x, y) == 1){
+                    return pieceUn;
+                } else if (taquin.getNumber(x, y) == 2){
+                    return pieceDeux;
+                } else if (taquin.getNumber(x, y) == 3){
+                    return pieceTrois;
+                } else if (taquin.getNumber(x, y) == 4){
+                    return pieceQuatre;
+                } else if (taquin.getNumber(x, y) == 5){
+                    return pieceCinq;
+                } else if (taquin.getNumber(x, y) == 6){
+                    return pieceSix;
+                } else if (taquin.getNumber(x, y) == 7){
+                    return pieceSept;
+                } else if (taquin.getNumber(x, y) == 8){
+                    return pieceHuit;
+                } else if (taquin.getNumber(x, y) == 9){
+                    return pieceNeuf;
+                } else if (taquin.getNumber(x, y) == 10){
+                    return pieceDix;
+                } else{
+                    return pieceOnze;
+                }
     }
 }

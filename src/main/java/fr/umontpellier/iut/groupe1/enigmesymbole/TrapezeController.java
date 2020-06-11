@@ -1,6 +1,5 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
-import fr.umontpellier.iut.groupe1.labyrinthe.Clef;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,8 +21,6 @@ public class TrapezeController implements Initializable {
     //@FXML
     //private ImageView buttonValideur;
 
-    private MediaPlayer mauvaiseCombiSon;
-
     public void gagne(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Mouais...");
@@ -41,7 +38,7 @@ public class TrapezeController implements Initializable {
     }
 
     public void sonOOF(){
-        mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
+        MediaPlayer mauvaiseCombiSon = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/roblox-death-sound-loud.mp3").toUri().toString()));
         mauvaiseCombiSon.setVolume(0.25);
         mauvaiseCombiSon.play();
     }
@@ -52,9 +49,9 @@ public class TrapezeController implements Initializable {
             sonOOF();
         }else if(aigle0.isVisible() && aigle1.isVisible() && serpent2.isVisible() && stepManager.passageDansSalle(StepID.CAM8)){
             gagne();
-
             stepManager.setEnigmeReussi(StepID.CAM4);
-            
+            MediaPlayer doorOpen = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/door-open.mp3").toUri().toString()));
+            doorOpen.play();
         }else {
             mauvaiseCombi();
             sonOOF();

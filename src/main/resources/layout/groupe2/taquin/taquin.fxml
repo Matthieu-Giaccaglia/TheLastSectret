@@ -75,12 +75,12 @@
       <AnchorPane layoutX="1775.0" layoutY="869.0" maxHeight="214.0" maxWidth="224.0" minHeight="84.0" minWidth="131.0" prefHeight="134.0" prefWidth="131.0">
          <fx:include source="../back.fxml" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
       </AnchorPane>
-      <Button layoutX="14.0" layoutY="940.0" mnemonicParsing="false" onAction="#finish" opacity="0.11" prefHeight="34.0" prefWidth="121.0" text="Finish" textFill="#9a8383">
+      <Button fx:id="buttonFinish" layoutX="14.0" layoutY="940.0" mnemonicParsing="false" onAction="#finish" opacity="0.11" prefHeight="34.0" prefWidth="121.0" text="Finish" textFill="#9a8383">
          <font>
             <Font size="29.0" />
          </font>
       </Button>
-      <TextField fx:id="pasCassable" disable="true" layoutX="763.0" layoutY="302.0" onAction="#casserLeMur" opacity="0.76" prefHeight="63.0" prefWidth="426.0" text="J'ai besoin de quelque chose pour casser le mur" visible="false">
+      <TextField fx:id="pasCassable" disable="true" layoutX="763.0" layoutY="302.0" onAction="#casserLeMur" opacity="0.5" prefHeight="63.0" prefWidth="426.0" text="J'ai besoin de quelque chose pour casser le mur" visible="false">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></TextField>

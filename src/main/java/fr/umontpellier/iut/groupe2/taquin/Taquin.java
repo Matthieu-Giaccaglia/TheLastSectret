@@ -89,4 +89,8 @@ public class Taquin {
         return taquin.toString();
     }
 
+    public int getNumber(int x, int y){
+        return tableau[x][y];
+    }
+
 }
