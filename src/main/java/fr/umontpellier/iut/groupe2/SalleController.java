@@ -85,6 +85,7 @@ public class SalleController {
                 new MediaPlayer(soundGemmeOnPilar).play();
                 buttonMissing.setImage(ImageLoader.getImage("groupe2/salle/briqueMur.png"));
                 buttonMissing.setOpacity(1);
+                lightoutButton.setDisable(true);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
         }
