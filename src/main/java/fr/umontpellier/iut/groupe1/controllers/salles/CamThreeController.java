@@ -23,21 +23,21 @@ import java.util.ResourceBundle;
 
 public class CamThreeController implements Initializable, Openable {
     @FXML
-    public ImageView arrowBack;
+    private ImageView arrowBack;
     @FXML
-    public ImageView noir;
+    private ImageView noir;
     @FXML
-    public ImageView serrureCle;
+    private ImageView serrureCle;
     @FXML
-    public Rectangle rectangle;
+    private Rectangle rectangle;
     @FXML
-    public ImageView cle;
+    private ImageView cle;
     @FXML
-    public StackPane stackpanePorte;
+    private StackPane stackpanePorte;
     @FXML
-    public ImageView cadrePorte;
+    private ImageView cadrePorte;
     @FXML
-    public ImageView porte;
+    private ImageView porte;
 
     private AnimationTimer insertionCle;
     private boolean attente = true;

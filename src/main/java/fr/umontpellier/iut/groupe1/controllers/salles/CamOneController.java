@@ -17,17 +17,17 @@ public class CamOneController implements Initializable {
     @FXML
     private ImageView background;
     @FXML
-    public ImageView arrowBack;
+    private ImageView arrowBack;
     @FXML
-    public ImageView goto3;
+    private ImageView goto3;
     @FXML
-    public ImageView goto4;
+    private ImageView goto4;
     @FXML
-    public ImageView goto6;
+    private ImageView goto6;
     @FXML
-    public ImageView goto9;
+    private ImageView goto9;
     @FXML
-    public Label buttonLabyrinthe;
+    private Label buttonLabyrinthe;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
