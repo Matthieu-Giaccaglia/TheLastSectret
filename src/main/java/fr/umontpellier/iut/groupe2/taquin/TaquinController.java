@@ -176,6 +176,6 @@ public class TaquinController {
     }
 
     public void finish() {
-        recupGemme();
+        pieceDouze.setDisable(false);
     }
 }
