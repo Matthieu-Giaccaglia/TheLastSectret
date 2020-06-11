@@ -28,6 +28,7 @@ public class StepManager {
     private StackPane stepRoot, pauseMenu;
     private Parent gameNode;
     private final Map<StepID, Boolean> passageSalle;
+    private final Map<StepID, Boolean> enigmeReussi;
     private boolean paused;
 
     private ThreadTimer threadTimer;
@@ -37,6 +38,7 @@ public class StepManager {
 
         stepMap = new HashMap<>();
         passageSalle = new HashMap<>();
+        enigmeReussi = new HashMap<>();
 
         hud = new LinkedList<>();
 
@@ -107,6 +109,8 @@ public class StepManager {
     public boolean passageDansSalle(StepID stepID){
         return passageSalle.get(stepID);
     }
+
+    public boolean enigmeReussiSalle(StepID stepID){return enigmeReussi.get(stepID);}
 
     public void setPause(boolean paused) {
         this.paused = paused;

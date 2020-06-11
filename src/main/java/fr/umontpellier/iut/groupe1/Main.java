@@ -47,12 +47,14 @@ public class Main extends Application {
             Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
             cerco.setOnStart(() -> {
                 zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.setVolume(0.5);
                 zombiesound.play();
             });
             stepManager.addStep(cerco);
             Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
             tableTradu.setOnStart(() -> {
                 zombiesound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/minecraft-zombie-bruh-sound-effect.mp3").toUri().toString()));
+                zombiesound.setVolume(0.5);
                 zombiesound.play();
             });
             stepManager.addStep(tableTradu);
