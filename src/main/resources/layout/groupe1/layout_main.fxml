@@ -9,5 +9,6 @@
     </StackPane>
 
     <fx:include fx:id="timer" source="timer.fxml" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="32.0" />
+    <fx:include fx:id="inventaire" layoutX="710.0" layoutY="915.0" source="../groupe2/inventaire.fxml" AnchorPane.bottomAnchor="0.0" />
 
 </AnchorPane>

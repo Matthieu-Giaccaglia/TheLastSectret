@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.enigmesymbole.TrapezeController">
-   <ImageView fx:id="background" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="background" pickOnBounds="true">
       <Image url="@../../raw/groupe1/cam4.jpg" />
    </ImageView>
    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" rotate="21.0" scaleY="7.0">
@@ -163,7 +163,7 @@
    <ImageView fx:id="buttonValideur" fitHeight="100.0" fitWidth="100.0" onMouseDragReleased="#handleButtonValide" onMousePressed="#handleButtonValide" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../raw/groupe1/boutonvalider.png" />
       <StackPane.margin>
-         <Insets right="40.0" top="750.0" />
+         <Insets right="40.0" top="675.0" />
       </StackPane.margin>
       <cursor>
          <Cursor fx:constant="HAND" />
@@ -176,7 +176,7 @@
       </cursor>
       <Image url="@../../raw/groupe1/flechenav.png" />
       <StackPane.margin>
-         <Insets right="40.0" top="950.0" />
+         <Insets right="-1000.0" top="950.0" />
       </StackPane.margin>
    </ImageView>
 </StackPane>
