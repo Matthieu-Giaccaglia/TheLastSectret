@@ -14,12 +14,14 @@ public class CamThreeController implements Initializable {
     @FXML
     public ImageView arrowBack;
     @FXML
-    private ImageView background;
+    private ImageView backgroundSansCarre;
+    @FXML
+    private ImageView backgroundAvecCarre;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        background.fitWidthProperty().bind(Main.stage.widthProperty());
-        background.fitHeightProperty().bind(Main.stage.heightProperty());
+        backgroundSansCarre.fitWidthProperty().bind(Main.stage.widthProperty());
+        backgroundSansCarre.fitHeightProperty().bind(Main.stage.heightProperty());
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
@@ -27,4 +29,10 @@ public class CamThreeController implements Initializable {
             Main.stepManager.openStep(StepID.CAM1);
         }
     }
+
+    public void setBackgrounds() {
+        backgroundSansCarre.setVisible(false);
+        backgroundAvecCarre.setVisible(true);
+    }
+
 }
