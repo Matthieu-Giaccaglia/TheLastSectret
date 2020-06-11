@@ -83,17 +83,12 @@ public class LightsOutController {
             aGagne = true;
         }
     }
-    public void finished2(){
-        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.boutonLumiere);
-        buttonBrick.setVisible(false);
-        aGagne = true;
-    }
 
     public void updateScene (int i, ImageView img){
         int [] coordonne = Lout.trouverCoordonne(i);
         Lout.onClick(coordonne[0],coordonne[1]);
-        System.out.println(Lout.toString());
-        /*System.out.println(gridMain.getChildren());
+        /*System.out.println(Lout.toString());
+        System.out.println(gridMain.getChildren());
         System.out.println(GridPane.getRowIndex(img));
         System.out.println(GridPane.getColumnIndex(img));*/
         new MediaPlayer(bricksound).play();
