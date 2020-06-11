@@ -13,6 +13,7 @@ import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
 import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -25,8 +26,10 @@ public class Main extends Application {
     public static StepManager stepManager;
     public static Stage stage;
 
+
     @Override
     public void start(Stage primaryStage) {
+
         stage = primaryStage;
         primaryStage.setMaximized(true);
 

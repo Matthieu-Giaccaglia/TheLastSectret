@@ -61,8 +61,9 @@ public class ThreadTimer extends Thread implements Runnable{
             }
 
         }
-        //TODO image momie si pas gagné
-        Main.stepManager.openStep(StepID.GAMEOVER);
+
+
+        Platform.runLater(() -> Main.stepManager.openStep(StepID.GAMEOVER));
     }
 
     public boolean isRunning() {
