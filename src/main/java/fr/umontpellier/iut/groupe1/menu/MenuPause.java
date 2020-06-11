@@ -35,7 +35,10 @@ public class MenuPause extends Group {
         buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.HAND));
 
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250, sizeStageX, 25);
-        buttonQuitter.setOnMouseClicked(mouseEvent -> Main.stepManager.openStep(StepID.ACCUEIL));
+        buttonQuitter.setOnMouseClicked(mouseEvent -> {
+            Main.stepManager.openStep(StepID.ACCUEIL);
+            Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning());
+        });
         buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.HAND));
 
         this.getChildren().addAll(buttonPause, buttonReprendre, buttonOption, buttonQuitter);
