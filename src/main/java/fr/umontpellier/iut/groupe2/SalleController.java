@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe2;
 
+import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.animation.*;
@@ -75,11 +76,13 @@ public class SalleController {
         textfield.setVisible(true);
     }
 
-    public void bouttonRajoute(){
+    public void bouttonAllumer(){
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
+                fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
+                buttonMissing.setImage(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection().getImage());
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
