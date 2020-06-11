@@ -120,4 +120,10 @@ public class Inventaire {
 
         return inventaire.get(controller.getItemSelectionne());
     }
+
+    public boolean inventairePasPlein(){
+        System.out.println(nombreItemInventaire < 5);
+        return nombreItemInventaire < 5;
+    }
+
 }
