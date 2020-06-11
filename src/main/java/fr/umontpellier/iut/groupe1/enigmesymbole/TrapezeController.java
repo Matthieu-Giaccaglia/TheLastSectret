@@ -42,6 +42,7 @@ public class TrapezeController implements Initializable {
             gagne();
             stepManager.setEnigmeReussi(StepID.CAM4);
             MediaPlayer doorOpen = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/door-open.mp3").toUri().toString()));
+            doorOpen.setVolume(0.1);
             doorOpen.play();
         }else {
             mauvaiseCombi();
