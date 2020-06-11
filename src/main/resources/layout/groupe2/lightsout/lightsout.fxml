@@ -122,10 +122,10 @@
                 </ImageView>
             </GridPane>
         </AnchorPane>
-        <AnchorPane layoutX="1769.0" layoutY="882.0" prefHeight="84.0" prefWidth="202.0">
-            <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
+        <AnchorPane layoutX="1769.0" layoutY="882.0" maxHeight="134.0" maxWidth="134.0" minHeight="134.0" minWidth="134.0" prefHeight="134.0" prefWidth="134.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <fx:include source="../back.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" StackPane.alignment="BOTTOM_LEFT" />
         </AnchorPane>
-        <ImageView fx:id="buttonBrick" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="826.0" layoutY="727.0" onMouseClicked="#finished" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9">
+        <ImageView fx:id="buttonBrick" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="826.0" layoutY="727.0" onMouseClicked="#finished" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" AnchorPane.bottomAnchor="181.2280731201172">
             <Image url="@../../../raw/groupe2/lightsout/BRIQUE_1.png" />
          <effect>
             <Glow level="0.67" />

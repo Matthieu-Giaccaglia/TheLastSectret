@@ -23,11 +23,30 @@ public class CamFiveController implements Initializable {
     private ImageView goto4;
     @FXML
     private ImageView goto9;
+    @FXML
+    private ImageView indiceAutre, indice3, indice33, black;
+
+    @FXML
+    void handleButton(MouseEvent mouseEvent){
+        if (!(indice33.isVisible() && black.isVisible())){
+            indice33.setVisible(true);
+            black.setVisible(true);
+            indice3.setVisible(false);
+            indiceAutre.setVisible(false);
+        }else if (!(indice3.isVisible() && indiceAutre.isVisible())){
+            indice33.setVisible(false);
+            black.setVisible(false);
+            indice3.setVisible(true);
+            indiceAutre.setVisible(true);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.fitWidthProperty().bind(Main.stage.widthProperty());
         background.fitHeightProperty().bind(Main.stage.heightProperty());
+        black.fitWidthProperty().bind(Main.stage.widthProperty());
+        black.fitHeightProperty().bind(Main.stage.heightProperty());
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {

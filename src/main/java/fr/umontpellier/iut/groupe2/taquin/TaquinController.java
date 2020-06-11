@@ -10,6 +10,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +25,8 @@ import java.util.Random;
 
 public class TaquinController {
 
+    @FXML
+    private Button buttonFinish;
     @FXML
     private TextField pasCassable;
     @FXML
@@ -84,6 +87,7 @@ public class TaquinController {
         }
 
         if (pieceDouze.isDisable() && taquin.estGagnant()) {
+            taquinTermine();
             pieceDouze.setVisible(true);
             pieceDouze.setDisable(false);
         }
@@ -152,6 +156,20 @@ public class TaquinController {
         }
     }
 
+    public void taquinTermine(){
+        pieceUn.setDisable(true);
+        pieceDeux.setDisable(true);
+        pieceTrois.setDisable(true);
+        pieceQuatre.setDisable(true);
+        pieceCinq.setDisable(true);
+        pieceSix.setDisable(true);
+        pieceSept.setDisable(true);
+        pieceHuit.setDisable(true);
+        pieceNeuf.setDisable(true);
+        pieceDix.setDisable(true);
+        pieceOnze.setDisable(true);
+    }
+
 
 
     public void recupGemme() {
@@ -181,73 +199,35 @@ public class TaquinController {
     }
 
     public void finish() {
+        taquinTermine();
+        buttonFinish.setDisable(true);
         taquinResoudre();
         pieceDouze.setDisable(false);
     }
 
+    public TranslateTransition animationResoudreTaquin(Node node, int x, int y){
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), node);
+        translateTransition.setByX(getNode(x,y).getLayoutX() - node.getLayoutX());
+        translateTransition.setByY(getNode(x,y).getLayoutY() - node.getLayoutY());
+        return translateTransition;
+    }
+
     public void taquinResoudre(){
 
-        TranslateTransition translatePiece1 = new TranslateTransition(Duration.seconds(1), pieceUn);
-        translatePiece1.setByX(getNode(0,0).getLayoutX() - pieceUn.getLayoutX());
-        translatePiece1.setByY(getNode(0,0).getLayoutY() - pieceUn.getLayoutY());
-
-        TranslateTransition translatePiece2 = new TranslateTransition(Duration.seconds(1), pieceDeux);
-        translatePiece2.setByX(getNode(0,1).getLayoutX() - pieceDeux.getLayoutX());
-        translatePiece2.setByY(getNode(0,1).getLayoutY() - pieceDeux.getLayoutY());
-
-        TranslateTransition translatePiece3 = new TranslateTransition(Duration.seconds(1), pieceTrois);
-        translatePiece3.setByX(getNode(0,2).getLayoutX() - pieceTrois.getLayoutX());
-        translatePiece3.setByY(getNode(0,2).getLayoutY() - pieceTrois.getLayoutY());
-
-        TranslateTransition translatePiece4 = new TranslateTransition(Duration.seconds(1), pieceQuatre);
-        translatePiece4.setByX(getNode(0,3).getLayoutX() - pieceQuatre.getLayoutX());
-        translatePiece4.setByY(getNode(0,3).getLayoutY() - pieceQuatre.getLayoutY());
-
-        TranslateTransition translatePiece5 = new TranslateTransition(Duration.seconds(1), pieceCinq);
-        translatePiece5.setByX(getNode(1,0).getLayoutX() - pieceCinq.getLayoutX());
-        translatePiece5.setByY(getNode(1,0).getLayoutY() - pieceCinq.getLayoutY());
-
-        TranslateTransition translatePiece6 = new TranslateTransition(Duration.seconds(1), pieceSix);
-        translatePiece6.setByX(getNode(1,1).getLayoutX() - pieceSix.getLayoutX());
-        translatePiece6.setByY(getNode(1,1).getLayoutY() - pieceSix.getLayoutY());
-
-        TranslateTransition translatePiece7 = new TranslateTransition(Duration.seconds(1), pieceSept);
-        translatePiece7.setByX(getNode(1,2).getLayoutX() - pieceSept.getLayoutX());
-        translatePiece7.setByY(getNode(1,2).getLayoutY() - pieceSept.getLayoutY());
-
-        TranslateTransition translatePiece8 = new TranslateTransition(Duration.seconds(1), pieceHuit);
-        translatePiece8.setByX(getNode(1,3).getLayoutX() - pieceHuit.getLayoutX());
-        translatePiece8.setByY(getNode(1,3).getLayoutY() - pieceHuit.getLayoutY());
-
-        TranslateTransition translatePiece9 = new TranslateTransition(Duration.seconds(1), pieceNeuf);
-        translatePiece9.setByX(getNode(2,0).getLayoutX() - pieceNeuf.getLayoutX());
-        translatePiece9.setByY(getNode(2,0).getLayoutY() - pieceNeuf.getLayoutY());
-
-        TranslateTransition translatePiece10 = new TranslateTransition(Duration.seconds(1), pieceDix);
-        translatePiece10.setByX(getNode(2,1).getLayoutX() - pieceDix.getLayoutX());
-        translatePiece10.setByY(getNode(2,1).getLayoutY() - pieceDix.getLayoutY());
-
-        TranslateTransition translatePiece11 = new TranslateTransition(Duration.seconds(1), pieceOnze);
-        translatePiece11.setByX(getNode(2,2).getLayoutX() - pieceOnze.getLayoutX());
-        translatePiece11.setByY(getNode(2,2).getLayoutY() - pieceOnze.getLayoutY());
-
-        TranslateTransition translatePiece12 = new TranslateTransition(Duration.seconds(1), pieceDouze);
-        translatePiece12.setByX(getNode(2,3).getLayoutX() - pieceDouze.getLayoutX());
-        translatePiece12.setByY(getNode(2,3).getLayoutY() - pieceDouze.getLayoutY());
-
         ParallelTransition parallelTransition = new ParallelTransition(
-                translatePiece1,
-                translatePiece2,
-                translatePiece3,
-                translatePiece4,
-                translatePiece5,
-                translatePiece6,
-                translatePiece7,
-                translatePiece8,
-                translatePiece9,
-                translatePiece10,
-                translatePiece11,
-                translatePiece12);
+                animationResoudreTaquin(pieceUn,0,0),
+                animationResoudreTaquin(pieceDeux,0,1),
+                animationResoudreTaquin(pieceTrois,0,2),
+                animationResoudreTaquin(pieceQuatre,0,3),
+                animationResoudreTaquin(pieceCinq,1,0),
+                animationResoudreTaquin(pieceSix,1,1),
+                animationResoudreTaquin(pieceSept,1,2),
+                animationResoudreTaquin(pieceHuit,1,3),
+                animationResoudreTaquin(pieceNeuf,2,0),
+                animationResoudreTaquin(pieceDix,2,1),
+                animationResoudreTaquin(pieceOnze,2,2),
+                animationResoudreTaquin(pieceDouze,2,3)
+                );
 
         parallelTransition.playFromStart();
 

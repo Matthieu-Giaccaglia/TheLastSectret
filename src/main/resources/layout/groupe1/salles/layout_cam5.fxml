@@ -56,6 +56,18 @@
          </cursor>
          <Image url="@../../../raw/groupe1/flechenav.png" />
       </ImageView>
+      <ImageView fx:id="indiceAutre" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="100.0" translateY="35.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Image url="@../../../raw/groupe1/final/indice1.png" />
+      </ImageView>
+      <ImageView fx:id="indice3" fitHeight="40.0" fitWidth="40.0" onMousePressed="#handleButton" opacity="0.85" pickOnBounds="true" preserveRatio="true" translateX="175.0" GridPane.rowIndex="2">
+            <Image url="@../../../raw/groupe1/final/indice3.png" />
+      </ImageView>
 </GridPane>
+   <ImageView fx:id="black" fitHeight="480.0" fitWidth="800.0" onMousePressed="#handleButton" opacity="0.5" pickOnBounds="true" visible="false">
+         <Image url="@../../../raw/groupe1/noir2.jpg" />
+   </ImageView>
+   <ImageView fx:id="indice33" cache="true" disable="true" fitHeight="150.0" fitWidth="200.0" onMousePressed="#handleButton" pickOnBounds="true" preserveRatio="true" visible="false">
+         <Image url="@../../../raw/groupe1/final/indice3.png" />
+      </ImageView>
 
 </StackPane>

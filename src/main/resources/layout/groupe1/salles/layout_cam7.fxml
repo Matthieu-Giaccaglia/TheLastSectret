@@ -31,6 +31,9 @@
          </cursor>
          <Image url="@../../../raw/groupe1/flechenav.png" />
       </ImageView>
+      <ImageView fx:id="indice2" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" rotate="20.0" translateX="-7.0" translateY="20.0" GridPane.rowIndex="2">
+            <Image url="@../../../raw/groupe1/final/indice2.png" />
+      </ImageView>
    </GridPane>
 
 </StackPane>

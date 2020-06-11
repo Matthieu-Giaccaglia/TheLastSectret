@@ -1,7 +1,8 @@
 package fr.umontpellier.iut.groupe1.view;
 
-import fr.umontpellier.iut.commun.data.LayoutLoader;
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.data.Layout;
+import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
 import fr.umontpellier.iut.groupe1.menu.MenuPause;
 import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
@@ -44,9 +45,16 @@ public class StepManager {
             root = (AnchorPane) LayoutLoader.getLayout("groupe1/layout_main.fxml");
             stepRoot = (StackPane) root.lookup("#stack");
             HBox timer = (HBox) root.lookup("#timer");
-            AnchorPane inventaireDisplay = (AnchorPane) root.lookup("#inventaire");
+
+            Layout<Parent> inventaireDisplay = LayoutLoader.getLayout2("groupe2/inventaire.fxml");
+            setInventaire(new Inventaire(inventaireDisplay.getControllerInventaire().getInventaire()));
+            root.getChildren().add(inventaireDisplay.getRoot());
+
+            AnchorPane.setBottomAnchor(inventaireDisplay.getRoot(), 0d);
+            inventaireDisplay.getRoot().setLayoutX(700);
+
             hud.add(timer);
-            hud.add(inventaireDisplay);
+            hud.add(inventaireDisplay.getRoot());
 
             pauseMenu = new BackgroundStackPane(new MenuPause(300), 300, 400, 1950, 1080);
             root.getChildren().add(pauseMenu);
@@ -58,7 +66,7 @@ public class StepManager {
             AnchorPane.setRightAnchor(pauseMenu, 0d);
             AnchorPane.setLeftAnchor(pauseMenu, 0d);
 
-            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"));
+            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"), 180);
             threadTimer.start();
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

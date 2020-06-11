@@ -13,10 +13,10 @@ public class MenuAccueil extends Group {
 
     public MenuAccueil(double sizeStageX){
 
-        ButtonMenu buttonAccueil = new ButtonMenu("Escape Game S6", sizeStageX, 0, sizeStageX, 50);
+        ButtonMenu buttonAccueil = new ButtonMenu("NomDuJeu", sizeStageX, 0, sizeStageX + 100, 50);
         buttonAccueil.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 50));
 
-        ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX, 50);
+        ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX + 100, 50);
         buttonJouer.setFont(Font.font(null,40));
         buttonJouer.setOnMouseClicked(mouseEvent -> {
             Main.stepManager.openStep(StepID.CAM1);
@@ -24,7 +24,7 @@ public class MenuAccueil extends Group {
         });
         buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 
-        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,160, sizeStageX, 50);
+        ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,160, sizeStageX + 100, 50);
         buttonQuitter.setFont(Font.font(null, 40));
         buttonQuitter.setOnMouseClicked(mouseEvent -> System.exit(0));
         buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.HAND));

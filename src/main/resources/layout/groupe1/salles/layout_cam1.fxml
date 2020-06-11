@@ -55,7 +55,10 @@
          </cursor>
          <Image url="@../../../raw/groupe1/flechenav.png" />
       </ImageView>
-      <Label fx:id="buttonLabyrinthe" alignment="CENTER" onMouseClicked="#handleMouseClicked" prefHeight="120.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+      <Label fx:id="buttonLabyrinthe" alignment="CENTER" onMouseClicked="#handleMouseClicked" prefHeight="160.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
    </GridPane>
 
 </StackPane>
