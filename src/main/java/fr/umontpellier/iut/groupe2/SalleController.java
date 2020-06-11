@@ -20,8 +20,8 @@ import java.nio.file.Paths;
 
 public class SalleController {
 
-
-    public StackPane allSalle;
+    @FXML
+    private StackPane allSalle;
     @FXML
     private ImageView retour, taquinImage;
     @FXML
