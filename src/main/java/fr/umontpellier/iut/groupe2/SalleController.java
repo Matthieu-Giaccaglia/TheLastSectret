@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.*;
 import javafx.util.Duration;
 
 import java.nio.file.Paths;
@@ -47,9 +46,10 @@ public class SalleController {
     private ItemId itemPilierVert = ItemId.gemmeRouge, itemPilierRouge, itemPilierBleu, itemPilierViolet;
     private int compteur = 0;
 
-    private Media gemmePlacePillier = new Media(Paths.get("src/main/resources/sound/groupe2/salle/gemmePlace.mp3").toUri().toString());
-    private MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
-    private Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/casseJarre.mp3").toUri().toString());
+    private final Media soundGemmeOnPilar = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundGemmeOnPilar.mp3").toUri().toString());
+    private final MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
+    private final MediaPlayer soundOpenDoor = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundOpenDoor.mp3").toUri().toString()));
+    private final Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundCasseJarre.mp3").toUri().toString());
 
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
@@ -72,7 +72,7 @@ public class SalleController {
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
-                new MediaPlayer(gemmePlacePillier).play();
+                new MediaPlayer(soundGemmeOnPilar).play();
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
@@ -134,7 +134,7 @@ public class SalleController {
             ItemId selected = MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection();
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(selected);
             imageItemPilier.setImage(selected.getImage());
-            new MediaPlayer(gemmePlacePillier).play();
+            new MediaPlayer(soundGemmeOnPilar).play();
             return selected;
         } else {
             MainSalleGroupe2.stepManager.getInventaire().ajouterItem(itemPilier);
@@ -173,7 +173,8 @@ public class SalleController {
     }
 
     private void animationPorte() {
-        ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 1.1), translateTransition(porteDroite, 180,0, 1.1));
+        ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 9), translateTransition(porteDroite, 180,0, 9));
+        soundOpenDoor.play();
         parallelPorte.playFromStart();
     }
 
@@ -229,12 +230,7 @@ public class SalleController {
 
 
 
-        parallelPilierTombe.setOnFinished(event -> {
-
-
-            gemmeVerte.setVisible(true);
-            piece25Taquin.setVisible(true);
-        });
+        parallelPilierTombe.setOnFinished(event -> gemmeVerte.setVisible(true));
 
         parallelPilierTombe.play();
 
