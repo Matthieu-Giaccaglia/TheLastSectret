@@ -27,6 +27,7 @@ import javafx.scene.image.ImageView;
 
 
 public enum ItemId {
+    CLE_LABY(new ImageView(ImageLoader.getImage("groupe1/final/cle.jpg"))),
     taquinPiece12(new ImageView(ImageLoader.getImage("groupe2/taquin/piece12.png"))),
     gemmeBleue(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeBleue.png"))),
     gemmeVerte(new ImageView(ImageLoader.getImage("groupe2/salle/gemmeVerte.png"))),
