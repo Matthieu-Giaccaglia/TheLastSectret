@@ -25,6 +25,8 @@ import java.util.Random;
 
 public class TaquinController {
 
+    public ImageView indice;
+    public ImageView taquinIndice;
     @FXML
     private Button buttonFinish;
     @FXML
@@ -261,5 +263,8 @@ public class TaquinController {
                 } else{
                     return pieceOnze;
                 }
+    }
+
+    public void showIndice(MouseEvent mouseEvent) {
     }
 }
