@@ -205,13 +205,13 @@ public class SalleController {
     private void animationPilierTombe() {
 
         RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1), pilierGrand);
-        rotatePilierTombe.setByAngle(-45.8);
+        rotatePilierTombe.setByAngle(-58);
 
         ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1), pilierGrand);
-        scalePilierTombe.setByX(-0.2);
-        scalePilierTombe.setByY(-0.2);
+        scalePilierTombe.setByX(-0.15);
+        scalePilierTombe.setByY(-0.15);
 
-        ParallelTransition parallelPilierTombe = new ParallelTransition(translateTransition(pilierGrand,-232,44,1), rotatePilierTombe, scalePilierTombe);
+        ParallelTransition parallelPilierTombe = new ParallelTransition(translateTransition(pilierGrand,-198,44,1), rotatePilierTombe, scalePilierTombe);
         parallelPilierTombe.setInterpolator(new Interpolator() {
 
             private double factor = 1.25;
@@ -230,13 +230,7 @@ public class SalleController {
 
 
         parallelPilierTombe.setOnFinished(event -> {
-            Path path = new Path(
-                    new MoveTo(0, 0),
-                    new QuadCurveTo(-10, 50, -300, 200)
-                    );
 
-            PathTransition pathTransition = new PathTransition(Duration.seconds(1),path,gemmeTropHaute);
-            pathTransition.play();
 
             gemmeVerte.setVisible(true);
             piece25Taquin.setVisible(true);
@@ -248,7 +242,7 @@ public class SalleController {
         textfield.setVisible(false);
         textfield.setDisable(true);
         pilierGrand.setDisable(true);
-        //gemmeTropHaute.setVisible(false);
+        gemmeTropHaute.setVisible(false);
         gemmeTropHaute.setDisable(true);
         gemmeVerte.setDisable(false);
         lumiereUn.setVisible(true);
