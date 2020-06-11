@@ -59,8 +59,6 @@ public class TrapezeController implements Initializable {
         }
     }
 
-    Clef clefTrapeze = new Clef(0,0);
-
 
     /*------------------- 1er -------------------*/
     @FXML
