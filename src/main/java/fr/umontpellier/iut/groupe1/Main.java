@@ -4,7 +4,6 @@ import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe1.labyrinthe.StructureLabyrinthe;
-import fr.umontpellier.iut.groupe1.utils.Callback;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe1.view.StepManager;
@@ -46,6 +45,7 @@ public class Main extends Application {
                 MediaPlayer heartSound = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
                 heartSound.play();
             });
+
             stepManager.addStep(visuCerco);
             Step<Parent> cerco = new Step<>(StepID.CAM7, LayoutLoader.getLayout2("groupe1/salles/layout_cam7.fxml"));
             cerco.setOnStart(() -> {
@@ -53,6 +53,7 @@ public class Main extends Application {
                 zombiesound.setVolume(0.5);
                 zombiesound.play();
             });
+
             stepManager.addStep(cerco);
             Step<Parent> tableTradu = new Step<>(StepID.CAM8, LayoutLoader.getLayout2("groupe1/salles/layout_cam8.fxml"));
             tableTradu.setOnStart(() -> {
@@ -60,6 +61,7 @@ public class Main extends Application {
                 zombiesound.setVolume(0.5);
                 zombiesound.play();
             });
+
             stepManager.addStep(tableTradu);
 
             stepManager.addStep(new Step<>(StepID.CAM9, LayoutLoader.getLayout2("groupe1/salles/layout_cam9.fxml")));
