@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
 <StackPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe2.lightsout.LightsOutController">
     <AnchorPane maxHeight="1017.0" maxWidth="1920.0" minHeight="1017.0" minWidth="1920.0" prefHeight="1017.0" prefWidth="1920.0">
         <ImageView fitHeight="1018.0" fitWidth="1931.0" pickOnBounds="true" preserveRatio="true">
@@ -136,22 +133,6 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
         </ImageView>
-      <Button defaultButton="true" layoutX="372.0" layoutY="494.0" lineSpacing="6.0" mnemonicParsing="false" onAction="#finished2" opacity="0.64" prefHeight="108.0" prefWidth="121.0" text="finish" textFill="#00ff57" textOverrun="CLIP" underline="true">
-         <font>
-            <Font name="System Italic" size="31.0" />
-         </font>
-         <effect>
-            <MotionBlur angle="133.95" radius="5.86">
-               <input>
-                  <BoxBlur height="121.57" iterations="0" width="67.26">
-                     <input>
-                        <Blend />
-                     </input>
-                  </BoxBlur>
-               </input>
-            </MotionBlur>
-         </effect>
-      </Button>
         <ImageView disable="true" fitHeight="1018.0" fitWidth="1920.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../../raw/groupe2/salle/fondSombre.png" />
         </ImageView>
