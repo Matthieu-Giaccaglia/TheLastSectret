@@ -16,7 +16,7 @@ public class Step<T extends Parent> {
 
     private void init(){
         setVisible(true);
-        //if(layout.getController() != null && layout.getController() instanceof Openable) ((Openable) layout.getController()).open();
+        if(layout.getController() != null && layout.getController() instanceof Openable) ((Openable) layout.getController()).open();
     }
 
     public T open(){
