@@ -47,14 +47,8 @@ public class CamThreeController implements Initializable, Openable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         cadrePorte.fitWidthProperty().bind(Main.stage.widthProperty());
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
-
-        serrureCle.setOnMouseClicked(mouseEvent -> {
-            if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
-                cle.setVisible(true);
-            }
 
             insertionCle = new AnimationTimer() {
                 @Override
@@ -88,14 +82,21 @@ public class CamThreeController implements Initializable, Openable {
                         }
                     }
                 }
-            };insertionCle.start();
+            };
+
+        serrureCle.setOnMouseClicked(mouseEvent -> {
+            if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY && serrureCle.isVisible()) {
+                cle.setVisible(true);
+                Main.stepManager.getInventaire().retirerItem(ItemId.CLE_LABY);
+                insertionCle.start();
+            }
         });
     }
 
     @Override
     public void open() {
         if(Main.stepManager.getEnigmeReussi(StepID.CAM4)) {
-            //setBackgrounds();
+            serrureCle.setVisible(true);
         }
     }
 
