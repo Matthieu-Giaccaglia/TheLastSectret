@@ -50,6 +50,9 @@ public class SalleController {
     private final MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
     private final MediaPlayer soundOpenDoor = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundOpenDoor.mp3").toUri().toString()));
     private final Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundCasseJarre.mp3").toUri().toString());
+    private final MediaPlayer soundPilierMouv1 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge1.mp3").toUri().toString()));
+    private final MediaPlayer soundPilierMouv2 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge2.mp3").toUri().toString()));
+
 
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
@@ -196,8 +199,8 @@ public class SalleController {
         return tranlateTransition;
     }
 
-    private void animationPilierTremblement() {
-        ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,-2,-2,0.1), translateTransition(gemmeTropHaute,-2,-2,0.1));
+    private void animationPilierTremblement(double x, double y) {
+        ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,x,y,0.5), translateTransition(gemmeTropHaute,x,y,0.5));
         parallelPilier.setCycleCount(2);
         parallelPilier.setAutoReverse(true);
         parallelPilier.play();
@@ -206,8 +209,13 @@ public class SalleController {
 
     public void animationPilier() {
         compteur ++;
-        animationPilierTremblement();
-        if (compteur >= 3){
+        if (compteur == 1){
+            soundPilierMouv1.play();
+            animationPilierTremblement(-2, -2);
+        } else if(compteur == 2){
+            soundPilierMouv2.play();
+            animationPilierTremblement(-6, -6);
+        } else if (compteur >= 3){
             animationPilierTombe();
         }
     }

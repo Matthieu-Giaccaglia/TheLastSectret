@@ -153,9 +153,10 @@ public class TaquinController {
 
 
     public void recupGemme() {
-
-        MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
-        gemme.setVisible(false);
+        if(MainSalleGroupe2.stepManager.getInventaire().inventairePasPlein()) {
+            MainSalleGroupe2.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
+            gemme.setVisible(false);
+        }
     }
 
 
