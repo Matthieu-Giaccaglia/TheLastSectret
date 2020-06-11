@@ -25,6 +25,8 @@ import java.util.Random;
 public class TaquinController {
 
     @FXML
+    private TextField pasCassable;
+    @FXML
     private ImageView mur;
     @FXML
     private ImageView gemme;
@@ -161,7 +163,8 @@ public class TaquinController {
 
 
     public void casserLeMur() {
-        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau)
+        if (MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau) {
+        pasCassable.setVisible(false);
         compteur++;
         System.out.println(compteur);
         if(compteur == 1){
@@ -174,6 +177,7 @@ public class TaquinController {
             gemme.setDisable(false);
             MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.marteau);
         }
+        }else pasCassable.setVisible(true);
     }
 
     public void finish() {

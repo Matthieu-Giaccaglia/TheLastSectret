@@ -80,5 +80,9 @@
             <Font size="29.0" />
          </font>
       </Button>
+      <TextField fx:id="pasCassable" disable="true" layoutX="763.0" layoutY="302.0" onAction="#casserLeMur" opacity="0.76" prefHeight="63.0" prefWidth="426.0" text="J'ai besoin de quelque chose pour casser le mur" visible="false">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextField>
    </AnchorPane>
 </StackPane>
