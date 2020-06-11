@@ -7,7 +7,6 @@ import javafx.animation.ParallelTransition;
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -210,12 +209,7 @@ public class LightsOutController {
             }
         }
     }
-    /*
-    public void createKeyframe(){}
-    public void shakeEffect{
 
-    }
-    */
     public ParallelTransition animationClique(Node idBrick){
         if(idBrick.isDisable()) {
             ScaleTransition scaleBrick = new ScaleTransition(Duration.seconds(0.2), idBrick);
