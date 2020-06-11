@@ -3,7 +3,6 @@ package fr.umontpellier.iut.groupe1.enigmesymbole;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -22,19 +21,11 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     public void gagne(){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Mouais...");
-        alert.setHeaderText(null);
-        alert.setContentText("Ntm t'as win PD va");
-        alert.show();
+        Main.stepManager.dialogue("C'tait quoi ce bruit ? Une pierre ? Je devrais aller voir.");
     }
 
     public void mauvaiseCombi(){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Et c'est dommage !");
-        alert.setHeaderText(null);
-        alert.setContentText("Tu devrais te remettre en question...\nC'est la mauvaise combinaison !\nDépêche-toi ou elle t'attrapera !");
-        alert.show();
+        Main.stepManager.dialogue("Mince... Ca n'est pas ça, rien ne s'est passé.");
     }
 
     public void sonOOF(){

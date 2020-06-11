@@ -27,7 +27,7 @@ public class StructureLabyrinthe extends Group {
     private final List<Mur> listeMur = new ArrayList<>();
     private double vitesseDeplacementRotation = 3;
     private int nombreMort = 0;
-    private final Label compteurMort = new Label("Compteur de morts : " + nombreMort);
+    private final Label compteurMort = new Label("Compteur de morts : " + nombreMort + "   (appuyer sur ECHAP pour quitter)");
     private final AnimationTimer timer;
     private final Boule boule;
     private final Checkpoint[] checkpoint = new Checkpoint[1];
@@ -367,7 +367,7 @@ public class StructureLabyrinthe extends Group {
                         boule.setTranslateX(checkpoint[0].getTranslateX());
                         boule.setTranslateY(checkpoint[0].getTranslateY());
                         nombreMort++;
-                        compteurMort.setText("Compteur de morts : " + nombreMort);
+                        compteurMort.setText("Compteur de morts : " + nombreMort + "   (appuyer sur ECHAP pour quitter)");
                         if(mur == mur30){
                             mur30.setVisible(true);
                         }else if(mur == mur68){
@@ -415,23 +415,23 @@ public class StructureLabyrinthe extends Group {
 
         stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
             vitesseDeplacementRotation = 3;
-            if (keyEvent.getCode() == KeyCode.LEFT) {
+            if (keyEvent.getCode() == KeyCode.LEFT && Main.stepManager.getCurrentStep() == StepID.LABYRINTHE) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() - vitesseDeplacementRotation);
             }
-            if (keyEvent.getCode() == KeyCode.RIGHT) {
+            if (keyEvent.getCode() == KeyCode.RIGHT && Main.stepManager.getCurrentStep() == StepID.LABYRINTHE) {
                 addRotate(boule, new Point3D(0, boule.getTranslateY(), 0), - vitesseDeplacementRotation);
                 boule.setTranslateX(boule.getTranslateX() + vitesseDeplacementRotation);
             }
-            if (keyEvent.getCode() == KeyCode.UP) {
+            if (keyEvent.getCode() == KeyCode.UP && Main.stepManager.getCurrentStep() == StepID.LABYRINTHE) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), - vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() - vitesseDeplacementRotation);
             }
-            if (keyEvent.getCode() == KeyCode.DOWN) {
+            if (keyEvent.getCode() == KeyCode.DOWN && Main.stepManager.getCurrentStep() == StepID.LABYRINTHE) {
                 addRotate(boule, new Point3D(boule.getTranslateX(), 0, 0), vitesseDeplacementRotation);
                 boule.setTranslateY(boule.getTranslateY() + vitesseDeplacementRotation);
             }
-            if(keyEvent.getCode() == KeyCode.ESCAPE){
+            if(keyEvent.getCode() == KeyCode.ESCAPE && Main.stepManager.getCurrentStep() == StepID.LABYRINTHE){
                 Main.stepManager.openStep(StepID.CAM1);
                 relancerJeu();
             }
