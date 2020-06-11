@@ -8,6 +8,9 @@
 
    <ImageView fx:id="background" fitHeight="480" fitWidth="800" pickOnBounds="true">
       <Image url="@../../../raw/groupe1/salles/cam2.jpg" />
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ImageView>
 
    <GridPane>
@@ -40,6 +43,9 @@
    </ImageView>
    <ImageView fx:id="indice11" fitHeight="300.0" fitWidth="350.0" onMousePressed="#handleButton" pickOnBounds="true" preserveRatio="true" visible="false">
          <Image url="@../../../raw/groupe1/final/indice1.png" />
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ImageView>
 
 </StackPane>
