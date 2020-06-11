@@ -222,12 +222,14 @@ public class SalleController {
         ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,x,y,0.5), translateTransition(gemmeTropHaute,x,y,0.5));
         parallelPilier.setCycleCount(2);
         parallelPilier.setAutoReverse(true);
+        parallelPilier.setOnFinished(event -> pilierGrand.setDisable(false));
         parallelPilier.play();
     }
 
 
     public void animationPilier() {
         compteur ++;
+        pilierGrand.setDisable(true);
         if (compteur == 1){
             soundPilierMouv1.play();
             animationPilierTremblement(-2, -2);
