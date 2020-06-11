@@ -19,7 +19,7 @@ public class MenuPause extends Group {
 
         ButtonMenu buttonReprendre = new ButtonMenu("Reprendre", sizeStageX, 150, sizeStageX, 25);
         buttonReprendre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(false));
-        buttonReprendre.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonReprendre.setCursor(Cursor.CLOSED_HAND));
+        buttonReprendre.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonReprendre.setCursor(Cursor.HAND));
 
         ButtonMenu buttonOption = new ButtonMenu("Option", sizeStageX, 200, sizeStageX, 25);
         buttonOption.setOnMouseClicked(mouseEvent -> {
@@ -29,14 +29,14 @@ public class MenuPause extends Group {
             alert.setContentText("Cette option n'a pas encore été développé.");
             alert.show();
         });
-        buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.CLOSED_HAND));
+        buttonOption.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonOption.setCursor(Cursor.HAND));
 
         ButtonMenu buttonQuitter = new ButtonMenu("Quitter", sizeStageX,250, sizeStageX, 25);
         buttonQuitter.setOnMouseClicked(mouseEvent -> {
             System.out.println("button quitter");
             //TODO renvoyer sur le menu principal
         });
-        buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.CLOSED_HAND));
+        buttonQuitter.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonQuitter.setCursor(Cursor.HAND));
 
         this.getChildren().addAll(buttonPause, buttonReprendre, buttonOption, buttonQuitter);
 
