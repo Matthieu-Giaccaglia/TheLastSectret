@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+
 public class MenuPause extends Group {
 
     //TODO MENU PAUSE : mettre tout en inaccessible

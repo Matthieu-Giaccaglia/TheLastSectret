@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe2;
 
+import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import fr.umontpellier.iut.groupe2.view.StepID;
 import javafx.animation.*;
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -18,6 +21,7 @@ import java.nio.file.Paths;
 public class SalleController {
 
 
+    public StackPane allSalle;
     @FXML
     private ImageView retour, taquinImage;
     @FXML
@@ -50,6 +54,11 @@ public class SalleController {
     private final MediaPlayer soundPilierTombe = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPilierTombe.mp3").toUri().toString()));
     private final MediaPlayer soundOpenDoor = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundOpenDoor.mp3").toUri().toString()));
     private final Media soundCasseJarre = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundCasseJarre.mp3").toUri().toString());
+    private final MediaPlayer soundPilierMouv1 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge1.mp3").toUri().toString()));
+    private final MediaPlayer soundPilierMouv2 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge2.mp3").toUri().toString()));
+    private final Media soundPoussePorte = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPoussePorte.mp3").toUri().toString());
+
+
 
     //private MediaPlayer mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
 
@@ -68,11 +77,13 @@ public class SalleController {
         textfield.setVisible(true);
     }
 
-    public void bouttonRajoute(){
+    public void bouttonAllumer(){
         if(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection() == ItemId.boutonLumiere){
             if(fondSombre.isVisible()){
                 fondSombre.setVisible(false);
+                fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
+                buttonMissing.setImage(ImageLoader.getImage("groupe2/lightsout/BRIQUE_1.png"));
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
@@ -189,6 +200,18 @@ public class SalleController {
         parallelPorte.playFromStart();
     }
 
+    public void openDoorTry(){
+        ParallelTransition parrelPorte = new ParallelTransition(translateTransition(porteGauche, -20,0, 6.5), translateTransition(porteDroite, 20,0, 6.5));
+        new MediaPlayer(soundPoussePorte).play();
+        allSalle.setDisable(true);
+        parrelPorte.setOnFinished(event -> {
+            allSalle.setDisable(false);
+            ParallelTransition parrelPorte2 = new ParallelTransition(translateTransition(porteGauche, 20,0, 0.1), translateTransition(porteDroite, -20,0, 0.1));
+            parrelPorte2.playFromStart();
+        });
+        parrelPorte.playFromStart();
+    }
+
     private TranslateTransition translateTransition(ImageView porte, double x, double y, double temps){
         TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
         tranlateTransition.setByX(x);
@@ -196,8 +219,8 @@ public class SalleController {
         return tranlateTransition;
     }
 
-    private void animationPilierTremblement() {
-        ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,-2,-2,0.1), translateTransition(gemmeTropHaute,-2,-2,0.1));
+    private void animationPilierTremblement(double x, double y) {
+        ParallelTransition parallelPilier = new ParallelTransition(translateTransition(pilierGrand,x,y,0.5), translateTransition(gemmeTropHaute,x,y,0.5));
         parallelPilier.setCycleCount(2);
         parallelPilier.setAutoReverse(true);
         parallelPilier.play();
@@ -206,8 +229,13 @@ public class SalleController {
 
     public void animationPilier() {
         compteur ++;
-        animationPilierTremblement();
-        if (compteur >= 3){
+        if (compteur == 1){
+            soundPilierMouv1.play();
+            animationPilierTremblement(-2, -2);
+        } else if(compteur == 2){
+            soundPilierMouv2.play();
+            animationPilierTremblement(-6, -6);
+        } else if (compteur >= 3){
             animationPilierTombe();
         }
     }
@@ -275,4 +303,6 @@ public class SalleController {
             jarreVideDeuxCassee.setVisible(true);
         }
     }
+
+
 }
