@@ -19,7 +19,7 @@
             <Image url="@../../../raw/groupe2/lightsout/background.jpg" />
         </ImageView>
         <AnchorPane fx:id="anchorPane" maxHeight="900.0" maxWidth="900.0" minHeight="602.0" minWidth="900.0" prefHeight="602.0" prefWidth="900.0" snapToPixel="false" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0">
-            <GridPane fx:id="gridMain" layoutX="193.0" layoutY="65.0" prefHeight="398.0" prefWidth="515.0">
+            <GridPane fx:id="gridMain" layoutX="68.0" layoutY="49.0" prefHeight="571.0" prefWidth="765.0">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,7 +48,7 @@
                     <Image url="@../../../raw/groupe2/lightsout/BRIQUE_3.png" />
                 </ImageView>
                 <ImageView fx:id="trois" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_1.png" />
+                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_2.png" />
                 </ImageView>
                 <ImageView fx:id="deux" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                     <Image url="@../../../raw/groupe2/lightsout/BRIQUE_2.png" />
@@ -66,7 +66,7 @@
                     <Image url="@../../../raw/groupe2/lightsout/BRIQUE_2.png" />
                 </ImageView>
                 <ImageView fx:id="neuf" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_1.png" />
+                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_3.png" />
                 </ImageView>
                 <ImageView fx:id="huit" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <Image url="@../../../raw/groupe2/lightsout/BRIQUE_2.png" />
@@ -74,18 +74,18 @@
                 <ImageView fx:id="quinze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                     <Image url="@../../../raw/groupe2/lightsout/brick_1.png" />
                 </ImageView>
-                <ImageView fx:id="seize" disable="true" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <ImageView fx:id="seize" disable="true" fitHeight="100.0" fitWidth="187.0" onMouseClicked="#light_switch" opacity="0.5" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" GridPane.columnIndex="3" GridPane.rowIndex="3">
                     <Image url="@../../../raw/groupe2/lightsout/brick_1.png" />
                 </ImageView>
                 <ImageView fx:id="quatorze" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#light_switch" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_1.png" />
+                    <Image url="@../../../raw/groupe2/lightsout/BRIQUE_3.png" />
                 </ImageView>
             </GridPane>
         </AnchorPane>
         <AnchorPane layoutX="1702.0" layoutY="919.0" prefHeight="84.0" prefWidth="202.0">
             <fx:include source="../back.fxml" StackPane.alignment="BOTTOM_LEFT" />
         </AnchorPane>
-        <ImageView fx:id="buttonBrick" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#finished" layoutX="885.0" layoutY="706.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="buttonBrick" fitHeight="150.0" fitWidth="200.0" layoutX="886.0" layoutY="726.0" onMouseClicked="#finished" opacity="0.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../../raw/groupe2/lightsout/brick.png" />
         </ImageView>
       <Button defaultButton="true" layoutX="372.0" layoutY="494.0" lineSpacing="6.0" mnemonicParsing="false" onAction="#finished2" opacity="0.64" prefHeight="108.0" prefWidth="121.0" text="finish" textFill="#00ff57" textOverrun="CLIP" underline="true">
