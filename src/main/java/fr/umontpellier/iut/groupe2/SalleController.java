@@ -205,7 +205,7 @@ public class SalleController {
     private void animationPilierTombe() {
 
         RotateTransition rotatePilierTombe = new RotateTransition(Duration.seconds(1), pilierGrand);
-        rotatePilierTombe.setByAngle(-39.8);
+        rotatePilierTombe.setByAngle(-45.8);
 
         ScaleTransition scalePilierTombe = new ScaleTransition(Duration.seconds(1), pilierGrand);
         scalePilierTombe.setByX(-0.2);
