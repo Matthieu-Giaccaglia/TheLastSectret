@@ -27,7 +27,7 @@ public class MainController implements Initializable {
 
         parametre.setOnMouseClicked(mouseEvent -> Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning()));
         Main.stage.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
-            if(keyEvent.getCode() == KeyCode.ESCAPE && Main.stepManager.getCurrentStep() != StepID.LABYRINTHE)
+            if(keyEvent.getCode() == KeyCode.ESCAPE && Main.stepManager.getCurrentStep() != StepID.LABYRINTHE) //TODO Voir pk ça quitte
                 Main.stepManager.setPause(Main.stepManager.getThreadTimer().isRunning());
         });
 
