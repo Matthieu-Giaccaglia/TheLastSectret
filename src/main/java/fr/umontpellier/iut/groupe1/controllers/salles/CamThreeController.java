@@ -52,10 +52,35 @@ public class CamThreeController implements Initializable, Openable {
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
 
         serrureCle.setOnMouseClicked(mouseEvent -> {
-            if(Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
+            if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
                 cle.setVisible(true);
             }
+            cle.setVisible(true);
 
+            /*System.out.println("1");
+            while (cle.getFitWidth() > 82 && cle.getFitHeight() > 82) {
+                System.out.println("2");
+                cleInsertion.play();
+                cleInsertion.setVolume(0.30);
+                cle.setFitWidth(cle.getFitWidth() - 0.2);
+                cle.setFitHeight(cle.getFitHeight() - 0.2);
+                cle.setTranslateX(cle.getTranslateX() - 0.1);
+                cle.setTranslateY(cle.getTranslateY() - 0.1);
+            }
+
+            cleInsertion.stop();
+
+            try {
+                Thread.sleep(3000);
+                attente = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            while (!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
+                ouverturePorte.play();
+                porte.setTranslateY(porte.getTranslateY() - 2);
+            }*/
             insertionCle = new AnimationTimer() {
                 @Override
                 public void handle(long l) {
@@ -77,23 +102,8 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            /*TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(6), porte);
-                            translateTransition.setByY(-1000);
-                            translateTransition.setInterpolator(Interpolator.LINEAR);
-                            translateTransition.setOnFinished(event -> {
+                            porte.setTranslateY(porte.getTranslateY() - 2);
 
-                            });
-                            translateTransition.play();*/
-
-                            Timeline timeline = new Timeline();
-                            KeyFrame keyFrame = new KeyFrame(
-                                    Duration.seconds(0.8),
-                                    event -> {
-                                        porte.setTranslateY(porte.getTranslateY() - 2);
-                                    });
-                            timeline.getKeyFrames().add(keyFrame);
-                            timeline.setCycleCount(Animation.INDEFINITE);
-                            timeline.play();
                         }
                     }
                 }
@@ -112,6 +122,12 @@ public class CamThreeController implements Initializable, Openable {
         if(mouseEvent.getSource().equals(arrowBack)){
             Main.stepManager.openStep(StepID.CAM1);
         }
+    }
+
+    private TranslateTransition translateTransition(ImageView porte, double y, double temps){
+        TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
+        tranlateTransition.setToY(y);
+        return tranlateTransition;
     }
 
     /*public void setBackgrounds() {
