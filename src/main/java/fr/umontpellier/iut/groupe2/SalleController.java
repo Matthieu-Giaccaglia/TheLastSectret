@@ -128,7 +128,7 @@ public class SalleController {
         } else if (( mouseEvent.getSource() == socleBleu || mouseEvent.getSource() == gemmeBleuEmplacement )) {
             itemPilierBleu = changeEtatPilier(gemmeBleuEmplacement, itemPilierBleu);
         } else if (( mouseEvent.getSource() == socleRouge || mouseEvent.getSource() == gemmeRougeEmplacement )) {
-            itemPilierRouge = changeEtatPilier(gemmeRougeEmplacement, itemPilierBleu);
+            itemPilierRouge = changeEtatPilier(gemmeRougeEmplacement, itemPilierRouge);
         }
         changeEtatLumiere();
     }
