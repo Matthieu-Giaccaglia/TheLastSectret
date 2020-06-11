@@ -49,8 +49,8 @@
          <ImageView fx:id="jarreMarteau" fitHeight="185.0" fitWidth="132.0" layoutX="1145.0" layoutY="369.0" onMouseClicked="#casseJarre" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../raw/groupe2/salle/jarre.png" />
          </ImageView>
-         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1430.0" layoutY="326.0" onMouseClicked="#bouttonAllumer" opacity="0.45" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../raw/groupe2/salle/Oak_Button.png" />
+         <ImageView fx:id="buttonMissing" fitHeight="55.0" fitWidth="61.0" layoutX="1430.0" layoutY="326.0" onMouseClicked="#bouttonAllumer" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../raw/groupe2/salle/trouBirque.png" />
          </ImageView>
          <ImageView fx:id="pilierGrand" fitHeight="950.0" fitWidth="268.0" layoutX="1655.0" onMouseClicked="#animationPilier" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <Image url="@../../raw/groupe2/salle/pilier.png" />

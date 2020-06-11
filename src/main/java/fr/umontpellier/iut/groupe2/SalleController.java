@@ -83,7 +83,7 @@ public class SalleController {
                 fondSombre.setVisible(false);
                 fondSombre.setDisable(true);
                 new MediaPlayer(soundGemmeOnPilar).play();
-                buttonMissing.setImage(ImageLoader.getImage("groupe2/lightsout/BRIQUE_1.png"));
+                buttonMissing.setImage(MainSalleGroupe2.stepManager.getInventaire().getItemIdSelection().getImage());
                 buttonMissing.setOpacity(1);
                 MainSalleGroupe2.stepManager.getInventaire().retirerItem(ItemId.boutonLumiere);
             }
