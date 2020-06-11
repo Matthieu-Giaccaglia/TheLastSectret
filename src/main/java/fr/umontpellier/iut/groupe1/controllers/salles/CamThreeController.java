@@ -44,7 +44,6 @@ public class CamThreeController implements Initializable, Openable {
             if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.CLE_LABY) {
                 cle.setVisible(true);
             }
-            cle.setVisible(true);
 
             insertionCle = new AnimationTimer() {
                 @Override
