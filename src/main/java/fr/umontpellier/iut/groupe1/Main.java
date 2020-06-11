@@ -29,7 +29,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         stage = primaryStage;
         primaryStage.setMaximized(true);
 
@@ -56,10 +55,11 @@ public class Main extends Application {
             stepManager.addStep(new Step<>(StepID.LABYRINTHE, new Layout<>(new StructureLabyrinthe(500, 450, primaryStage), null)));
             stepManager.addStep(new Step<>(StepID.GAMEOVER, LayoutLoader.getLayout2("groupe1/gameOver.fxml")));
 
-            /*Step<Parent> inventaire = new Step<>(StepID.INVENTAIRE, LayoutLoader.getLayout2("groupe2/inventaire.fxml"));
-            InventaireController inventaireController = inventaire.getLayout().getControllerInventaire().getInventaire();
-            stepManager.setInventaire(new Inventaire(inventaireController));
-            stepManager.addStep(inventaire);*/
+            stepManager.addStep(new Step<>(StepID.START, LayoutLoader.getLayout2("groupe2/layout_game.fxml")));
+            stepManager.addStep(new Step<>(StepID.TAQUIN, LayoutLoader.getLayout2("groupe2/taquin/taquin.fxml")));
+
+            stepManager.addStep(new Step<>(StepID.LIGHTSOUT, LayoutLoader.getLayout2("groupe2/lightsout/lightsout.fxml")));
+
 
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

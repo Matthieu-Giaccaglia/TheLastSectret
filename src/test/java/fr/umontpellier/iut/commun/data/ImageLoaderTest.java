@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.commun.data;
 
+import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import javafx.scene.image.Image;
 import org.junit.jupiter.api.Test;
 

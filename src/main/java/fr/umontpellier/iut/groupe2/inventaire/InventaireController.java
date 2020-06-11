@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe2.inventaire;
 
-import fr.umontpellier.iut.commun.data.ImageLoader;
+import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe1.data.ControllerManagerInventaire;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
