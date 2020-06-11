@@ -5,16 +5,12 @@ import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.animation.*;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -25,15 +21,9 @@ public class CamThreeController implements Initializable, Openable {
     @FXML
     private ImageView arrowBack;
     @FXML
-    private ImageView noir;
-    @FXML
     private ImageView serrureCle;
     @FXML
-    private Rectangle rectangle;
-    @FXML
     private ImageView cle;
-    @FXML
-    private StackPane stackpanePorte;
     @FXML
     private ImageView cadrePorte;
     @FXML
@@ -46,7 +36,6 @@ public class CamThreeController implements Initializable, Openable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
         cadrePorte.fitWidthProperty().bind(Main.stage.widthProperty());
         cadrePorte.fitHeightProperty().bind(Main.stage.heightProperty());
@@ -69,8 +58,8 @@ public class CamThreeController implements Initializable, Openable {
                         cle.setTranslateY(cle.getTranslateY() - 0.1);
                     }else {
 
-                        insertionCle.stop();
                         cleInsertion.stop();
+
                         if(attente){
                             try {
                                 Thread.sleep(3000);
@@ -80,14 +69,14 @@ public class CamThreeController implements Initializable, Openable {
                             }
                         }else if(!(porte.getBoundsInParent().getMaxY() <= cadrePorte.getBoundsInParent().getMinY())){
                             ouverturePorte.play();
-                            //porte.setTranslateY(porte.getTranslateY() - 2);
-                            ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porte, -500, 9));
+                            ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porte, 0,-900));
                             parallelPorte.playFromStart();
-                            System.out.println("1");
+                            insertionCle.stop();
                         }
                     }
                 }
-            };insertionCle.start();
+            };
+            insertionCle.start();
         });
     }
 
@@ -104,14 +93,11 @@ public class CamThreeController implements Initializable, Openable {
         }
     }
 
-    private TranslateTransition translateTransition(ImageView porte, double y, double temps){
-        TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(temps), porte);
+    private TranslateTransition translateTransition(ImageView porte, double x, double y){
+        TranslateTransition tranlateTransition = new TranslateTransition(Duration.seconds(8), porte);
         tranlateTransition.setByY(y);
+        tranlateTransition.setByX(x);
         return tranlateTransition;
     }
 
-    /*public void setBackgrounds() {
-        backgroundSansCarre.setVisible(false);
-        backgroundAvecCarre.setVisible(true);
-    }*/
 }
