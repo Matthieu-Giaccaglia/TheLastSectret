@@ -8,6 +8,7 @@ public class ThreadTimer extends Thread implements Runnable{
     private int secondes;
     private final Label label;
     private boolean running, stopped;
+    long now = System.currentTimeMillis(), delta;
 
     public ThreadTimer(Label label, int secondes){
         this.label = label;
@@ -34,6 +35,21 @@ public class ThreadTimer extends Thread implements Runnable{
             }
 
             if(running){
+
+                // Tes appels à tout ce que tu veux
+
+                delta = -now + (now = System.currentTimeMillis());
+                if(delta < 16){//60 FPS --> environ 16ms par frame
+                    try {
+                        Thread.sleep(16-delta);
+                        now += 16-delta; // ou now = System.currentTimeMillis(), ou n'importe quoi qui fasse le même truc
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                System.out.println(delta);
+
                 if(secondes%60 <10 && secondes%60 >= 0){
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
                     try {
