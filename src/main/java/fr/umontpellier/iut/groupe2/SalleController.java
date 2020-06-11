@@ -122,6 +122,8 @@ public class SalleController {
             socleBleu.setDisable(true);
             gemmeRougeEmplacement.setDisable(true);
             socleRouge.setDisable(true);
+            porteDroite.setDisable(true);
+            porteGauche.setDisable(true);
             System.out.println("C'est gagné");
             return true;
         }
@@ -195,6 +197,7 @@ public class SalleController {
 
     private void animationPorte() {
         estGagnant();
+
         ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 9), translateTransition(porteDroite, 180,0, 9));
         soundOpenDoor.play();
         parallelPorte.playFromStart();
