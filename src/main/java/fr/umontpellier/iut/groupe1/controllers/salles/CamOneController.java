@@ -4,6 +4,7 @@ import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -25,6 +26,8 @@ public class CamOneController implements Initializable {
     public ImageView goto6;
     @FXML
     public ImageView goto9;
+    @FXML
+    public Label buttonLabyrinthe;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,5 +46,7 @@ public class CamOneController implements Initializable {
             Main.stepManager.openStep(StepID.CAM6);
         else if(mouseEvent.getSource().equals(goto9))
             Main.stepManager.openStep(StepID.CAM9);
+        else if(mouseEvent.getSource().equals(buttonLabyrinthe))
+            Main.stepManager.openStep(StepID.LABYRINTHE);
     }
 }

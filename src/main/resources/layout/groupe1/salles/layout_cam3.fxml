@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<StackPane prefWidth="800.0" prefHeight="480.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamThreeController"
-           id="parent">
 
-   <ImageView fx:id="background" fitWidth="800" fitHeight="480" pickOnBounds="true">
-      <Image url="@../../../raw/groupe1/salles/cam3.jpg"/>
+<StackPane id="parent" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.groupe1.controllers.salles.CamThreeController">
+
+   <ImageView fx:id="backgroundSansCarre" fitHeight="480" fitWidth="800" pickOnBounds="true">
+      <Image url="@../../../raw/groupe1/salles/cam3sanscarre.jpg" />
+   </ImageView>
+   <ImageView fx:id="backgroundAvecCarre" fitHeight="480.0" fitWidth="800.0" pickOnBounds="true" visible="false">
+      <image>
+         <Image url="@../../../raw/groupe1/salles/cam3.jpg" />
+      </image>
    </ImageView>
 
    <GridPane>

@@ -12,7 +12,8 @@ public enum StepID {
     CAM7(8),
     CAM8(9),
     CAM9(10),
-    PAUSE(11);
+    PAUSE(11),
+    LABYRINTHE(12);
 
 
     private final int id;

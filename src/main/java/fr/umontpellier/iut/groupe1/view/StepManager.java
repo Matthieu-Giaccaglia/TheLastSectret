@@ -67,7 +67,7 @@ public class StepManager {
         }
 
         assert root != null;
-        stage.setScene(new Scene(root, 800, 480));
+        stage.setScene(new Scene(root, 800, 480, true));
     }
 
     public Inventaire getInventaire() {
@@ -99,6 +99,7 @@ public class StepManager {
             gameNode = stepMap.get(stepID).open();
             gameNode.setVisible(true);
             passageSalle.put(stepID, true);
+            enigmeReussi.put(stepID, true);
             putHudOnTop();
         } else {
             System.err.println("Ajoutez votre Step au StepManager avant de l'ouvrir !\n" +
