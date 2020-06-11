@@ -4,6 +4,7 @@ package fr.umontpellier.iut.groupe2.taquin;
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
@@ -265,6 +266,18 @@ public class TaquinController {
                 }
     }
 
-    public void showIndice(MouseEvent mouseEvent) {
+    public void showIndice() {
+        indice.setVisible(false);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(5),taquinIndice);
+        fadeTransition.setByValue(1);
+        fadeTransition.play();
+
+        fadeTransition.setOnFinished(event -> {
+            FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(2),taquinIndice);
+            fadeTransition2.setByValue(-1);
+            fadeTransition2.play();
+            indice.setVisible(true);
+        });
     }
 }
