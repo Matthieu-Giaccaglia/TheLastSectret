@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.groupe1.thread;
 
+import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
@@ -49,6 +51,10 @@ public class ThreadTimer extends Thread implements Runnable{
                 }
 
                 //System.out.println(delta);
+
+                if (secondes == 0){
+                    Main.stepManager.openStep(StepID.GAMEOVER);
+                }
 
                 if(secondes%60 <10 && secondes%60 >= 0){
                     Platform.runLater(() -> label.setText(secondes/60 + ":0" + secondes%60));
