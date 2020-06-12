@@ -58,11 +58,13 @@ public class CamOneController implements Initializable {
             sonHeart.setVolume(1.5);
             sonHeart.play();
             sonHeart.setCycleCount(2);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Je crois l'entendre.. Il va sortir ? Pitié non ! Je devrais me dépêcher.");
         } else if (mouseEvent.getSource().equals(goto9)){
             Main.stepManager.openStep(StepID.CAM9);
             fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Hum... A quoi ça peut servir ? Ca doit être l'ordre de quelque chose...\nMais quoi ?");
         }
-        else if(mouseEvent.getSource().equals(buttonLabyrinthe))
+        else if(mouseEvent.getSource().equals(buttonLabyrinthe)) {
             Main.stepManager.openStep(StepID.LABYRINTHE);
+        }
     }
 }
