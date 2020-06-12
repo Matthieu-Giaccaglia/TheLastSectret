@@ -114,10 +114,7 @@ public class TaquinController {
             translateAnimation.setByX(-800);
             translateAnimation.play();
 
-            translateAnimation.setOnFinished(event -> {
-                mur.setDisable(false);
-                System.out.println("mur désactivé");
-            });
+            translateAnimation.setOnFinished(event -> mur.setDisable(false));
 
             taquinAnchor.setDisable(true);
         }
@@ -263,7 +260,7 @@ public class TaquinController {
     }
 
     public void showIndice() {
-        compteur++;
+        compteurIndice++;
         indice.setVisible(false);
 
         thread = new Thread(() -> {
@@ -275,7 +272,7 @@ public class TaquinController {
             }
             taquinIndice.setVisible(false);
             indice.setVisible(true);
-            if (compteur >= 5) {
+            if (compteurIndice >= 5) {
                 buttonOui.setVisible(true);
                 buttonNon.setVisible(true);
                 textIndice.setVisible(true);
