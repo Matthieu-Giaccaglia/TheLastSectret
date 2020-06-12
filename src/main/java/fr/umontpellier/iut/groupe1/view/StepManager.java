@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.groupe1.view;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
+import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.Dialogue;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
@@ -17,8 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -132,6 +136,13 @@ public class StepManager {
     public void removeSallesGroupe1(){
         if(!passeVersGroupe2){
             passeVersGroupe2 = true;
+
+            Main.mediaPlayer.stop();
+
+            Main.mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
+            Main.mediaPlayer.setVolume(0.2);
+            Main.mediaPlayer.play();
+
             stepRoot.getChildren().clear();
             stepMap.clear();
 

@@ -25,7 +25,7 @@ public class Main extends Application {
 
     public static StepManager stepManager;
     public static Stage stage;
-
+    public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) {
@@ -40,9 +40,10 @@ public class Main extends Application {
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
 
-            MediaPlayer musiqueGermain = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
-            musiqueGermain.setVolume(0.2);
-            musiqueGermain.play();
+            mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
+            mediaPlayer.setVolume(0.2);
+            Main.mediaPlayer.setAutoPlay(true);
+            mediaPlayer.play();
 
             stepManager.addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));
 
@@ -64,12 +65,11 @@ public class Main extends Application {
 
             stepManager.addStep(new Step<>(StepID.LIGHTSOUT, LayoutLoader.getLayout2("groupe2/lightsout/lightsout.fxml")));
 
-
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();
         }
 
-        stepManager.openStep(StepID.START);
+        stepManager.openStep(StepID.ACCUEIL);
 
         primaryStage.show();
     }
