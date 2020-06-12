@@ -115,7 +115,7 @@ public class TaquinController {
             translateAnimation.play();
 
             translateAnimation.setOnFinished(event -> {
-                mur.setDisable(true);
+                mur.setDisable(false);
                 System.out.println("mur désactivé");
             });
 
