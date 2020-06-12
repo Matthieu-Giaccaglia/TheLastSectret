@@ -13,7 +13,7 @@ public class MenuAccueil extends Group {
 
     public MenuAccueil(double sizeStageX){
 
-        ButtonMenu buttonAccueil = new ButtonMenu("NomDuJeu", sizeStageX, 0, sizeStageX + 100, 50);
+        ButtonMenu buttonAccueil = new ButtonMenu("The Last Secret", sizeStageX, 0, sizeStageX + 100, 50);
         buttonAccueil.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 50));
 
         ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX + 100, 50);
@@ -22,7 +22,7 @@ public class MenuAccueil extends Group {
             Main.stepManager.openStep(StepID.CAM1);
             Main.stepManager.getThreadTimer().setRunning(true);
             fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Mince ! Je n'aurais pas dû venir dans le tombeau en cette période. Je devrais vite rebrousser chemin.\n" +
-                    "(Pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
+                    "(Pour le Labyrinth, pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
         });
         buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 

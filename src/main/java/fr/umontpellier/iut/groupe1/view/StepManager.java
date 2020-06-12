@@ -91,7 +91,7 @@ public class StepManager {
 
             putHudOnBottom();
 
-            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"), 1000);
+            threadTimer = new ThreadTimer((Label) timer.lookup("#timerDuJeu"), 1200);
             threadTimer.start();
         } catch (LayoutNotFoundException e) {
             e.printStackTrace();

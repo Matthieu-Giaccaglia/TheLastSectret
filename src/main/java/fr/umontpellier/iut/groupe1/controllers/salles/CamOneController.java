@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -38,7 +36,7 @@ public class CamOneController implements Initializable {
         background.fitHeightProperty().bind(Main.stage.heightProperty());
 
         buttonLabyrinthe.setPrefWidth(buttonLabyrinthe.getPrefWidth() * 2);
-        buttonLabyrinthe.setPrefHeight(buttonLabyrinthe.getPrefHeight() * 2);
+        buttonLabyrinthe.setPrefHeight(buttonLabyrinthe.getPrefHeight() * 2 -65);
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
