@@ -69,7 +69,7 @@ public class Main extends Application {
             e.printStackTrace();
         }
 
-        stepManager.openStep(StepID.ACCUEIL);
+        stepManager.openStep(StepID.START);
 
         primaryStage.show();
     }

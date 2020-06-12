@@ -127,10 +127,6 @@ public class SalleController {
             socleRouge.setDisable(true);
             porteDroite.setDisable(true);
             porteGauche.setDisable(true);
-            MediaPlayer cool = new MediaPlayer(Credit);
-            MediaView yes = new MediaView(cool);
-            allSalle.getChildren().add(yes);
-            cool.play();
             return true;
         }
         return false;
@@ -206,7 +202,14 @@ public class SalleController {
 
         ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 9), translateTransition(porteDroite, 180,0, 9));
         soundOpenDoor.play();
+        parallelPorte.setOnFinished(event -> {
+            MediaPlayer cool = new MediaPlayer(Credit);
+            MediaView yes = new MediaView(cool);
+            allSalle.getChildren().add(yes);
+            cool.play();
+        });
         parallelPorte.playFromStart();
+
     }
 
     public void openDoorTry(){
