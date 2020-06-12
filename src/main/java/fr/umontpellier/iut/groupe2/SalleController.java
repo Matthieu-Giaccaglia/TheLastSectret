@@ -209,6 +209,7 @@ public class SalleController {
             MediaView yes = new MediaView(cool);
             allSalle.getChildren().add(yes);
             cool.play();
+            Main.stepManager.putHudOnBottom();
         });
         parallelPorte.playFromStart();
 
