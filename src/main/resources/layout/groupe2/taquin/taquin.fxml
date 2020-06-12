@@ -84,7 +84,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></TextField>
-      <ImageView fx:id="taquinIndice" fitHeight="240.0" fitWidth="405.0" layoutX="14.0" layoutY="14.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="taquinIndice" fitHeight="240.0" fitWidth="405.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <Image url="@../../../raw/groupe2/taquin/tombo.jpg" />
       </ImageView>
       <ImageView fx:id="indice" fitHeight="41.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#showIndice" pickOnBounds="true" preserveRatio="true">

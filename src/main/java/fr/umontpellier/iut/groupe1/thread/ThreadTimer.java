@@ -10,7 +10,6 @@ public class ThreadTimer extends Thread implements Runnable{
     private int secondes;
     private final Label label;
     private boolean running, stopped;
-    long now = System.currentTimeMillis(), delta;
 
     public ThreadTimer(Label label, int secondes){
         this.label = label;

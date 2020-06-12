@@ -3,15 +3,15 @@ package fr.umontpellier.iut.groupe2.taquin;
 
 import fr.umontpellier.iut.groupe1.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
+import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
 import fr.umontpellier.iut.groupe2.inventaire.ItemId;
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
-import javafx.animation.ParallelTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -48,7 +48,7 @@ public class TaquinController {
     @FXML
     private final Taquin taquin = new Taquin(mat1);
     private int compteur;
-
+    private Thread thread;
 
 
     private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPutLastPiece.mp3").toUri().toString()));
@@ -56,10 +56,10 @@ public class TaquinController {
     private final MediaPlayer impactUn = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundBreakWall1.mp3").toUri().toString()));
     private final MediaPlayer impactDeux = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundBreakWall2.mp3").toUri().toString()));
 
-    private Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove1.mp3").toUri().toString()),
+    private final Media[] listSound = {   new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove1.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove2.mp3").toUri().toString()),
                                     new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPieceTaquinMove3.mp3").toUri().toString())};
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public void mouvement(MouseEvent event) {
 
@@ -96,9 +96,6 @@ public class TaquinController {
         }
     }
 
-
-
-
     public void putLastPiece() {
         if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.taquinPiece12) {
             pieceDouze.setDisable(true);
@@ -118,8 +115,6 @@ public class TaquinController {
             taquinAnchor.setDisable(true);
         }
     }
-
-
 
     private void updateScene (Node node, int i){
 
@@ -173,15 +168,12 @@ public class TaquinController {
         pieceOnze.setDisable(true);
     }
 
-
-
     public void recupGemme() {
         if(Main.stepManager.getInventaire().inventairePasPlein()) {
             Main.stepManager.getInventaire().ajouterItem(ItemId.gemmeBleue);
             gemme.setVisible(false);
         }
     }
-
 
     public void casserLeMur() {
         if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau) {
@@ -238,46 +230,47 @@ public class TaquinController {
 
     public Node getNode(int x, int y){
 
-
-                if (taquin.getNumber(x, y) == 0){
-                    return pieceDouze;
-                } else if (taquin.getNumber(x, y) == 1){
-                    return pieceUn;
-                } else if (taquin.getNumber(x, y) == 2){
-                    return pieceDeux;
-                } else if (taquin.getNumber(x, y) == 3){
-                    return pieceTrois;
-                } else if (taquin.getNumber(x, y) == 4){
-                    return pieceQuatre;
-                } else if (taquin.getNumber(x, y) == 5){
-                    return pieceCinq;
-                } else if (taquin.getNumber(x, y) == 6){
-                    return pieceSix;
-                } else if (taquin.getNumber(x, y) == 7){
-                    return pieceSept;
-                } else if (taquin.getNumber(x, y) == 8){
-                    return pieceHuit;
-                } else if (taquin.getNumber(x, y) == 9){
-                    return pieceNeuf;
-                } else if (taquin.getNumber(x, y) == 10){
-                    return pieceDix;
-                } else{
-                    return pieceOnze;
-                }
+        if (taquin.getNumber(x, y) == 0){
+            return pieceDouze;
+        } else if (taquin.getNumber(x, y) == 1){
+            return pieceUn;
+        } else if (taquin.getNumber(x, y) == 2){
+            return pieceDeux;
+        } else if (taquin.getNumber(x, y) == 3){
+            return pieceTrois;
+        } else if (taquin.getNumber(x, y) == 4){
+            return pieceQuatre;
+        } else if (taquin.getNumber(x, y) == 5){
+            return pieceCinq;
+        } else if (taquin.getNumber(x, y) == 6){
+            return pieceSix;
+        } else if (taquin.getNumber(x, y) == 7){
+            return pieceSept;
+        } else if (taquin.getNumber(x, y) == 8){
+            return pieceHuit;
+        } else if (taquin.getNumber(x, y) == 9){
+            return pieceNeuf;
+        } else if (taquin.getNumber(x, y) == 10){
+            return pieceDix;
+        } else{
+            return pieceOnze;
+        }
     }
 
     public void showIndice() {
         indice.setVisible(false);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(5),taquinIndice);
-        fadeTransition.setByValue(1);
-        fadeTransition.play();
-
-        fadeTransition.setOnFinished(event -> {
-            FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(2),taquinIndice);
-            fadeTransition2.setByValue(-1);
-            fadeTransition2.play();
+        thread = new Thread(() -> {
+            taquinIndice.setVisible(true);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            taquinIndice.setVisible(false);
             indice.setVisible(true);
         });
+
+        thread.start();
     }
 }
