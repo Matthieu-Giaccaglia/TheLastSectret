@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.nio.file.Paths;
@@ -58,7 +59,7 @@ public class SalleController {
     private final MediaPlayer soundPilierMouv2 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/pilierBouge2.mp3").toUri().toString()));
     private final Media soundPoussePorte = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPoussePorte.mp3").toUri().toString());
     private final Media soundClosingDoor = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundClosingDoor.mp3").toUri().toString());
-
+    private final Media Credit = new Media(Paths.get("src/main/resources/raw/commun/credits.mp4").toUri().toString());
 
 
 
@@ -126,6 +127,10 @@ public class SalleController {
             socleRouge.setDisable(true);
             porteDroite.setDisable(true);
             porteGauche.setDisable(true);
+            MediaPlayer cool = new MediaPlayer(Credit);
+            MediaView yes = new MediaView(cool);
+            allSalle.getChildren().add(yes);
+            cool.play();
             return true;
         }
         return false;
