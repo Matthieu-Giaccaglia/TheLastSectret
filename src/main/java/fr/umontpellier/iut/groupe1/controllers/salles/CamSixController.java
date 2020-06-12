@@ -33,7 +33,9 @@ public class CamSixController implements Initializable {
         }
         else if(mouseEvent.getSource().equals(goto7))
             Main.stepManager.openStep(StepID.CAM7);
-        else if(mouseEvent.getSource().equals(goto8))
+        else if(mouseEvent.getSource().equals(goto8)) {
             Main.stepManager.openStep(StepID.CAM8);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("C'est quoi ça ? Une sorte de table de traduction ? Ca pourrait me servir.");
+        }
     }
 }

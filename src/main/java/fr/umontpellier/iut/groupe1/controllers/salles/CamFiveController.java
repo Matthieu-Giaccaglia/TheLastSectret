@@ -69,6 +69,7 @@ public class CamFiveController implements Initializable {
             MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
             sonHeart.setVolume(1.5);
             sonHeart.play();
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Je crois l'entendre.. Il va sortir ? Pitié non ! Je devrais me dépêcher.");
         }
         else if(mouseEvent.getSource().equals(goto9)) {
             Main.stepManager.openStep(StepID.CAM9);
