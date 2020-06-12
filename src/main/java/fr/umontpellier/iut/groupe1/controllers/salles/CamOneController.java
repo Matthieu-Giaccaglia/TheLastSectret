@@ -38,7 +38,7 @@ public class CamOneController implements Initializable {
         background.fitHeightProperty().bind(Main.stage.heightProperty());
 
         buttonLabyrinthe.setPrefWidth(buttonLabyrinthe.getPrefWidth() * 2);
-        buttonLabyrinthe.setPrefHeight(buttonLabyrinthe.getPrefHeight() * 2);
+        buttonLabyrinthe.setPrefHeight(buttonLabyrinthe.getPrefHeight() * 2 -65);
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
