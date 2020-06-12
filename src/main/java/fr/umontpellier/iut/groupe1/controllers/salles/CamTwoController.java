@@ -24,6 +24,7 @@ public class CamTwoController implements Initializable {
             indice11.setVisible(true);
             black.setVisible(true);
             indice1.setVisible(false);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Une note ! Elle est collée... Je devrais la retenir pour pas l'oublier.");
         }else if(!(indice1.isVisible())){
             indice11.setVisible(false);
             black.setVisible(false);

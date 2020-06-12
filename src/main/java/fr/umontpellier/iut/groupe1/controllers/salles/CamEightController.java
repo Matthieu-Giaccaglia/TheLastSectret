@@ -29,6 +29,7 @@ public class CamEightController implements Initializable {
         if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM6);
             MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            sonHeart.setVolume(1.5);
             sonHeart.play();
         }
     }

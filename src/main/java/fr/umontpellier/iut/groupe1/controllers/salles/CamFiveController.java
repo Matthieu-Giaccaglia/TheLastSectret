@@ -36,6 +36,7 @@ public class CamFiveController implements Initializable {
             black.setVisible(true);
             indice3.setVisible(false);
             indiceAutre.setVisible(false);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Une note ! Elle est collée... Je devrais la retenir pour pas l'oublier.");
         }else if (!(indice3.isVisible() && indiceAutre.isVisible())){
             indice33.setVisible(false);
             black.setVisible(false);
@@ -55,16 +56,23 @@ public class CamFiveController implements Initializable {
     public void handleMouseClicked(MouseEvent mouseEvent) {
         if(mouseEvent.getSource().equals(goto1))
             Main.stepManager.openStep(StepID.CAM1);
-        else if(mouseEvent.getSource().equals(goto3))
+        else if(mouseEvent.getSource().equals(goto3)) {
             Main.stepManager.openStep(StepID.CAM3);
-        else if(mouseEvent.getSource().equals(goto4))
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Ca doit être la porte. Mais comment l'ouvrir ?");
+        }
+        else if(mouseEvent.getSource().equals(goto4)) {
             Main.stepManager.openStep(StepID.CAM4);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Ca peut se tourner ? hum... Je suppose que je dois trouver la bonne combinaison.");
+        }
         else if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM6);
             MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            sonHeart.setVolume(1.5);
             sonHeart.play();
         }
-        else if(mouseEvent.getSource().equals(goto9))
+        else if(mouseEvent.getSource().equals(goto9)) {
             Main.stepManager.openStep(StepID.CAM9);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Hum... A quoi ça peut servir ? Ca doit être l'ordre de quelque chose...\nMais quoi ?");
+        }
     }
 }

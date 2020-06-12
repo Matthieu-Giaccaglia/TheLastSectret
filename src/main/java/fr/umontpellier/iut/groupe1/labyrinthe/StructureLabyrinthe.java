@@ -406,7 +406,7 @@ public class StructureLabyrinthe extends Group {
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
         alert.show();*/
-
+        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Génial, j'ai une clé ! Mais où dois-je l'insérer ?");
         Main.stepManager.getInventaire().ajouterItem(ItemId.CLE_LABY);
         Main.stepManager.openStep(StepID.CAM1);
     }

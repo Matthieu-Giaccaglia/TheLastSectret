@@ -27,6 +27,7 @@ public class CamSevenController implements Initializable {
             black.setVisible(true);
             indice22.setVisible(true);
             indice2.setVisible(false);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Une note ! Elle est collée... Je devrais la retenir pour pas l'oublier.");
         }else if (!(indice2.isVisible())){
             black.setVisible(false);
             indice22.setVisible(false);
@@ -46,6 +47,7 @@ public class CamSevenController implements Initializable {
         if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM6);
             MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            sonHeart.setVolume(1.5);
             sonHeart.play();
         }
     }

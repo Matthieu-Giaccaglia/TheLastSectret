@@ -27,8 +27,10 @@ public class CamSixController implements Initializable {
     }
 
     public void handleMouseClicked(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(arrowBack))
+        if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM5);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Je crois voir quelque chose au fond... Je devrais aller voir.");
+        }
         else if(mouseEvent.getSource().equals(goto7))
             Main.stepManager.openStep(StepID.CAM7);
         else if(mouseEvent.getSource().equals(goto8))

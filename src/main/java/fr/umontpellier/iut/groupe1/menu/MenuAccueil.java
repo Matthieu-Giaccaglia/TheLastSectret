@@ -21,6 +21,7 @@ public class MenuAccueil extends Group {
         buttonJouer.setOnMouseClicked(mouseEvent -> {
             Main.stepManager.openStep(StepID.CAM1);
             Main.stepManager.getThreadTimer().setRunning(true);
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Mince ! Je n'aurais pas dû venir dans le tombeau en cette période. Je devrais vite rebrousser chemin.");
         });
         buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 
