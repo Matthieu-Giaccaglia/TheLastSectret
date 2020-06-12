@@ -60,6 +60,7 @@ public class SalleController {
     private final Media soundPoussePorte = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPoussePorte.mp3").toUri().toString());
     private final Media soundClosingDoor = new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundClosingDoor.mp3").toUri().toString());
     private final Media Credit = new Media(Paths.get("src/main/resources/raw/commun/credits.mp4").toUri().toString());
+    private final MediaPlayer soundPistolet = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundPistolet.mp3").toUri().toString()));
 
 
 
@@ -203,6 +204,7 @@ public class SalleController {
         ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porteGauche, -180,0, 9), translateTransition(porteDroite, 180,0, 9));
         soundOpenDoor.play();
         parallelPorte.setOnFinished(event -> {
+            soundPistolet.play();
             MediaPlayer cool = new MediaPlayer(Credit);
             MediaView yes = new MediaView(cool);
             allSalle.getChildren().add(yes);
