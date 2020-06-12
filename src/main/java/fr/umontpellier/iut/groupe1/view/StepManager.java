@@ -5,6 +5,7 @@ import fr.umontpellier.iut.groupe1.data.Dialogue;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
 import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
+import fr.umontpellier.iut.groupe1.menu.MenuAccueil;
 import fr.umontpellier.iut.groupe1.menu.MenuPause;
 import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
 import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
@@ -37,6 +38,8 @@ public class StepManager {
     private Layout<Parent> dialogueLayout;
 
     private ThreadTimer threadTimer;
+
+    private boolean passeVersGroupe2;
 
     public StepManager(Stage stage){
         stepMap = new HashMap<>();
@@ -123,6 +126,26 @@ public class StepManager {
             stepMap.put(step.getId(), step);
             stepRoot.getChildren().add(step.open());
             step.setVisible(false);
+        }
+    }
+
+    public void removeSallesGroupe1(){
+        if(!passeVersGroupe2){
+            passeVersGroupe2 = true;
+            stepRoot.getChildren().clear();
+            stepMap.clear();
+
+            addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));
+
+            try {
+                addStep(new Step<>(StepID.GAMEOVER, LayoutLoader.getLayout2("groupe1/gameOver.fxml")));
+                addStep(new Step<>(StepID.START, LayoutLoader.getLayout2("groupe2/layout_game.fxml")));
+                addStep(new Step<>(StepID.TAQUIN, LayoutLoader.getLayout2("groupe2/taquin/taquin.fxml")));
+
+                addStep(new Step<>(StepID.LIGHTSOUT, LayoutLoader.getLayout2("groupe2/lightsout/lightsout.fxml")));
+            } catch (LayoutNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 

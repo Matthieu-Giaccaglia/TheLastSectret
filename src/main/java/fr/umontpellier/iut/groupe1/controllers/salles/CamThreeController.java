@@ -72,6 +72,7 @@ public class CamThreeController implements Initializable, Openable {
                             ParallelTransition parallelPorte = new ParallelTransition(translateTransition(porte, -2200, 2));
                             parallelPorte.playFromStart();
                         }else {
+                            Main.stepManager.removeSallesGroupe1();
                             Main.stepManager.openStep(StepID.START);
                             insertionCle.stop();
                         }
