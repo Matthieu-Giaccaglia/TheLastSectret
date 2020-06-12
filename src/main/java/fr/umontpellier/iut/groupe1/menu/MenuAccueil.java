@@ -13,7 +13,7 @@ public class MenuAccueil extends Group {
 
     public MenuAccueil(double sizeStageX){
 
-        ButtonMenu buttonAccueil = new ButtonMenu("NomDuJeu", sizeStageX, 0, sizeStageX + 100, 50);
+        ButtonMenu buttonAccueil = new ButtonMenu("The Last Secret", sizeStageX, 0, sizeStageX + 100, 50);
         buttonAccueil.setFont(Font.font(null, FontWeight.EXTRA_BOLD, 50));
 
         ButtonMenu buttonJouer = new ButtonMenu("Jouer", sizeStageX, 100, sizeStageX + 100, 50);
