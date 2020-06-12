@@ -40,6 +40,10 @@ public class Main extends Application {
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
 
+            MediaPlayer musiqueGermain = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
+            musiqueGermain.setVolume(0.2);
+            musiqueGermain.play();
+
             stepManager.addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));
 
             stepManager.addStep(new Step<>(StepID.CAM1, LayoutLoader.getLayout2("groupe1/salles/layout_cam1.fxml")));
