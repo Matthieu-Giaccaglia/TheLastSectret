@@ -64,6 +64,7 @@ public class CamOneController implements Initializable {
             fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Hum... A quoi ça peut servir ? Ca doit être l'ordre de quelque chose...\nMais quoi ?");
         }
         else if(mouseEvent.getSource().equals(buttonLabyrinthe)) {
+            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("(Pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
             Main.stepManager.openStep(StepID.LABYRINTHE);
         }
     }

@@ -27,7 +27,7 @@ public class dialogueController implements Openable, Dialogue {
 
         Timeline timeline = new Timeline();
         KeyFrame keyFrame = new KeyFrame(
-                Duration.seconds(0.05),
+                Duration.seconds(0.0225),
                 event -> {
                     if (i.get() > s.length()) {
                         timeline.stop();
