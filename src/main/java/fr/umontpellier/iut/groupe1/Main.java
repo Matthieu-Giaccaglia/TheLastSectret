@@ -42,7 +42,7 @@ public class Main extends Application {
 
             mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
             mediaPlayer.setVolume(0.2);
-            Main.mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(10);
             mediaPlayer.play();
 
             stepManager.addStep(new Step<>(StepID.ACCUEIL, new Layout<>(new BackgroundStackPane(new MenuAccueil(350)), null)));

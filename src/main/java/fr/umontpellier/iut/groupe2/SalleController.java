@@ -94,7 +94,7 @@ public class SalleController {
                 Main.mediaPlayer.stop();
                 Main.mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
                 Main.mediaPlayer.setVolume(0.2);
-                Main.mediaPlayer.setAutoPlay(true);
+                Main.mediaPlayer.setCycleCount(10);
                 Main.mediaPlayer.play();
             }
         }
@@ -216,6 +216,7 @@ public class SalleController {
             allSalle.getChildren().add(yes);
             cool.play();
             Main.stepManager.putHudOnBottom();
+            Main.mediaPlayer.stop();
         });
         parallelPorte.playFromStart();
 

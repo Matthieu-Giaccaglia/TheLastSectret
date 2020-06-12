@@ -140,7 +140,8 @@ public class StepManager {
             Main.mediaPlayer.stop();
 
             Main.mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/musique/silenceRoom.mp3").toUri().toString()));
-            Main.mediaPlayer.setVolume(0.2);
+            Main.mediaPlayer.setVolume(0.5);
+            Main.mediaPlayer.setCycleCount(10);
             Main.mediaPlayer.play();
 
             stepRoot.getChildren().clear();
