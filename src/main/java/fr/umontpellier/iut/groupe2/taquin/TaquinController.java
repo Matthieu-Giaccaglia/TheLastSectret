@@ -28,6 +28,9 @@ public class TaquinController {
 
     public ImageView indice;
     public ImageView taquinIndice;
+    public TextField textIndice;
+    public Button buttonOui;
+    public Button buttonNon;
     @FXML
     private Button buttonFinish;
     @FXML
@@ -49,6 +52,7 @@ public class TaquinController {
     private final Taquin taquin = new Taquin(mat1);
     private int compteur;
     private Thread thread;
+    private int compteurIndice;
 
 
     private final MediaPlayer putPiece25 = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundPutLastPiece.mp3").toUri().toString()));
@@ -195,7 +199,6 @@ public class TaquinController {
 
     public void finish() {
         taquinTermine();
-        buttonFinish.setDisable(true);
         taquinResoudre();
         pieceDouze.setDisable(false);
     }
@@ -258,19 +261,35 @@ public class TaquinController {
     }
 
     public void showIndice() {
+        compteur++;
         indice.setVisible(false);
 
         thread = new Thread(() -> {
             taquinIndice.setVisible(true);
             try {
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             taquinIndice.setVisible(false);
             indice.setVisible(true);
+            if (compteur >= 5) {
+                buttonOui.setVisible(true);
+                buttonNon.setVisible(true);
+                textIndice.setVisible(true);
+            }
         });
 
         thread.start();
+    }
+
+    public void indiceReponse(ActionEvent event) {
+        if (event.getSource() == buttonOui){
+            finish();
+            indice.setVisible(false);
+        }
+        textIndice.setVisible(false);
+        buttonNon.setVisible(false);
+        buttonOui.setVisible(false);
     }
 }
