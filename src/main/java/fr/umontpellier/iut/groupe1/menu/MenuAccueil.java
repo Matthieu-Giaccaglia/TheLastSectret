@@ -22,7 +22,7 @@ public class MenuAccueil extends Group {
             Main.stepManager.openStep(StepID.CAM1);
             Main.stepManager.getThreadTimer().setRunning(true);
             fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Mince ! Je n'aurais pas dû venir dans le tombeau en cette période. Je devrais vite rebrousser chemin.\n" +
-                    "(Pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
+                    "(Pour le Labyrinth, pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
         });
         buttonJouer.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> buttonJouer.setCursor(Cursor.HAND));
 
