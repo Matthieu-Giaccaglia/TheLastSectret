@@ -28,7 +28,7 @@ public class TaquinController {
 
     public ImageView indice;
     public ImageView taquinIndice;
-    public TextField textIndice;
+    public Label textIndice;
     public Button buttonOui;
     public Button buttonNon;
     @FXML
@@ -114,7 +114,10 @@ public class TaquinController {
             translateAnimation.setByX(-800);
             translateAnimation.play();
 
-            translateAnimation.setOnFinished(event -> mur.setDisable(false));
+            translateAnimation.setOnFinished(event -> {
+                mur.setDisable(true);
+                System.out.println("mur désactivé");
+            });
 
             taquinAnchor.setDisable(true);
         }
@@ -181,20 +184,19 @@ public class TaquinController {
 
     public void casserLeMur() {
         if (Main.stepManager.getInventaire().getItemIdSelection() == ItemId.marteau) {
-        pasCassable.setVisible(false);
-        compteur++;
-        System.out.println(compteur);
-        if(compteur == 1){
-            mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure2.png"));
-            impactUn.play();
-        } else if (compteur == 2){
-            impactDeux.play();
-            mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
-            mur.setDisable(true);
-            gemme.setDisable(false);
-            Main.stepManager.getInventaire().retirerItem(ItemId.marteau);
-        }
-        }else pasCassable.setVisible(true);
+            pasCassable.setVisible(false);
+            compteur++;
+            if(compteur == 1){
+                mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure2.png"));
+                impactUn.play();
+            } else if (compteur == 2){
+                impactDeux.play();
+                mur.setImage(ImageLoader.getImage("groupe2/taquin/fissure3.png"));
+                mur.setDisable(true);
+                gemme.setDisable(false);
+                Main.stepManager.getInventaire().retirerItem(ItemId.marteau);
+            }
+        } else pasCassable.setVisible(true);
     }
 
     public void finish() {

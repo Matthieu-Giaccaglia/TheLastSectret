@@ -16,6 +16,12 @@
       <ImageView fx:id="mur" disable="true" fitHeight="1017.0" fitWidth="1920.0" onMouseClicked="#casserLeMur" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../../raw/groupe2/taquin/fissure1.png" />
       </ImageView>
+      <Button fx:id="buttonOui" layoutX="61.0" layoutY="365.0" mnemonicParsing="false" onAction="#indiceReponse" prefHeight="50.0" prefWidth="112.0" text="OUI" visible="false" />
+      <Button fx:id="buttonNon" layoutX="241.0" layoutY="365.0" mnemonicParsing="false" onAction="#indiceReponse" prefHeight="50.0" prefWidth="112.0" text="NON" visible="false" />
+      <Label fx:id="textIndice" layoutX="42.0" layoutY="266.0" text="Voulez vous résoudre ce taquin automatiquement ? " visible="false">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <AnchorPane fx:id="taquinAnchor" layoutX="523.0" layoutY="162.0" maxHeight="658.0" maxWidth="874.0" minHeight="656.0" minWidth="874.0" prefHeight="656.0" prefWidth="874.0" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="523.0" AnchorPane.rightAnchor="523.0" AnchorPane.topAnchor="162.0">
          <ImageView fitHeight="669.0" fitWidth="874.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <Image url="@../../../raw/groupe2/taquin/fondTaquin.png" />
@@ -85,8 +91,5 @@
       <ImageView fx:id="indice" fitHeight="41.0" fitWidth="47.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#showIndice" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../../raw/groupe2/taquin/pointInterrogation.png" />
       </ImageView>
-      <TextField fx:id="textIndice" layoutX="61.0" layoutY="290.0" prefHeight="41.0" prefWidth="292.0" text="Voulez vous résoudre ce taquin automatiquement ? " visible="false" />
-      <Button fx:id="buttonOui" layoutX="61.0" layoutY="365.0" mnemonicParsing="false" onAction="#indiceReponse" prefHeight="50.0" prefWidth="112.0" text="OUI" visible="false" />
-      <Button fx:id="buttonNon" layoutX="241.0" layoutY="365.0" mnemonicParsing="false" onAction="#indiceReponse" prefHeight="50.0" prefWidth="112.0" text="NON" visible="false" />
    </AnchorPane>
 </StackPane>
