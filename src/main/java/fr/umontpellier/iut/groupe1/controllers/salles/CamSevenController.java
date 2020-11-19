@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe1.controllers.salles;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +27,7 @@ public class CamSevenController implements Initializable {
             black.setVisible(true);
             indice22.setVisible(true);
             indice2.setVisible(false);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Une note ! Elle est collée... Je devrais la retenir pour pas l'oublier.");
+            Main.stepManager.dialogue("Une note ! Elle est collée... Je devrais la retenir pour pas l'oublier.");
         }else if (!(indice2.isVisible())){
             black.setVisible(false);
             indice22.setVisible(false);

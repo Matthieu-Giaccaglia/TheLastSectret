@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe2.inventaire;
+package fr.umontpellier.iut.inventaire;
 
 
 import javafx.scene.media.Media;

@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe1.controllers.salles;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,11 +44,11 @@ public class CamOneController implements Initializable {
             Main.stepManager.openStep(StepID.CAM2);
         else if (mouseEvent.getSource().equals(goto3)) {
             Main.stepManager.openStep(StepID.CAM3);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Ca doit être la porte. Mais comment l'ouvrir ?");
+            Main.stepManager.dialogue("Ca doit être la porte. Mais comment l'ouvrir ?");
         }
         else if (mouseEvent.getSource().equals(goto4)) {
             Main.stepManager.openStep(StepID.CAM4);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Ca peut se tourner ? hum... Je suppose que je dois trouver la bonne combinaison.");
+            Main.stepManager.dialogue("Ca peut se tourner ? hum... Je suppose que je dois trouver la bonne combinaison.");
         }
         else if (mouseEvent.getSource().equals(goto6)) {
             Main.stepManager.openStep(StepID.CAM6);
@@ -56,10 +56,10 @@ public class CamOneController implements Initializable {
             sonHeart.setVolume(1.5);
             sonHeart.play();
             sonHeart.setCycleCount(2);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Je crois l'entendre.. Il va sortir ? Pitié non ! Je devrais me dépêcher.");
+            Main.stepManager.dialogue("Je crois l'entendre.. Il va sortir ? Pitié non ! Je devrais me dépêcher.");
         } else if (mouseEvent.getSource().equals(goto9)){
             Main.stepManager.openStep(StepID.CAM9);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Hum... A quoi ça peut servir ? Ca doit être l'ordre de quelque chose...\nMais quoi ?");
+            Main.stepManager.dialogue("Hum... A quoi ça peut servir ? Ca doit être l'ordre de quelque chose...\nMais quoi ?");
         }
         else if(mouseEvent.getSource().equals(buttonLabyrinthe)) {
             Main.stepManager.openStep(StepID.LABYRINTHE);

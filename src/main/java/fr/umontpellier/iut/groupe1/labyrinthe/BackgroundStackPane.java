@@ -15,7 +15,7 @@ public class BackgroundStackPane extends StackPane {
 
         this.setBackground(new javafx.scene.layout.Background(new BackgroundImage(imageFond, null, null, null, null)));
         this.getChildren().addAll(group);
-        //fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("(Pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
+        //fr.umontpellier.iut.Main.stepManager.dialogue("(Pensez à utiliser les flèches directionnelles pour se déplacer, et la touche ECHAP pour quitter !)");
     }
 
     public BackgroundStackPane(Group group, double width, double height){

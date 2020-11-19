@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe1.controllers;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

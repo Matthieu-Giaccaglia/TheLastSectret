@@ -1,15 +1,14 @@
 package fr.umontpellier.iut.groupe1.labyrinthe;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 
 import fr.umontpellier.iut.groupe1.view.StepID;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import fr.umontpellier.iut.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -406,7 +405,7 @@ public class StructureLabyrinthe extends Group {
         alert.setHeaderText(null);
         alert.setContentText("Félicitation, vous avez réussi à sortir du labyrinthe \nObjet trouvé : pierre");
         alert.show();*/
-        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Génial, j'ai une clé ! Mais où dois-je l'insérer ?");
+        Main.stepManager.dialogue("Génial, j'ai une clé ! Mais où dois-je l'insérer ?");
         Main.stepManager.getInventaire().ajouterItem(ItemId.CLE_LABY);
         Main.stepManager.openStep(StepID.CAM1);
     }

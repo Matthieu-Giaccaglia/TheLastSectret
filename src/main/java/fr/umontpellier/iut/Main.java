@@ -1,4 +1,4 @@
-package fr.umontpellier.iut.groupe1;
+package fr.umontpellier.iut;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
 import fr.umontpellier.iut.groupe1.data.Layout;
@@ -9,12 +9,7 @@ import fr.umontpellier.iut.groupe1.menu.MenuAccueil;
 import fr.umontpellier.iut.groupe1.view.Step;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import fr.umontpellier.iut.groupe1.view.StepManager;
-import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
-import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.scene.Parent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -31,8 +26,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         stage = primaryStage;
         primaryStage.setMaximized(true);
-
-        primaryStage.setTitle("Escape Game S6");
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("The Last Secret");
 
         stepManager = new StepManager(primaryStage);
         try {

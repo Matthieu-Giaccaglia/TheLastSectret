@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.groupe1.enigmesymbole;
 
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +13,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
-import static fr.umontpellier.iut.groupe1.Main.*;
+import static fr.umontpellier.iut.Main.*;
 
 
 public class TrapezeController implements Initializable {
@@ -21,11 +22,11 @@ public class TrapezeController implements Initializable {
     //private ImageView buttonValideur;
 
     public void gagne(){
-        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("C'tait quoi ce bruit ? Une pierre ? Je devrais aller voir.");
+        Main.stepManager.dialogue("C'tait quoi ce bruit ? Une pierre ? Je devrais aller voir.");
     }
 
     public void mauvaiseCombi(){
-        fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Mince... Ca n'est pas ça, rien ne s'est passé.");
+        Main.stepManager.dialogue("Mince... Ca n'est pas ça, rien ne s'est passé.");
     }
 
     public void sonOOF(){

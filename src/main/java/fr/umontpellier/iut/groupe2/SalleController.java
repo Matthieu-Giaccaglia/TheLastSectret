@@ -1,8 +1,8 @@
 package fr.umontpellier.iut.groupe2;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import fr.umontpellier.iut.inventaire.ItemId;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.animation.*;
 import javafx.fxml.FXML;

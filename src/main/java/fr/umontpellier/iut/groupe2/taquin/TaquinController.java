@@ -1,12 +1,10 @@
 package fr.umontpellier.iut.groupe2.taquin;
 
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.data.ImageLoader;
-import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import fr.umontpellier.iut.inventaire.ItemId;
 import javafx.animation.*;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

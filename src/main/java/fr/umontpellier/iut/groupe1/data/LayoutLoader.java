@@ -1,7 +1,7 @@
 package fr.umontpellier.iut.groupe1.data;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
-import fr.umontpellier.iut.groupe2.inventaire.InventaireController;
+import fr.umontpellier.iut.inventaire.InventaireController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

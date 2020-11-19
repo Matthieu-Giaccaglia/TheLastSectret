@@ -1,7 +1,7 @@
 package fr.umontpellier.iut.groupe2.lightsout;
 
-import fr.umontpellier.iut.groupe1.Main;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import fr.umontpellier.iut.Main;
+import fr.umontpellier.iut.inventaire.ItemId;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.ScaleTransition;

@@ -1,7 +1,7 @@
 package fr.umontpellier.iut.groupe1.view;
 
 import fr.umontpellier.iut.commun.exceptions.LayoutNotFoundException;
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.data.Dialogue;
 import fr.umontpellier.iut.groupe1.data.Layout;
 import fr.umontpellier.iut.groupe1.data.LayoutLoader;
@@ -9,7 +9,7 @@ import fr.umontpellier.iut.groupe1.labyrinthe.BackgroundStackPane;
 import fr.umontpellier.iut.groupe1.menu.MenuAccueil;
 import fr.umontpellier.iut.groupe1.menu.MenuPause;
 import fr.umontpellier.iut.groupe1.thread.ThreadTimer;
-import fr.umontpellier.iut.groupe2.inventaire.Inventaire;
+import fr.umontpellier.iut.inventaire.Inventaire;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

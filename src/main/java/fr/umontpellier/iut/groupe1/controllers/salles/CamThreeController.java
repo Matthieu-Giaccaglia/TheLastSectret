@@ -1,11 +1,10 @@
 package fr.umontpellier.iut.groupe1.controllers.salles;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.data.Openable;
 import fr.umontpellier.iut.groupe1.view.StepID;
-import fr.umontpellier.iut.groupe2.inventaire.ItemId;
+import fr.umontpellier.iut.inventaire.ItemId;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;

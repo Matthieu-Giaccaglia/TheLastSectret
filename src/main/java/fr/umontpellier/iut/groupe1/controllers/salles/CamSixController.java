@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe1.controllers.salles;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,13 +29,13 @@ public class CamSixController implements Initializable {
     public void handleMouseClicked(MouseEvent mouseEvent) {
         if(mouseEvent.getSource().equals(arrowBack)) {
             Main.stepManager.openStep(StepID.CAM5);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("Je crois voir quelque chose au fond... Je devrais aller voir.");
+            Main.stepManager.dialogue("Je crois voir quelque chose au fond... Je devrais aller voir.");
         }
         else if(mouseEvent.getSource().equals(goto7))
             Main.stepManager.openStep(StepID.CAM7);
         else if(mouseEvent.getSource().equals(goto8)) {
             Main.stepManager.openStep(StepID.CAM8);
-            fr.umontpellier.iut.groupe1.Main.stepManager.dialogue("C'est quoi ça ? Une sorte de table de traduction ? Ca pourrait me servir.");
+            Main.stepManager.dialogue("C'est quoi ça ? Une sorte de table de traduction ? Ca pourrait me servir.");
         }
     }
 }

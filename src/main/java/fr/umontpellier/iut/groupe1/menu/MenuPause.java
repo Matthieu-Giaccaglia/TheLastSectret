@@ -1,6 +1,6 @@
 package fr.umontpellier.iut.groupe1.menu;
 
-import fr.umontpellier.iut.groupe1.Main;
+import fr.umontpellier.iut.Main;
 import fr.umontpellier.iut.groupe1.view.StepID;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
