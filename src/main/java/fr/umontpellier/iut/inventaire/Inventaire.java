@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Inventaire {
 
-    private Media sonAjout = new Media(Paths.get("src/main/resources/sound/groupe2/Inventaire/pickItem.mp3").toUri().toString());
+    private Media sonAjout = new Media(getClass().getResource("/sound/groupe2/Inventaire/pickItem.mp3").toString());
     private final ArrayList<ItemId> inventaire = new ArrayList<>(5);
     private final InventaireController controller;
     private int nombreItemInventaire = 0;

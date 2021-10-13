@@ -35,7 +35,7 @@ public class Main extends Application {
             group.getChildren().add(new ImageView(ImageLoader.getImage("groupe1/dauphin.png")));
             Step<Group> start = new Step<>(StepID.START, new Layout<>(group));*/
 
-            mediaPlayer = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/MUSIQUEEGIPTE.mp3").toUri().toString()));
+            mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sound/MUSIQUEEGIPTE.mp3").toString()));
             mediaPlayer.setVolume(0.2);
             mediaPlayer.setCycleCount(10);
             mediaPlayer.play();

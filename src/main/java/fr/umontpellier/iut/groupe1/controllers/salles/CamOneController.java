@@ -52,7 +52,7 @@ public class CamOneController implements Initializable {
         }
         else if (mouseEvent.getSource().equals(goto6)) {
             Main.stepManager.openStep(StepID.CAM6);
-            MediaPlayer sonHeart = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe1/heartbeat.mp3").toUri().toString()));
+            MediaPlayer sonHeart = new MediaPlayer(new Media(getClass().getResource("/sound/groupe1/heartbeat.mp3").toString()));
             sonHeart.setVolume(1.5);
             sonHeart.play();
             sonHeart.setCycleCount(2);

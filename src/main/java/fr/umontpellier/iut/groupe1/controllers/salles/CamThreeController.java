@@ -38,8 +38,8 @@ public class CamThreeController implements Initializable, Openable {
 
     private AnimationTimer insertionCle;
     private boolean attente = true;
-    MediaPlayer cleInsertion = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/taquin/soundTaquinMove.mp3").toUri().toString()));
-    MediaPlayer ouverturePorte = new MediaPlayer(new Media(Paths.get("src/main/resources/sound/groupe2/salle/soundOpenDoor.mp3").toUri().toString()));
+    MediaPlayer cleInsertion = new MediaPlayer(new Media(getClass().getResource("/sound/groupe2/taquin/soundTaquinMove.mp3").toString()));
+    MediaPlayer ouverturePorte = new MediaPlayer(new Media(getClass().getResource("/sound/groupe2/salle/soundOpenDoor.mp3").toString()));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
