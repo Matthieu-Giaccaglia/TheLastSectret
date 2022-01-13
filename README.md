@@ -12,7 +12,7 @@ Le projet est terminé.
 
 Lors du 2ème semestre à l'IUT Informatique (de Montpellier), en classe entière, nous avons dû réaliser un escape game afin de mettre en oeuvre des concepts d'ergonomie.
 
-Pour faciliter la création du jeu, nous nous sommes réparti en trois groupes et chaque d'entre elles devait créer une salle avec des énigmes. Malheureusement, la dernière salle n'a pas pu être terminée à temps, c'est pourquoi la fin est assez spéciale.
+Pour faciliter la création du jeu, nous nous sommes réparti en trois groupes et chaque une d'entre elles devait créer une salle avec des énigmes. Malheureusement, la dernière salle n'a pas pu être terminée à temps, c'est pourquoi la fin est assez spéciale.
 
 ## Documents et autres
 
